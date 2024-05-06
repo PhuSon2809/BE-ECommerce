@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src:
+    url('./assets/fonts/SVN-Gilroy-Black-Italic.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-Black.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-Bold-Italic.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-Bold.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-Heavy-Italic.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-Heavy.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-Italic.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-Light-Italic.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-Light.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-Medium-Italic.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-Medium.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-Regular.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-SemiBold-Italic.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-SemiBold.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-Thin-Italic.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-Thin.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-XBold-Italic.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-XBold.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-Xlight-Italic.otf') format('OTP'),
+    url('./assets/fonts/SVN-Gilroy-Xlight.otf') format('OTP');
+}
+
+* {
+  font-family: 'SVN-Gilroy', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
