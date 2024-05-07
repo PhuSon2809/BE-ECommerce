@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import Slider from 'react-slick'
 
-import { BannerSection, FaqProductSection, FaqSection } from '~/sections/home'
+import { BannerSection, FaqProductSection, FaqSection, ReviewSection } from '~/sections/home'
 import images from '~/assets'
 import './styles.scss'
 
@@ -32,6 +32,9 @@ function Home() {
       </div>
 
       {/* Chart section */}
+
+      {/* Review section */}
+      <ReviewSection />
 
       {/* FAQ for products section */}
       <div className='pt-5'>

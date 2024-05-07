@@ -29,3 +29,38 @@
     }
   }
 }
+
+.list-review {
+  .slick-slider {
+    margin: 0 auto;
+    min-width: 1370px;
+
+    .slick-list {
+      margin-right: 0 -50px;
+      z-index: 200;
+    }
+
+    .slick-slide {
+      padding-right: 50px;
+    }
+
+    .slick-dots {
+      z-index: 100;
+      display: flex !important;
+      justify-content: start;
+      position: absolute;
+      top: -70px;
+      left: -10px;
+
+      li {
+        button {
+          padding: 0;
+
+          &::before {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -9,6 +9,7 @@ export default {
       colors: {
         blackMain: '#0D0D0D',
         greyMain: '#F6F6F7',
+        greyLight: '#F8F8F9',
         blueMain: '#5495FC',
         greenMain: '#60EC8E'
       }
@@ -22,7 +23,8 @@ export default {
     },
     boxShadow: {
       '3xl': '0px 0px 77.42px 0px #0000000D',
-      '4xl': '0px 0px 80px 0px #0000000D'
+      '4xl': '0px 0px 80px 0px #0000000D',
+      '5xl': '0px 5px 16px 0px #080F340F'
     }
   },
   plugins: [

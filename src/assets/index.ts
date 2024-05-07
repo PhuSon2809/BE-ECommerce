@@ -15,6 +15,7 @@ import faq1 from '~/assets/icons/faq-1.svg'
 import faq2 from '~/assets/icons/faq-2.svg'
 import faq3 from '~/assets/icons/faq-3.svg'
 import faqIcon from '~/assets/icons/faq-icon.svg'
+import star from '~/assets/icons/star.svg'
 
 const images = {
   logo: { logo_e_commerce },
@@ -31,7 +32,8 @@ const images = {
     faq1,
     faq2,
     faq3,
-    faqIcon
+    faqIcon,
+    star
   },
   product: { product_banner, product_banner_single }
 }
