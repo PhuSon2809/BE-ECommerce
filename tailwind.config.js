@@ -1,4 +1,5 @@
-/* eslint-disable no-undef */
+// eslint-disable-next-line @typescript-eslint/no-var-requires, no-undef
+const plugin = require('tailwindcss/plugin')
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -18,7 +19,23 @@ export default {
       md: '768px',
       lg: '1024px',
       xl: '1280px'
+    },
+    boxShadow: {
+      '3xl': '0px 0px 77.42px 0px #0000000D',
+      '4xl': '0px 0px 80px 0px #0000000D'
     }
   },
-  plugins: []
+  plugins: [
+    plugin(function ({ addComponents, theme }) {
+      addComponents({
+        '.container': {
+          maxWidth: '1432px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          paddingLeft: theme('spacing.4'),
+          paddingRight: theme('spacing.4')
+        }
+      })
+    })
+  ]
 }
