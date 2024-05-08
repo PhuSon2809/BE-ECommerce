@@ -25,14 +25,15 @@ export default {
       '3xl': '0px 0px 77.42px 0px #0000000D',
       '4xl': '0px 0px 80px 0px #0000000D',
       '5xl': '0px 5px 16px 0px #080F340F',
-      '6xl': '0px 0px 64px 0px #0000001A'
+      '6xl': '0px 0px 64px 0px #0000001A',
+      'text-shadow': ['-1px 0 #60EC8E', '0 1px #60EC8E', '1px 0 #60EC8E', '0 -1px #60EC8E']
     }
   },
   plugins: [
     plugin(function ({ addComponents, theme }) {
       addComponents({
         '.container': {
-          maxWidth: '1432px',
+          maxWidth: '1560px',
           marginLeft: 'auto',
           marginRight: 'auto',
           paddingLeft: theme('spacing.4'),

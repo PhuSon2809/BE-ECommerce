@@ -1,6 +1,32 @@
 import images from '~/assets'
 
 function Footer() {
+  const smoothScrollToTop = (duration: number) => {
+    const startPosition = window.scrollY
+    const distance = -startPosition
+    let startTime: number | null = null
+
+    const animateScroll = (currentTime: number) => {
+      if (!startTime) startTime = currentTime
+      const progress = currentTime - startTime
+
+      window.scrollTo(0, easeInOut(progress, startPosition, distance, duration))
+
+      if (progress < duration) {
+        requestAnimationFrame(animateScroll)
+      }
+    }
+
+    const easeInOut = (t: number, b: number, c: number, d: number) => {
+      t /= d / 2
+      if (t < 1) return (c / 2) * t * t + b
+      t--
+      return (-c / 2) * (t * (t - 2) - 1) + b
+    }
+
+    requestAnimationFrame(animateScroll)
+  }
+
   return (
     <footer className='w-full p-4 mt-[80px]'>
       <div className='px-10 py-8 bg-blackMain rounded-lg flex flex-col gap-6'>
@@ -62,12 +88,23 @@ function Footer() {
               </div>
             </div>
 
-            <button className='size-[50px] flex items-center justify-center bg-white rounded-full'>
+            <button
+              className='size-[50px] flex items-center justify-center bg-white rounded-full'
+              onClick={() => smoothScrollToTop(1500)}
+            >
               <img src={images.icons.arrow_top} alt='arrow-top' />
             </button>
           </div>
         </div>
-        <h1 className='text-[173px] font-bold leading-[242.2px] text-white uppercase text-center t'>Power Of Five</h1>
+        <div className='relative'>
+          <h1
+            className='text-[177px] font-bold leading-[242.2px] text-blackMain uppercase text-center'
+            style={{ WebkitTextStroke: '3px', WebkitTextStrokeColor: '#60EC8E' }}
+          >
+            Power Of Five
+          </h1>
+          <div className='w-full h-[85%] absolute bottom-0 bg-gradient-to-b from-blackMain/[.2]  via-blackMain to-black'></div>
+        </div>
       </div>
     </footer>
   )

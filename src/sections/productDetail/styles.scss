@@ -80,3 +80,43 @@
     transform: scale(1);
   }
 }
+
+.discover-section {
+  .slick-list {
+    .slick-slide {
+      margin-bottom: 0px;
+    }
+  }
+
+  .slide-horizontal {
+    .slick-list {
+      .slick-slide {
+        z-index: 100;
+        transform: scale(0.75);
+        transition: 0.5s;
+      }
+
+      .slick-active {
+        & > div:first-child {
+          margin-left: -148px;
+          background-color: #fff;
+        }
+      }
+
+      .slick-center {
+        z-index: 500 !important;
+        transform: scale(1);
+
+        & > div:first-child {
+          margin-left: -65px;
+        }
+
+        & + div {
+          & > div:first-child {
+            margin-left: 0px;
+          }
+        }
+      }
+    }
+  }
+}

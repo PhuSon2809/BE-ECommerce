@@ -13,6 +13,7 @@ function ModelProductSection() {
   const sliderRef = useRef<Slider>(null)
 
   const settings = {
+    arrows: false,
     infinite: true,
     centerMode: true,
     speed: 500,
@@ -36,8 +37,8 @@ function ModelProductSection() {
           <path d='M0 0C63.3571 0 117.885 44.7698 130.218 106.915L289 907H0V0Z' fill='url(#linear_left)' />
           <defs>
             <linearGradient id='linear_left' x1='-72' y1='19.5' x2='234.499' y2='1002' gradientUnits='userSpaceOnUse'>
-              <stop stop-color='#F8F8F9' />
-              <stop offset='1' stop-color='white' stop-opacity='0' />
+              <stop stopColor='#F8F8F9' />
+              <stop offset='1' stopColor='white' stopOpacity='0' />
             </linearGradient>
           </defs>
         </svg>
@@ -46,8 +47,8 @@ function ModelProductSection() {
           <path d='M289 0C225.643 0 171.115 44.7698 158.782 106.915L0 907H289V0Z' fill='url(#linear_right)' />
           <defs>
             <linearGradient id='linear_right' x1='361' y1='19.5' x2='54.5005' y2='1002' gradientUnits='userSpaceOnUse'>
-              <stop stop-color='#F8F8F9' />
-              <stop offset='1' stop-color='white' stop-opacity='0' />
+              <stop stopColor='#F8F8F9' />
+              <stop offset='1' stopColor='white' stopOpacity='0' />
             </linearGradient>
           </defs>
         </svg>

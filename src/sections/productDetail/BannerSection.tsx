@@ -5,7 +5,7 @@ import { ProductCardBanner } from '~/components/productCardBanner'
 
 function BannerSection() {
   return (
-    <section className='relative px-4'>
+    <section className='relative'>
       <div
         className={`h-[810px] bg-gradient-to-bl from-[#F2F3F5] to-[#F6F6F7] flex items-center justify-center overflow-hidden rounded-[60px] border-b-[3px] border-[#FFFFFF52]`}
       >

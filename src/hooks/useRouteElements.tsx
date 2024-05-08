@@ -2,16 +2,26 @@ import { useRoutes } from 'react-router-dom'
 
 import { MainLayout } from '~/layouts/mainLayout'
 
-import { Home } from '~/pages/home'
+import { Cart } from '~/pages/cart'
+import { ProductDetail } from '~/pages/productDetail'
 
 function useRouteElements() {
   const routeElements = useRoutes([
     {
-      path: '/',
+      path: '/product',
       index: true,
       element: (
         <MainLayout>
-          <Home />
+          <ProductDetail />
+        </MainLayout>
+      )
+    },
+    {
+      path: '/cart',
+      index: true,
+      element: (
+        <MainLayout>
+          <Cart />
         </MainLayout>
       )
     }

@@ -2,10 +2,18 @@ import { useRef } from 'react'
 import Slider from 'react-slick'
 
 import images from '~/assets'
-import { BannerSection, FaqProductSection, FaqSection, ModelProductSection, ReviewSection } from '~/sections/home'
+import {
+  BannerSection,
+  CommentSection,
+  DiscoverSection,
+  FaqProductSection,
+  FaqSection,
+  ModelProductSection,
+  ReviewSection
+} from '~/sections/productDetail'
 import './styles.scss'
 
-function Home() {
+function ProductDetail() {
   const sliderRef = useRef<Slider>(null)
 
   return (
@@ -44,12 +52,18 @@ function Home() {
         <FaqProductSection />
       </div>
 
+      {/* comment section */}
+      <CommentSection />
+
       {/* FAQ section */}
       <div className='pt-5'>
         <FaqSection />
       </div>
+
+      {/* Discover section */}
+      <DiscoverSection />
     </div>
   )
 }
 
-export default Home
+export default ProductDetail

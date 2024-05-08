@@ -29,7 +29,7 @@ function FaqProductSection() {
           <img src={images.icons.arrow_left} alt='arrow-left' />
         </button>
         <button
-          className='cursor-pointer absolute bottom-[-55.8px] right-[43%] transform -translate-x-[45%]'
+          className='cursor-pointer absolute bottom-[-55.8px] right-[41.9%] transform -translate-x-[45%]'
           onClick={() => sliderFaqProductRef.current?.slickNext()}
         >
           <img src={images.icons.arrow_right} alt='arrow-right' />
