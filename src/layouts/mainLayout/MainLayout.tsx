@@ -7,7 +7,7 @@ type MainLayoutProps = { children: ReactNode }
 
 function MainLayout({ children }: MainLayoutProps) {
   return (
-    <main className='p-4'>
+    <main>
       <Header />
       {children}
       <Footer />

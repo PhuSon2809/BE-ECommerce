@@ -1,4 +1,5 @@
 import Slider from 'react-slick'
+
 import images from '~/assets'
 import { reviews } from '~/assets/mocks/review'
 import { ReviewCard } from '~/components/reviewCard'
@@ -31,8 +32,9 @@ function ReviewSection() {
       totalRatings: '567'
     }
   ]
+
   return (
-    <section className='pt-[100px] pb-[70px]'>
+    <section className='py-[50px]'>
       <div className='px-20 flex items-start justify-between'>
         <div className='w-[620px]'>
           <h1 className='text-[56px] font-bold capitalize tracking-tight'>Why do we look good from others?</h1>

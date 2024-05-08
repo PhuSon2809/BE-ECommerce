@@ -1,7 +1,7 @@
 .faq-product {
   .slick-slider {
     margin: 0 auto;
-    min-width: 1420px;
+    min-width: 1487.2px;
 
     .slick-list {
       margin-right: 0 -20px;
@@ -62,5 +62,21 @@
         }
       }
     }
+  }
+}
+
+.model-product {
+  .slick-list {
+    overflow: unset;
+  }
+
+  .slide {
+    transform: scale(0.8);
+    transform-origin: top;
+    transition: 0.5s;
+  }
+
+  .slide-active {
+    transform: scale(1);
   }
 }

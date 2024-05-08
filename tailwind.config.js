@@ -24,7 +24,8 @@ export default {
     boxShadow: {
       '3xl': '0px 0px 77.42px 0px #0000000D',
       '4xl': '0px 0px 80px 0px #0000000D',
-      '5xl': '0px 5px 16px 0px #080F340F'
+      '5xl': '0px 5px 16px 0px #080F340F',
+      '6xl': '0px 0px 64px 0px #0000001A'
     }
   },
   plugins: [

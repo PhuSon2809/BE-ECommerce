@@ -1,15 +1,15 @@
 import { useRef } from 'react'
 import Slider from 'react-slick'
 
-import { BannerSection, FaqProductSection, FaqSection, ReviewSection } from '~/sections/home'
 import images from '~/assets'
+import { BannerSection, FaqProductSection, FaqSection, ModelProductSection, ReviewSection } from '~/sections/home'
 import './styles.scss'
 
 function Home() {
   const sliderRef = useRef<Slider>(null)
 
   return (
-    <div className='container pt-5'>
+    <div className='pt-4 overflow-hidden'>
       {/* Banner section */}
       <div className='banner relative'>
         <Slider ref={sliderRef} dots arrows={false} infinite speed={500} slidesToShow={1} slidesToScroll={1}>
@@ -32,6 +32,9 @@ function Home() {
       </div>
 
       {/* Chart section */}
+
+      {/* Review section */}
+      <ModelProductSection />
 
       {/* Review section */}
       <ReviewSection />

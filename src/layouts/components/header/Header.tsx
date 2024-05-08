@@ -5,7 +5,7 @@ import { Search } from '~/components/search'
 
 function Header() {
   return (
-    <header className='w-full flex items-center justify-between'>
+    <header className='w-full p-4 flex items-center justify-between'>
       <div className='flex items-center gap-5'>
         <IconButton title='Menu' size='48' shadow>
           <img src={images.icons.menu} alt='icons-menu' />

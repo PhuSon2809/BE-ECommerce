@@ -5,11 +5,11 @@ import { ProductCardBanner } from '~/components/productCardBanner'
 
 function BannerSection() {
   return (
-    <section className='relative'>
+    <section className='relative px-4'>
       <div
         className={`h-[810px] bg-gradient-to-bl from-[#F2F3F5] to-[#F6F6F7] flex items-center justify-center overflow-hidden rounded-[60px] border-b-[3px] border-[#FFFFFF52]`}
       >
-        <h1 className='text-[220px] text-white font-semibold'>WONDERFUL</h1>
+        <h1 className='text-[232px] text-white font-semibold'>WONDERFUL</h1>
       </div>
       <div className='w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
         <div className='relative'>
@@ -30,7 +30,7 @@ function BannerSection() {
             </IconButton>
           </div>
         </div>
-        <div className='p-5 absolute top-[110px] left-[140px] flex items-center gap-3 bg-[#FFFFFF70] rounded-3xl shadow-[0px_0px_80px_0px_#0000000D] backdrop-blur-2xl'>
+        <div className='p-5 absolute top-[110px] left-[180px] flex items-center gap-3 bg-[#FFFFFF70] rounded-3xl shadow-[0px_0px_80px_0px_#0000000D] backdrop-blur-2xl'>
           <div className='flex -space-x-[18px]'>
             {Array.from({ length: 5 }).map((_, index: number) => (
               <img
@@ -48,10 +48,10 @@ function BannerSection() {
             <img src={images.icons.filter} alt='icon-filter' />
           </IconButton>
         </div>
-        <div className='absolute bottom-[85px] right-[185px]'>
+        <div className='absolute bottom-[85px] right-[220px]'>
           <ProductCardBanner />
         </div>
-        <div className='flex items-center gap-2 absolute bottom-[-10px] right-[80px]'>
+        <div className='flex items-center gap-2 absolute bottom-0 right-[80px]'>
           <p className='text-[18px]'>Discover our product</p>
           <IconButton size='32' color='white'>
             <img src={images.icons.play} alt='icon-play' />
