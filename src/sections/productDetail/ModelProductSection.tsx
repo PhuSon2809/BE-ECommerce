@@ -23,8 +23,8 @@ function ModelProductSection() {
   }
 
   return (
-    <section className='model-product py-[50px] pt-[100px] relative'>
-      <div className='mb-5'>
+    <section className='model-product py-[50px] pt-[180px] relative'>
+      <div className='mb-[100px]'>
         <h1 className='text-[56px] font-semibold leading-[72px] capitalize text-center'>Vamp one perfume bottle</h1>
         <p className='w-[926px] text-[20px] leading-[32px] text-center text-blackMain/[.80] mx-auto'>
           Elevate your essence with "Vamp one perfume bottle", an embodiment of refined masculinity and timeless

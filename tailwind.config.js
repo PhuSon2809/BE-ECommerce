@@ -22,6 +22,7 @@ export default {
       xl: '1280px'
     },
     boxShadow: {
+      'icon-button': '0px 0px 80px 0px #00000026',
       '3xl': '0px 0px 77.42px 0px #0000000D',
       '4xl': '0px 0px 80px 0px #0000000D',
       '5xl': '0px 5px 16px 0px #080F340F',
@@ -30,14 +31,12 @@ export default {
     }
   },
   plugins: [
-    plugin(function ({ addComponents, theme }) {
+    plugin(function ({ addComponents }) {
       addComponents({
         '.container': {
           maxWidth: '1560px',
           marginLeft: 'auto',
-          marginRight: 'auto',
-          paddingLeft: theme('spacing.4'),
-          paddingRight: theme('spacing.4')
+          marginRight: 'auto'
         }
       })
     })

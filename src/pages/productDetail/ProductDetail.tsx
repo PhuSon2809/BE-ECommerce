@@ -4,14 +4,15 @@ import Slider from 'react-slick'
 import images from '~/assets'
 import {
   BannerSection,
+  ChartSection,
   CommentSection,
-  DiscoverSection,
   FaqProductSection,
   FaqSection,
   ModelProductSection,
   ReviewSection
 } from '~/sections/productDetail'
 import './styles.scss'
+import { DiscoverSection } from '~/sections/common'
 
 function ProductDetail() {
   const sliderRef = useRef<Slider>(null)
@@ -40,6 +41,7 @@ function ProductDetail() {
       </div>
 
       {/* Chart section */}
+      <ChartSection />
 
       {/* Review section */}
       <ModelProductSection />
@@ -61,7 +63,7 @@ function ProductDetail() {
       </div>
 
       {/* Discover section */}
-      <DiscoverSection />
+      <DiscoverSection titleVerticalSlide='Recent' titleHorizontalSlide='Relate' />
     </div>
   )
 }

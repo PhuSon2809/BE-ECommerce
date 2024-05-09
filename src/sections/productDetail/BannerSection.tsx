@@ -7,7 +7,7 @@ function BannerSection() {
   return (
     <section className='relative'>
       <div
-        className={`h-[810px] bg-gradient-to-bl from-[#F2F3F5] to-[#F6F6F7] flex items-center justify-center overflow-hidden rounded-[60px] border-b-[3px] border-[#FFFFFF52]`}
+        className={`h-[810px] bg-gradient-to-bl from-[#F2F3F5] to-[#F6F6F7] flex items-center justify-center overflow-hidden border-b-[3px] border-[#FFFFFF52]`}
       >
         <h1 className='text-[232px] text-white font-semibold'>WONDERFUL</h1>
       </div>
@@ -43,20 +43,21 @@ function BannerSection() {
           </div>
           <p className='text-[18px] font-semibold'>+1,040 purchasing</p>
         </div>
-        <div className='absolute top-[25px] right-[65px]'>
-          <IconButton size='60' color='white'>
-            <img src={images.icons.filter} alt='icon-filter' />
-          </IconButton>
-        </div>
         <div className='absolute bottom-[85px] right-[220px]'>
           <ProductCardBanner />
         </div>
-        <div className='flex items-center gap-2 absolute bottom-0 right-[80px]'>
+        <div className='flex items-center gap-2 absolute top-[50px] right-[8%]'>
           <p className='text-[18px]'>Discover our product</p>
-          <IconButton size='32' color='white'>
+          <IconButton size='32' color='white' shadow>
             <img src={images.icons.play} alt='icon-play' />
           </IconButton>
         </div>
+      </div>
+
+      <div className='flex items-center gap-2 absolute top-[30px] left-[30px]'>
+        <IconButton title='Back' size='48' color='white' shadow>
+          <img src={images.icons.arrow_left} alt='icon-arrow-left' />
+        </IconButton>
       </div>
     </section>
   )

@@ -7,7 +7,12 @@ import { DiscoverCard } from '~/components/discoverCard'
 import { DiscoverSquareCard } from '~/components/discoverSquareCard'
 import { IconButton } from '~/components/iconButton'
 
-function DiscoverSection() {
+type DiscoverSectionProps = {
+  titleVerticalSlide: string
+  titleHorizontalSlide: string
+}
+
+function DiscoverSection({ titleVerticalSlide, titleHorizontalSlide }: DiscoverSectionProps) {
   const sliderRef = useRef<Slider>(null)
   const sliderVerticalRef = useRef<Slider>(null)
 
@@ -69,7 +74,7 @@ function DiscoverSection() {
   ]
 
   return (
-    <section className='discover-section pt-24'>
+    <section className='discover-section px-4 pt-24'>
       <div className='grid grid-cols-7 gap-4'>
         <div className='col-span-5'>
           <div className='mb-[100px]'>
@@ -85,7 +90,7 @@ function DiscoverSection() {
           </div>
 
           <div className='slide-horizontal flex flex-col gap-3 relative'>
-            <p className='text-[32px] font-semibold leading-[76px] uppercase text-center'>Related</p>
+            <p className='text-[32px] font-semibold leading-[76px] uppercase text-center'>{titleHorizontalSlide}</p>
 
             <Slider
               ref={sliderRef}
@@ -115,7 +120,7 @@ function DiscoverSection() {
         <div className='col-span-2'>
           <div className='flex flex-col gap-3'>
             <div className='flex items-center justify-between'>
-              <p className='text-[32px] font-semibold leading-[76px] uppercase'>Recent</p>
+              <p className='text-[32px] font-semibold leading-[76px] uppercase'>{titleVerticalSlide}</p>
               <div className='flex items-center gap-2'>
                 <IconButton size='56' onClick={() => sliderVerticalRef.current?.slickNext()}>
                   <img src={images.icons.arrow_top} alt='arrow-left' />

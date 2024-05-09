@@ -2,7 +2,7 @@ import images from '~/assets'
 
 function CommentSection() {
   return (
-    <section className='mt-[150px] relative'>
+    <section className='mt-[150px] px-4 relative'>
       <h1 className='w-[422px] text-[56px] font-bold capitalize leading-[65px] absolute top-[1.5%] left-[11%] z-50'>
         the press comment on products
       </h1>
