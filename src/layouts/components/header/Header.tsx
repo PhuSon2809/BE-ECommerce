@@ -20,7 +20,9 @@ function Header() {
         <IconButton>
           <img src={images.icons.shopping_bag} alt='icons-shopping-bag' />
         </IconButton>
-        <Button className='min-w-[120px] h-10'>SIGN IN</Button>
+        <Button size='small' className='!text-[18px]'>
+          Sign in
+        </Button>
       </div>
     </header>
   )

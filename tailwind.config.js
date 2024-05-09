@@ -7,13 +7,26 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        customThinItalic: ['Thin-Italic'],
+        customThin: ['Thin'],
         customXLightItalic: ['Xlight-Italic'],
         customXLight: ['Xlight'],
         customLightItalic: ['Light-Italic'],
         customLight: ['Light'],
+        customMediumItalic: ['Medium-Italic'],
         customMedium: ['Medium'],
+        customRegular: ['Regular'],
+        customSemiBoldItalic: ['SemiBold-Italic'],
         customSemiBold: ['SemiBold'],
-        customBold: ['Bold']
+        customBoldItalic: ['Bold-Italic'],
+        customBold: ['Bold'],
+        customXBoldItalic: ['XBold-Italic'],
+        customXBold: ['XBold'],
+        customBlackItalic: ['Black-Italic'],
+        customBlack: ['Black'],
+        customHeavyItalic: ['Heavy-Italic'],
+        customHeavy: ['Heavy'],
+        customItalic: ['Italic']
       },
       colors: {
         blackMain: '#0D0D0D',

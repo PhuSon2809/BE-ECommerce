@@ -3,46 +3,28 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Black-Italic';
+  font-family: 'Thin-Italic';
   src:
-    local('SVN-Gilroy Black Italic'),
-    url('./assets/fonts/SVN-Gilroy Black Italic.otf') format('truetype');
+    local('SVN-Gilroy Thin Italic'),
+    url('./assets/fonts/SVN-Gilroy Thin Italic.otf') format('truetype');
 }
 @font-face {
-  font-family: 'Black';
+  font-family: 'Thin';
   src:
-    local('SVN-Gilroy Black'),
-    url('./assets/fonts/SVN-Gilroy Black.otf') format('truetype');
+    local('SVN-Gilroy Thin'),
+    url('./assets/fonts/SVN-Gilroy Thin.otf') format('truetype');
 }
 @font-face {
-  font-family: 'Bold-Italic';
+  font-family: 'Xlight-Italic';
   src:
-    local('SVN-Gilroy Bold Italic'),
-    url('./assets/fonts/SVN-Gilroy Bold Italic.otf') format('truetype');
+    local('SVN-Gilroy Xlight Italic'),
+    url('./assets/fonts/SVN-Gilroy Xlight Italic.otf') format('truetype');
 }
 @font-face {
-  font-family: 'Bold';
+  font-family: 'Xlight';
   src:
-    local('SVN-Gilroy Bold'),
-    url('./assets/fonts/SVN-Gilroy Bold.otf') format('truetype');
-}
-@font-face {
-  font-family: 'Heavy-Italic';
-  src:
-    local('SVN-Gilroy Heavy Italic'),
-    url('./assets/fonts/SVN-Gilroy Heavy Italic.otf') format('truetype');
-}
-@font-face {
-  font-family: 'Heavy';
-  src:
-    local('SVN-Gilroy Heavy'),
-    url('./assets/fonts/SVN-Gilroy Heavy.otf') format('truetype');
-}
-@font-face {
-  font-family: 'Italic';
-  src:
-    local('SVN-Gilroy Italic'),
-    url('./assets/fonts/SVN-Gilroy Italic.otf') format('truetype');
+    local('SVN-Gilroy Xlight'),
+    url('./assets/fonts/SVN-Gilroy Xlight.otf') format('truetype');
 }
 @font-face {
   font-family: 'Light-Italic';
@@ -87,16 +69,16 @@
     url('./assets/fonts/SVN-Gilroy SemiBold.otf') format('truetype');
 }
 @font-face {
-  font-family: 'Thin-Italic';
+  font-family: 'Bold-Italic';
   src:
-    local('SVN-Gilroy Thin Italic'),
-    url('./assets/fonts/SVN-Gilroy Thin Italic.otf') format('truetype');
+    local('SVN-Gilroy Bold Italic'),
+    url('./assets/fonts/SVN-Gilroy Bold Italic.otf') format('truetype');
 }
 @font-face {
-  font-family: 'Thin';
+  font-family: 'Bold';
   src:
-    local('SVN-Gilroy Thin'),
-    url('./assets/fonts/SVN-Gilroy Thin.otf') format('truetype');
+    local('SVN-Gilroy Bold'),
+    url('./assets/fonts/SVN-Gilroy Bold.otf') format('truetype');
 }
 @font-face {
   font-family: 'XBold-Italic';
@@ -111,16 +93,34 @@
     url('./assets/fonts/SVN-Gilroy XBold.otf') format('truetype');
 }
 @font-face {
-  font-family: 'Xlight-Italic';
+  font-family: 'Black-Italic';
   src:
-    local('SVN-Gilroy Xlight Italic'),
-    url('./assets/fonts/SVN-Gilroy Xlight Italic.otf') format('truetype');
+    local('SVN-Gilroy Black Italic'),
+    url('./assets/fonts/SVN-Gilroy Black Italic.otf') format('truetype');
 }
 @font-face {
-  font-family: 'Xlight';
+  font-family: 'Black';
   src:
-    local('SVN-Gilroy Xlight'),
-    url('./assets/fonts/SVN-Gilroy Xlight.otf') format('truetype');
+    local('SVN-Gilroy Black'),
+    url('./assets/fonts/SVN-Gilroy Black.otf') format('truetype');
+}
+@font-face {
+  font-family: 'Heavy-Italic';
+  src:
+    local('SVN-Gilroy Heavy Italic'),
+    url('./assets/fonts/SVN-Gilroy Heavy Italic.otf') format('truetype');
+}
+@font-face {
+  font-family: 'Heavy';
+  src:
+    local('SVN-Gilroy Heavy'),
+    url('./assets/fonts/SVN-Gilroy Heavy.otf') format('truetype');
+}
+@font-face {
+  font-family: 'Italic';
+  src:
+    local('SVN-Gilroy Italic'),
+    url('./assets/fonts/SVN-Gilroy Italic.otf') format('truetype');
 }
 
 * {

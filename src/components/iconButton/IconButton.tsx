@@ -4,37 +4,53 @@ import { ReactNode } from 'react'
 type IconButtonProps = {
   children: ReactNode
   title?: string
-  size?: '32' | '40' | '48' | '56' | '52' | '60' | '64'
-  variant?: 'container' | 'outline'
   color?: 'default' | 'white'
+  variant?: 'container' | 'outline'
+  size?: '32' | '40' | '48' | '50' | '52' | '54' | '56' | '60' | '64'
   shadow?: boolean
-  onClick?: any
-  className?: string
   disabled?: boolean
+  className?: string
+  onClick?: any
 }
 
 function IconButton({
   children,
   title,
   size = '52',
-  variant = 'container',
   color = 'default',
+  variant = 'container',
   shadow = false,
-  onClick,
+  disabled,
   className,
-  disabled
+  onClick
 }: IconButtonProps) {
   return (
     <button
       onClick={onClick}
       disabled={disabled}
       className={`
-        ${size === '32' ? `${title ? 'w-fit px-[18px] h-8' : 'size-8'}` : size === '40' ? `${title ? 'w-fit px-[18px] h-10' : 'size-10'}` : size === '48' ? `${title ? 'px-[20.49px] h-12' : 'size-12'}` : size === '56' ? `${title ? 'w-fit px-[25px] h-[56px]' : 'size-[56px]'}` : size === '52' ? `${title ? 'w-fit px-6 h-[52px]' : 'size-[52px]'}` : size === '60' ? `${title ? 'w-fit px-7 h-[60px]' : 'size-[60px]'}` : `${title ? 'w-fit px-7 h-16' : 'size-16'}`}
+        ${
+          size === '32'
+            ? `${title ? 'px-[18px] h-8' : 'size-8'}`
+            : size === '40'
+              ? `${title ? 'px-[18px] h-10' : 'size-10'}`
+              : size === '48'
+                ? `${title ? 'px-[18px] h-[48px]' : 'size-[48px]'}`
+                : size === '52'
+                  ? `${title ? 'px-[20px] h-[52px]' : 'size-[52px]'}`
+                  : size === '54'
+                    ? `${title ? 'px-[22px] h-[54px]' : 'size-[54px]'}`
+                    : size === '56'
+                      ? `${title ? 'px-6 h-[56px]' : 'size-[56px]'}`
+                      : size === '60'
+                        ? `${title ? 'px-[26px] h-[60px]' : 'size-[60px]'}`
+                        : `${title ? 'px-7 h-16' : 'size-16'}`
+        }
         ${color === 'default' && variant === 'container' ? 'bg-greyMain' : color === 'default' && variant === 'outline' ? 'bg-transparent' : 'bg-white/[.44]'} 
-        ${color === 'default' ? 'hover:bg-gray-200/[.70]' : 'hover:bg-white'} 
+        ${color === 'default' && variant === 'container' ? 'hover:bg-gray-200/[.60]' : 'hover:bg-white'} 
         ${variant === 'outline' && color === 'white' ? 'border-blackMain border-2 border-solid' : variant === 'outline' && color === 'default' ? 'border-blackMain/[.22] border-2 border-solid' : ''} 
         ${shadow && 'shadow-icon-button'} 
-        flex items-center ${title ? 'gap-2' : 'justify-center'} rounded-full backdrop-blur-2xl 
+        flex items-center ${title ? 'gap-2' : 'justify-center'} rounded-full backdrop-blur-2xl transition ease-in-out duration-300
         ${className}
       `}
     >

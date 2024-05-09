@@ -15,7 +15,9 @@ function FaqProductCard({ faq }: FaqProductCardProps) {
       </div>
       <h1 className='text-[32px] font-semibold leading-[42px] tracking-tight'>{faq.title}</h1>
       <p className='text-[18px] leading-[30px]'>{faq.content}</p>
-      <Button className='w-[196px] h-[52px] uppercase'>See more</Button>
+      <Button size='large' className='rounded-[26px]'>
+        See more
+      </Button>
     </div>
   )
 }

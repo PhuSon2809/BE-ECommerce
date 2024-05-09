@@ -22,9 +22,7 @@ function BannerSection() {
           </div>
 
           <div className='flex items-center gap-5'>
-            <Button className='w-[196px] h-[52px]'>
-              <p className='text-[20px] leading-none'>BUY NOW</p>
-            </Button>
+            <Button className='w-[200px] h-[54px] rounded-[27px]'>BUY NOW</Button>
             <IconButton variant='outline' color='white'>
               <img src={images.icons.shopping_bag} alt='icon-shopping-bag' />
             </IconButton>

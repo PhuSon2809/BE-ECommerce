@@ -1,10 +1,10 @@
 import { useState } from 'react'
+import { MinusIcon, Plus } from 'lucide-react'
 // redux
 import { useAppDispatch } from '~/redux/configStore'
 import { changeQuantity, decreaseQuantity, increaseQuantity } from '~/redux/product/product.slice'
 //
 import { ProductCart } from '~/@types/model'
-import { MinusIcon, Plus } from 'lucide-react'
 import { IconButton } from '~/components/iconButton'
 
 interface QuantityControllerProps {
@@ -122,7 +122,7 @@ function QuantityController({
         onClick={decrease}
         disabled={isCart ? value === 0 : value === 1 || localValue === 1 || disabled}
       >
-        <MinusIcon />
+        <MinusIcon size={20} />
       </IconButton>
       {/* <input
         {...rest}
@@ -144,7 +144,7 @@ function QuantityController({
         onClick={increase}
         disabled={value === max || localValue === max || disabled}
       >
-        <Plus />
+        <Plus size={20} />
       </IconButton>
     </div>
   )
