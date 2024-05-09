@@ -16,7 +16,7 @@ function FaqProductSection() {
         <Slider ref={sliderFaqProductRef} dots arrows={false} infinite speed={500} slidesToShow={3} slidesToScroll={1}>
           {FaqProducts.map((faq, index) => {
             return (
-              <div key={index} className={``}>
+              <div key={index}>
                 <FaqProductCard faq={faq} />
               </div>
             )
@@ -29,7 +29,7 @@ function FaqProductSection() {
           <img src={images.icons.arrow_left} alt='arrow-left' />
         </button>
         <button
-          className='cursor-pointer absolute bottom-[-55.8px] right-[41.9%] transform -translate-x-[45%]'
+          className='cursor-pointer absolute bottom-[-55.8px] right-[43.1%] transform -translate-x-[45%]'
           onClick={() => sliderFaqProductRef.current?.slickNext()}
         >
           <img src={images.icons.arrow_right} alt='arrow-right' />

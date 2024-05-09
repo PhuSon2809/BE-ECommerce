@@ -31,7 +31,7 @@ function DiscoverCard({ discover }: DiscoverCardProps) {
 
             <div className='border-solid border-transparent'>
               <button className='size-10 rounded-full flex items-center justify-center bg-gradient-to-tr from-greenMain to-blueMain cursor-pointer absolute bottom-0 right-0 border-[5px] '>
-                <img src={images.icons.add} alt='icon-add' />
+                <img src={images.icons.add_white} alt='icon-add' />
               </button>
             </div>
           </div>

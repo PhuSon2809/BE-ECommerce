@@ -6,6 +6,15 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        customXLightItalic: ['Xlight-Italic'],
+        customXLight: ['Xlight'],
+        customLightItalic: ['Light-Italic'],
+        customLight: ['Light'],
+        customMedium: ['Medium'],
+        customSemiBold: ['SemiBold'],
+        customBold: ['Bold']
+      },
       colors: {
         blackMain: '#0D0D0D',
         greyMain: '#F6F6F7',

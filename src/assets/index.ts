@@ -6,6 +6,8 @@ import product_single from '~/assets/images/product-single.png'
 import circle_white from '~/assets/images/circle-white.svg'
 import discover1 from '~/assets/images/discover-1.png'
 import discover2 from '~/assets/images/discover-2.png'
+import discover3 from '~/assets/images/discover-3.png'
+import discover4 from '~/assets/images/discover-4.png'
 import arrow_radius_left from '~/assets/images/arrow-radius-left.png'
 import arrow_radius_left_large from '~/assets/images/arrow-radius-left-large.png'
 import arrow_radius_right from '~/assets/images/arrow-radius-right.png'
@@ -13,7 +15,7 @@ import arrow_radius_right_large from '~/assets/images/arrow-radius-right-large.p
 import bg_content_discover from '~/assets/images/bg-content-discover.png'
 import bg_content_discover_large from '~/assets/images/bg-content-discover-large.png'
 
-import add from '~/assets/icons/add.svg'
+import add_white from '~/assets/icons/add-white.svg'
 import menu from '~/assets/icons/menu.svg'
 import search from '~/assets/icons/search.svg'
 import heart from '~/assets/icons/heart.svg'
@@ -37,6 +39,11 @@ import shipping_top from '~/assets/icons/shipping-top.svg'
 import instagram from '~/assets/icons/instagram.svg'
 import facebook from '~/assets/icons/facebook.svg'
 import yuoTube from '~/assets/icons/yuoTube.svg'
+import chat from '~/assets/icons/chat.svg'
+import bot_green from '~/assets/icons/bot-green.svg'
+import bot_white from '~/assets/icons/bot-white.svg'
+import send from '~/assets/icons/send.svg'
+import deleteIon from '~/assets/icons/delete.svg'
 
 const images = {
   logo: { logo_e_commerce, logo_white, circle_white },
@@ -50,7 +57,7 @@ const images = {
     bg_content_discover_large
   },
   icons: {
-    add,
+    add_white,
     menu,
     search,
     heart,
@@ -73,9 +80,14 @@ const images = {
     global_warranty,
     instagram,
     facebook,
-    yuoTube
+    yuoTube,
+    chat,
+    bot_green,
+    bot_white,
+    send,
+    deleteIon
   },
-  product: { product_banner, product_banner_single, product_single, discover1, discover2 }
+  product: { product_banner, product_banner_single, product_single, discover1, discover2, discover3, discover4 }
 }
 
 export default images

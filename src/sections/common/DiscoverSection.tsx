@@ -1,8 +1,9 @@
 import { useRef, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import Slider from 'react-slick'
 
-import { Discover } from '~/@types/model'
 import images from '~/assets'
+import { listDiscovers, listVerticalDiscovers } from '~/assets/mocks/product'
 import { DiscoverCard } from '~/components/discoverCard'
 import { DiscoverSquareCard } from '~/components/discoverSquareCard'
 import { IconButton } from '~/components/iconButton'
@@ -13,76 +14,25 @@ type DiscoverSectionProps = {
 }
 
 function DiscoverSection({ titleVerticalSlide, titleHorizontalSlide }: DiscoverSectionProps) {
+  const { pathname } = useLocation()
+
   const sliderRef = useRef<Slider>(null)
   const sliderVerticalRef = useRef<Slider>(null)
 
   const [slideActive, setSlideActive] = useState<number>(0)
-
-  const listVerticalDiscovers: Discover[] = [
-    {
-      image: images.product.discover1,
-      title: 'Rooerio cavanl',
-      numberItem: 20,
-      retailPrice: 60,
-      vipPrice: 56
-    },
-    {
-      image: images.product.discover2,
-      title: 'Rooerio cavanl',
-      numberItem: 20,
-      retailPrice: 60,
-      vipPrice: 56
-    }
-  ]
-
-  const listDiscovers: Discover[] = [
-    {
-      image: images.product.discover1,
-      title: 'Rooerio cavanl',
-      numberItem: 20,
-      retailPrice: 60,
-      vipPrice: 56
-    },
-    {
-      image: images.product.discover2,
-      title: 'Rooerio cavanl',
-      numberItem: 20,
-      retailPrice: 60,
-      vipPrice: 56
-    },
-    {
-      image: images.product.discover1,
-      title: 'Rooerio cavanl',
-      numberItem: 20,
-      retailPrice: 60,
-      vipPrice: 56
-    },
-    {
-      image: images.product.discover1,
-      title: 'Rooerio cavanl',
-      numberItem: 20,
-      retailPrice: 60,
-      vipPrice: 56
-    },
-    {
-      image: images.product.discover1,
-      title: 'Rooerio cavanl',
-      numberItem: 20,
-      retailPrice: 60,
-      vipPrice: 56
-    }
-  ]
 
   return (
     <section className='discover-section px-4 pt-24'>
       <div className='grid grid-cols-7 gap-4'>
         <div className='col-span-5'>
           <div className='mb-[100px]'>
-            <div className='w-[721px]'>
-              <h1 className='w-[474px] text-[56px] font-bold leading-[72px] capitalize mb-5'>
+            <div className='ml-[4%]'>
+              <h1
+                className={`${pathname === '/cart' ? 'w-fit' : 'w-[474px]'}  text-[56px] font-bold leading-[72px] capitalize mb-5 tracking-tight`}
+              >
                 Discover more of our products
               </h1>
-              <p className='text-[20px] leading-8'>
+              <p className='w-[721px] text-[20px] leading-8 tracking-wide'>
                 Discover a wide range of carefully selected products tailored to suit your needs and preferences. Find
                 everything you need to elevate your lifestyle.
               </p>
