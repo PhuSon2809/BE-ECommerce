@@ -34,6 +34,9 @@ export default {
         greyLight: '#F8F8F9',
         blueMain: '#5495FC',
         greenMain: '#60EC8E'
+      },
+      backgroundImage: {
+        'home-banner': "url('/assets/images/home-banner.png')"
       }
     },
     screens: {
@@ -49,6 +52,9 @@ export default {
       '4xl': '0px 0px 80px 0px #0000000D',
       '5xl': '0px 5px 16px 0px #080F340F',
       '6xl': '0px 0px 64px 0px #0000001A',
+      '7xl': '0px 0px 55.19px 0px #0000000D',
+      '8xl': '0px 4px 64px 0px #0000001A',
+      button: '0px 4px 32px 0px #0000000D',
       'text-shadow': ['-1px 0 #60EC8E', '0 1px #60EC8E', '1px 0 #60EC8E', '0 -1px #60EC8E']
     }
   },
