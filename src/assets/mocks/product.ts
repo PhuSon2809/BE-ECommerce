@@ -1,4 +1,4 @@
-import { Discover, ProductCart } from '~/@types/model'
+import { Discover, Product, ProductCart } from '~/@types/model'
 import images from '~/assets'
 
 export const listVerticalDiscovers: Discover[] = [
@@ -128,5 +128,174 @@ export const listProductInCart: ProductCart[] = [
     numberItems: 20,
     quantityInCart: 0,
     category: 'Health collection'
+  }
+]
+
+export const listProducts: Product[] = [
+  {
+    id: 1,
+    image: images.product.discover1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 2,
+    image: images.product.discover2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 3,
+    image: images.product.discover3,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 4,
+    image: images.product.discover4,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 5,
+    image: images.product.discover1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 6,
+    image: images.product.discover2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 7,
+    image: images.product.discover3,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 8,
+    image: images.product.discover4,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  }
+]
+
+export const listProductsFunctional: Product[] = [
+  {
+    id: 1,
+    image: images.home.home_func_1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 2,
+    image: images.home.home_func_2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 3,
+    image: images.home.home_func_3,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 5,
+    image: images.home.home_func_1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 6,
+    image: images.home.home_func_2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 7,
+    image: images.home.home_func_3,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  }
+]
+
+export const listProductsCosmetic: Product[] = [
+  {
+    id: 1,
+    image: images.home.home_cosmetic_1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 2,
+    image: images.home.home_cosmetic_2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 3,
+    image: images.home.home_cosmetic_1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 5,
+    image: images.home.home_cosmetic_2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 6,
+    image: images.home.home_cosmetic_1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 7,
+    image: images.home.home_cosmetic_2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
   }
 ]

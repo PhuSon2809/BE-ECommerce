@@ -14,12 +14,30 @@ import arrow_radius_right from '~/assets/images/arrow-radius-right.png'
 import arrow_radius_right_large from '~/assets/images/arrow-radius-right-large.png'
 import bg_content_discover from '~/assets/images/bg-content-discover.png'
 import bg_content_discover_large from '~/assets/images/bg-content-discover-large.png'
+import home_banner from '~/assets/images/home-banner.png'
+import home1 from '~/assets/images/home1.png'
+import home2 from '~/assets/images/home2.png'
+import home3 from '~/assets/images/home3.png'
+import home_bg_1 from '~/assets/images/home-bg-1.png'
+import home_bg_2 from '~/assets/images/home-bg-2.png'
+import home_bg_3 from '~/assets/images/home-bg-3.png'
+import home_bg_4 from '~/assets/images/home-bg-4.png'
+import home_bg_5 from '~/assets/images/home-bg-5.png'
+import home_bg_6 from '~/assets/images/home-bg-6.png'
+import home_functional from '~/assets/images/home-functional.png'
+import home_func_1 from '~/assets/images/home-func-1.png'
+import home_func_2 from '~/assets/images/home-func-2.png'
+import home_func_3 from '~/assets/images/home-func-3.png'
+import home_cosmetic from '~/assets/images/home-cosmetic.png'
+import home_cosmetic_1 from '~/assets/images/home-cosmetic-1.png'
+import home_cosmetic_2 from '~/assets/images/home-cosmetic-2.png'
 
 import add_white from '~/assets/icons/add-white.svg'
 import menu from '~/assets/icons/menu.svg'
 import search from '~/assets/icons/search.svg'
 import heart from '~/assets/icons/heart.svg'
 import shopping_bag from '~/assets/icons/shopping-bag.svg'
+import shopping_bag_white from '~/assets/icons/shopping-bag-white.svg'
 import play from '~/assets/icons/play.svg'
 import filter from '~/assets/icons/filter.svg'
 import arrow_left from '~/assets/icons/arrow-left.svg'
@@ -62,6 +80,7 @@ const images = {
     search,
     heart,
     shopping_bag,
+    shopping_bag_white,
     play,
     filter,
     arrow_top,
@@ -87,7 +106,26 @@ const images = {
     send,
     deleteIon
   },
-  product: { product_banner, product_banner_single, product_single, discover1, discover2, discover3, discover4 }
+  product: { product_banner, product_banner_single, product_single, discover1, discover2, discover3, discover4 },
+  home: {
+    home_banner,
+    home1,
+    home2,
+    home3,
+    home_bg_1,
+    home_bg_2,
+    home_bg_3,
+    home_bg_4,
+    home_bg_5,
+    home_bg_6,
+    home_functional,
+    home_func_1,
+    home_func_2,
+    home_func_3,
+    home_cosmetic,
+    home_cosmetic_1,
+    home_cosmetic_2
+  }
 }
 
 export default images
