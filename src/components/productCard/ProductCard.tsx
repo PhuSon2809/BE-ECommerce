@@ -13,7 +13,7 @@ function ProductCard({ product, size }: ProductCardProps) {
       <img src={product.image} alt='product-img' className='size-full object-cover object-center rounded-3xl' />
       <Heart width={24} height={24} color='white' className='absolute top-[4%] right-[4%]' />
       <div className='w-[299px] h-[72px] absolute bottom-[5%] left-[5%]'>
-        {size ? (
+        {size === 'w-[357px] h-[272px]' ? (
           <svg
             width='325'
             height='72'

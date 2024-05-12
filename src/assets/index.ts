@@ -14,6 +14,11 @@ import arrow_radius_right from '~/assets/images/arrow-radius-right.png'
 import arrow_radius_right_large from '~/assets/images/arrow-radius-right-large.png'
 import bg_content_discover from '~/assets/images/bg-content-discover.png'
 import bg_content_discover_large from '~/assets/images/bg-content-discover-large.png'
+import customer_1 from '~/assets/images/customer-1.png'
+import customer_2 from '~/assets/images/customer-2.png'
+import customer_3 from '~/assets/images/customer-3.png'
+import customer_4 from '~/assets/images/customer-4.png'
+
 import home_banner from '~/assets/images/home-banner.png'
 import home1 from '~/assets/images/home1.png'
 import home2 from '~/assets/images/home2.png'
@@ -29,8 +34,23 @@ import home_func_1 from '~/assets/images/home-func-1.png'
 import home_func_2 from '~/assets/images/home-func-2.png'
 import home_func_3 from '~/assets/images/home-func-3.png'
 import home_cosmetic from '~/assets/images/home-cosmetic.png'
+import home_cosmetic_layer from '~/assets/images/home-cosmetic-layer.png'
 import home_cosmetic_1 from '~/assets/images/home-cosmetic-1.png'
 import home_cosmetic_2 from '~/assets/images/home-cosmetic-2.png'
+import home_rich_food from '~/assets/images/home-rich-food.png'
+import home_rich_food_1 from '~/assets/images/home-rich-food-1.png'
+import home_rich_food_2 from '~/assets/images/home-rich-food-2.png'
+import home_gateway from '~/assets/images/home-gateway.png'
+import home_gateway_1 from '~/assets/images/home-gateway-1.png'
+import home_gateway_2 from '~/assets/images/home-gateway-2.png'
+import home_gateway_3 from '~/assets/images/home-gateway-3.png'
+import home_ceo from '~/assets/images/ceo.png'
+import home_cco from '~/assets/images/cco.png'
+import home_cfo from '~/assets/images/cfo.png'
+import home_unveiling from '~/assets/images/home-unveiling.png'
+import home_unvei_ellip from '~/assets/images/home-unvei-ellip.png'
+import home_unvei_circle1 from '~/assets/images/home-unvei-circle1.png'
+import home_unvei_circle2 from '~/assets/images/home-unvei-circle1.png'
 
 import add_white from '~/assets/icons/add-white.svg'
 import menu from '~/assets/icons/menu.svg'
@@ -62,6 +82,7 @@ import bot_green from '~/assets/icons/bot-green.svg'
 import bot_white from '~/assets/icons/bot-white.svg'
 import send from '~/assets/icons/send.svg'
 import deleteIon from '~/assets/icons/delete.svg'
+import quote_linear from '~/assets/icons/quote-linear.svg'
 
 const images = {
   logo: { logo_e_commerce, logo_white, circle_white },
@@ -104,7 +125,8 @@ const images = {
     bot_green,
     bot_white,
     send,
-    deleteIon
+    deleteIon,
+    quote_linear
   },
   product: { product_banner, product_banner_single, product_single, discover1, discover2, discover3, discover4 },
   home: {
@@ -124,7 +146,26 @@ const images = {
     home_func_3,
     home_cosmetic,
     home_cosmetic_1,
-    home_cosmetic_2
+    home_cosmetic_2,
+    home_cosmetic_layer,
+    home_rich_food,
+    home_rich_food_1,
+    home_rich_food_2,
+    home_gateway,
+    home_gateway_1,
+    home_gateway_2,
+    home_gateway_3,
+    customer_1,
+    customer_2,
+    customer_3,
+    customer_4,
+    home_ceo,
+    home_cco,
+    home_cfo,
+    home_unveiling,
+    home_unvei_ellip,
+    home_unvei_circle1,
+    home_unvei_circle2
   }
 }
 

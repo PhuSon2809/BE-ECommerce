@@ -6,7 +6,7 @@ type IconButtonProps = {
   title?: string
   color?: 'default' | 'white' | 'linear'
   variant?: 'container' | 'outline'
-  size?: '32' | '36' | '40' | '48' | '50' | '52' | '54' | '56' | '60' | '64'
+  size?: '32' | '36' | '40' | '44' | '48' | '50' | '52' | '54' | '56' | '60' | '64'
   shadow?: boolean
   disabled?: boolean
   className?: string
@@ -35,18 +35,20 @@ function IconButton({
             : size === '36'
               ? `${title ? 'px-[16px] h-9' : 'size-9'}`
               : size === '40'
-                ? `${title ? 'px-[18px] h-10' : 'size-10'}`
-                : size === '48'
-                  ? `${title ? 'px-[18px] h-[48px]' : 'size-[48px]'}`
-                  : size === '52'
-                    ? `${title ? 'px-[20px] h-[52px]' : 'size-[52px]'}`
-                    : size === '54'
-                      ? `${title ? 'px-[22px] h-[54px]' : 'size-[54px]'}`
-                      : size === '56'
-                        ? `${title ? 'px-6 h-[56px]' : 'size-[56px]'}`
-                        : size === '60'
-                          ? `${title ? 'px-[26px] h-[60px]' : 'size-[60px]'}`
-                          : `${title ? 'px-7 h-16' : 'size-16'}`
+                ? `${title ? 'px-[16px] h-10' : 'size-10'}`
+                : size === '44'
+                  ? `${title ? 'px-[18px] h-11' : 'size-11'}`
+                  : size === '48'
+                    ? `${title ? 'px-[18px] h-[48px]' : 'size-[48px]'}`
+                    : size === '52'
+                      ? `${title ? 'px-[20px] h-[52px]' : 'size-[52px]'}`
+                      : size === '54'
+                        ? `${title ? 'px-[22px] h-[54px]' : 'size-[54px]'}`
+                        : size === '56'
+                          ? `${title ? 'px-6 h-[56px]' : 'size-[56px]'}`
+                          : size === '60'
+                            ? `${title ? 'px-[26px] h-[60px]' : 'size-[60px]'}`
+                            : `${title ? 'px-7 h-16' : 'size-16'}`
         }
         ${
           color === 'default' && variant === 'container'
