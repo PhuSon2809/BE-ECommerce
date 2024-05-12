@@ -299,3 +299,105 @@ export const listProductsCosmetic: Product[] = [
     vipPrice: 56
   }
 ]
+
+export const listProductsRichFood: Product[] = [
+  {
+    id: 1,
+    image: images.home.home_rich_food_1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 2,
+    image: images.home.home_rich_food_2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 3,
+    image: images.home.home_rich_food_1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 5,
+    image: images.home.home_rich_food_2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 6,
+    image: images.home.home_rich_food_1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 7,
+    image: images.home.home_rich_food_2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  }
+]
+
+export const listProductsGateway: Product[] = [
+  {
+    id: 1,
+    image: images.home.home_gateway_1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 2,
+    image: images.home.home_gateway_2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 3,
+    image: images.home.home_gateway_3,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 5,
+    image: images.home.home_gateway_1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 6,
+    image: images.home.home_gateway_2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 7,
+    image: images.home.home_gateway_3,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  }
+]

@@ -54,6 +54,8 @@ export default {
       '6xl': '0px 0px 64px 0px #0000001A',
       '7xl': '0px 0px 55.19px 0px #0000000D',
       '8xl': '0px 4px 64px 0px #0000001A',
+      '9xl': '0px 0px 43.36px 0px #0000000D',
+      '10xl': '0px 4px 64px 0px #0000000D',
       button: '0px 4px 32px 0px #0000000D',
       'text-shadow': ['-1px 0 #60EC8E', '0 1px #60EC8E', '1px 0 #60EC8E', '0 -1px #60EC8E']
     }

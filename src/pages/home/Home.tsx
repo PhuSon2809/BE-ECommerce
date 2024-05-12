@@ -6,7 +6,18 @@ import { listProducts } from '~/assets/mocks/product'
 import { Button } from '~/components/button'
 import { ProductCard } from '~/components/productCard'
 import { Header } from '~/layouts/components/header'
-import { CosmeticSection, FunctionalSection, WhatWeDoSection, WhyChooseSection } from '~/sections/home'
+import {
+  CosmeticSection,
+  CustomerSaySection,
+  FunctionalSection,
+  GatewaySection,
+  OurTeamSection,
+  RichFoodSection,
+  TechnologySection,
+  UnveilingSection,
+  WhatWeDoSection,
+  WhyChooseSection
+} from '~/sections/home'
 import images from '~/assets'
 import './styles.scss'
 
@@ -29,6 +40,7 @@ function Home() {
   const [filterSlide, setFilterSlide] = useState<string>('new')
 
   const sliderLeftRef = useRef<Slider>(null)
+  const sliderRightRef = useRef<Slider>(null)
 
   return (
     <div className='home overflow-hidden'>
@@ -108,7 +120,15 @@ function Home() {
                         </Button>
                       ))}
                     </div>
-                    <Slider dots arrows={false} infinite={false} speed={500} slidesToShow={1} slidesToScroll={1}>
+                    <Slider
+                      ref={sliderRightRef}
+                      dots
+                      arrows={false}
+                      infinite={false}
+                      speed={500}
+                      slidesToShow={1}
+                      slidesToScroll={1}
+                    >
                       {listProducts.slice(0, 3).map((product, index) => (
                         <ProductCard key={index} product={product} size='w-[331px] h-[368px]' />
                       ))}
@@ -127,11 +147,29 @@ function Home() {
       {/* Why Choose Us */}
       <WhyChooseSection />
 
+      {/* Technology */}
+      <TechnologySection />
+
       {/* Functional */}
       <FunctionalSection />
 
       {/* Cosmetic */}
       <CosmeticSection />
+
+      {/* Unveiling */}
+      <UnveilingSection />
+
+      {/* Rich Food */}
+      <RichFoodSection />
+
+      {/* Gateway */}
+      <GatewaySection />
+
+      {/* Customer Say */}
+      <CustomerSaySection />
+
+      {/* Our Team */}
+      <OurTeamSection />
     </div>
   )
 }

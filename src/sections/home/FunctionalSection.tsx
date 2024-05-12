@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import Slider from 'react-slick'
+
 import images from '~/assets'
 import { listProductsFunctional } from '~/assets/mocks/product'
 import { Button } from '~/components/button'
@@ -21,21 +22,34 @@ function FunctionalSection() {
           towards holistic well-being through the power of food.
         </p>
         <img src={images.home.home_functional} alt='home-functional' className='mx-auto rotate-[38.49deg] mt-5' />
-        <div className='absolute bottom-[-8%] left-1/2 transform -translate-x-1/2 flex flex-col items-end gap-5 '>
-          <Button size='large' className='rounded-[26px]'>
-            Shop now
-          </Button>
-
-          <div className='w-[1250px]'>
+        <Button size='large' className='rounded-[26px] absolute top-[62%] right-[7.5%]'>
+          Shop now
+        </Button>
+        <div className='absolute top-[66%] left-1/2 transform -translate-x-1/2 flex flex-col items-end gap-5 '>
+          <div className='w-[1340px] relative'>
             <Slider ref={sliderRef} arrows={false} infinite speed={500} slidesToShow={3} slidesToScroll={1}>
               {listProductsFunctional.map((product) => (
-                <div key={product.id}>
-                  <ProductFunctional product={product} />
+                <div key={product.id} className='h-[400px] flex items-center justify-center'>
+                  <div className='mt-[55px]'>
+                    <ProductFunctional product={product} />
+                  </div>
                 </div>
               ))}
             </Slider>
           </div>
         </div>
+        <button
+          onClick={() => sliderRef.current?.slickPrev()}
+          className='size-11 bg-white/[.64] backdrop-blur-[31.43px] flex items-center justify-center rounded-full absolute bottom-[2%] left-[6%]'
+        >
+          <img src={images.icons.arrow_left} alt='arrow-left' className='size-6' />
+        </button>
+        <button
+          onClick={() => sliderRef.current?.slickNext()}
+          className='size-11 bg-white/[.64] backdrop-blur-[31.43px] flex items-center justify-center rounded-full absolute bottom-[2%] right-[5.8%]'
+        >
+          <img src={images.icons.arrow_right} alt='arrow-right' className='size-6' />
+        </button>
       </div>
     </section>
   )

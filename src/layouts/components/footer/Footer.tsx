@@ -28,7 +28,7 @@ function Footer() {
   }
 
   return (
-    <footer className='w-full p-4 mt-[80px]'>
+    <footer className='w-full p-4 mt-[50px]'>
       <div className='px-10 py-8 bg-blackMain rounded-lg flex flex-col gap-6'>
         <div className='flex items-center gap-3'>
           <img src={images.logo.logo_white} alt='logo-white' />

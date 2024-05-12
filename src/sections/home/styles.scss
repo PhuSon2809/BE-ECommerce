@@ -36,17 +36,61 @@
 
 .functional-section {
   .slick-slider {
-    margin: 0 auto;
-    min-width: 1250px;
-    margin: 0 -20px;
-
-    // .slick-slide {
-    //   margin-right: 10px;
-    //   margin-left: 10px;
-    // }
+    .slick-slide {
+      & > div {
+        margin: 0 15px;
+      }
+    }
 
     .slick-list {
-      overflow: unset;
+      margin: 0 12px;
+    }
+  }
+}
+
+.our-team-section {
+  .slick-slider {
+    .slick-dots {
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      width: fit-content;
+      // height: fit-content;
+      display: flex !important;
+      justify-content: center;
+      position: absolute;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgb(216, 216, 216);
+      border-radius: 4px;
+
+      .slick-active {
+        background-color: black;
+        will-change: background-color;
+        transition: all 0.3s ease-in-out;
+      }
+
+      li {
+        width: 100%;
+        height: 3px;
+        margin: 0;
+        border-radius: 4px;
+        background-color: rgb(216, 216, 216);
+
+        button {
+          width: 83px;
+          height: 3px;
+          padding: 0;
+          will-change: width;
+          transition: all 5s ease-in-out;
+
+          &::before {
+            display: none;
+            font-size: 8px;
+          }
+        }
+      }
     }
   }
 }
