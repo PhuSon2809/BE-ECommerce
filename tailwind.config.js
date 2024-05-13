@@ -47,6 +47,9 @@ export default {
       xl: '1280px'
     },
     boxShadow: {
+      popover: '0px 4px 32px 0px #00000026',
+      'popover-custom': '0px 4px 32px 0px #0000001A',
+      avatar: '0px 0px 4px 0px #00000052',
       'icon-button': '0px 0px 80px 0px #00000026',
       '3xl': '0px 0px 77.42px 0px #0000000D',
       '4xl': '0px 0px 80px 0px #0000000D',

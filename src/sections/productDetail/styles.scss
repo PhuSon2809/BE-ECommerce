@@ -45,6 +45,7 @@
     }
 
     .slick-dots {
+      height: fit-content;
       z-index: 100;
       display: flex !important;
       justify-content: start;
@@ -82,9 +83,11 @@
 }
 
 .discover-section {
-  .slick-list {
-    .slick-slide {
-      margin-bottom: 0px;
+  .slide-vertical {
+    .slick-list {
+      .slick-slide {
+        margin-bottom: 0px;
+      }
     }
   }
 
@@ -92,13 +95,13 @@
     .slick-list {
       .slick-slide {
         z-index: 100;
-        transform: scale(0.75);
+        transform: scale(0.68);
         transition: 0.5s;
       }
 
       .slick-active {
         & > div:first-child {
-          margin-left: -148px;
+          margin-left: -183.5px;
           background-color: #fff;
         }
       }
@@ -108,12 +111,83 @@
         transform: scale(1);
 
         & > div:first-child {
-          margin-left: -65px;
+          margin-left: -85px;
         }
 
         & + div {
           & > div:first-child {
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .faq-product {
+    .slick-slider {
+      margin: 0 auto;
+      min-width: 100%;
+    }
+  }
+
+  .list-review {
+    .slick-slider {
+      min-width: 380px;
+
+      .slick-list {
+        margin-right: 0 -20px;
+        z-index: 200;
+      }
+
+      .slick-slide {
+        padding-right: 20px;
+      }
+
+      .slick-dots {
+        top: -40px;
+      }
+    }
+  }
+
+  .discover-section {
+    .slide-vertical {
+      .slick-list {
+        .slick-slide {
+          margin-bottom: 0px;
+        }
+      }
+    }
+
+    .slide-horizontal {
+      .slick-list {
+        .slick-slide {
+          transform: scale(0.8);
+          transform-origin: left bottom;
+        }
+
+        .slick-active {
+          & > div:first-child {
             margin-left: 0px;
+            margin-top: -161.5px;
+          }
+        }
+
+        .slick-center {
+          transform: scale(1);
+          margin-top: 185px;
+
+          & > div:first-child {
+            margin-left: 0px;
+            // margin-top: -20px;
+          }
+
+          & + div {
+            & > div:first-child {
+              margin-left: 0px;
+              margin-top: 183px;
+            }
           }
         }
       }

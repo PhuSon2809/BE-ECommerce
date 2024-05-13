@@ -94,3 +94,118 @@
     }
   }
 }
+
+.cosmetic-section {
+  .slick-slider {
+    .slick-list {
+      margin: 0 15px;
+      border-radius: 32px;
+    }
+
+    .slick-slide {
+      & > div {
+        margin: 0 8px;
+      }
+    }
+
+    .slick-current {
+      & + div {
+        & > div:first-child {
+          transition: all 0.5s ease-in-out;
+          margin-top: 90px;
+        }
+      }
+    }
+  }
+}
+
+.rich-food-section {
+  .slick-slider {
+    .slick-list {
+      margin: 0 15px;
+      border-radius: 32px;
+    }
+
+    .slick-slide {
+      & > div {
+        margin: 0 8px;
+      }
+    }
+
+    .slick-current {
+      & + div {
+        & > div:first-child {
+          transition: all 0.5s ease-in-out;
+          margin-top: 90px;
+        }
+      }
+    }
+  }
+}
+
+.unveiling-section {
+  .slick-slider {
+    .slick-list {
+      margin: 0 15px;
+      border-radius: 32px;
+    }
+
+    .slick-slide {
+      & > div {
+        margin: 0 8px;
+      }
+    }
+
+    .slick-current {
+      & > div:first-child {
+        transition: all 0.5s ease-in-out;
+        margin-top: 150px;
+      }
+    }
+  }
+}
+
+.technology-section {
+  .slick-slider {
+    // .slick-current {
+    //   & > div:first-child {
+    //     z-index: 100;
+    //     position: relative;
+    //   }
+
+    //   & + div {
+    //     & > div:first-child {
+    //       z-index: 80;
+    //       position: relative;
+    //     }
+
+    //     & + div {
+    //       & > div:first-child {
+    //         z-index: 50;
+    //         position: relative;
+    //       }
+    //     }
+    //   }
+    // }
+
+    .slick-dots {
+      height: fit-content;
+      display: flex !important;
+      justify-content: start;
+      position: absolute;
+      bottom: 0;
+      left: -140%;
+
+      li {
+        button {
+          padding: 0;
+
+          &::before {
+            font-size: 8px;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

@@ -48,9 +48,14 @@ import home_ceo from '~/assets/images/ceo.png'
 import home_cco from '~/assets/images/cco.png'
 import home_cfo from '~/assets/images/cfo.png'
 import home_unveiling from '~/assets/images/home-unveiling.png'
+import home_unveiling_1 from '~/assets/images/home-unveiling-1.png'
+import home_unveiling_2 from '~/assets/images/home-unveiling-2.png'
 import home_unvei_ellip from '~/assets/images/home-unvei-ellip.png'
 import home_unvei_circle1 from '~/assets/images/home-unvei-circle1.png'
 import home_unvei_circle2 from '~/assets/images/home-unvei-circle1.png'
+import technology_1 from '~/assets/images/technology-1.png'
+import technology_2 from '~/assets/images/technology-2.png'
+import technology_3 from '~/assets/images/technology-3.png'
 
 import add_white from '~/assets/icons/add-white.svg'
 import menu from '~/assets/icons/menu.svg'
@@ -76,6 +81,9 @@ import shipping_bottom from '~/assets/icons/shipping-bottom.svg'
 import shipping_top from '~/assets/icons/shipping-top.svg'
 import instagram from '~/assets/icons/instagram.svg'
 import facebook from '~/assets/icons/facebook.svg'
+import instagram_fill from '~/assets/icons/instagram-fill.svg'
+import facebook_fill from '~/assets/icons/facebook-fill.svg'
+import message from '~/assets/icons/message.svg'
 import yuoTube from '~/assets/icons/yuoTube.svg'
 import chat from '~/assets/icons/chat.svg'
 import bot_green from '~/assets/icons/bot-green.svg'
@@ -83,6 +91,9 @@ import bot_white from '~/assets/icons/bot-white.svg'
 import send from '~/assets/icons/send.svg'
 import deleteIon from '~/assets/icons/delete.svg'
 import quote_linear from '~/assets/icons/quote-linear.svg'
+import share from '~/assets/icons/share.svg'
+import exit from '~/assets/icons/exit.svg'
+import arrow_right_white from '~/assets/icons/arrow-right-white.svg'
 
 const images = {
   logo: { logo_e_commerce, logo_white, circle_white },
@@ -126,7 +137,13 @@ const images = {
     bot_white,
     send,
     deleteIon,
-    quote_linear
+    quote_linear,
+    share,
+    exit,
+    message,
+    instagram_fill,
+    facebook_fill,
+    arrow_right_white
   },
   product: { product_banner, product_banner_single, product_single, discover1, discover2, discover3, discover4 },
   home: {
@@ -165,7 +182,12 @@ const images = {
     home_unveiling,
     home_unvei_ellip,
     home_unvei_circle1,
-    home_unvei_circle2
+    home_unvei_circle2,
+    home_unveiling_1,
+    home_unveiling_2,
+    technology_1,
+    technology_2,
+    technology_3
   }
 }
 

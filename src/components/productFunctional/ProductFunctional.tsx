@@ -2,11 +2,13 @@ import images from '~/assets'
 import { Product } from '~/@types/model'
 import { IconButton } from '~/components/iconButton'
 
-type ProductFunctionalProps = { product: Product }
+type ProductFunctionalProps = { product: Product; isActive?: boolean }
 
-function ProductFunctional({ product }: ProductFunctionalProps) {
+function ProductFunctional({ product, isActive }: ProductFunctionalProps) {
   return (
-    <div className='w-[410px] h-[280px] shadow-8xl rounded-[32px]'>
+    <div
+      className={`w-[410px] ${isActive ? 'h-[372px]' : 'h-[280px]'} shadow-8xl rounded-[32px] transition-all duration-300 ease-in-out`}
+    >
       <div className={`bg-white/[.64] p-2 backdrop-blur-2xl shadow-7xl rounded-[32px]`}>
         <div className={`flex flex-col p-3 pb-2`}>
           <div className='flex items-center justify-between'>
@@ -31,7 +33,7 @@ function ProductFunctional({ product }: ProductFunctionalProps) {
             </p>
           </div>
         </div>
-        <div className='w-full h-[177px]'>
+        <div className={`w-full ${isActive ? 'h-[265px]' : 'h-[177px]'} transition-all duration-300 ease-in-out`}>
           <img
             src={product.image}
             alt={product.title}
