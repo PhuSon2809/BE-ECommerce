@@ -25,10 +25,10 @@ function ModelProductSection() {
   return (
     <section className='model-product py-[50px] pt-[180px] relative'>
       <div className='mb-[100px]'>
-        <h1 className='text-[56px] font-customSemiBold leading-[72px] capitalize text-center'>
+        <h1 className='xs:text-[32px] sm:text-[56px] font-customBold xs:leading-[40px] sm:leading-[72px] capitalize text-center'>
           Vamp one perfume bottle
         </h1>
-        <p className='w-[926px] text-[20px] leading-[32px] text-center text-blackMain/[.80] mx-auto'>
+        <p className='w-[926px] text-[20px] leading-[32px] text-center text-blackMain/[.80] font-customRegular mx-auto'>
           Elevate your essence with "Vamp one perfume bottle", an embodiment of refined masculinity and timeless
           sophistication. Crafted for the modern gentleman who exudes confidence and charm, this fragrance captures the
           essence of strength and elegance.
@@ -76,7 +76,7 @@ function ModelProductSection() {
         <div className='w-full h-[398px] bg-gradient-to-t from-[#F2F3F5] to-[#F2F3F5]/[.0] rounded-bl-[60px] rounded-br-[60px]'></div>
       </div>
 
-      <div className='w-full px-[25px] absolute bottom-[10%] z-[500] '>
+      <div className='w-full px-[25px] absolute bottom-[10%] z-[500]'>
         <div className=''>
           <Slider ref={sliderRef} {...settings}>
             {[

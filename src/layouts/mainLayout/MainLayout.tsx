@@ -39,7 +39,7 @@ function MainLayout({ children }: MainLayoutProps) {
 
       <IconButton
         color='white'
-        className='fixed bottom-[4%] right-[4%] !bg-white hover:border-greenMain hover:border-[2px] hover:border-solid transition-all ease-in-out duration-500 hover:scale-110'
+        className='fixed bottom-[4%] right-[4%] !bg-white hover:border-greenMain hover:border-[2px] hover:border-solid transition-all ease-in-out duration-500 hover:scale-110 z-50'
         onClick={() => setShowChat(showChat ? false : true)}
       >
         <img src={images.icons.chat} alt='icon-chat' />

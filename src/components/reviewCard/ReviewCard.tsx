@@ -7,17 +7,17 @@ type ReviewCard = {
 
 function ReviewCard({ review }: ReviewCard) {
   return (
-    <div className='flex flex-col gap-7'>
+    <div className='flex flex-col xs:gap-4 sm:gap-7'>
       <div className='flex items-center gap-2'>
         <div className='flex items-center gap-[1px]'>
           {Array.from({ length: 5 }).map((_, index: number) => (
-            <img key={index} className='size-6' src={images.icons.star} alt='icon-star' />
+            <img key={index} className='xs:size-[18px] sm:size-6' src={images.icons.star} alt='icon-star' />
           ))}
         </div>
-        <p className='text-[24px] leading-none mt-1'>{review.ratings.toFixed(1)}</p>
+        <p className='xs:text-[18px] sm:text-[24px] leading-none mt-1'>{review.ratings.toFixed(1)}</p>
       </div>
-      <p className='text-[20px] font-medium leading-8'>{review.content}</p>
-      <h6 className='text-[24px] font-semibold leading-[18px]'>
+      <p className='xs:text-[14px] sm:text-[20px] font-customMedium xs:leading-6 sm:leading-8'>{review.content}</p>
+      <h6 className='xs:text-[18px] sm:text-[24px] font-customSemiBold xs:leading-[14px] sm:leading-[18px]'>
         ID Customer: <span>{review.idCustomer}</span>
       </h6>
     </div>

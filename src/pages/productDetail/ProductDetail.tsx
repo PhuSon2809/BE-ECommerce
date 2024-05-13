@@ -18,7 +18,7 @@ function ProductDetail() {
   const sliderRef = useRef<Slider>(null)
 
   return (
-    <div className='pt-4 overflow-hidden'>
+    <div className='overflow-hidden'>
       {/* Banner section */}
       <div className='banner relative'>
         <Slider ref={sliderRef} dots arrows={false} infinite speed={500} slidesToShow={1} slidesToScroll={1}>
@@ -27,16 +27,16 @@ function ProductDetail() {
           ))}
         </Slider>
         <button
-          className='cursor-pointer absolute bottom-[10px] left-[45%] transform -translate-x-[45%]'
+          className='cursor-pointer absolute xs:bottom-[14px] sm:bottom-[8.9px] xs:left-[6%] sm:left-[45%] transform -translate-x-[45%]'
           onClick={() => sliderRef.current?.slickPrev()}
         >
-          <img src={images.icons.arrow_left} alt='arrow-left' />
+          <img src={images.icons.arrow_left} alt='arrow-left' className='xs:size-6 sm:size-8' />
         </button>
         <button
-          className='cursor-pointer absolute bottom-[10px] right-[43%] transform -translate-x-[45%]'
+          className='cursor-pointer absolute xs:bottom-[14px] sm:bottom-[8.9px] xs:left-[37%] sm:right-[43.1%] transform -translate-x-[45%]'
           onClick={() => sliderRef.current?.slickNext()}
         >
-          <img src={images.icons.arrow_right} alt='arrow-right' />
+          <img src={images.icons.arrow_right} alt='arrow-right' className='xs:size-6 sm:size-8' />
         </button>
       </div>
 

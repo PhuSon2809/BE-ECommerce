@@ -401,3 +401,54 @@ export const listProductsGateway: Product[] = [
     vipPrice: 56
   }
 ]
+
+export const listProductsUnveiling: Product[] = [
+  {
+    id: 1,
+    image: images.home.home_unveiling_1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 2,
+    image: images.home.home_unveiling_2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 1,
+    image: images.home.home_unveiling_1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 2,
+    image: images.home.home_unveiling_2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 1,
+    image: images.home.home_unveiling_1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 2,
+    image: images.home.home_unveiling_2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  }
+]
