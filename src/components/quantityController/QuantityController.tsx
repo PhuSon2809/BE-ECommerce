@@ -1,11 +1,11 @@
 import { useState } from 'react'
 // redux
 import { useAppDispatch } from '~/redux/configStore'
-import { changeQuantity, decreaseQuantity, increaseQuantity } from '~/redux/product/product.slice'
+import { decreaseQuantity, increaseQuantity } from '~/redux/product/product.slice'
 //
+import { Minus, Plus } from 'iconoir-react'
 import { ProductCart } from '~/@types/model'
 import { IconButton } from '~/components/iconButton'
-import { Minus, Plus } from 'iconoir-react'
 
 interface QuantityControllerProps {
   isCart?: boolean
@@ -26,43 +26,13 @@ function QuantityController({
   max,
   onIncrease,
   onDecrease,
-  onType,
-  onFocusOut,
   value,
   disabled = false,
-  handleOpen,
-  ...rest
+  handleOpen
 }: QuantityControllerProps) {
   const dispatch = useAppDispatch()
 
   const [localValue, setLocalValue] = useState<number | string>(Number(value) || 0)
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target
-    let _value = Number(value)
-
-    if (/^\d+$/.test(value)) {
-      if (max !== undefined && _value > max) {
-        _value = max
-      } else if (_value < 1) {
-        _value = 1
-      }
-
-      onType && onType(_value)
-      setLocalValue(_value)
-
-      if (isCart && productInCart) {
-        const newProduct = {
-          ...productInCart,
-          quantityInCart: max !== undefined && _value > max ? max : _value < 1 ? 1 : _value
-        }
-        dispatch(changeQuantity(newProduct))
-      }
-    } else if (value === '') {
-      setLocalValue(value)
-      onType && onType(value)
-    }
-  }
 
   const increase = () => {
     let _value = Number(value || localValue) + 1
@@ -101,19 +71,6 @@ function QuantityController({
     }
   }
 
-  const handleBlur = (event: React.FocusEvent<HTMLInputElement, Element>) => {
-    const { value } = event.target
-    if (value === '') {
-      if (isCart && productInCart) {
-        onFocusOut && onFocusOut(productInCart?.quantityInCart)
-        setLocalValue(productInCart?.quantityInCart)
-      } else {
-        onFocusOut && onFocusOut(1)
-        setLocalValue(1)
-      }
-    }
-  }
-
   return (
     <div className='flex items-center gap-3'>
       <IconButton
@@ -121,19 +78,11 @@ function QuantityController({
         variant='outline'
         onClick={decrease}
         disabled={isCart ? value === 0 : value === 1 || localValue === 1 || disabled}
+        className='border-[1.88px]'
       >
-        <Minus fontSize={20} />
+        <Minus fontSize={15} />
       </IconButton>
-      {/* <input
-        {...rest}
-        type='number'
-        disabled={disabled}
-        value={value || localValue}
-        onBlur={handleBlur}
-        onChange={handleChange}
-        className='border-none outline-none min-w-[30px] w-[30px]'
-      /> */}
-      <p className='min-w-[30px] text-[20px] font-semibold text-center'>
+      <p className='min-w-[30px] text-[20px] font-customSemiBold text-center'>
         {(productInCart?.quantityInCart as number) < 10
           ? `0${productInCart?.quantityInCart}`
           : productInCart?.quantityInCart}
@@ -143,8 +92,9 @@ function QuantityController({
         variant='outline'
         onClick={increase}
         disabled={value === max || localValue === max || disabled}
+        className='border-[1.88px]'
       >
-        <Plus fontSize={20} />
+        <Plus fontSize={15} />
       </IconButton>
     </div>
   )

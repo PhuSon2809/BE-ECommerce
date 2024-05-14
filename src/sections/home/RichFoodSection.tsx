@@ -50,7 +50,7 @@ function RichFoodSection() {
             )
           })}
         </Slider>
-        <div className='flex items-center gap-3 absolute bottom-[12.5%] right-[31%] '>
+        <div className='flex items-center gap-3 absolute bottom-[3.5%] right-[31%] '>
           <button
             onClick={() => sliderRef.current?.slickPrev()}
             className='size-11 bg-white/[.64] flex items-center justify-center rounded-full shadow-popover'

@@ -13,12 +13,12 @@ import {
   GatewaySection,
   OurTeamSection,
   RichFoodSection,
+  SlideBannerRight,
   TechnologySection,
   UnveilingSection,
   WhatWeDoSection,
   WhyChooseSection
 } from '~/sections/home'
-import images from '~/assets'
 import './styles.scss'
 
 const listFilterOption: OptionSelect[] = [
@@ -39,7 +39,6 @@ const listFilterOption: OptionSelect[] = [
 function Home() {
   const [filterSlide, setFilterSlide] = useState<string>('new')
 
-  const sliderLeftRef = useRef<Slider>(null)
   const sliderRightRef = useRef<Slider>(null)
 
   return (
@@ -75,36 +74,7 @@ function Home() {
                 </div>
 
                 <div className='w-full flex items-end justify-between absolute bottom-[-145%] right-[2%]'>
-                  <div className='slide-left w-[470px] ml-[60px] mb-[50px] relative'>
-                    <Slider
-                      ref={sliderLeftRef}
-                      dots
-                      centerMode
-                      arrows={false}
-                      infinite
-                      speed={500}
-                      slidesToShow={1}
-                      slidesToScroll={1}
-                      prevArrow={
-                        <button className='cursor-pointer' onClick={() => sliderLeftRef.current?.slickPrev()}>
-                          <img src={images.icons.arrow_left} alt='arrow-left' className='size-6' />
-                        </button>
-                      }
-                    >
-                      {listProducts.map((product, index) => (
-                        <ProductCard key={index} product={product} size='w-[357px] h-[272px]' />
-                      ))}
-                    </Slider>
-
-                    <div className='flex items-center gap-2 absolute bottom-[-14%] right-[5%] z-[10000]'>
-                      <button className='cursor-pointer' onClick={() => sliderLeftRef.current?.slickPrev()}>
-                        <img src={images.icons.arrow_left} alt='arrow-left' className='size-6' />
-                      </button>
-                      <button className='cursor-pointer' onClick={() => sliderLeftRef.current?.slickNext()}>
-                        <img src={images.icons.arrow_right} alt='arrow-right' className='size-6' />
-                      </button>
-                    </div>
-                  </div>
+                  <SlideBannerRight />
                   <div className='slide-right w-[331px]'>
                     <div className='flex items-center gap-[10px] mb-[10px]'>
                       {listFilterOption.map((option) => (
