@@ -166,45 +166,31 @@
 }
 
 .technology-section {
-  .slick-slider {
-    // .slick-current {
-    //   & > div:first-child {
-    //     z-index: 100;
-    //     position: relative;
-    //   }
+  .swiper {
+    overflow: hidden;
+    position: relative;
+    z-index: 100;
 
-    //   & + div {
-    //     & > div:first-child {
-    //       z-index: 80;
-    //       position: relative;
-    //     }
+    .swiper-wrapper {
+      overflow: visible;
+      .swiper-slide-active {
+        z-index: 200;
+      }
+    }
 
-    //     & + div {
-    //       & > div:first-child {
-    //         z-index: 50;
-    //         position: relative;
-    //       }
-    //     }
-    //   }
-    // }
-
-    .slick-dots {
-      height: fit-content;
-      display: flex !important;
-      justify-content: start;
+    .swiper-pagination {
       position: absolute;
-      bottom: 0;
-      left: -140%;
+      bottom: -20px;
+      z-index: 1000;
 
-      li {
-        button {
-          padding: 0;
+      .swiper-pagination-bullet {
+        background: white;
+        opacity: 0.4;
+      }
 
-          &::before {
-            font-size: 8px;
-            color: white;
-          }
-        }
+      .swiper-pagination-bullet-active {
+        background: white;
+        opacity: 1;
       }
     }
   }

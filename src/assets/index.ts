@@ -18,6 +18,7 @@ import customer_1 from '~/assets/images/customer-1.png'
 import customer_2 from '~/assets/images/customer-2.png'
 import customer_3 from '~/assets/images/customer-3.png'
 import customer_4 from '~/assets/images/customer-4.png'
+import congratulations from '~/assets/images/congratulations.png'
 
 import home_banner from '~/assets/images/home-banner.png'
 import home1 from '~/assets/images/home1.png'
@@ -94,6 +95,11 @@ import quote_linear from '~/assets/icons/quote-linear.svg'
 import share from '~/assets/icons/share.svg'
 import exit from '~/assets/icons/exit.svg'
 import arrow_right_white from '~/assets/icons/arrow-right-white.svg'
+import copy from '~/assets/icons/copy.svg'
+import info from '~/assets/icons/info.svg'
+import check from '~/assets/icons/check.svg'
+import credit from '~/assets/icons/credit.png'
+import paypal from '~/assets/icons/paypal.png'
 
 const images = {
   logo: { logo_e_commerce, logo_white, circle_white },
@@ -104,7 +110,8 @@ const images = {
     arrow_radius_right,
     arrow_radius_right_large,
     bg_content_discover,
-    bg_content_discover_large
+    bg_content_discover_large,
+    congratulations
   },
   icons: {
     add_white,
@@ -143,7 +150,12 @@ const images = {
     message,
     instagram_fill,
     facebook_fill,
-    arrow_right_white
+    arrow_right_white,
+    copy,
+    info,
+    check,
+    credit,
+    paypal
   },
   product: { product_banner, product_banner_single, product_single, discover1, discover2, discover3, discover4 },
   home: {

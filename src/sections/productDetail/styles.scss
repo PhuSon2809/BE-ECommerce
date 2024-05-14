@@ -163,20 +163,26 @@
     .slide-horizontal {
       .slick-list {
         .slick-slide {
-          transform: scale(0.8);
+          transform: scale(1);
           transform-origin: left bottom;
         }
 
         .slick-active {
           & > div:first-child {
             margin-left: 0px;
-            margin-top: -161.5px;
+            // margin-top: -161.5px;
           }
         }
 
         .slick-center {
           transform: scale(1);
-          margin-top: 185px;
+          // margin-top: 185px;
+
+          & ~ div {
+            & > div:first-child {
+              margin-top: 0px;
+            }
+          }
 
           & > div:first-child {
             margin-left: 0px;
@@ -186,7 +192,7 @@
           & + div {
             & > div:first-child {
               margin-left: 0px;
-              margin-top: 183px;
+              // margin-top: 183px;
             }
           }
         }
