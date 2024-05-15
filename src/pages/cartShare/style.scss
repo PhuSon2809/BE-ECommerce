@@ -1,0 +1,33 @@
+.cart-share-wrapper {
+  .bg-image {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    padding: 0 40px 8px 40px;
+    background-image: url('../../assets/images/bg-cart-share.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .slide {
+    margin-top: 60px;
+    transform: scale(1);
+    transition: all 0.5s ease-in-out;
+
+    .card-share {
+      height: 309px !important;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+
+  .slide-active {
+    margin-top: 20px;
+    transform: scale(1);
+
+    .card-share {
+      height: 380px !important;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+}

@@ -100,6 +100,10 @@ import info from '~/assets/icons/info.svg'
 import check from '~/assets/icons/check.svg'
 import credit from '~/assets/icons/credit.png'
 import paypal from '~/assets/icons/paypal.png'
+import chevron_bot from '~/assets/icons/chevron-bot.svg'
+import twitter from '~/assets/icons/twitter.svg'
+import link from '~/assets/icons/link.svg'
+import add_to_bag from '~/assets/icons/add-to-bag.svg'
 
 const images = {
   logo: { logo_e_commerce, logo_white, circle_white },
@@ -155,7 +159,11 @@ const images = {
     info,
     check,
     credit,
-    paypal
+    paypal,
+    chevron_bot,
+    twitter,
+    link,
+    add_to_bag
   },
   product: { product_banner, product_banner_single, product_single, discover1, discover2, discover3, discover4 },
   home: {

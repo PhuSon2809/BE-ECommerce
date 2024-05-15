@@ -7,6 +7,7 @@ type ButtonProps = {
   classNameText?: string
   fullWidth?: boolean
   shadow?: boolean
+  disabled?: boolean
   variant?: 'container' | 'outline' | 'linear'
   size?: 'small' | 'medium' | 'large'
   onClick?: () => void
@@ -19,6 +20,7 @@ function Button({
   classNameText,
   fullWidth,
   shadow,
+  disabled,
   variant = 'container',
   size = 'medium',
   onClick
@@ -26,6 +28,7 @@ function Button({
   return (
     <button
       type={type}
+      disabled={disabled}
       className={`
         ${size === 'small' ? `${fullWidth ? 'w-full' : 'w-[120px]'} h-[40px]` : size === 'medium' ? `${fullWidth ? 'w-full' : 'w-[165px]'} h-[48px]` : `${fullWidth ? 'w-full' : 'w-[196px]'} h-[52px]`}
         ${variant === 'container' ? 'bg-blackMain text-white' : variant === 'outline' ? 'text-blackMain bg-transparent border-solid border-blackMain border-[2px]' : 'bg-gradient-to-r from-greenMain to-blueMain'} 

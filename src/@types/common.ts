@@ -1,5 +1,5 @@
 export interface OptionSelect {
-  value: string
+  value: string | number
   label: string
 }
 
@@ -9,6 +9,7 @@ export type QueryConfig = {
 
 export interface ListConfig {
   itemCheckoutIds?: number[]
+  cartShareType?: string
   itemsPerPage?: number | string
   currentPage?: number | string
 }

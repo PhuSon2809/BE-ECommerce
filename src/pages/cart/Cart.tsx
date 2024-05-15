@@ -115,8 +115,9 @@ function Cart() {
 
           <div className='flex flex-col gap-5'>
             <Button
-              className='w-full h-[72px] rounded-[36px]'
               classNameText='!uppercase'
+              className='w-full h-[72px] rounded-[36px]'
+              disabled={selected.length === 0}
               onClick={() =>
                 navigate({
                   pathname: '/checkout',
@@ -132,7 +133,14 @@ function Cart() {
               variant='outline'
               className='w-full h-[72px] rounded-[36px]'
               classNameText='!uppercase'
-              onClick={() => navigate('/cart-share')}
+              onClick={() =>
+                navigate({
+                  pathname: '/cart-share',
+                  search: createSearchParams({
+                    cartShareType: 'share-link'
+                  }).toString()
+                })
+              }
             >
               share
             </Button>

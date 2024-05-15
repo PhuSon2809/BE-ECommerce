@@ -49,7 +49,7 @@ function InputField({
             required={required}
             disabled={disabled}
             placeholder={placeholder}
-            className={`w-full h-[52px] border-[1px] border-solid border-blackMain/[.22] rounded-[30px] px-5 pb-[2px] ${className}`}
+            className={`w-full h-[52px] border-[1px] border-solid border-blackMain/[.22] rounded-[30px] px-5 pb-[2px] focus:ring-[1.5px] focus:ring-blackMain/[.44] hover:ring-[1.5px] hover:ring-blackMain/[.44] transition-colors ease-in-out duration-300 ${className}`}
             onChange={(e) => {
               const value = e.target.value.trimStart()
               field.onChange(value)

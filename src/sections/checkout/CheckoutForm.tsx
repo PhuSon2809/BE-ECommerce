@@ -7,6 +7,49 @@ import { Button } from '~/components/button'
 import { InputField, SelectField, TextareaField } from '~/components/form'
 import useQueryConfig from '~/hooks/useQueryConfig'
 
+const people = [
+  {
+    value: 1,
+    label: 'Wade Cooper'
+  },
+  {
+    value: 2,
+    label: 'Arlene Mccoy'
+  },
+  {
+    value: 3,
+    label: 'Devon Webb'
+  },
+  {
+    value: 4,
+    label: 'Tom Cook'
+  },
+  {
+    value: 5,
+    label: 'Tanya Fox'
+  },
+  {
+    value: 6,
+    label: 'Hellen Schmvaluet'
+  },
+  {
+    value: 7,
+    label: 'Caroline Schultz'
+  },
+  {
+    value: 8,
+    label: 'Mason Heaney'
+  },
+  {
+    value: 9,
+    label: 'Claudie Smitham'
+  },
+  {
+    value: 10,
+    label: 'Emil Schaefer'
+  }
+]
+
 type CheckoutFormProps = {
   step: number
   setStep: Dispatch<SetStateAction<1 | 2>>
@@ -51,11 +94,17 @@ function CheckoutForm({ step, setStep }: CheckoutFormProps) {
             </div>
             <div className='w-full flex items-center gap-5'>
               <InputField fullWidth name='email' label='Email' placeholder='example@gmail.com' />
-              <InputField fullWidth name='countryId' label='Country' placeholder='Select your country' />
+              <SelectField
+                fullWidth
+                options={people}
+                label='Country'
+                name='countryId'
+                placeholder='Select your country'
+              />
             </div>
             <div className='w-full flex items-center gap-5'>
-              <SelectField fullWidth name='city' label='City' />
-              <InputField fullWidth name='province' label='State/Province' placeholder='Select' />
+              <SelectField fullWidth options={people} name='city' label='City' />
+              <SelectField fullWidth options={people} name='province' label='State/Province' />
             </div>
             <div className='w-full flex items-center gap-5'>
               <InputField fullWidth name='postalCode' label='Postal code' placeholder='Enter postal code' />
@@ -68,14 +117,25 @@ function CheckoutForm({ step, setStep }: CheckoutFormProps) {
             <Link to={'/cart'} className='opacity-[.64] uppercase cursor-pointer'>
               Back
             </Link>
-            <Button
-              size='large'
-              classNameText='!uppercase'
-              className='w-[216px] h-14 rounded-[36px]'
-              onClick={handleSubmit(handleSubmitShippingInfo)}
-            >
-              continue
-            </Button>
+            <div className='flex items-center gap-5'>
+              <Button
+                size='large'
+                variant='outline'
+                classNameText='!uppercase'
+                className='w-[216px] h-14 rounded-[36px]'
+                onClick={handleSubmit(handleSubmitShippingInfo)}
+              >
+                storage
+              </Button>
+              <Button
+                size='large'
+                classNameText='!uppercase'
+                className='w-[216px] h-14 rounded-[36px]'
+                onClick={handleSubmit(handleSubmitShippingInfo)}
+              >
+                continue
+              </Button>
+            </div>
           </div>
         </FormProvider>
       ) : (
@@ -87,7 +147,7 @@ function CheckoutForm({ step, setStep }: CheckoutFormProps) {
               <InputField fullWidth name='expirationDate' label='Expiration Date' placeholder='mm/yy' />
               <InputField fullWidth name='cvv' label='CVV' placeholder='XXX' />
             </div>
-            <InputField fullWidth name='phoneNumber' label='Phone Number' placeholder='Enter your name' />
+            <InputField fullWidth name='phoneNumber' label='Phone Number' placeholder='Enter your phone number' />
           </div>
 
           <div className='flex items-center justify-between'>
