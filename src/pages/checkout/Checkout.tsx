@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react'
 // redux
 import { useAppSelector } from '~/redux/configStore'
@@ -29,14 +30,15 @@ function Checkout() {
           <h6 className='text-[32px] font-customBold leading-none mb-[30px]'>
             {step === 1 ? 'Shipping Information' : 'Payment Method'}
           </h6>
+
           <CheckoutForm step={step} setStep={setStep} />
         </section>
       </div>
 
       {/* list item checkout */}
       <div className='col-span-1'>
-        <section className='w-full px-10 py-[80px] min-h-[100vh] h-full bg-greyMain flex flex-col'>
-          <h6 className='text-[32px] font-customBold leading-none mb-[30px]'>Order Summary</h6>
+        <section className='w-full px-10 py-[80px] min-h-[100vh] bg-greyMain flex flex-col gap-[30px] sticky top-0'>
+          <h6 className='text-[32px] font-customBold leading-none'>Order Summary</h6>
           <div className='flex flex-1 flex-col gap-6 mb-[30px]'>
             {listItemCheckout.map((cartItem) => (
               <CartItemCheckout key={cartItem.id} productCart={cartItem} />

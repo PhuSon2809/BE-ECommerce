@@ -53,7 +53,7 @@ function CheckoutComplete() {
 
       {/* list item checkout */}
       <div className='col-span-1'>
-        <section className='w-full px-10 py-[80px] min-h-[100vh] h-full bg-greyMain flex flex-col justify-between gap-20'>
+        <section className='w-full px-10 py-[80px] min-h-[100vh] h-full bg-greyMain flex flex-col justify-between gap-20 sticky top-0'>
           <div className='flex flex-col gap-5'>
             <div className='flex items-center gap-3'>
               <p className='min-w-[200px] text-[20px]'>Order no</p>
