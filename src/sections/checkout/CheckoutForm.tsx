@@ -1,10 +1,14 @@
 import { Dispatch, SetStateAction } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { Link, createSearchParams, useNavigate } from 'react-router-dom'
+
 import { QueryConfig } from '~/@types/common'
 import { PaymentForm, ShippingInfoForm } from '~/@types/model/order'
+import images from '~/assets'
 import { Button } from '~/components/button'
-import { InputField, SelectField, TextareaField } from '~/components/form'
+import { InputField, RadioGroupField, SelectField, TextareaField } from '~/components/form'
+import { WalletIcon } from '~/components/icons'
+import { PATH_PRIVATE_APP, PATH_PUBLIC_APP } from '~/constants/paths'
 import useQueryConfig from '~/hooks/useQueryConfig'
 
 const people = [
@@ -75,7 +79,7 @@ function CheckoutForm({ step, setStep }: CheckoutFormProps) {
     console.log(values)
     if (queryConfig.itemCheckoutIds) {
       navigate({
-        pathname: '/checkout-complete',
+        pathname: PATH_PRIVATE_APP.checkout.complete,
         search: createSearchParams({
           itemCheckoutIds: queryConfig?.itemCheckoutIds
         }).toString()
@@ -114,7 +118,7 @@ function CheckoutForm({ step, setStep }: CheckoutFormProps) {
           </div>
 
           <div className='flex items-center justify-between'>
-            <Link to={'/cart'} className='opacity-[.64] uppercase cursor-pointer'>
+            <Link to={PATH_PUBLIC_APP.cart.root} className='opacity-[.64] uppercase cursor-pointer'>
               Back
             </Link>
             <div className='flex items-center gap-5'>
@@ -139,15 +143,44 @@ function CheckoutForm({ step, setStep }: CheckoutFormProps) {
           </div>
         </FormProvider>
       ) : (
-        <FormProvider {...shippingInfoForm}>
-          <div></div>
+        <FormProvider {...paymentForm}>
           <div>
-            <InputField fullWidth name='cardNumber' label='Card Number' placeholder='Enter your first name' />
-            <div className='w-full flex items-center gap-5'>
-              <InputField fullWidth name='expirationDate' label='Expiration Date' placeholder='mm/yy' />
-              <InputField fullWidth name='cvv' label='CVV' placeholder='XXX' />
+            <RadioGroupField
+              name='paymentMethod'
+              options={[
+                {
+                  value: 1,
+                  label: (
+                    <div className='flex items-center gap-3'>
+                      <img src={images.icons.credit} alt='icon-credit' />
+                      <p className='text-[24px] font-customSemiBold le'>Credit Card</p>
+                    </div>
+                  )
+                },
+                {
+                  value: 2,
+                  label: (
+                    <div className='flex items-center gap-3'>
+                      <div className='size-12 bg-gradient-to-r from-greenMain to-blueMain flex items-center justify-center rounded-xl'>
+                        <WalletIcon color='#ffffff' />
+                      </div>
+                      <div>
+                        <p className='text-[24px] font-customSemiBold le'>g67s...hs5y</p>
+                        <p className='text-[18px] font-customMedium opacity-[.64]'>Balance: $5,000</p>
+                      </div>
+                    </div>
+                  )
+                }
+              ]}
+            />
+            <div className='mt-5'>
+              <InputField fullWidth name='cardNumber' label='Card Number' placeholder='Enter your card number' />
+              <div className='w-full flex items-center gap-5'>
+                <InputField fullWidth name='expirationDate' label='Expiration Date' placeholder='mm/yy' />
+                <InputField fullWidth name='cvv' label='CVV' placeholder='XXX' />
+              </div>
+              <InputField fullWidth name='nameOnCard' label='Name On Card' placeholder='Enter your name' />
             </div>
-            <InputField fullWidth name='phoneNumber' label='Phone Number' placeholder='Enter your phone number' />
           </div>
 
           <div className='flex items-center justify-between'>

@@ -80,7 +80,7 @@ function Home() {
                       {listFilterOption.map((option) => (
                         <Button
                           key={option.value}
-                          onClick={() => setFilterSlide(option.value)}
+                          onClick={() => setFilterSlide(option.value as string)}
                           size='small'
                           variant='linear'
                           className='px-[22px] w-fit'

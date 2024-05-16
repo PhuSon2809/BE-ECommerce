@@ -16,12 +16,14 @@ function Checkout() {
 
   const [step, setStep] = useState<1 | 2>(1)
 
-  const listItemCheckout = cart.filter((item) =>
-    queryConfig.itemCheckoutIds
-      ?.split(',')
-      .map((item) => Number(item))
-      .includes(item.id)
-  )
+  const listItemCheckout = queryConfig.itemCheckoutIds
+    ? cart.filter((item) =>
+        queryConfig.itemCheckoutIds
+          ?.split(',')
+          .map((item) => Number(item))
+          .includes(item.id)
+      )
+    : cart
 
   return (
     <div className='grid grid-cols-3 min-h-[90vh] h-full'>
@@ -53,7 +55,7 @@ function Checkout() {
               <p className='text-[20px] font-customMedium'>Total</p>
               <p className='text-[32px] font-customSemiBold leading-none'>
                 $
-                {cart.length > 0
+                {listItemCheckout.length > 0
                   ? listItemCheckout
                       .reduce((total: number, currentProduct: ProductCart) => {
                         return total + currentProduct.quantityInCart * currentProduct.price

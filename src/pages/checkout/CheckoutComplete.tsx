@@ -37,16 +37,28 @@ function CheckoutComplete() {
                 </p>
               </div>
             </div>
-            <Link to={'/'} className='ml-auto'>
-              <Button
-                size='large'
-                variant='outline'
-                classNameText='!uppercase'
-                className='w-[300px] h-[56px] rounded-[36px]'
-              >
-                back to homepage
-              </Button>
-            </Link>
+            <div className='ml-auto'>
+              <Link to={'/'}>
+                <Button
+                  size='large'
+                  variant='outline'
+                  classNameText='!uppercase'
+                  className='w-[300px] h-[56px] rounded-[36px]'
+                >
+                  back to homepage
+                </Button>
+              </Link>
+              <Link to={'/'} className='ml-5'>
+                <Button
+                  size='large'
+                  variant='container'
+                  classNameText='!uppercase'
+                  className='w-[183px] h-[56px] rounded-[36px]'
+                >
+                  view order
+                </Button>
+              </Link>
+            </div>
           </div>
         </section>
       </div>

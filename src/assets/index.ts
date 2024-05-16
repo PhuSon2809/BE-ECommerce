@@ -3,6 +3,7 @@ import logo_white from '~/assets/images/logo-white.svg'
 import product_banner from '~/assets/images/product-banner.png'
 import product_banner_single from '~/assets/images/product-banner-single.png'
 import product_single from '~/assets/images/product-single.png'
+import product_category_banner from '~/assets/images/product-category-banner.png'
 import circle_white from '~/assets/images/circle-white.svg'
 import discover1 from '~/assets/images/discover-1.png'
 import discover2 from '~/assets/images/discover-2.png'
@@ -104,6 +105,7 @@ import chevron_bot from '~/assets/icons/chevron-bot.svg'
 import twitter from '~/assets/icons/twitter.svg'
 import link from '~/assets/icons/link.svg'
 import add_to_bag from '~/assets/icons/add-to-bag.svg'
+import wallet from '~/assets/icons/wallet.svg'
 
 const images = {
   logo: { logo_e_commerce, logo_white, circle_white },
@@ -163,9 +165,19 @@ const images = {
     chevron_bot,
     twitter,
     link,
-    add_to_bag
+    add_to_bag,
+    wallet
   },
-  product: { product_banner, product_banner_single, product_single, discover1, discover2, discover3, discover4 },
+  product: {
+    product_banner,
+    product_banner_single,
+    product_single,
+    product_category_banner,
+    discover1,
+    discover2,
+    discover3,
+    discover4
+  },
   home: {
     home_banner,
     home1,
