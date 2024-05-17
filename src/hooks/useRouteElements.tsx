@@ -8,6 +8,7 @@ import { CartShare } from '~/pages/cartShare'
 import { Category } from '~/pages/category'
 import { Checkout, CheckoutComplete } from '~/pages/checkout'
 import { Home } from '~/pages/home'
+import { TrackingOrder } from '~/pages/order'
 import { ProductDetail } from '~/pages/productDetail'
 
 function useRouteElements() {
@@ -48,6 +49,10 @@ function useRouteElements() {
     {
       path: PATH_PRIVATE_APP.checkout.complete,
       element: <CheckoutComplete />
+    },
+    {
+      path: PATH_PRIVATE_APP.order.tracking,
+      element: <TrackingOrder />
     }
   ])
 
