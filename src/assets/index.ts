@@ -111,7 +111,11 @@ import chevron_bot from '~/assets/icons/chevron-bot.svg'
 import twitter from '~/assets/icons/twitter.svg'
 import link from '~/assets/icons/link.svg'
 import add_to_bag from '~/assets/icons/add-to-bag.svg'
-import wallet from '~/assets/icons/wallet.svg'
+import filter_2 from '~/assets/icons/filter-2.svg'
+
+// History
+import visa_card from '~/assets/images/visa-card.png'
+import visa_card_liner from '~/assets/images/visa-card-liner.png'
 import card from '~/assets/icons/card.png'
 import visa from '~/assets/icons/visa.png'
 import flash_sale_icon from '~/assets/icons/flash-sale-icon.png'
@@ -183,7 +187,7 @@ const images = {
     twitter,
     link,
     add_to_bag,
-    wallet,
+    filter_2,
     card,
     visa,
     flash_sale_icon,
@@ -242,6 +246,10 @@ const images = {
     technology_1,
     technology_2,
     technology_3
+  },
+  history: {
+    visa_card,
+    visa_card_liner
   }
 }
 
