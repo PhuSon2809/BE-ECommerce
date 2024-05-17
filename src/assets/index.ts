@@ -119,6 +119,8 @@ import visa_card_liner from '~/assets/images/visa-card-liner.png'
 import card from '~/assets/icons/card.png'
 import visa from '~/assets/icons/visa.png'
 import flash_sale_icon from '~/assets/icons/flash-sale-icon.png'
+import delivery from '~/assets/icons/delivery.svg'
+import double_check from '~/assets/icons/double-check.svg'
 
 const images = {
   logo: { logo_e_commerce, logo_white, circle_white },
@@ -188,7 +190,9 @@ const images = {
     filter_2,
     card,
     visa,
-    flash_sale_icon
+    flash_sale_icon,
+    delivery,
+    double_check
   },
   product: {
     product_banner,

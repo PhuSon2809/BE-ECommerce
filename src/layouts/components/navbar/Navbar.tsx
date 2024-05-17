@@ -16,7 +16,7 @@ import {
   NavSettingIcon,
   NavTrackingIcon
 } from '~/components/icons'
-import { PATH_PUBLIC_APP } from '~/constants/paths'
+import { PATH_PRIVATE_APP, PATH_PUBLIC_APP } from '~/constants/paths'
 import './styles.scss'
 
 const configNavbar = [
@@ -56,7 +56,7 @@ const configNavbar = [
     icon: (color: string) => <NavNetworkIcon color={color} />
   },
   {
-    url: PATH_PUBLIC_APP.home,
+    url: PATH_PRIVATE_APP.order.tracking,
     label: 'Tracking',
     icon: (color: string) => <NavTrackingIcon color={color} />
   },

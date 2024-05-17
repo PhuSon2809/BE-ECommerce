@@ -6,6 +6,7 @@ const ROOTS_USER = '/user'
 const ROOTS_PRODUCT = '/product'
 const ROOTS_CART = '/cart'
 const ROOTS_CHECKOUT = '/checkout'
+const ROOTS_ORDER = '/order'
 
 export const PATH_ERROR = {
   noPermission: path(ROOTS_ERROR, '/403'),
@@ -43,6 +44,10 @@ export const PATH_PRIVATE_APP = {
   checkout: {
     root: pathRoot(ROOTS_CHECKOUT),
     complete: path(ROOTS_CHECKOUT, '/complete')
+  },
+  order: {
+    root: pathRoot(ROOTS_ORDER),
+    tracking: path(ROOTS_ORDER, '/tracking')
   },
   user: {
     root: pathRoot(ROOTS_USER),

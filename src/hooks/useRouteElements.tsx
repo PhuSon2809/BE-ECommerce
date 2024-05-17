@@ -9,6 +9,7 @@ import { Category } from '~/pages/category'
 import { Checkout, CheckoutComplete } from '~/pages/checkout'
 import { History } from '~/pages/history'
 import { Home } from '~/pages/home'
+import { TrackingOrder } from '~/pages/order'
 import { ProductDetail } from '~/pages/productDetail'
 
 function useRouteElements() {
@@ -51,12 +52,12 @@ function useRouteElements() {
       element: <CheckoutComplete />
     },
     {
+      path: PATH_PRIVATE_APP.order.tracking,
+      element: <TrackingOrder />
+    },
+    {
       path: '/history',
-      element: (
-        // <MainLayout>
-        <History />
-        // {/* </MainLayout> */}
-      )
+      element: <History />
     }
   ])
 
