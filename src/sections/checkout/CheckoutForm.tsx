@@ -174,7 +174,18 @@ function CheckoutForm({ step, setStep }: CheckoutFormProps) {
               ]}
             />
             <div className='mt-5'>
-              <InputField fullWidth name='cardNumber' label='Card Number' placeholder='Enter your card number' />
+              <InputField
+                fullWidth
+                name='cardNumber'
+                label='Card Number'
+                placeholder='Enter your card number'
+                rightIcon={
+                  <div className='flex items-center gap-3'>
+                    <img src={images.icons.visa} alt='icon-visa-card' />
+                    <img src={images.icons.card} alt='icon-back-card' />
+                  </div>
+                }
+              />
               <div className='w-full flex items-center gap-5'>
                 <InputField fullWidth name='expirationDate' label='Expiration Date' placeholder='mm/yy' />
                 <InputField fullWidth name='cvv' label='CVV' placeholder='XXX' />

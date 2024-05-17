@@ -34,7 +34,7 @@ const labels = [
 
 const FILTER_DAY: OptionSelect[] = [
   { value: '1d', label: '1D' },
-  { value: '5d', label: '1W' },
+  { value: '5d', label: '5D' },
   { value: '1w', label: '1W' },
   { value: '1m', label: '1M' },
   { value: '6m', label: '6M' },
@@ -65,10 +65,10 @@ function ChartSection() {
             {FILTER_DAY.map((option) => (
               <button
                 key={option.value}
-                onClick={() => setFilterDay(option.value)}
+                onClick={() => setFilterDay(option.value as string)}
                 className={`xs:h-[20px] sm:h-[29px] flex items-center justify-center ${option.value === filterDay ? 'bg-black text-white hover:backdrop-blur-2xl' : 'bg-greyLight hover:bg-gray-300'} rounded xs:px-2 sm:px-4 py-2 transition-all ease-in-out duration-300`}
               >
-                <p className='xs:text-[11.96px] sm:text-[18px] font-medium leading-none pt-1'>{option.label}</p>
+                <p className='xs:text-[11.96px] sm:text-[18px] font-medium leading-none'>{option.label}</p>
               </button>
             ))}
           </div>

@@ -58,6 +58,11 @@ import home_unvei_circle2 from '~/assets/images/home-unvei-circle1.png'
 import technology_1 from '~/assets/images/technology-1.png'
 import technology_2 from '~/assets/images/technology-2.png'
 import technology_3 from '~/assets/images/technology-3.png'
+import flash_sale_1 from '~/assets/images/flash-sale-1.png'
+import flash_sale_2 from '~/assets/images/flash-sale-2.png'
+import flash_sale_3 from '~/assets/images/flash-sale-3.png'
+import flash_sale_4 from '~/assets/images/flash-sale-4.png'
+import bg_feature_product from '~/assets/images/bg-feature-product.png'
 
 import add_white from '~/assets/icons/add-white.svg'
 import menu from '~/assets/icons/menu.svg'
@@ -106,6 +111,9 @@ import twitter from '~/assets/icons/twitter.svg'
 import link from '~/assets/icons/link.svg'
 import add_to_bag from '~/assets/icons/add-to-bag.svg'
 import wallet from '~/assets/icons/wallet.svg'
+import card from '~/assets/icons/card.png'
+import visa from '~/assets/icons/visa.png'
+import flash_sale_icon from '~/assets/icons/flash-sale-icon.png'
 
 const images = {
   logo: { logo_e_commerce, logo_white, circle_white },
@@ -117,7 +125,12 @@ const images = {
     arrow_radius_right_large,
     bg_content_discover,
     bg_content_discover_large,
-    congratulations
+    congratulations,
+    flash_sale_1,
+    flash_sale_2,
+    flash_sale_3,
+    flash_sale_4,
+    bg_feature_product
   },
   icons: {
     add_white,
@@ -166,7 +179,10 @@ const images = {
     twitter,
     link,
     add_to_bag,
-    wallet
+    wallet,
+    card,
+    visa,
+    flash_sale_icon
   },
   product: {
     product_banner,

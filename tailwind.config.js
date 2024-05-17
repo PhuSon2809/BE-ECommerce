@@ -33,7 +33,8 @@ export default {
         greyMain: '#F6F6F7',
         greyLight: '#F8F8F9',
         blueMain: '#5495FC',
-        greenMain: '#60EC8E'
+        greenMain: '#60EC8E',
+        orangeMain: '#FF9900'
       },
       backgroundImage: {
         'home-banner': "url('/assets/images/home-banner.png')"

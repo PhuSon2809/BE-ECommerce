@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
 
 interface InputFieldProps {
@@ -13,6 +14,7 @@ interface InputFieldProps {
   className?: string | null
   helperText?: string
   required?: boolean
+  rightIcon?: ReactNode
 }
 
 function InputField({
@@ -27,7 +29,8 @@ function InputField({
   fullWidth = false,
   className = null,
   required = false,
-  helperText
+  helperText,
+  rightIcon
 }: InputFieldProps) {
   const { control } = useFormContext()
 
@@ -42,19 +45,24 @@ function InputField({
           <label htmlFor={name} className='text-[20px] font-customSemiBold capitalize'>
             {label}
           </label>
-          <input
-            {...field}
-            id={name}
-            type={type}
-            required={required}
-            disabled={disabled}
-            placeholder={placeholder}
-            className={`w-full h-[52px] border-[1px] border-solid border-blackMain/[.22] rounded-[30px] px-5 pb-[2px] focus:ring-[1.5px] focus:ring-blackMain/[.30] hover:ring-[1.5px] hover:ring-blackMain/[.30] transition-colors ease-in-out duration-300 ${className}`}
-            onChange={(e) => {
-              const value = e.target.value
-              field.onChange(value)
-            }}
-          />
+          <div className='relative'>
+            <input
+              {...field}
+              id={name}
+              type={type}
+              required={required}
+              disabled={disabled}
+              placeholder={placeholder}
+              className={`w-full h-[52px] border-[1px] border-solid border-blackMain/[.22] rounded-[30px] px-5 pb-[2px] focus:ring-[1.5px] focus:ring-blackMain/[.30] hover:ring-[1.5px] hover:ring-blackMain/[.30] transition-colors ease-in-out duration-300 ${className}`}
+              onChange={(e) => {
+                const value = e.target.value
+                field.onChange(value)
+              }}
+            />
+            <div className='absolute top-1/2 right-[25px] transform -translate-y-1/2 pointer-events-none'>
+              {rightIcon}
+            </div>
+          </div>
           {helperText && (
             <div className='h-[18px]'>
               <p className='mt-2 text-[14px] text-gray-400'>{helperText}</p>
