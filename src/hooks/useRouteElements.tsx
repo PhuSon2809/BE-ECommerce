@@ -1,4 +1,5 @@
 import { useRoutes } from 'react-router-dom'
+import { PATH_PRIVATE_APP, PATH_PUBLIC_APP } from '~/constants/paths'
 
 import { MainLayout } from '~/layouts/mainLayout'
 
@@ -12,7 +13,7 @@ import { ProductDetail } from '~/pages/productDetail'
 function useRouteElements() {
   const routeElements = useRoutes([
     {
-      path: '/',
+      path: PATH_PUBLIC_APP.home,
       index: true,
       element: (
         <MainLayout>
@@ -21,11 +22,11 @@ function useRouteElements() {
       )
     },
     {
-      path: '/categories',
+      path: PATH_PUBLIC_APP.category.list,
       element: <Category />
     },
     {
-      path: '/product/:id',
+      path: PATH_PUBLIC_APP.product.detailById,
       element: (
         <MainLayout>
           <ProductDetail />
@@ -33,19 +34,19 @@ function useRouteElements() {
       )
     },
     {
-      path: '/cart',
+      path: PATH_PUBLIC_APP.cart.root,
       element: <Cart />
     },
     {
-      path: '/cart-share',
+      path: PATH_PUBLIC_APP.cart.share,
       element: <CartShare />
     },
     {
-      path: '/checkout',
+      path: PATH_PRIVATE_APP.checkout.root,
       element: <Checkout />
     },
     {
-      path: '/checkout-complete',
+      path: PATH_PRIVATE_APP.checkout.complete,
       element: <CheckoutComplete />
     }
   ])

@@ -29,7 +29,7 @@ function FaqCard({ faq, index, isActive, setFaqActive }: FaqCardProps) {
       >
         {!isActive && !smDown && <div className='text-black'></div>}
         <h1
-          className={`${smDown ? 'w-[205px]' : 'w-fit'} ${isActive ? 'xs:text-[24px] sm:text-[32px] text-white font-semibold' : 'text-[24px] text-blackMain font-medium'}  leading-[42px]`}
+          className={`${smDown ? 'w-[205px]' : 'w-fit'} ${isActive ? 'xs:text-[24px] sm:text-[32px] text-white font-semibold' : 'text-[24px] text-blackMain font-medium'} leading-none`}
         >
           {faq.title}
         </h1>

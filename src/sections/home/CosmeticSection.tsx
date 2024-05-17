@@ -41,7 +41,10 @@ function CosmeticSection() {
         >
           {listProductsCosmetic.map((product, index) => {
             return (
-              <div className={`${slideActive === index ? 'active' : ''} h-[390px] flex items-center justify-end`}>
+              <div
+                key={product.id}
+                className={`${slideActive === index ? 'active' : ''} h-[390px] flex items-center justify-end`}
+              >
                 <div className='mt-[10px]'>
                   <ProductFunctional key={product.id} product={product} isActive={slideActive === index} />
                 </div>

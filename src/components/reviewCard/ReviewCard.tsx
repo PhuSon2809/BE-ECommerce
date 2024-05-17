@@ -17,7 +17,7 @@ function ReviewCard({ review }: ReviewCard) {
         <p className='xs:text-[18px] sm:text-[24px] leading-none mt-1'>{review.ratings.toFixed(1)}</p>
       </div>
       <p className='xs:text-[14px] sm:text-[20px] font-customMedium xs:leading-6 sm:leading-8'>{review.content}</p>
-      <h6 className='xs:text-[18px] sm:text-[24px] font-customSemiBold xs:leading-[14px] sm:leading-[18px]'>
+      <h6 className='xs:text-[18px] sm:text-[24px] font-customSemiBold leading-none'>
         ID Customer: <span>{review.idCustomer}</span>
       </h6>
     </div>
