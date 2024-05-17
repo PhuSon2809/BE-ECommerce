@@ -6,6 +6,7 @@ import { Cart } from '~/pages/cart'
 import { CartShare } from '~/pages/cartShare'
 import { Category } from '~/pages/category'
 import { Checkout, CheckoutComplete } from '~/pages/checkout'
+import { History } from '~/pages/history'
 import { Home } from '~/pages/home'
 import { ProductDetail } from '~/pages/productDetail'
 
@@ -47,6 +48,14 @@ function useRouteElements() {
     {
       path: '/checkout-complete',
       element: <CheckoutComplete />
+    },
+    {
+      path: '/history',
+      element: (
+        // <MainLayout>
+        <History />
+        // {/* </MainLayout> */}
+      )
     }
   ])
 

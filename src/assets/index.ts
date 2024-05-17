@@ -104,6 +104,13 @@ import chevron_bot from '~/assets/icons/chevron-bot.svg'
 import twitter from '~/assets/icons/twitter.svg'
 import link from '~/assets/icons/link.svg'
 import add_to_bag from '~/assets/icons/add-to-bag.svg'
+import filter_2 from '~/assets/icons/filter-2.svg'
+import wallet from '~/assets/icons/wallet.svg'
+import visa from '~/assets/icons/visa.svg'
+
+// History
+import visa_card from '~/assets/images/visa-card.png'
+import visa_card_liner from '~/assets/images/visa-card-liner.png'
 
 const images = {
   logo: { logo_e_commerce, logo_white, circle_white },
@@ -163,7 +170,10 @@ const images = {
     chevron_bot,
     twitter,
     link,
-    add_to_bag
+    add_to_bag,
+    filter_2,
+    wallet,
+    visa
   },
   product: { product_banner, product_banner_single, product_single, discover1, discover2, discover3, discover4 },
   home: {
@@ -208,6 +218,10 @@ const images = {
     technology_1,
     technology_2,
     technology_3
+  },
+  history: {
+    visa_card,
+    visa_card_liner
   }
 }
 

@@ -130,5 +130,5 @@
   box-sizing: border-box;
   text-decoration: none;
   outline: none;
-  border: none;
+  /* border: none; */
 }
