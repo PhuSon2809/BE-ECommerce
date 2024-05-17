@@ -66,7 +66,7 @@ function IconButton({
         ${color === 'default' && variant === 'container' ? 'hover:bg-greyMain' : 'hover:bg-white'} 
         ${variant === 'outline' && color === 'white' ? 'border-blackMain border-2 border-solid' : variant === 'outline' && color === 'default' ? 'border-blackMain/[.22] border-2 border-solid' : ''} 
         ${shadow && 'shadow-icon-button'} 
-        flex items-center ${title || leftTitle ? 'gap-2' : 'justify-center'} rounded-full backdrop-blur-2xl transition ease-in-out duration-300
+        flex items-center ${title || leftTitle ? 'gap-2' : 'justify-center'} rounded-full backdrop-blur-2xl transition ease-in-out duration-300 hover:shadow-avatar
         ${className}
       `}
     >

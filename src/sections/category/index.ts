@@ -1,3 +1,7 @@
 export { default as TabProductList } from './TabProductList'
 export { default as SlideBanner } from './SlideBanner'
 export { default as RecentPurchases } from './RecentPurchases'
+export { default as PurchasesChart } from './PurchasesChart'
+export { default as FlashSale } from './FlashSale'
+export { default as FeaturedProduct } from './FeaturedProduct'
+export { default as ListProduct } from './ListProduct'

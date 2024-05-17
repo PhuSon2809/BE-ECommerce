@@ -16,3 +16,10 @@ export interface ProductCart {
   category: string
   quantityInCart: number
 }
+export interface ProductRecent {
+  id: number
+  image: any
+  title: string
+  time: string
+  purchases: number
+}
