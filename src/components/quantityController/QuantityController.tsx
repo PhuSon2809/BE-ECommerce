@@ -8,6 +8,7 @@ import { ProductCart } from '~/@types/model'
 import { IconButton } from '~/components/iconButton'
 
 interface QuantityControllerProps {
+  isSmall?: boolean
   isCart?: boolean
   productInCart?: ProductCart
   max?: number
@@ -21,6 +22,7 @@ interface QuantityControllerProps {
 }
 
 function QuantityController({
+  isSmall,
   isCart,
   productInCart,
   max,
@@ -74,13 +76,13 @@ function QuantityController({
   return (
     <div className='flex items-center gap-3'>
       <IconButton
-        size='40'
+        size={isSmall ? '28' : '40'}
         variant='outline'
         onClick={decrease}
         disabled={isCart ? value === 0 : value === 1 || localValue === 1 || disabled}
-        className='border-[1.88px]'
+        className={`${isSmall ? 'border-[0.88px]' : 'border-[1.88px]'} hover:bg-transparent hover:border-blackMain`}
       >
-        <Minus fontSize={15} />
+        <Minus fontSize={isSmall ? 10 : 15} />
       </IconButton>
       <p className='min-w-[30px] text-[20px] font-customSemiBold text-center'>
         {(productInCart?.quantityInCart as number) < 10
@@ -88,13 +90,13 @@ function QuantityController({
           : productInCart?.quantityInCart}
       </p>
       <IconButton
-        size='40'
+        size={isSmall ? '28' : '40'}
         variant='outline'
         onClick={increase}
         disabled={value === max || localValue === max || disabled}
-        className='border-[1.88px]'
+        className={`${isSmall ? 'border-[0.88px]' : 'border-[1.88px]'} hover:bg-transparent hover:border-blackMain`}
       >
-        <Plus fontSize={15} />
+        <Plus fontSize={isSmall ? 10 : 15} />
       </IconButton>
     </div>
   )

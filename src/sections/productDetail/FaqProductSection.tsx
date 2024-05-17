@@ -11,7 +11,7 @@ function FaqProductSection() {
 
   return (
     <section className='faq-product relative pl-4 xs:mt-5 sm:mt-10'>
-      <h1 className='xs:hidden sm:block text-[56px] font-bold leading-[76px] capitalize text-center mb-10'>
+      <h1 className='xs:hidden sm:block text-[56px] font-customBold leading-[76px] capitalize text-center mb-10'>
         FAQ for products
       </h1>
       <div className='relative'>

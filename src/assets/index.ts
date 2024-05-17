@@ -3,6 +3,7 @@ import logo_white from '~/assets/images/logo-white.svg'
 import product_banner from '~/assets/images/product-banner.png'
 import product_banner_single from '~/assets/images/product-banner-single.png'
 import product_single from '~/assets/images/product-single.png'
+import product_category_banner from '~/assets/images/product-category-banner.png'
 import circle_white from '~/assets/images/circle-white.svg'
 import discover1 from '~/assets/images/discover-1.png'
 import discover2 from '~/assets/images/discover-2.png'
@@ -57,6 +58,11 @@ import home_unvei_circle2 from '~/assets/images/home-unvei-circle1.png'
 import technology_1 from '~/assets/images/technology-1.png'
 import technology_2 from '~/assets/images/technology-2.png'
 import technology_3 from '~/assets/images/technology-3.png'
+import flash_sale_1 from '~/assets/images/flash-sale-1.png'
+import flash_sale_2 from '~/assets/images/flash-sale-2.png'
+import flash_sale_3 from '~/assets/images/flash-sale-3.png'
+import flash_sale_4 from '~/assets/images/flash-sale-4.png'
+import bg_feature_product from '~/assets/images/bg-feature-product.png'
 
 import add_white from '~/assets/icons/add-white.svg'
 import menu from '~/assets/icons/menu.svg'
@@ -71,6 +77,7 @@ import arrow_right from '~/assets/icons/arrow-right.svg'
 import arrow_top_right from '~/assets/icons/arrow-top-right.svg'
 import arrow_top from '~/assets/icons/arrow-top.svg'
 import arrow_bot from '~/assets/icons/arrow-bot.svg'
+import close from '~/assets/icons/close.svg'
 import faq1 from '~/assets/icons/faq-1.svg'
 import faq2 from '~/assets/icons/faq-2.svg'
 import faq3 from '~/assets/icons/faq-3.svg'
@@ -105,12 +112,13 @@ import twitter from '~/assets/icons/twitter.svg'
 import link from '~/assets/icons/link.svg'
 import add_to_bag from '~/assets/icons/add-to-bag.svg'
 import filter_2 from '~/assets/icons/filter-2.svg'
-import wallet from '~/assets/icons/wallet.svg'
-import visa from '~/assets/icons/visa.svg'
 
 // History
 import visa_card from '~/assets/images/visa-card.png'
 import visa_card_liner from '~/assets/images/visa-card-liner.png'
+import card from '~/assets/icons/card.png'
+import visa from '~/assets/icons/visa.png'
+import flash_sale_icon from '~/assets/icons/flash-sale-icon.png'
 
 const images = {
   logo: { logo_e_commerce, logo_white, circle_white },
@@ -122,7 +130,12 @@ const images = {
     arrow_radius_right_large,
     bg_content_discover,
     bg_content_discover_large,
-    congratulations
+    congratulations,
+    flash_sale_1,
+    flash_sale_2,
+    flash_sale_3,
+    flash_sale_4,
+    bg_feature_product
   },
   icons: {
     add_white,
@@ -138,6 +151,7 @@ const images = {
     arrow_left,
     arrow_right,
     arrow_top_right,
+    close,
     faq1,
     faq2,
     faq3,
@@ -172,10 +186,20 @@ const images = {
     link,
     add_to_bag,
     filter_2,
-    wallet,
-    visa
+    card,
+    visa,
+    flash_sale_icon
   },
-  product: { product_banner, product_banner_single, product_single, discover1, discover2, discover3, discover4 },
+  product: {
+    product_banner,
+    product_banner_single,
+    product_single,
+    product_category_banner,
+    discover1,
+    discover2,
+    discover3,
+    discover4
+  },
   home: {
     home_banner,
     home1,

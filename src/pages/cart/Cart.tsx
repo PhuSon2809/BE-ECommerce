@@ -7,6 +7,7 @@ import { ProductCart } from '~/@types/model'
 import images from '~/assets'
 import { Button } from '~/components/button'
 import { CartItem } from '~/components/cartItem'
+import { PATH_PRIVATE_APP, PATH_PUBLIC_APP } from '~/constants/paths'
 
 function Cart() {
   const navigate = useNavigate()
@@ -40,6 +41,9 @@ function Cart() {
 
     setSelected(newSelected)
   }
+
+  const listItemCheckout =
+    selected.length > 0 ? cart.filter((item) => selected.map((item) => Number(item)).includes(item.id)) : []
 
   return (
     <section className='max-w-[1440px] mx-auto p-[100px]'>
@@ -78,13 +82,13 @@ function Cart() {
               <p className='text-[20px] opacity-[.64] leading-none'>Subtotal</p>
               <p className='text-[20px] font-customSemiBold leading-none'>
                 $
-                {cart.length > 0
-                  ? cart
+                {selected.length > 0
+                  ? listItemCheckout
                       .reduce((total: number, currentProduct: ProductCart) => {
                         return total + currentProduct.quantityInCart * currentProduct.price
                       }, 0)
                       .toFixed(2)
-                  : 0}
+                  : (0).toFixed(2)}
               </p>
             </div>
             <div className='w-full flex items-center justify-between'>
@@ -98,8 +102,8 @@ function Cart() {
               <p className='text-[20px] opacity-[.64] leading-none'>Total</p>
               <p className='text-[32px] font-customSemiBold'>
                 $
-                {cart.length > 0
-                  ? cart
+                {selected.length > 0
+                  ? listItemCheckout
                       .reduce((total: number, currentProduct: ProductCart) => {
                         return total + currentProduct.quantityInCart * currentProduct.price
                       }, 0)
@@ -120,7 +124,7 @@ function Cart() {
               disabled={selected.length === 0}
               onClick={() =>
                 navigate({
-                  pathname: '/checkout',
+                  pathname: PATH_PRIVATE_APP.checkout.root,
                   search: createSearchParams({
                     itemCheckoutIds: selected.toString()
                   }).toString()
@@ -135,7 +139,7 @@ function Cart() {
               classNameText='!uppercase'
               onClick={() =>
                 navigate({
-                  pathname: '/cart-share',
+                  pathname: PATH_PUBLIC_APP.cart.share,
                   search: createSearchParams({
                     cartShareType: 'share-link'
                   }).toString()
