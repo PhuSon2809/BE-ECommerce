@@ -10,6 +10,7 @@ import useQueryConfig from '~/hooks/useQueryConfig'
 import { useAppSelector } from '~/redux/configStore'
 import images from '~/assets'
 import './style.scss'
+import { QUERY_PARAM_STRING } from '~/constants/queryParamString'
 
 function CartShare() {
   const sliderRef = useRef<Slider>(null)
@@ -27,7 +28,7 @@ function CartShare() {
       </div>
 
       <div className='pt-20 pb-10 flex flex-col items-center relative'>
-        {queryConfig.cartShareType === 'view-link-share' && (
+        {queryConfig.cartShareType === QUERY_PARAM_STRING.cartShareType.viewLinkShare && (
           <div className='w-full pl-[60px]'>
             <p className='text-[24px] font-customBold text-left'>Select the product you want to pay for</p>
           </div>
@@ -53,13 +54,13 @@ function CartShare() {
           </Slider>
 
           <button
-            className={`size-12 rounded-full bg-white/[.75] backdrop-blur-[34.29px] shadow-13xl flex items-center justify-center cursor-pointer absolute ${queryConfig.cartShareType === 'view-link-share' ? 'top-[45%]' : 'top-[43%]'} left-[2.5%]`}
+            className={`size-12 rounded-full bg-white/[.75] backdrop-blur-[34.29px] shadow-13xl flex items-center justify-center cursor-pointer absolute ${queryConfig.cartShareType === QUERY_PARAM_STRING.cartShareType.viewLinkShare ? 'top-[45%]' : 'top-[43%]'} left-[2.5%]`}
             onClick={() => sliderRef.current?.slickPrev()}
           >
             <img src={images.icons.arrow_left} alt='arrow-left' />
           </button>
           <button
-            className={`size-12 rounded-full bg-white/[.75] backdrop-blur-[34.29px] shadow-13xl flex items-center justify-center cursor-pointer absolute ${queryConfig.cartShareType === 'view-link-share' ? 'top-[45%]' : 'top-[43%]'} right-[2.5%]`}
+            className={`size-12 rounded-full bg-white/[.75] backdrop-blur-[34.29px] shadow-13xl flex items-center justify-center cursor-pointer absolute ${queryConfig.cartShareType === QUERY_PARAM_STRING.cartShareType.viewLinkShare ? 'top-[45%]' : 'top-[43%]'} right-[2.5%]`}
             onClick={() => sliderRef.current?.slickNext()}
           >
             <img src={images.icons.arrow_right} alt='arrow-right' />
@@ -96,7 +97,9 @@ function CartShare() {
               <img src={images.icons.twitter} alt='icon-twitter' />
               <p className='text-[14px] font-customMedium leading-[14.7px] text-white capitalize'>twitter</p>
             </button>
-            <CopyToClipboard text={'http://localhost:3000/cart-share?cartShareType=view-link-share'}>
+            <CopyToClipboard
+              text={`http://localhost:3000/cart-share?cartShareType=${QUERY_PARAM_STRING.cartShareType.viewLinkShare}`}
+            >
               <button className='h-10 pl-2 pr-3 flex items-center gap-1 rounded-[20px] bg-white shadow-popover-custom'>
                 <div className='size-6 bg-gradient-to-br from-blueMain to-greenMain rounded-full flex items-center justify-center'>
                   <img src={images.icons.link} alt='icon-link' />

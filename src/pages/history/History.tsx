@@ -1,10 +1,9 @@
 import { Header } from '~/layouts/components/header'
 import images from '~/assets'
 import './styles.scss'
+import { WalletIcon } from '~/components/icons'
 
-type Props = {}
-
-const History = (props: Props) => {
+const History = () => {
   return (
     <div className='container bg-[#F8F8F9]'>
       <div className='history'>
@@ -40,7 +39,7 @@ const History = (props: Props) => {
                 {Array.from({ length: 3 }).map((_, index) => (
                   <div key={index} className='flex justify-between items-center text-lg'>
                     <div className='flex items-center gap-4'>
-                      <img src={images.icons.wallet} alt='icon' />
+                      <WalletIcon color='#0D0D0D' />
                       <span>Wallet fg75...jh89</span>
                     </div>
                     <div className='font-customSemiBold'>$249.00</div>

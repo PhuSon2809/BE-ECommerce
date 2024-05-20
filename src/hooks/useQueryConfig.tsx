@@ -13,6 +13,7 @@ function useQueryConfig() {
 
   const queryConfig: QueryConfig = omitBy(
     {
+      checkoutType: queryParams.checkoutType,
       cartShareType: queryParams.cartShareType,
       itemCheckoutIds: queryParams.itemCheckoutIds,
       itemsPerPage: queryParams.itemsPerPage || '5',

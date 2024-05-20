@@ -119,8 +119,6 @@ function Navbar({ setOpenMenu, variant = 'vertical' }: NavbarProps) {
     }
   }
 
-  console.log(variant)
-
   const ListNavItem = () => {
     return (
       <div

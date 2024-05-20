@@ -50,8 +50,8 @@ const NavPlantIcon = ({ color }: { color: string }) => {
           <rect width='22' height='22' fill='white' />
         </clipPath>
         <linearGradient id='paint0_linear_11_411' x1='20' y1='12' x2='4' y2='12' gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#5495FC' />
-          <stop offset='1' stop-color='#31D366' />
+          <stop stopColor='#5495FC' />
+          <stop offset='1' stopColor='#31D366' />
         </linearGradient>
         <linearGradient
           id='paint1_linear_11_411'
@@ -61,8 +61,8 @@ const NavPlantIcon = ({ color }: { color: string }) => {
           y2='11.3332'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#5495FC' />
-          <stop offset='1' stop-color='#31D366' />
+          <stop stopColor='#5495FC' />
+          <stop offset='1' stopColor='#31D366' />
         </linearGradient>
       </defs>
     </svg>

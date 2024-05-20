@@ -39,7 +39,10 @@ function TextareaField({
       defaultValue={defaultValue}
       render={({ field, fieldState }) => (
         <div className={`flex flex-col gap-1 ${fullWidth ? 'w-full' : 'w-[350px]'} ${width ? width : ''}`}>
-          <label htmlFor={name} className='text-[20px] font-customSemiBold capitalize'>
+          <label
+            htmlFor={name}
+            className={`text-[20px] font-customSemiBold capitalize ${disabled && 'text-blackMain/[.32]'}`}
+          >
             {label}
           </label>
           <textarea
@@ -49,7 +52,7 @@ function TextareaField({
             required={required}
             disabled={disabled}
             placeholder={placeholder}
-            className={`w-full border-[1px] border-solid border-blackMain/[.22] rounded-[26px] px-5 py-2 focus:ring-[1.5px] focus:ring-blackMain/[.44] hover:ring-[1.5px] hover:ring-blackMain/[.44] transition-colors ease-in-out duration-300 ${className}`}
+            className={`w-full border-[1px] border-solid border-blackMain/[.22] rounded-[26px] px-5 py-2 ${disabled ? 'bg-blackMain/[.03]' : 'focus:ring-[1.5px] focus:ring-blackMain/[.30] hover:ring-[1.5px] hover:ring-blackMain/[.30]'} transition-colors ease-in-out duration-300 ${className}`}
             onChange={(e) => {
               const value = e.target.value.trimStart()
               field.onChange(value)

@@ -13,9 +13,20 @@ import {
 } from '~/sections/productDetail'
 import './styles.scss'
 import { DiscoverSection } from '~/sections/common'
+import { ProductCart } from '~/@types/model'
 
 function ProductDetail() {
   const sliderRef = useRef<Slider>(null)
+
+  const productCheckout: ProductCart = {
+    id: 10,
+    image: images.product.product_banner_single,
+    title: 'Rooerio cavanl',
+    category: 'Health collection',
+    price: 120,
+    numberItems: 20,
+    quantityInCart: 1
+  }
 
   return (
     <div className='overflow-hidden'>
@@ -23,7 +34,7 @@ function ProductDetail() {
       <div className='banner relative'>
         <Slider ref={sliderRef} dots arrows={false} infinite speed={500} slidesToShow={1} slidesToScroll={1}>
           {Array.from({ length: 3 }).map((_, index: number) => (
-            <BannerSection key={index} />
+            <BannerSection key={index} product={productCheckout} />
           ))}
         </Slider>
         <button

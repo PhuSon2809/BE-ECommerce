@@ -63,6 +63,7 @@ import flash_sale_2 from '~/assets/images/flash-sale-2.png'
 import flash_sale_3 from '~/assets/images/flash-sale-3.png'
 import flash_sale_4 from '~/assets/images/flash-sale-4.png'
 import bg_feature_product from '~/assets/images/bg-feature-product.png'
+import line_group from '~/assets/images/line-group.png'
 
 import add_white from '~/assets/icons/add-white.svg'
 import menu from '~/assets/icons/menu.svg'
@@ -112,15 +113,21 @@ import twitter from '~/assets/icons/twitter.svg'
 import link from '~/assets/icons/link.svg'
 import add_to_bag from '~/assets/icons/add-to-bag.svg'
 import filter_2 from '~/assets/icons/filter-2.svg'
+import delivery from '~/assets/icons/delivery.svg'
+import double_check from '~/assets/icons/double-check.svg'
 
 // History
 import visa_card from '~/assets/images/visa-card.png'
 import visa_card_liner from '~/assets/images/visa-card-liner.png'
+import flash_sale_icon from '~/assets/icons/flash-sale-icon.png'
+
+//checkout
 import card from '~/assets/icons/card.png'
 import visa from '~/assets/icons/visa.png'
-import flash_sale_icon from '~/assets/icons/flash-sale-icon.png'
-import delivery from '~/assets/icons/delivery.svg'
-import double_check from '~/assets/icons/double-check.svg'
+import empty_wallet from '~/assets/images/empty-wallet.png'
+import QR from '~/assets/images/QR.png'
+import bg_checkout_complete from '~/assets/images/bg-checkout-complete.png'
+import bg_add_wallet from '~/assets/images/bg-add-wallet.png'
 
 const images = {
   logo: { logo_e_commerce, logo_white, circle_white },
@@ -137,7 +144,8 @@ const images = {
     flash_sale_2,
     flash_sale_3,
     flash_sale_4,
-    bg_feature_product
+    bg_feature_product,
+    line_group
   },
   icons: {
     add_white,
@@ -250,6 +258,12 @@ const images = {
   history: {
     visa_card,
     visa_card_liner
+  },
+  checkout: {
+    QR,
+    bg_checkout_complete,
+    empty_wallet,
+    bg_add_wallet
   }
 }
 

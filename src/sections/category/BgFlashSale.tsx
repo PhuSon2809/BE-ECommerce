@@ -27,26 +27,26 @@ function BgFlashSale() {
         fill='url(#pattern2_2052_921)'
       />
       <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
+        fillRule='evenodd'
+        clipRule='evenodd'
         d='M0 353V460H177C199.091 460 217 442.091 217 420V331.542C208.401 344.476 193.696 353 177 353H0Z'
         fill='#0D0D0D'
       />
       <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
+        fillRule='evenodd'
+        clipRule='evenodd'
         d='M0 353V460H177C199.091 460 217 442.091 217 420V331.542C208.401 344.476 193.696 353 177 353H0Z'
         fill='url(#pattern3_2052_921)'
       />
       <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
+        fillRule='evenodd'
+        clipRule='evenodd'
         d='M225 310.378C241.597 266.611 283.915 235.5 333.5 235.5C383.085 235.5 425.403 266.611 442 310.378L442 40C442 17.9086 424.091 1.31125e-05 402 1.50437e-05L225 3.05176e-05L225 310.378Z'
         fill='#BAC8D9'
       />
       <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
+        fillRule='evenodd'
+        clipRule='evenodd'
         d='M225 310.378C241.597 266.611 283.915 235.5 333.5 235.5C383.085 235.5 425.403 266.611 442 310.378L442 40C442 17.9086 424.091 1.31125e-05 402 1.50437e-05L225 3.05176e-05L225 310.378Z'
         fill='url(#pattern4_2052_921)'
       />
@@ -86,8 +86,8 @@ function BgFlashSale() {
           y2='64.2362'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#F2F3F5' />
-          <stop offset='1' stop-color='#F6F6F7' />
+          <stop stopColor='#F2F3F5' />
+          <stop offset='1' stopColor='#F6F6F7' />
         </linearGradient>
 
         <image id='image0_2052_921' width='457' height='690' xlinkHref={images.image.flash_sale_1} />

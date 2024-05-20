@@ -9,7 +9,8 @@ export type QueryConfig = {
 
 export interface ListConfig {
   itemCheckoutIds?: number[]
-  cartShareType?: string
+  cartShareType?: 'share-link' | 'view-link-share'
+  checkoutType?: 'receive-product' | 'storage-for-resale'
   itemsPerPage?: number | string
   currentPage?: number | string
 }

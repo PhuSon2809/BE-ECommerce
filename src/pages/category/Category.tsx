@@ -14,8 +14,9 @@ import {
   FeaturedProduct,
   ListProduct
 } from '~/sections/category'
-import { MenuPopup } from '~/sections/common'
+import { MenuDialog } from '~/sections/common'
 import './styles.scss'
+import useDialog from '~/hooks/useDialog'
 
 const listFilterOption: OptionSelect[] = [
   {
@@ -65,7 +66,8 @@ const listFilterOption: OptionSelect[] = [
 ]
 
 function Category() {
-  const [openMenu, setOpenMenu] = useState<boolean>(false)
+  const { isOpen, setIsOpen } = useDialog()
+
   const [isAuthenticate, setIsAuthenticate] = useState<boolean>(true)
   const [filterCategory, setFilterCategory] = useState<string>('heath')
   const [brand, setBrand] = useState<OptionSelect>({ value: '', label: '' })
@@ -98,7 +100,7 @@ function Category() {
     <>
       <section className='max-w-[1440px] mx-auto p-5 pb-10 flex items-start gap-5'>
         <div className='sticky top-5'>
-          <Navbar setOpenMenu={setOpenMenu} />
+          <Navbar setOpenMenu={setIsOpen} />
         </div>
 
         <section className='flex flex-1 flex-col gap-5'>
@@ -187,7 +189,7 @@ function Category() {
         </section>
       </section>
 
-      <MenuPopup open={openMenu} setOpen={setOpenMenu} />
+      <MenuDialog open={isOpen} setOpen={setIsOpen} />
     </>
   )
 }

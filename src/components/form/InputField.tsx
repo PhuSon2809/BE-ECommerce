@@ -42,7 +42,10 @@ function InputField({
       defaultValue={defaultValue}
       render={({ field, fieldState }) => (
         <div className={`flex flex-col gap-1 ${fullWidth ? 'w-full' : 'w-[350px]'} ${width ? width : ''}`}>
-          <label htmlFor={name} className='text-[20px] font-customSemiBold capitalize'>
+          <label
+            htmlFor={name}
+            className={`text-[20px] font-customSemiBold capitalize ${disabled && 'text-blackMain/[.32]'}`}
+          >
             {label}
           </label>
           <div className='relative'>
@@ -53,7 +56,7 @@ function InputField({
               required={required}
               disabled={disabled}
               placeholder={placeholder}
-              className={`w-full h-[52px] border-[1px] border-solid border-blackMain/[.22] rounded-[30px] px-5 pb-[2px] focus:ring-[1.5px] focus:ring-blackMain/[.30] hover:ring-[1.5px] hover:ring-blackMain/[.30] transition-colors ease-in-out duration-300 ${className}`}
+              className={`w-full h-[52px] border-[1px] border-solid border-blackMain/[.22] rounded-[30px] px-5 pb-[2px] ${disabled ? 'bg-blackMain/[.03]' : 'focus:ring-[1.5px] focus:ring-blackMain/[.30] hover:ring-[1.5px] hover:ring-blackMain/[.30]'} transition-colors ease-in-out duration-300 ${className}`}
               onChange={(e) => {
                 const value = e.target.value
                 field.onChange(value)

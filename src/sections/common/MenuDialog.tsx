@@ -27,16 +27,21 @@ const listCategories = [
   }
 ]
 
-type MenuPopupProps = {
+type MenuDialogProps = {
   variant?: 'vertical' | 'horizontal'
   open: boolean
   setOpen: Dispatch<SetStateAction<boolean>>
 }
 
-function MenuPopup({ open, setOpen, variant = 'vertical' }: MenuPopupProps) {
+function MenuDialog({ open, setOpen, variant = 'vertical' }: MenuDialogProps) {
   return (
     <section>
-      <DialogCustom open={open} setOpen={setOpen} variant={variant} className='max-w-[1480px] !-ml-[10px] mt-[80px]'>
+      <DialogCustom
+        open={open}
+        setOpen={setOpen}
+        variant={variant}
+        className={`${variant === 'vertical' ? 'max-w-[1347px] ml-[175px] mt-[20px]' : 'max-w-[1480px] ml-[20px] mt-[80px]'} `}
+      >
         {variant === 'horizontal' && (
           <div className='flex items-center gap-[15px] mb-5 text-white'>
             <img src={images.icons.close} alt='icon-close' className='cursor-pointer' onClick={() => setOpen(false)} />
@@ -78,4 +83,4 @@ function MenuPopup({ open, setOpen, variant = 'vertical' }: MenuPopupProps) {
   )
 }
 
-export default MenuPopup
+export default MenuDialog

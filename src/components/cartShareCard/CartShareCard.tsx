@@ -2,6 +2,7 @@ import { QueryConfig } from '~/@types/common'
 import { ProductCart } from '~/@types/model'
 import images from '~/assets'
 import { IconButton } from '~/components/iconButton'
+import { QUERY_PARAM_STRING } from '~/constants/queryParamString'
 import useQueryConfig from '~/hooks/useQueryConfig'
 
 type CartShareCardProps = {
@@ -18,7 +19,7 @@ function CartShareCard({ productCart }: CartShareCardProps) {
         alt={productCart.title}
         className='w-full h-full rounded-[32px] object-cover object-center'
       />
-      {queryConfig.cartShareType === 'view-link-share' && (
+      {queryConfig.cartShareType === QUERY_PARAM_STRING.cartShareType.viewLinkShare && (
         <IconButton size='32' color='linear' className='absolute top-0 left-0 ring-8 ring-white'>
           <img src={images.icons.check} alt='icon-check' className='size-5' />
         </IconButton>

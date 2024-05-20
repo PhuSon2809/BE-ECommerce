@@ -42,7 +42,10 @@ function SelectField({
         return (
           <div className={`flex flex-col gap-1 ${fullWidth ? 'w-full' : 'w-[350px]'} ${width ? width : ''}`}>
             {label && (
-              <label htmlFor={name} className='text-[20px] font-customSemiBold capitalize'>
+              <label
+                htmlFor={name}
+                className={`text-[20px] font-customSemiBold capitalize ${disabled && 'text-blackMain/[.32]'}`}
+              >
                 {label}
               </label>
             )}
@@ -56,10 +59,12 @@ function SelectField({
             >
               {({ open }) => (
                 <div className='relative'>
-                  <ListboxButton className='relative w-full h-[52px] rounded-[32px] bg-white py-1.5 pl-3 pr-10 shadow-sm ring-1 ring-inset ring-blackMain/[.22] focus:outline-none focus:ring-[1.5px] focus:ring-blackMain/[.44] hover:ring-[1.5px] hover:ring-blackMain/[.44]'>
+                  <ListboxButton
+                    className={`relative w-full h-[52px] rounded-[32px] bg-white py-1.5 pl-3 pr-10 shadow-sm ring-1 ring-inset ring-blackMain/[.22] focus:outline-none ${disabled ? 'bg-blackMain/[.03]' : 'focus:ring-[1.5px] focus:ring-blackMain/[.30] hover:ring-[1.5px] hover:ring-blackMain/[.30]'}`}
+                  >
                     <span className='flex items-center'>
                       <span
-                        className={`ml-3 block truncate ${field.value ? 'text-blackMain' : 'text-blackMain/[.64]'}`}
+                        className={`ml-3 block truncate ${field.value ? 'text-blackMain' : 'text-blackMain/[.64]'} ${disabled && 'text-blackMain/[.32]'}`}
                       >
                         {field.value
                           ? options.find((o) => o.value === field.value)?.label
@@ -69,7 +74,11 @@ function SelectField({
                       </span>
                     </span>
                     <span className='pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-3'>
-                      <img src={images.icons.chevron_bot} alt='icon-arrow' />
+                      <img
+                        src={images.icons.chevron_bot}
+                        alt='icon-arrow'
+                        className={`${disabled && 'opacity-[.32]'}`}
+                      />
                     </span>
                   </ListboxButton>
 

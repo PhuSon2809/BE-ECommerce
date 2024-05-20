@@ -1,4 +1,4 @@
-export interface ShippingInfoForm {
+export interface ReceiveProductForm {
   firstName: string
   lastName: string
   email: string
@@ -8,12 +8,19 @@ export interface ShippingInfoForm {
   phoneNumber: string
   addressDetail: string
   postalCode?: string
-}
-
-export interface PaymentForm {
   paymentMethod: string
   cardNumber: string
   expirationDate: string
   cvv: number
   nameOnCard: string
+  walletId: string
+}
+
+export interface StorageForResaleForm {
+  paymentMethod: string
+  cardNumber: string
+  expirationDate: string
+  cvv: number
+  nameOnCard: string
+  walletId: string
 }

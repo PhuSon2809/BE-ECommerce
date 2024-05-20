@@ -6,7 +6,7 @@ import { IconButton } from '~/components/iconButton'
 import { Search } from '~/components/search'
 import { PATH_PUBLIC_APP } from '~/constants/paths'
 import { useAppSelector } from '~/redux/configStore'
-import { MenuPopup } from '~/sections/common'
+import { MenuDialog } from '~/sections/common'
 
 function Header() {
   const { pathname } = useLocation()
@@ -45,7 +45,7 @@ function Header() {
         )}
       </header>
 
-      <MenuPopup open={openMenu} setOpen={setOpenMenu} variant='horizontal' />
+      <MenuDialog open={openMenu} setOpen={setOpenMenu} variant='horizontal' />
     </>
   )
 }

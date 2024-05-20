@@ -9,7 +9,7 @@ interface RadioGroupFieldProps {
   className?: string | null
   helperText?: string
   defaultValue?: string
-  options: { value: number; label: ReactNode }[]
+  options: { value: number | string; label: ReactNode }[]
 }
 
 function RadioGroupField({
@@ -30,42 +30,45 @@ function RadioGroupField({
       name={name}
       rules={rules}
       defaultValue={defaultValue}
-      render={({ field, fieldState }) => (
-        <div className={`flex flex-col gap-1 w-full`}>
-          <div className='flex items-center gap-5 w-full'>
-            {options.map((option) => (
-              <div
-                key={option.value}
-                className={`w-full h-[96px] px-6 flex items-center justify-between border-[1px] border-solid border-blackMain/[.12] ${className}`}
-              >
-                {option.label}
-                <input
-                  {...field}
-                  id={name}
-                  type='radio'
-                  required={required}
-                  disabled={disabled}
-                  value={option.value}
-                  onChange={(e) => {
-                    const value = e.target.value.trimStart()
-                    field.onChange(value)
-                  }}
-                  className='appearance-none size-8 flex items-center justify-center border border-blackMain border-solid rounded-full checked:bg-transparent checked:after:content-[" "] checked:after:size-4 checked:after:rounded-full checked:after:bg-blackMain hover:scale-105 transition-all duration-300 ease-linear cursor-pointer'
-                />
-              </div>
-            ))}
-          </div>
-
-          {helperText && (
-            <div className='h-[18px]'>
-              <p className='mt-2 text-[14px] text-gray-400'>{helperText}</p>
+      render={({ field, fieldState }) => {
+        return (
+          <div className={`flex flex-col gap-1 w-full`}>
+            <div className='flex items-center gap-5 w-full'>
+              {options.map((option) => (
+                <div
+                  key={option.value}
+                  className={`w-full h-[96px] px-6 flex items-center justify-between border-[1px] border-solid border-blackMain/[.12] ${className}`}
+                >
+                  {option.label}
+                  <input
+                    {...field}
+                    id={name}
+                    type='radio'
+                    required={required}
+                    disabled={disabled}
+                    value={option.value}
+                    onChange={(e) => {
+                      const value = e.target.value.trimStart()
+                      field.onChange(value)
+                    }}
+                    checked={field.value === option.value}
+                    className='appearance-none size-8 flex items-center justify-center border border-blackMain border-solid rounded-full checked:bg-transparent checked:after:content-[" "] checked:after:size-4 checked:after:rounded-full checked:after:bg-blackMain hover:scale-105 transition-all duration-300 ease-linear cursor-pointer'
+                  />
+                </div>
+              ))}
             </div>
-          )}
-          <div className='h-[18px]'>
-            <p className='mt-2 text-[14px] text-red-500'>{fieldState.error && fieldState.error.message}</p>
+
+            {helperText && (
+              <div className='h-[18px]'>
+                <p className='mt-2 text-[14px] text-gray-400'>{helperText}</p>
+              </div>
+            )}
+            <div className='h-[18px]'>
+              <p className='mt-2 text-[14px] text-red-500'>{fieldState.error && fieldState.error.message}</p>
+            </div>
           </div>
-        </div>
-      )}
+        )
+      }}
     />
   )
 }

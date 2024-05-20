@@ -55,7 +55,7 @@ function ChartSection() {
 
   return (
     <section className='xs:px-4 sm:px-4 xs:pt-[50px] sm:pt-[100px] flex flex-col items-center relative'>
-      <div className='z-[100] mx-auto'>
+      <div className='z-50 mx-auto'>
         <h1 className='xs:text-[32px] sm:text-[56px] font-customSemiBold capitalize xs:leading-[40px] sm:leading-[72px] xs:mb-[20px] sm:mb-[50px]'>
           Product Price Trend
         </h1>
