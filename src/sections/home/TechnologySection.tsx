@@ -6,18 +6,18 @@ import './styles.scss'
 
 function TechnologySection() {
   return (
-    <section className='technology-section min-h-[810px] py-[105px] mt-[100px] px-10 bg-blackMain text-white flex justify-between relative'>
+    <section className='technology-section min-h-[810px] py-[105px] mt-[100px] xs:px-4 sm:px-10 bg-blackMain text-white flex xs:flex-col sm:flex-row justify-between gap-10 relative'>
       <div className='flex flex-col gap-5'>
-        <h1 className='text-[52px] font-customBold leading-[64px]'>
+        <h1 className='xs:text-[32px] sm:text-[52px] font-customBold xs:leading-[40px] sm:leading-[64px]'>
           Our Cutting-Edge
           <br /> Technologies
         </h1>
-        <p className='w-[338px] text-[18px] font-customRegular'>
+        <p className='xs:w-[358px] sm:w-[338px] xs:text-[16px] sm:text-[18px] font-customRegular opacity-[.64] xs:leading-[25px] sm:leading-[28px]'>
           Join us on this journey of discovery, where imagination meets reality and the extraordinary becomes routine.
         </p>
       </div>
 
-      <div className='w-[800px] rounded-2xl'>
+      <div className='xs:w-[358px] sm:w-[800px] rounded-2xl'>
         <Swiper
           spaceBetween={-314}
           slidesPerView={3}

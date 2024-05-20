@@ -74,16 +74,18 @@ function SummaryCart({ listProductCheckout, productIdsCheckout, inCartPage = fal
 
         <div className='flex flex-col gap-5'>
           <Button
+            fullWidth
             classNameText='!uppercase'
-            className='w-full h-[72px] rounded-[36px]'
+            className='h-[72px] rounded-[36px]'
             disabled={productIdsCheckout.length === 0}
             onClick={handleOpen}
           >
             checkout
           </Button>
           <Button
+            fullWidth
             variant='outline'
-            className='w-full h-[72px] rounded-[36px]'
+            className='h-[72px] rounded-[36px]'
             classNameText='!uppercase'
             onClick={() =>
               navigate({

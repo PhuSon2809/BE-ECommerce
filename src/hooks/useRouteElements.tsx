@@ -4,13 +4,12 @@ import { PATH_PRIVATE_APP, PATH_PUBLIC_APP } from '~/constants/paths'
 import { MainLayout } from '~/layouts/mainLayout'
 
 import { Cart } from '~/pages/cart'
-import { CartShare } from '~/pages/cartShare'
-import { Category } from '~/pages/category'
-import { Checkout, CheckoutComplete } from '~/pages/checkout'
-import { History } from '~/pages/history'
 import { Home } from '~/pages/home'
-import { TrackingOrder } from '~/pages/order'
+import { Category } from '~/pages/category'
+import { CartShare } from '~/pages/cartShare'
 import { ProductDetail } from '~/pages/productDetail'
+import { Checkout, CheckoutComplete } from '~/pages/checkout'
+import { OrderHistory, TrackingOrder } from '~/pages/order'
 
 function useRouteElements() {
   const routeElements = useRoutes([
@@ -57,7 +56,7 @@ function useRouteElements() {
     },
     {
       path: '/history',
-      element: <History />
+      element: <OrderHistory />
     }
   ])
 
