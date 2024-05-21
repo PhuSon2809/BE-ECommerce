@@ -159,32 +159,87 @@
   }
 }
 
-.technology-section {
-  .swiper {
-    overflow: hidden;
-    position: relative;
-    z-index: 100;
+@media only screen and (max-width: 640px) {
+  .cosmetic-section {
+    .slick-slider {
+      .slick-list {
+        margin: 0 8px;
+      }
 
-    .swiper-wrapper {
-      overflow: visible;
-      .swiper-slide-active {
-        z-index: 200;
+      .slick-slide {
+        & > div {
+          margin: 0 8px;
+        }
+      }
+
+      .slick-current {
+        & + div {
+          & > div:first-child {
+            margin-top: 56px;
+          }
+        }
       }
     }
+  }
 
-    .swiper-pagination {
-      position: absolute;
-      bottom: -20px;
-      z-index: 1000;
-
-      .swiper-pagination-bullet {
-        background: white;
-        opacity: 0.4;
+  .rich-food-section {
+    .slick-slider {
+      .slick-list {
+        margin: 0 8px;
       }
 
-      .swiper-pagination-bullet-active {
-        background: white;
-        opacity: 1;
+      .slick-slide {
+        & > div {
+          margin: 0 8px;
+        }
+      }
+
+      .slick-current {
+        & + div {
+          & > div:first-child {
+            margin-top: 56px;
+          }
+        }
+      }
+    }
+  }
+
+  .our-team-section {
+    .slick-slider {
+      .slick-dots {
+        li {
+          button {
+            width: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  .unveiling-section {
+    .slick-slider {
+      .slick-list {
+        margin: 0 15px;
+        border-radius: 32px;
+      }
+
+      .slick-slide {
+        & > div {
+          margin: 0 8px;
+        }
+      }
+
+      .slick-current {
+        & > div:first-child {
+          transition: all 0.5s ease-in-out;
+          margin-top: 0px;
+        }
+
+        & + div {
+          & > div:first-child {
+            margin-top: 56px;
+          }
+        }
       }
     }
   }

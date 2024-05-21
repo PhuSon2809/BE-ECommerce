@@ -67,15 +67,15 @@ function GatewaySection() {
         </div>
         <button
           onClick={() => sliderRef.current?.slickPrev()}
-          className='size-11 bg-white/[.64] backdrop-blur-[31.43px] flex items-center justify-center rounded-full absolute  xs:bottom-[-55%] sm:bottom-[-12%] xs:left-[37%] sm:left-[6%] shadow-avatar'
+          className='xs:size-8 sm:size-11 bg-white/[.64] backdrop-blur-[31.43px] flex items-center justify-center rounded-full absolute  xs:bottom-[-52%] sm:bottom-[-12%] xs:left-[40%] sm:left-[4%] shadow-popover'
         >
-          <img src={images.icons.arrow_left} alt='arrow-left' className='size-6' />
+          <img src={images.icons.arrow_left} alt='arrow-left' className='xs:size-4 sm:size-6' />
         </button>
         <button
           onClick={() => sliderRef.current?.slickNext()}
-          className='size-11 bg-white/[.64] backdrop-blur-[31.43px] flex items-center justify-center rounded-full absolute  xs:bottom-[-55%] sm:bottom-[-12%] xs:right-[37%] sm:right-[6%] shadow-avatar'
+          className='xs:size-8 sm:size-11 bg-white/[.64] backdrop-blur-[31.43px] flex items-center justify-center rounded-full absolute  xs:bottom-[-52%] sm:bottom-[-12%] xs:right-[40%] sm:right-[4%] shadow-popover'
         >
-          <img src={images.icons.arrow_right} alt='arrow-right' className='size-6' />
+          <img src={images.icons.arrow_right} alt='arrow-right' className='xs:size-4 sm:size-6' />
         </button>
       </div>
     </section>

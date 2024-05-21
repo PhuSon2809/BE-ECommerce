@@ -55,15 +55,42 @@ function OurTeamSection() {
   const sliderRef = useRef<Slider>(null)
 
   return (
-    <section className='our-team-section mt-[100px] pb-14'>
-      <h1 className='text-[52px] font-customBold capitalize leading-[64px] mb-5 text-center'>Our Team</h1>
-      <p className='text-[18px] font-customRegular text-center'>
+    <section className='our-team-section xs:mt-[200px] sm:mt-[100px] pb-14 xs:px-4 sm:px-0 xs:bg-[#F6F6F7] sm:bg-transparent xs:pt-16 xs:py-20 sm:py-0 sm:pb-20'>
+      <h1 className='xs:text-[32px] sm:text-[52px] font-customBold capitalize xs:leading-[40px] sm:leading-[64px] xs:mb-2 sm:mb-5 text-center'>
+        Our Team
+      </h1>
+      <p className='xs:text-[16px] sm:text-[18px] font-customRegular opacity-[.64] xs:leading-6 sm:leading-7 text-center'>
         Our team consists of dedicated professionals with diverse expertise, working collaboratively to achieve
         excellence in every project.
       </p>
 
-      <div className='w-[1200px] mt-10 ml-[12.5%] relative'>
-        <Slider ref={sliderRef} dots={true} arrows={false} infinite slidesToShow={3} slidesToScroll={1}>
+      <div className='xs:w-[358px] sm:w-[1200px] mt-10 xs:ml-0 sm:ml-[12.5%] relative'>
+        <Slider
+          ref={sliderRef}
+          dots={true}
+          arrows={false}
+          infinite
+          slidesToShow={3}
+          slidesToScroll={1}
+          responsive={[
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                infinite: true
+              }
+            },
+            {
+              breakpoint: 640,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: true
+              }
+            }
+          ]}
+        >
           {listEmployees.map((employee) => (
             <div key={employee.id} className='flex items-center justify-center'>
               <TeamCard employee={employee} />

@@ -10,7 +10,7 @@ function ProductFunctional({ product, isActive, positionPrice }: ProductFunction
 
   return (
     <div
-      className={`xs:w-[340px] sm:w-[410px] ${isActive ? 'h-[372px]' : 'xs:h-[244px] sm:h-[305px]'} shadow-8xl rounded-[32px] transition-all duration-300 ease-in-out`}
+      className={`xs:w-[340px] sm:w-[410px] ${isActive ? 'xs:h-[300px] sm:h-[372px]' : 'xs:h-[244px] sm:h-[305px]'} shadow-8xl rounded-[32px] transition-all duration-300 ease-in-out`}
     >
       <div className={`bg-white/[.64] p-2 backdrop-blur-2xl shadow-7xl rounded-[32px]`}>
         <div className={`flex flex-col p-3 pb-2`}>
@@ -55,7 +55,7 @@ function ProductFunctional({ product, isActive, positionPrice }: ProductFunction
           </div>
         </div>
         <div
-          className={`w-full ${isActive ? 'h-[265px]' : 'xs:h-[145px] sm:h-[177px]'} transition-all duration-300 ease-in-out`}
+          className={`w-full ${isActive ? 'xs:h-[201px] sm:h-[265px]' : 'xs:h-[145px] sm:h-[177px]'} transition-all duration-300 ease-in-out`}
         >
           <img
             src={product.image}

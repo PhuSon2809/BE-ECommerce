@@ -34,7 +34,7 @@ function FunctionalSection() {
         <Button
           size='large'
           classNameText='xs:text-[16px] sm:text-[20px]'
-          className='xs:w-[170px] xs:h-11 rounded-[26px] absolute xs:top-[31%] sm:top-[62%] xs:right-1/2 sm:right-[7.5%] transform xs:translate-x-1/2'
+          className='xs:w-[170px] xs:h-10 rounded-[26px] absolute xs:top-[31%] sm:top-[62%] xs:right-1/2 sm:right-[7.5%] transform xs:translate-x-1/2'
         >
           Shop now
         </Button>
@@ -78,15 +78,15 @@ function FunctionalSection() {
         </div>
         <button
           onClick={() => sliderRef.current?.slickPrev()}
-          className='size-11 bg-white/[.64] backdrop-blur-[31.43px] flex items-center justify-center rounded-full absolute xs:bottom-[-10%] sm:bottom-[2%] xs:left-[37%] sm:left-[6%] shadow-avatar'
+          className='xs:size-8 sm:size-11 bg-white/[.64] backdrop-blur-[31.43px] flex items-center justify-center rounded-full absolute xs:bottom-[-8%] sm:bottom-[2%] xs:left-[40%] sm:left-[4%] shadow-popover'
         >
-          <img src={images.icons.arrow_left} alt='arrow-left' className='size-6' />
+          <img src={images.icons.arrow_left} alt='arrow-left' className='xs:size-4 sm:size-6' />
         </button>
         <button
           onClick={() => sliderRef.current?.slickNext()}
-          className='size-11 bg-white/[.64] backdrop-blur-[31.43px] flex items-center justify-center rounded-full absolute xs:bottom-[-10%] sm:bottom-[2%] xs:right-[37%] sm:right-[5.8%] shadow-avatar'
+          className='xs:size-8 sm:size-11 bg-white/[.64] backdrop-blur-[31.43px] flex items-center justify-center rounded-full absolute xs:bottom-[-8%] sm:bottom-[2%] xs:right-[40%] sm:right-[3.8%] shadow-popover'
         >
-          <img src={images.icons.arrow_right} alt='arrow-right' className='size-6' />
+          <img src={images.icons.arrow_right} alt='arrow-right' className='xs:size-4 sm:size-6' />
         </button>
       </div>
     </section>
