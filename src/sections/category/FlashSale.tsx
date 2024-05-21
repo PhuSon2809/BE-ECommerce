@@ -18,8 +18,8 @@ function FlashSale() {
   }
 
   return (
-    <section className='w-[925px] h-[460px] mt-[80px] bg-gradient-to-r from-[#F2F3F5] to-[#F6F6F7] rounded-tl-[40px] rounded-br-[40px] overflow-hidden'>
-      <div className='flex items-center gap-10'>
+    <section className='xs:w-[390px] sm:w-[925px] xs:h-[844px] sm:h-[460px] xs:px-4 sm:px-0 xs:pt-[30px] sm:pt-0 xs:mt-[50px] sm:mt-[80px] bg-gradient-to-r from-[#F2F3F5] to-[#F6F6F7] xs:rounded-tl-[28.48px] xs:rounded-br-[28.48px] sm:rounded-tl-[40px] sm:rounded-br-[40px] overflow-hidden'>
+      <div className='flex xs:flex-col sm:flex-row items-center gap-10'>
         <div className='w-fit h-fit'>
           <BgFlashSale />
         </div>

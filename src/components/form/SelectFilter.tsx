@@ -18,7 +18,7 @@ function SelectFilter({ label, className, options, selected, setSelected }: Sele
       {({ open }) => (
         <div className='relative'>
           <ListboxButton
-            className={`relative min-w-[180px] h-10 rounded-md bg-white py-1.5 pl-3 pr-10 text-left shadow-sm ring-1 ring-inset ring-blackMain/[.22] focus:ring-[1.5px] focus:ring-blackMain/[.30] hover:ring-[1.5px] hover:ring-blackMain/[.30] transition-colors ease-in-out duration-300 ${className}`}
+            className={`relative xs:min-w-[130px] sm:min-w-[180px] h-10 rounded-md bg-white py-1.5 pl-3 pr-10 text-left shadow-sm ring-1 ring-inset ring-blackMain/[.22] focus:ring-[1.5px] focus:ring-blackMain/[.30] hover:ring-[1.5px] hover:ring-blackMain/[.30] transition-colors ease-in-out duration-300 ${className}`}
           >
             <span className='text-[14px] font-customRegular opacity-[.64]'>
               {label}: <span className='text-[16px] font-customSemiBold opacity-100 truncate'>{selected.label}</span>
