@@ -23,7 +23,7 @@
     background-image: url('../../assets/images/home-banner.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: fill;
 
     .slide-left {
       .slick-slider {
@@ -99,23 +99,109 @@
         }
       }
     }
+  }
+  .slide-right {
+    .slick-slider {
+      .slick-dots {
+        height: fit-content;
+        display: flex !important;
+        justify-content: center;
+        position: absolute;
+        top: 10px;
 
-    .slide-right {
-      .slick-slider {
-        .slick-dots {
-          height: fit-content;
-          display: flex !important;
-          justify-content: center;
-          position: absolute;
-          top: 10px;
+        li {
+          button {
+            padding: 0;
 
-          li {
-            button {
-              padding: 0;
+            &::before {
+              font-size: 8px;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
-              &::before {
-                font-size: 8px;
-                color: white;
+@media only screen and (max-width: 640px) {
+  .home {
+    .home-banner {
+      background-image: url('../../assets/images/home-banner.png');
+      background-repeat: no-repeat;
+      background-position: 65% 100%;
+      background-size: 300%;
+      background-color: #f1f1f1;
+
+      .slide-left {
+        .slick-slider {
+          .slick-dots {
+            width: fit-content;
+            height: fit-content;
+            display: flex !important;
+            justify-content: start;
+            position: absolute;
+            bottom: -10%;
+            background-color: white;
+            border-radius: 4px;
+            will-change: background-color;
+            transition: all 0.5s ease-in-out;
+
+            .slick-active {
+              background-color: black;
+              will-change: background-color;
+              transition: all 0.5s ease-in-out;
+            }
+
+            li {
+              width: 100%;
+              height: 3px;
+              margin: 0;
+              border-radius: 4px;
+              background-color: white;
+
+              button {
+                width: 35px;
+                height: 3px;
+                padding: 0;
+                will-change: width;
+                transition: all 5s ease-in-out;
+
+                &::before {
+                  display: none;
+                  font-size: 8px;
+                }
+              }
+            }
+          }
+        }
+
+        .slick-list {
+          .slick-slide {
+            position: relative;
+            z-index: 6;
+            transform: scale(0.9);
+            transition: 0.5s;
+          }
+
+          .slick-center {
+            z-index: 999;
+            transform: scale(1);
+
+            & > div:first-child {
+              margin-left: -50.7px;
+            }
+
+            & + .slick-slide {
+              z-index: 8;
+            }
+
+            & + div {
+              & > div:first-child {
+                z-index: 100 !important;
+                margin-left: -259px;
+                transform: scale(0.95);
+                overflow: hidden;
               }
             }
           }

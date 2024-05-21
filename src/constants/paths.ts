@@ -47,7 +47,8 @@ export const PATH_PRIVATE_APP = {
   },
   order: {
     root: pathRoot(ROOTS_ORDER),
-    tracking: path(ROOTS_ORDER, '/tracking')
+    tracking: path(ROOTS_ORDER, '/tracking'),
+    history: path(ROOTS_ORDER, '/history')
   },
   user: {
     root: pathRoot(ROOTS_USER),

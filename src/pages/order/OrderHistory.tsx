@@ -3,7 +3,7 @@ import images from '~/assets'
 import './styles.scss'
 import { WalletIcon } from '~/components/icons'
 
-const History = () => {
+const OrderHistory = () => {
   return (
     <div className='container bg-[#F8F8F9]'>
       <div className='history'>
@@ -121,4 +121,4 @@ const History = () => {
   )
 }
 
-export default History
+export default OrderHistory

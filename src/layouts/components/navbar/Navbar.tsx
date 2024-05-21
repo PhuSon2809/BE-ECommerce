@@ -61,7 +61,7 @@ const configNavbar = [
     icon: (color: string) => <NavTrackingIcon color={color} />
   },
   {
-    url: PATH_PUBLIC_APP.home,
+    url: PATH_PRIVATE_APP.order.history,
     label: 'History',
     icon: (color: string) => <NavHistoryIcon color={color} />
   },
