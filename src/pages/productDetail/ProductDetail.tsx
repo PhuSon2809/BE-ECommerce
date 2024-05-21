@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { Dispatch, SetStateAction, useRef } from 'react'
 import Slider from 'react-slick'
 
 import images from '~/assets'
@@ -15,7 +15,11 @@ import './styles.scss'
 import { DiscoverSection } from '~/sections/common'
 import { ProductCart } from '~/@types/model'
 
-function ProductDetail() {
+type ProductDetailProps = {
+  setOpen?: Dispatch<SetStateAction<boolean>>
+}
+
+function ProductDetail({ setOpen }: ProductDetailProps) {
   const sliderRef = useRef<Slider>(null)
 
   const productCheckout: ProductCart = {
@@ -34,7 +38,7 @@ function ProductDetail() {
       <div className='banner relative'>
         <Slider ref={sliderRef} dots arrows={false} infinite speed={500} slidesToShow={1} slidesToScroll={1}>
           {Array.from({ length: 3 }).map((_, index: number) => (
-            <BannerSection key={index} product={productCheckout} />
+            <BannerSection key={index} product={productCheckout} setOpen={setOpen} />
           ))}
         </Slider>
         <button

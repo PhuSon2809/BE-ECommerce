@@ -1,5 +1,4 @@
-import { useCallback, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Dispatch, SetStateAction, useCallback, useState } from 'react'
 import { ProductCart } from '~/@types/model'
 import images from '~/assets'
 import { Button } from '~/components/button'
@@ -14,9 +13,10 @@ import { CartDialog } from '~/sections/cart'
 
 type BannerSectionProps = {
   product: ProductCart
+  setOpen?: Dispatch<SetStateAction<boolean>>
 }
 
-function BannerSection({ product }: BannerSectionProps) {
+function BannerSection({ product, setOpen }: BannerSectionProps) {
   const dispatch = useAppDispatch()
 
   const smDown = useResponsive('down', 'sm', 'sm')
@@ -53,11 +53,18 @@ function BannerSection({ product }: BannerSectionProps) {
         </div>
 
         <div className='w-full xs:px-[15px] sm:px-5 flex items-center justify-between absolute xs:top-6 sm:top-5 z-20'>
-          <Link to={'/'}>
-            <IconButton title='Back' size={smDown ? '44' : '48'} color='white' className='bg-greyMain'>
-              <img src={images.icons.arrow_left} alt='icon-arrow-left' className='size-6' />
-            </IconButton>
-          </Link>
+          <IconButton
+            title='Back'
+            size={smDown ? '44' : '48'}
+            color='white'
+            className='bg-greyMain'
+            onClick={() => {
+              window.history.back()
+              setOpen && setOpen(false)
+            }}
+          >
+            <img src={images.icons.arrow_left} alt='icon-arrow-left' className='size-6' />
+          </IconButton>
           <Popover
             content={
               <div className='flex flex-col gap-3'>

@@ -111,7 +111,7 @@ function Home() {
                         slidesToScroll={1}
                       >
                         {listProducts.slice(0, 3).map((product, index) => (
-                          <ProductCard key={index} product={product} size='w-[331px] h-[368px]' />
+                          <ProductCard key={index} product={product} prContent='pr-11' size='w-[331px] h-[368px]' />
                         ))}
                       </Slider>
                     </div>

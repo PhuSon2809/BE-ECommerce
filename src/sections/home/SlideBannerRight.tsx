@@ -33,7 +33,7 @@ function SlideBannerRight() {
           <ProductCard
             key={index}
             product={product}
-            prContent='!px-4 !pr-11'
+            prContent='!px-4 !pr-12'
             size={smDown ? 'w-[302px] h-[230px]' : 'w-[357px] h-[272px]'}
             buttonAddBagPosition='!size-6 right-[4%]'
           />

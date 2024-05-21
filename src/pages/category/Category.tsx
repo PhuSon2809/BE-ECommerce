@@ -98,8 +98,8 @@ function Category() {
 
   return (
     <>
-      <section className='max-w-[1440px] mx-auto p-5 pb-10 flex items-start gap-5'>
-        <div className='sticky top-5'>
+      <section className='max-w-[1440px] mx-auto xs:px-0 xs:py-4 sm:p-5 pb-10 flex items-start gap-5 overflow-hidden'>
+        <div className='xs:hidden sm:block sticky top-5'>
           <Navbar setOpenMenu={setIsOpen} />
         </div>
 
@@ -121,14 +121,16 @@ function Category() {
             </div>
           </div>
 
+          {/* <Header /> */}
+
           <div className='flex gap-5'>
-            <div className='w-[927px] flex flex-1 flex-col gap-5'>
+            <div className='xs:w-[390px] sm:w-[927px] flex flex-1 flex-col xs:gap-4 sm:gap-5'>
               <SlideBanner />
 
               <div
                 ref={scrollRef}
                 onMouseDown={handleMouseDown}
-                className='flex items-center gap-[10px] flex-nowrap overflow-auto py-2 -mt-3 -mb-2 list-filter cursor-grab'
+                className='flex items-center xs:pl-4 sm:pl-0 xs:gap-3 sm:gap-4 flex-nowrap overflow-auto xs:py-1 sm:py-2 xs:-mt-2 sm:-mt-3 xs:-mb-1 sm:-mb-2 list-filter cursor-grab'
               >
                 {listFilterOption.map((option) => (
                   <Button
@@ -136,28 +138,30 @@ function Category() {
                     onClick={() => setFilterCategory(option.value as string)}
                     size='small'
                     variant={option.value === filterCategory ? 'linear' : 'grey'}
-                    className={`px-[22px] w-fit`}
-                    classNameText={`${option.value === filterCategory ? '!font-customSemiBold text-white' : '!font-customMedium'}`}
+                    className={`xs:px-[18px] sm:px-[22px] w-fit`}
+                    classNameText={`${option.value === filterCategory ? '!font-customSemiBold text-white' : '!font-customMedium'} xs:text-[14px]`}
                   >
                     {option.label}
                   </Button>
                 ))}
               </div>
 
-              <div className='flex items-center justify-between'>
-                <div className='flex items-center gap-[10px]'>
+              <div className='flex items-center justify-between xs:px-4 sm:px-0 xs:flex-wrap sm:flex-nowrap'>
+                <div className='flex items-center gap-[10px] xs:flex-wrap'>
                   <SelectFilter label='Brand' options={listFilterOption} selected={brand} setSelected={setBrand} />
                   <SelectFilter label='Price' options={listFilterOption} selected={brand} setSelected={setBrand} />
                   <SelectFilter label='Filter3' options={listFilterOption} selected={brand} setSelected={setBrand} />
                 </div>
-                <SelectFilter label='Sort by' options={listFilterOption} selected={brand} setSelected={setBrand} />
+                <div className='xs:hidden sm:flex'>
+                  <SelectFilter label='Sort by' options={listFilterOption} selected={brand} setSelected={setBrand} />
+                </div>
               </div>
 
               <ListProduct />
               <FlashSale />
               <FeaturedProduct />
             </div>
-            <div className='sticky top-5 h-[1300px]'>
+            <div className='xs:hidden sm:block sticky top-5 h-[1300px] '>
               <div className='w-[341px] flex flex-col gap-5 '>
                 <div className='h-[91px] px-5 flex items-center justify-between bg-greyMain rounded-2xl'>
                   {isAuthenticate ? (
