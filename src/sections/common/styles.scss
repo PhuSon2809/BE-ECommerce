@@ -1,6 +1,14 @@
 .feature-product-slide {
   .slick-list {
+    .slick-slide {
+      .box-content {
+        display: none;
+      }
+    }
     .slick-active {
+      .box-content {
+        display: none;
+      }
       & > div:first-child {
         margin-left: -47px;
         transition: all 0.3s ease-in-out;

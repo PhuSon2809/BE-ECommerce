@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react'
-import images from '~/assets'
 import { DialogCustom } from '~/components/dialog'
+import { CloseIcon } from '~/components/icons'
 import { Navbar } from '~/layouts/components/navbar'
 import SliderFeatureProduct from '~/sections/common/SliderFeatureProduct'
 
@@ -44,7 +44,9 @@ function MenuDialog({ open, setOpen, variant = 'vertical' }: MenuDialogProps) {
       >
         {variant === 'horizontal' && (
           <div className='flex items-center gap-[15px] mb-5 text-white'>
-            <img src={images.icons.close} alt='icon-close' className='cursor-pointer' onClick={() => setOpen(false)} />
+            <div className='cursor-pointer' onClick={() => setOpen(false)}>
+              <CloseIcon color='#0D0D0D' />
+            </div>
             <Navbar variant='horizontal' />
           </div>
         )}

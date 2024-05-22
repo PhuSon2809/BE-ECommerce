@@ -63,6 +63,7 @@ import flash_sale_2 from '~/assets/images/flash-sale-2.png'
 import flash_sale_3 from '~/assets/images/flash-sale-3.png'
 import flash_sale_4 from '~/assets/images/flash-sale-4.png'
 import bg_feature_product from '~/assets/images/bg-feature-product.png'
+import bg_feature_product_small from '~/assets/images/bg-feature-product-small.png'
 import line_group from '~/assets/images/line-group.png'
 
 import add_white from '~/assets/icons/add-white.svg'
@@ -145,6 +146,7 @@ const images = {
     flash_sale_3,
     flash_sale_4,
     bg_feature_product,
+    bg_feature_product_small,
     line_group
   },
   icons: {

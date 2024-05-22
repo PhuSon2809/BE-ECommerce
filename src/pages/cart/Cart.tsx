@@ -1,44 +1,17 @@
-import { useState } from 'react'
 // redux
 import { useAppSelector } from '~/redux/configStore'
 //
-import { CartItem } from '~/components/cartItem'
-import { SummaryCart } from '~/sections/cart'
 import { useLocation } from 'react-router-dom'
+import { CartItem } from '~/components/cartItem'
 import { PATH_PUBLIC_APP } from '~/constants/paths'
+import useSelectItem from '~/hooks/useSelectItem'
+import { SummaryCart } from '~/sections/cart'
 
 function Cart() {
   const { pathname } = useLocation()
 
   const { cart } = useAppSelector((state) => state.product)
-
-  const [selected, setSelected] = useState<readonly number[]>([])
-
-  const handleSelectAll = () => {
-    if (selected.length === cart.length) {
-      setSelected([])
-    } else {
-      const newSelected = cart.map((item) => item.id)
-      setSelected(newSelected)
-    }
-  }
-
-  const handleSelectItem = (cartItemId: number) => {
-    const selectedIndex = selected.indexOf(cartItemId)
-    let newSelected: readonly number[] = []
-
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, cartItemId)
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1))
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1))
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(selected.slice(0, selectedIndex), selected.slice(selectedIndex + 1))
-    }
-
-    setSelected(newSelected)
-  }
+  const { selected, handleSelectItem, handleSelectAll } = useSelectItem(cart)
 
   const listItemCheckout =
     selected.length > 0 ? cart.filter((item) => selected.map((item) => Number(item)).includes(item.id)) : []

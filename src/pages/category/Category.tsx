@@ -3,20 +3,23 @@ import { OptionSelect } from '~/@types/common'
 import { Button } from '~/components/button'
 import { SelectFilter } from '~/components/form'
 import { WalletIcon } from '~/components/icons'
-import { Search } from '~/components/search'
+import useDialog from '~/hooks/useDialog'
+import useResponsive from '~/hooks/useResponsive'
+import { Header } from '~/layouts/components/header'
 import { Navbar } from '~/layouts/components/navbar'
 import {
+  FeaturedProduct,
   FlashSale,
+  ListProduct,
+  MenuCategoryDialog,
   PurchasesChart,
   RecentPurchases,
   SlideBanner,
-  TabProductList,
-  FeaturedProduct,
-  ListProduct
+  TabCartDialog,
+  TabProductList
 } from '~/sections/category'
 import { MenuDialog } from '~/sections/common'
 import './styles.scss'
-import useDialog from '~/hooks/useDialog'
 
 const listFilterOption: OptionSelect[] = [
   {
@@ -67,6 +70,10 @@ const listFilterOption: OptionSelect[] = [
 
 function Category() {
   const { isOpen, setIsOpen } = useDialog()
+  const { isOpen: isOpenCartDialog, setIsOpen: setIsOpenCartDialog } = useDialog()
+  const { isOpen: isOpenCategoryMenu, setIsOpen: setIsOpenCategoryMenu } = useDialog()
+
+  const smDown = useResponsive('down', 'sm', 'sm')
 
   const [isAuthenticate, setIsAuthenticate] = useState<boolean>(true)
   const [filterCategory, setFilterCategory] = useState<string>('heath')
@@ -98,30 +105,21 @@ function Category() {
 
   return (
     <>
-      <section className='max-w-[1440px] mx-auto xs:px-0 xs:py-4 sm:p-5 pb-10 flex items-start gap-5 overflow-hidden'>
+      <section className='max-w-[1440px] mx-auto xs:px-0 xs:py-4 sm:p-5 xs:pb-20 sm:pb-10 flex items-start gap-5'>
         <div className='xs:hidden sm:block sticky top-5'>
           <Navbar setOpenMenu={setIsOpen} />
         </div>
 
         <section className='flex flex-1 flex-col gap-5'>
-          <div className='flex items-center justify-between'>
-            <Search />
-            <div onClick={() => setIsAuthenticate(!isAuthenticate)}>
-              {isAuthenticate ? (
-                <img
-                  className='xs:size-7 sm:size-12 rounded-full'
-                  src='https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80'
-                  alt='avatar'
-                />
-              ) : (
-                <Button size='medium' className='' classNameText='!uppercase text-[18px]'>
-                  sign in
-                </Button>
-              )}
-            </div>
+          <div className='xs:px-4 sm:px-0 sm:pt-0'>
+            <Header
+              hideMenu={!smDown}
+              hideFavorite
+              hideCart={!smDown}
+              setOpenMenu={setIsOpenCategoryMenu}
+              setOpenCart={setIsOpenCartDialog}
+            />
           </div>
-
-          {/* <Header /> */}
 
           <div className='flex gap-5'>
             <div className='xs:w-[390px] sm:w-[927px] flex flex-1 flex-col xs:gap-4 sm:gap-5'>
@@ -161,9 +159,12 @@ function Category() {
               <FlashSale />
               <FeaturedProduct />
             </div>
-            <div className='xs:hidden sm:block sticky top-5 h-[1300px] '>
+            <div className='xs:hidden sm:block sticky top-5 h-[1300px]'>
               <div className='w-[341px] flex flex-col gap-5 '>
-                <div className='h-[91px] px-5 flex items-center justify-between bg-greyMain rounded-2xl'>
+                <div
+                  className='h-[91px] px-5 flex items-center justify-between bg-greyMain rounded-2xl'
+                  onClick={() => setIsAuthenticate(!isAuthenticate)}
+                >
                   {isAuthenticate ? (
                     <>
                       <div>
@@ -194,6 +195,8 @@ function Category() {
       </section>
 
       <MenuDialog open={isOpen} setOpen={setIsOpen} />
+      <TabCartDialog open={isOpenCartDialog} setOpen={setIsOpenCartDialog} />
+      <MenuCategoryDialog open={isOpenCategoryMenu} setOpen={setIsOpenCategoryMenu} isAuthenticate={isAuthenticate} />
     </>
   )
 }

@@ -6,7 +6,7 @@ import { listProducts } from '~/assets/mocks/product'
 import { ProductCard } from '~/components/productCard'
 import useResponsive from '~/hooks/useResponsive'
 
-function SlideBannerRight() {
+function SlideBannerLeft() {
   const smDown = useResponsive('down', 'sm', 'sm')
 
   const sliderLeftRef = useRef<Slider>(null)
@@ -23,19 +23,14 @@ function SlideBannerRight() {
         draggable={false}
         slidesToShow={1}
         slidesToScroll={1}
-        prevArrow={
-          <button className='cursor-pointer' onClick={() => sliderLeftRef.current?.slickPrev()}>
-            <img src={images.icons.arrow_left} alt='arrow-left' className='size-6' />
-          </button>
-        }
       >
         {listProducts.map((product, index) => (
           <ProductCard
             key={index}
             product={product}
-            prContent='!px-4 !pr-12'
+            paddingContent='xs:px-3 xs:pr-10 sm:px-4 sm:pr-12'
+            contentPosition='xs:bottom-[7.5%] sm:bottom-[8.5%]'
             size={smDown ? 'w-[302px] h-[230px]' : 'w-[357px] h-[272px]'}
-            buttonAddBagPosition='!size-6 right-[4%]'
           />
         ))}
       </Slider>
@@ -52,4 +47,4 @@ function SlideBannerRight() {
   )
 }
 
-export default SlideBannerRight
+export default SlideBannerLeft

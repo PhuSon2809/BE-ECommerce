@@ -13,14 +13,16 @@ import {
   GatewaySection,
   OurTeamSection,
   RichFoodSection,
-  SlideBannerRight,
+  SlideBannerLeft,
   TechnologySection,
   UnveilingSection,
   WhatWeDoSection,
   WhyChooseSection
 } from '~/sections/home'
-import './styles.scss'
 import useResponsive from '~/hooks/useResponsive'
+import './styles.scss'
+import { MenuDialog } from '~/sections/common'
+import useDialog from '~/hooks/useDialog'
 
 const listFilterOption: OptionSelect[] = [
   {
@@ -40,6 +42,8 @@ const listFilterOption: OptionSelect[] = [
 function Home() {
   const smDown = useResponsive('down', 'sm', 'sm')
 
+  const { isOpen, setIsOpen } = useDialog()
+
   const [filterSlide, setFilterSlide] = useState<string>('new')
 
   const sliderRightRef = useRef<Slider>(null)
@@ -47,7 +51,7 @@ function Home() {
   return (
     <div className='home max-w-[1440px] mx-auto overflow-hidden'>
       <div className='bg-[#f1f1f1]'>
-        <Header />
+        <Header setOpenMenu={setIsOpen} />
       </div>
       {/* Banner section */}
       <section>
@@ -81,9 +85,9 @@ function Home() {
                     </Button>
                   </div>
 
-                  <div className='w-full flex xs:flex-col sm:flex-row items-end justify-between'>
+                  <div className='w-full flex xs:flex-col sm:flex-row items-end xs:justify-center sm:justify-between'>
                     <div className='ml-[-4.2%]'>
-                      <SlideBannerRight />
+                      <SlideBannerLeft />
                     </div>
                     <div className='slide-right w-[331px] xs:hidden sm:block'>
                       <div className='flex items-center gap-[10px] mb-[10px]'>
@@ -111,7 +115,14 @@ function Home() {
                         slidesToScroll={1}
                       >
                         {listProducts.slice(0, 3).map((product, index) => (
-                          <ProductCard key={index} product={product} prContent='pr-11' size='w-[331px] h-[368px]' />
+                          <ProductCard
+                            key={index}
+                            product={product}
+                            paddingContent='xs:pt-6 sm:px-4 sm:pr-12'
+                            contentPosition='bottom-[7.5%]'
+                            size='w-[331px] h-[368px]'
+                            buttonAddBagPosition='!xs:size-6 sm:size-7 right-[4%]'
+                          />
                         ))}
                       </Slider>
                     </div>
@@ -149,8 +160,9 @@ function Home() {
                       key={index}
                       product={product}
                       size='w-[358px] h-[396px]'
-                      ptContent='mb-[4px]'
-                      prContent='!px-4 !pr-14'
+                      contentPosition='bottom-[6.5%]'
+                      paddingContent='xs:px-4 xs:pr-12 sm:px-4 sm:pr-12'
+                      buttonAddBagPosition='size-[30px] right-[5%]'
                     />
                   ))}
                 </Slider>
@@ -189,6 +201,8 @@ function Home() {
 
       {/* Our Team */}
       <OurTeamSection />
+
+      <MenuDialog open={isOpen} setOpen={setIsOpen} variant='horizontal' />
     </div>
   )
 }

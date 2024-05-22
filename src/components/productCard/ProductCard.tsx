@@ -16,10 +16,10 @@ type ProductCardProps = {
   size?: string
   borderRadius?: string
   buttonAddBagPosition?: string
-  ptContent?: string
-  prContent?: string
+  contentPosition?: string
+  paddingContent?: string
   inCategory?: boolean
-  fontSize?: 'small' | 'medium'
+  fontSize?: 'xSmall' | 'small' | 'medium'
 }
 
 function ProductCard({
@@ -27,9 +27,9 @@ function ProductCard({
   size,
   fontSize = 'medium',
   borderRadius = 'rounded-3xl',
-  ptContent,
-  prContent = 'pr-10',
-  buttonAddBagPosition = 'right-[4.2%]',
+  paddingContent = 'xs:px-2 xs:pr-5 sm:px-3 sm:pr-10 ',
+  buttonAddBagPosition = 'xs:size-6 sm:size-7 right-[4.2%]',
+  contentPosition = 'bottom-[6%]',
   inCategory
 }: ProductCardProps) {
   const navigate = useNavigate()
@@ -79,19 +79,19 @@ function ProductCard({
             </svg>
           ) : (size === 'w-full h-[260px]' || size === 'w-full h-[335px]' || size === 'w-[260px] h-[260px]') &&
             inCategory ? (
-            <svg width='228' height='68' viewBox='0 0 228 68' fill='none'>
+            <svg width='228' height='78' viewBox='0 0 228 78' fill='none'>
               <path
-                d='M228 14C228 6.26801 221.732 0 214 0H14C6.26801 0 0 6.26801 0 14V54C0 61.732 6.26801 68 14 68H187.125C191.544 68 195.125 64.4183 195.125 60V54C195.125 43.5066 203.6 35 214.053 35H220C224.418 35 228 31.4183 228 27V14Z'
+                d='M228 14C228 6.26801 221.732 0 214 0H14C6.26801 0 0 6.26801 0 14V64C0 71.732 6.26801 78 14 78H187.125C191.544 78 195.125 74.4183 195.125 70V64C195.125 53.5066 203.6 45 214.053 45H220C224.418 45 228 41.4183 228 37V14Z'
                 fill='white'
-                fillOpacity='0.64'
+                fill-opacity='0.64'
               />
             </svg>
           ) : size === 'w-full h-[335px]' ? (
-            <svg width='325' height='72' viewBox='0 0 325 72' fill='none'>
+            <svg width='325' height='86' viewBox='0 0 325 86' fill='none'>
               <path
-                d='M325 14C325 6.26801 318.732 0 311 0H14C6.26801 0 0 6.26801 0 14V58C0 65.732 6.26801 72 14 72H284C288.418 72 292 68.4183 292 64V58C292 47.5066 300.507 39 311 39H317C321.418 39 325 35.4183 325 31V14Z'
+                d='M325 14C325 6.26801 318.732 0 311 0H14C6.26801 0 0 6.26802 0 14V72C0 79.732 6.26801 86 14 86H284C288.418 86 292 82.4183 292 78V72C292 61.5066 300.507 53 311 53H317C321.418 53 325 49.4183 325 45V14Z'
                 fill='white'
-                fillOpacity='0.64'
+                fill-opacity='0.64'
               />
             </svg>
           ) : size === 'w-[358px] h-[396px]' ? (
@@ -118,41 +118,80 @@ function ProductCard({
                 fill-opacity='0.64'
               />
             </svg>
-          ) : (
-            <svg width='299' height='72' viewBox='0 0 299 72' fill='none'>
+          ) : size === 'w-[358px] h-[396px]' ? (
+            <svg width='334' height='76' viewBox='0 0 334 76' fill='none'>
               <path
-                d='M299 14C299 6.26801 292.732 0 285 0H14C6.26801 0 0 6.26801 0 14V58C0 65.732 6.26801 72 14 72H258C262.418 72 266 68.4183 266 64V58C266 47.5066 274.507 39 285 39H291C295.418 39 299 35.4183 299 31V14Z'
+                d='M334 11.9754C334 5.36156 328.638 0 322.025 0H11.9754C5.36156 0 0 5.36157 0 11.9754V64.0246C0 70.6384 5.36154 76 11.9754 76H298.929C302.709 76 305.772 72.9363 305.772 69.1569V64.0246C305.772 55.0487 313.049 47.9015 322.025 47.9015H327.157C330.936 47.9015 334 44.8378 334 41.0585V11.9754Z'
                 fill='white'
-                fillOpacity='0.64'
+                fill-opacity='0.64'
+              />
+            </svg>
+          ) : (
+            <svg width='299' height='86' viewBox='0 0 299 86' fill='none'>
+              <path
+                d='M299 14C299 6.26801 292.732 0 285 0H14C6.26801 0 0 6.26802 0 14V72C0 79.732 6.26801 86 14 86H258C262.418 86 266 82.4183 266 78V72C266 61.5066 274.507 53 285 53H291C295.418 53 299 49.4183 299 45V14Z'
+                fill='white'
+                fill-opacity='0.64'
               />
             </svg>
           )}
         </div>
-        <div
-          className={`w-full h-[72px] px-3 pr-10 ${ptContent} ${prContent} absolute bottom-[3%] left-[5%] flex flex-col`}
-        >
+        <div className={`w-full ${paddingContent} absolute ${contentPosition} left-[5%] flex flex-col `}>
           <div className='flex items-center justify-between'>
-            <h6 className='sm:text-[16px] font-customBold'>{product.title}</h6>
-            <p className={` ${fontSize === 'small' ? 'sm:text-[12px]' : 'sm:text-[14px]'}`}>
+            <h6
+              className={`${fontSize === 'xSmall' ? 'text-[9.32px]' : fontSize === 'small' ? 'xs:text-[14px] sm:text-[14px]' : 'xs:text-[14px] sm:text-[16px]'} font-customBold`}
+            >
+              {product.title}
+            </h6>
+            <p
+              className={`${fontSize === 'xSmall' ? 'text-[7.98px]' : fontSize === 'small' ? 'xs:text-[12px] sm:text-[12px]' : 'xs:text-[12px] sm:text-[14px]'}`}
+            >
               Left: <span className='font-customMedium'>{product.numberItem} items</span>
             </p>
           </div>
-          <p className={` ${fontSize === 'small' ? 'sm:text-[12px]' : 'sm:text-[14px]'}`}>
-            Retail/VIP Price:{' '}
-            <span className={` ${fontSize === 'small' ? 'sm:text-[20px]' : 'sm:text-[22px]'} font-customSemiBold`}>
+          <p
+            className={`${fontSize === 'xSmall' ? 'text-[8px] leading-[14px]' : fontSize === 'small' ? 'xs:leading-[16px] text-[10px]' : 'xs:leading-[18px] text-[12px]'} text-blackMain/[.64]  sm:leading-[22px]`}
+          >
+            Member Price:{' '}
+            <span
+              className={`${fontSize === 'xSmall' ? 'text-[12px] leading-[14px]' : fontSize === 'small' ? 'xs:text-[14px] sm:text-[18px]' : 'xs:text-[16px] sm:text-[20px]'} text-blackMain font-customSemiBold`}
+            >
               {product.retailPrice}$
-            </span>
-            <span className={` ${fontSize === 'small' ? 'sm:text-[12px]' : 'sm:text-[16px]'} font-customMedium`}>
-              /{product.vipPrice}$
+            </span>{' '}
+            <span
+              className={`${fontSize === 'xSmall' ? 'text-[9px] leading-[14px]' : fontSize === 'small' ? 'xs:text-[10px] sm:text-[14px]' : 'xs:text-[12px] sm:text-[16px]'} line-through`}
+            >
+              75$
             </span>
           </p>
+          <div className='flex items-end gap-1'>
+            <p
+              className={`${fontSize === 'xSmall' ? 'text-[8.28px] leading-[14px]' : fontSize === 'small' ? 'text-[10px]' : 'text-[12px]'} text-blackMain/[.64] underline`}
+            >
+              VIP Price:{' '}
+            </p>
+            <span
+              className={`${fontSize === 'xSmall' ? 'text-[12px] leading-[14px]' : fontSize === 'small' ? 'xs:text-[14px] sm:text-[18px]' : 'xs:text-[16px] sm:text-[20px]'} text-blackMain font-customBold xs:leading-[18px] sm:leading-[22px]`}
+            >
+              {product.retailPrice}$
+            </span>
+          </div>
         </div>
         <button
           onClick={handleAddToCart}
-          className={`xs:size-[18.63px] sm:size-7 rounded-full flex items-center justify-center bg-gradient-to-tr from-greenMain to-blueMain cursor-pointer absolute bottom-[5%] ${buttonAddBagPosition}`}
+          className={`
+            rounded-full flex items-center justify-center bg-gradient-to-tr from-greenMain to-blueMain cursor-pointer absolute bottom-[5%] 
+            ${buttonAddBagPosition ? buttonAddBagPosition : 'xs:size-6 sm:size-7 right-[4.2%]'}
+          `}
         >
-          {smDown ? (
-            <img src={images.icons.add_white} alt='icon-add-white' className='size-[10.56px]' />
+          {smDown && inCategory ? (
+            <img
+              src={images.icons.add_white}
+              alt='icon-add-white'
+              className={
+                size === 'w-full h-[173px]' || size === 'w-[260px] h-[260px]' ? 'size-[16.39px]' : 'size-[10.65px]'
+              }
+            />
           ) : (
             <img src={images.icons.shopping_bag_white} alt='icon-shopping-bag-white' className='size-[15.56px]' />
           )}

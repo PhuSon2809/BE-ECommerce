@@ -1,9 +1,9 @@
+import { useRef, useState } from 'react'
 import Slider from 'react-slick'
+
 import images from '~/assets'
 import { Button } from '~/components/button'
-import './styles.scss'
 import { SliderPagination } from '~/components/sliderPagination'
-import { useRef, useState } from 'react'
 import useResponsive from '~/hooks/useResponsive'
 
 function SlideBanner() {
@@ -18,7 +18,7 @@ function SlideBanner() {
   }
 
   return (
-    <section className='slider-banner-category xs:w-[390px] sm:w-[927px] relative'>
+    <section className='xs:w-[390px] sm:w-[927px] relative'>
       <Slider
         ref={sliderRef}
         arrows={false}
