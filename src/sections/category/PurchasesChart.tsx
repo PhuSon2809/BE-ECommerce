@@ -27,7 +27,11 @@ const listFilters: OptionSelect[] = [
   { value: '1y', label: '1Y' }
 ]
 
-function PurchasesChart() {
+type PurchasesChartProps = {
+  className?: string
+}
+
+function PurchasesChart({ className }: PurchasesChartProps) {
   const [selectedFilter, setSelectedFilter] = useState<string>('1d')
 
   const gradient = document.createElement('canvas').getContext('2d')
@@ -36,18 +40,20 @@ function PurchasesChart() {
   linearGradientGreen?.addColorStop(1, 'rgba(255, 255, 255, 0)')
 
   return (
-    <section className='w-full h-[320px] p-5 pr-0 bg-greyMain rounded-2xl'>
-      <div className='flex items-center justify-between pr-5'>
-        <p className='text-[20px] font-customSemiBold capitalize'>purchases</p>
+    <section
+      className={`xs:w-[281px] sm:w-full h-[320px] xs:p-4 sm:p-5 xs:pr-0 sm:pr-0 bg-greyMain rounded-2xl  xs:rounded-tr-none xs:rounded-br-none ${className}`}
+    >
+      <div className='flex items-center justify-between gap-5 pr-5'>
+        <p className='xs:text-[18px] sm:text-[20px] font-customSemiBold capitalize'>purchases</p>
         <div className='flex items-center gap-2'>
           {listFilters.map((filter) => (
             <div
               key={filter.value}
               onClick={() => setSelectedFilter(filter.value as string)}
-              className={`px-[10px] h-[27px] flex items-center rounded cursor-pointer transition-colors duration-300 ease-linear ${selectedFilter === filter.value ? 'bg-blackMain' : 'bg-white'}`}
+              className={`xs:px-[8px] sm:px-[10px] xs:h-[22px] sm:h-[27px] flex items-center rounded cursor-pointer transition-colors duration-300 ease-linear ${selectedFilter === filter.value ? 'bg-blackMain' : 'bg-white'}`}
             >
               <p
-                className={`font-customMedium leading-none ${selectedFilter === filter.value ? 'text-white' : 'text-blackMain'}`}
+                className={`xs:text-[14px] sm:text-[16px] font-customMedium leading-none ${selectedFilter === filter.value ? 'text-white' : 'text-blackMain'}`}
               >
                 {filter.label}
               </p>

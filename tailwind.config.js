@@ -50,6 +50,7 @@ export default {
     boxShadow: {
       radio: '0px 3px 15px 0px #FFFFFF',
       popover: '0px 4px 32px 0px #00000026',
+      checkbox: '-1px -1px 0px 0px #0000001F inset',
       'popover-custom': '0px 4px 32px 0px #0000001A',
       'popover-custom-2': '0px 4px 32px 0px #00000008',
       avatar: '0px 0px 4px 0px #00000052',

@@ -47,11 +47,11 @@ function FlashSale() {
                 <div key={product.id}>
                   <ProductCard
                     product={product}
-                    size='w-[260px] h-[260px]'
-                    fontSize='small'
-                    ptContent='pt-1'
-                    buttonAddBagPosition='right-[6%]'
                     inCategory
+                    fontSize='small'
+                    size='w-[260px] h-[260px]'
+                    contentPosition='xs:px-4 xs:pr-[40px] sm:pl-4 xs:bottom-[9.5%] sm:bottom-[7.5%]'
+                    buttonAddBagPosition='xs:size-[28.67px] sm:size-[28px] right-[6%]'
                   />
                 </div>
               ))}

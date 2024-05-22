@@ -26,7 +26,7 @@ function ListProduct() {
   }
 
   return (
-    <section className='relative px-4'>
+    <section className='relative xs:px-4 sm:px-0'>
       <div className='flex justify-between gap-4 '>
         <div className='xs:w-[173px] sm:w-[260px] flex flex-col xs:gap-4 sm:gap-5'>
           {mergeArraysAndAddHeight(listProductCategory[0], ['260px', '335px']).map((product) => (
@@ -34,11 +34,12 @@ function ListProduct() {
               inCategory
               key={product.id}
               product={product}
-              fontSize='small'
-              ptContent='pt-1'
+              fontSize={smDown ? 'xSmall' : 'small'}
+              paddingContent='xs:px-3 xs:pr-6 sm:px-4 sm:pr-10'
+              contentPosition='xs:bottom-[6.5%] sm:bottom-[7.2%]'
               size={`w-full ${smDown ? 'h-[173px]' : `h-[${product.height}]`}`}
               borderRadius={smDown ? 'rounded-[20px]' : 'rounded-[32px]'}
-              buttonAddBagPosition={smDown ? 'right-[5%]' : 'right-[5.1%]'}
+              buttonAddBagPosition={smDown ? 'size-[18.63px] right-[5.2%]' : 'size-7 right-[6%] bottom-[5%]'}
             />
           ))}
         </div>
@@ -47,10 +48,11 @@ function ListProduct() {
             <ProductCard
               key={product.id}
               product={product}
-              prContent='pr-12'
               size={`w-full h-[335px]`}
               borderRadius='rounded-[32px]'
-              buttonAddBagPosition='right-[4.5%]'
+              paddingContent='sm:px-4 sm:pr-[50px]'
+              contentPosition='bottom-[7.5%]'
+              buttonAddBagPosition='size-7 right-[5.1%]'
             />
           ))}
         </div>
@@ -60,11 +62,12 @@ function ListProduct() {
               inCategory
               key={product.id}
               product={product}
-              fontSize='small'
-              ptContent='pt-1'
+              fontSize={smDown ? 'xSmall' : 'small'}
+              paddingContent='xs:px-3 xs:pr-6 sm:px-4 sm:pr-10'
+              contentPosition='xs:bottom-[6.5%] sm:bottom-[7.2%]'
               size={`w-full ${smDown ? 'h-[173px]' : `h-[${product.height}]`}`}
               borderRadius={smDown ? 'rounded-[20px]' : 'rounded-[32px]'}
-              buttonAddBagPosition={smDown ? 'right-[5%]' : 'right-[5.1%]'}
+              buttonAddBagPosition={smDown ? 'size-[18.63px] right-[5.2%]' : 'size-7 right-[6%] bottom-[5%]'}
             />
           ))}
         </div>

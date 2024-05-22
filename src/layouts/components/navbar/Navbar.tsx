@@ -89,10 +89,11 @@ const configNavbar = [
 
 type NavbarProps = {
   variant?: 'vertical' | 'horizontal'
+  className?: string
   setOpenMenu?: Dispatch<SetStateAction<boolean>>
 }
 
-function Navbar({ setOpenMenu, variant = 'vertical' }: NavbarProps) {
+function Navbar({ setOpenMenu, className, variant = 'vertical' }: NavbarProps) {
   const { pathname } = useLocation()
 
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -166,7 +167,9 @@ function Navbar({ setOpenMenu, variant = 'vertical' }: NavbarProps) {
   }
 
   return variant === 'vertical' ? (
-    <div className='w-[92px] p-[22px] bg-white/[.44] backdrop-blur-[40px] rounded-3xl shadow-4xl flex flex-col items-center gap-[22px]'>
+    <div
+      className={`p-[22px] bg-white/[.44] backdrop-blur-[40px] rounded-3xl shadow-4xl flex flex-col items-center gap-[22px] ${className}`}
+    >
       <img src={images.logo.logo_e_commerce} alt='logo' className='size-12' />
       {ListNavItem()}
     </div>
