@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useState } from 'react'
 //redux
 import { useAppDispatch } from '~/redux/configStore'
-import { addToCart, removeProductCart } from '~/redux/product/product.slice'
 //
-import { ProductCart } from '~/@types/model'
+import { ProductCart } from '~/@types/models'
 import images from '~/assets'
 import { Button } from '~/components/button'
 import { QuantityController } from '~/components/quantityController'
 import { SelectFilter } from '~/components/form'
 import { OptionSelect } from '~/@types/common'
+import { addToCart, removeProductCart } from '~/redux/cart/cart.slice'
 
 const listCapacity: OptionSelect[] = [
   { value: 1, label: '100ml' },
@@ -20,6 +20,7 @@ type CartItemProps = {
   isSmall?: boolean
   isFavorite?: boolean
   hideSelect?: boolean
+  hideHandleQuantity?: boolean
   isInCartPopup?: boolean
   productCart: ProductCart
   isItemSelected?: boolean
@@ -30,6 +31,7 @@ function CartItem({
   isSmall,
   isFavorite,
   hideSelect = false,
+  hideHandleQuantity = false,
   isInCartPopup = false,
   productCart,
   isItemSelected,
@@ -144,11 +146,13 @@ function CartItem({
                   />
                 ) : (
                   <div className={`flex items-center ${isSmall ? 'gap-4' : 'gap-8'}`}>
-                    <img
-                      src={images.icons.heart}
-                      alt='icon-heart'
-                      className={`cursor-pointer ${isSmall ? 'size-5' : 'size-6'}`}
-                    />
+                    {!hideHandleQuantity && (
+                      <img
+                        src={images.icons.heart}
+                        alt='icon-heart'
+                        className={`cursor-pointer ${isSmall ? 'size-5' : 'size-6'}`}
+                      />
+                    )}
                     <img
                       src={images.icons.deleteIon}
                       alt='icon-heart'
@@ -158,17 +162,19 @@ function CartItem({
                   </div>
                 )}
 
-                <QuantityController
-                  isSmall={isSmall}
-                  isCart
-                  productInCart={productCart}
-                  max={productCart.numberItems}
-                  value={quantity}
-                  onDecrease={handleQuantity}
-                  onIncrease={handleQuantity}
-                  onType={handleQuantity}
-                  onFocusOut={handleQuantity}
-                />
+                {!hideHandleQuantity && (
+                  <QuantityController
+                    isSmall={isSmall}
+                    isCart
+                    productInCart={productCart}
+                    max={productCart.numberItems}
+                    value={quantity}
+                    onDecrease={handleQuantity}
+                    onIncrease={handleQuantity}
+                    onType={handleQuantity}
+                    onFocusOut={handleQuantity}
+                  />
+                )}
               </div>
             )}
           </div>

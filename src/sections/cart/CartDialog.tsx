@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
-import { ProductCart } from '~/@types/model'
+import { ProductCart } from '~/@types/models'
 import images from '~/assets'
 import { CartItem } from '~/components/cartItem'
 import { DialogCustom } from '~/components/dialog'

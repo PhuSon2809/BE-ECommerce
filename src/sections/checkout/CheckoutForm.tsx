@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Link, createSearchParams, useNavigate } from 'react-router-dom'
 
 import { QueryConfig } from '~/@types/common'
-import { ReceiveProductForm, StorageForResaleForm } from '~/@types/model/order'
+import { ReceiveProductForm, StorageForResaleForm } from '~/@types/models/order'
 import { Button } from '~/components/button'
 import { PATH_PRIVATE_APP, PATH_PUBLIC_APP } from '~/constants/paths'
 import { QUERY_PARAM_STRING } from '~/constants/queryParamString'

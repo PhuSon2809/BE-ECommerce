@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useCallback, useState } from 'react'
-import { ProductCart } from '~/@types/model'
+import { ProductCart } from '~/@types/models'
 import images from '~/assets'
 import { Button } from '~/components/button'
 import { IconButton } from '~/components/iconButton'
@@ -7,8 +7,8 @@ import { Popover } from '~/components/popover'
 import { ProductCardBanner } from '~/components/productCardBanner'
 import useDialog from '~/hooks/useDialog'
 import useResponsive from '~/hooks/useResponsive'
+import { addToCart } from '~/redux/cart/cart.slice'
 import { useAppDispatch } from '~/redux/configStore'
-import { addToCart } from '~/redux/product/product.slice'
 import { CartDialog } from '~/sections/cart'
 
 type BannerSectionProps = {

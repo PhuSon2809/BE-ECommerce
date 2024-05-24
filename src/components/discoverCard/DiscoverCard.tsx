@@ -1,4 +1,4 @@
-import { Discover } from '~/@types/model'
+import { Discover } from '~/@types/models'
 import images from '~/assets'
 
 type DiscoverCardProps = {

@@ -1,5 +1,6 @@
 import images from '~/assets'
 import { CartItemCheckout } from '~/components/cartItemCheckout'
+import { Search } from '~/components/search'
 import { Navbar } from '~/layouts/components/navbar'
 import { useAppSelector } from '~/redux/configStore'
 
@@ -20,7 +21,7 @@ const trackingDelivery = [
 ]
 
 function TrackingOrder() {
-  const { cart } = useAppSelector((state) => state.product)
+  const { cart } = useAppSelector((state) => state.cart)
   const trackingDeliveryActive = 3
 
   return (
@@ -33,14 +34,7 @@ function TrackingOrder() {
           <div className='w-full flex flex-col gap-8'>
             <h1 className='text-[36px] font-customSemiBold leading-none'>Tracking Order</h1>
 
-            <div className='w-full h-11 px-3 bg-white/[.44] flex items-center gap-2 rounded-lg border-blackMain/[.1] border border-solid focus-within:bg-white'>
-              <img src={images.icons.search} alt='icon-search' className='size-5' />
-              <div className='h-6 border-0 border-r-[1px] border-solid border-blackMain/[.1]' />
-              <input
-                placeholder='Enter your receipt number'
-                className='w-full h-full bg-white/[.44] border-none outline-none rounded-tr-[44px] rounded-br-[44px] focus:bg-white'
-              />
-            </div>
+            <Search variant='outline' />
 
             <div className='w-full bg-white rounded-xl flex items-start'>
               <div className='w-[52.409%] h-full flex flex-col gap-10'>

@@ -1,5 +1,5 @@
 import images from '~/assets'
-import { Product } from '~/@types/model'
+import { Product } from '~/@types/models'
 import { IconButton } from '~/components/iconButton'
 import useResponsive from '~/hooks/useResponsive'
 

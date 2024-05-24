@@ -1,119 +1,119 @@
+import { useState } from 'react'
+import { OrderStatus, TimeFilter } from '~/@types/enums'
+import { LIST_ORDER_STATUS_OPTIONS, LIST_TIME_FILTER_OPTIONS } from '~/@types/listOptionCommon'
+import { Search } from '~/components/search'
 import { Header } from '~/layouts/components/header'
-import images from '~/assets'
+import {
+  ListCardWallet,
+  ListPaymentHistory,
+  ListProductHistory,
+  PurchaseAmountChart,
+  RewardPointsChart
+} from '~/sections/order'
 import './styles.scss'
-import { WalletIcon } from '~/components/icons'
+import { TabProductList } from '~/sections/category'
 
 const OrderHistory = () => {
+  const [timeFilter, setTimeFilter] = useState<string>(TimeFilter.MONTHS_12)
+  const [statusSelected, setStatusSelected] = useState<string>(OrderStatus.AWAITING)
+
   return (
-    <div className='container bg-[#F8F8F9]'>
+    <div className='max-w-[1440px] mx-auto bg-greyLight pb-[50px]'>
       <div className='history'>
         <Header />
 
-        {/*  */}
-        <div className='flex gap-5 px-4 mt-[35px]'>
-          <section className='p-4 pb-[18px] rounded-2xl bg-white/[44%]'>
-            <div className=' relative'>
-              <div className='w-[335px] h-[180px] relative font-customSemiBold rounded-2xl overflow-hidden'>
-                <div className='p-6 absolute inset-0 z-10 text-white'>
-                  <div className=' uppercase text-base'>Christopher Victory</div>
-                  <div className=' text-white/[68%] text-[14px] mt-[16px] mb-[51px]'>****9878</div>
-                  <div className='text-[28px]'>$5,879</div>
-                </div>
-                <img src={images.history.visa_card_liner} alt='visacard' className=' absolute inset-0' />
-              </div>
-              <div className='w-[335px] h-[180px] font-customSemiBold absolute rounded-2xl overflow-hidden top-12 z-10'>
-                <div className='p-6 absolute inset-0 z-10 text-white'>
-                  <div className=' uppercase text-[16px]'>Christopher Victory</div>
-                  <div className=' text-white/[68%] text-[14px] mt-[16px] mb-[51px]'>****9878</div>
-                  <div className='text-[28px]'>$5,879</div>
-                </div>
-                <img src={images.history.visa_card} alt='visacard' className=' absolute inset-0' />
-              </div>
+        <div className='flex gap-5 px-5 mt-10'>
+          <section className='space-y-6'>
+            <div className='h-fit p-4 pb-[18px] rounded-2xl backdrop-blur-[40px] bg-white/[44%]'>
+              <ListCardWallet />
+              <ListPaymentHistory />
             </div>
-            <div className='mt-[71px]'>
-              <div className='flex justify-between items-center mb-4'>
-                <div className=' text-xl font-customSemiBold'>Payment History</div>
-                <img src={images.icons.filter_2} alt='icon' />
-              </div>
-              <div className='flex flex-col gap-3'>
-                {Array.from({ length: 3 }).map((_, index) => (
-                  <div key={index} className='flex justify-between items-center text-lg'>
-                    <div className='flex items-center gap-4'>
-                      <WalletIcon color='#0D0D0D' />
-                      <span>Wallet fg75...jh89</span>
-                    </div>
-                    <div className='font-customSemiBold'>$249.00</div>
-                  </div>
-                ))}
-                {Array.from({ length: 3 }).map((_, index) => (
-                  <div key={index} className='flex justify-between items-center text-lg'>
-                    <div className='flex items-center gap-4'>
-                      <img src={images.icons.visa} alt='icon' />
-                      <span>Visa ****5678</span>
-                    </div>
-                    <div className='font-customSemiBold'>$249.00</div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            {statusSelected === OrderStatus.STORAGE && <TabProductList hideFavoriteTab />}
           </section>
 
-          <div className='flex-1'>
+          <div className='flex-1 pt-[60px]'>
             <section>
-              <h2 className='font-customSemiBold text-[40px] mb-[25px]'>Order History</h2>
-              <div className='flex gap-5 w-full'>
-                <div className='h-[305px] w-2/3 bg-white/[44%] rounded-xl overflow-hidden shadow-popover-custom-2'>
-                  chart
-                </div>
-                <div className='w-1/3 bg-white/[44%] rounded-xl overflow-hidden px-4 py-[35px]'>
-                  <div className='font-customSemiBold text-[20px]'>Reward Points</div>
-                </div>
+              <h2 className='text-[40px] font-customSemiBold leading-[42px] mb-[30px]'>Order History</h2>
+              <div className='w-full flex gap-5'>
+                <PurchaseAmountChart />
+                <RewardPointsChart />
               </div>
             </section>
 
-            <section className='mt-[32px] mb-6'>
-              <div className='flex w-full'>
-                {Array.from({ length: 6 }).map((_, index) => {
+            <section className='flex flex-col gap-6 my-6 mb-[85px]'>
+              <div className='flex justify-between items-center'>
+                <div className='flex'>
+                  {LIST_TIME_FILTER_OPTIONS.map((item) => (
+                    <button
+                      key={item.value}
+                      onClick={() => setTimeFilter(item.value as string)}
+                      className={`w-[120px] h-11 border-0 border-l-[1px] border-b-[1px] border-solid ${timeFilter === item.value ? 'border-blueMain font-customSemiBold' : 'border-blueMain/[.12]'} flex justify-center items-center hover:scale-[1.02] transition-all duration-200 ease-in-out`}
+                    >
+                      {item.value}
+                    </button>
+                  ))}
+                </div>
+                <Search variant='outline' className='w-[355px]' />
+              </div>
+
+              <div className='w-full h-8 flex rounded'>
+                {LIST_ORDER_STATUS_OPTIONS.map((item) => (
+                  <div
+                    key={item.value}
+                    className={`w-[20%] h-full ${
+                      item.value === OrderStatus.AWAITING
+                        ? 'bg-blueMain rounded-tl-[4px] rounded-bl-[4px]'
+                        : item.value === OrderStatus.IN_TRANSIT
+                          ? 'bg-yellowMain'
+                          : item.value === OrderStatus.DELIVERED
+                            ? 'bg-greenLight'
+                            : item.value === OrderStatus.CANCELLED
+                              ? 'bg-redMain'
+                              : 'bg-purpleMain rounded-tr-[4px] rounded-br-[4px]'
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <div className='w-full flex gap-4'>
+                {LIST_ORDER_STATUS_OPTIONS.map((item) => {
                   return (
                     <div
-                      key={index}
-                      className='w-full py-[11px] px-3 pl-4 flex justify-between items-center text-[18px] bg-white first:bg-gradient-to-r first:from-[#5495FC] first:to-[#31D366] first:rounded first:font-customSemiBold'
+                      key={item.value}
+                      className='w-[168px] relative hover:scale-[1.02] transition-all duration-300 ease-linear'
+                      onClick={() => setStatusSelected(item.value as string)}
                     >
-                      <div>Awaiting</div>
-                      <div className='px-[6px] h-[22px] bg-[#F6F6F7] rounded-sm text-base font-customSemiBold'>120</div>
+                      <div
+                        className={`w-full h-[47px] absolute inset-0 ${statusSelected === item.value ? 'bg-gradient-to-l from-blueMain to-greenMain' : 'bg-transparent'} rounded`}
+                      />
+                      <button className='w-full h-11 px-3 absolute inset-0 flex items-center justify-between rounded bg-white'>
+                        <div className='flex items-center gap-4'>
+                          <div
+                            className={`size-2 rounded-full ${
+                              item.value === OrderStatus.AWAITING
+                                ? 'bg-greenMain'
+                                : item.value === OrderStatus.IN_TRANSIT
+                                  ? 'bg-yellowMain'
+                                  : item.value === OrderStatus.DELIVERED
+                                    ? 'bg-greenLight'
+                                    : item.value === OrderStatus.CANCELLED
+                                      ? 'bg-redMain'
+                                      : 'bg-purpleMain'
+                            }`}
+                          />
+                          <p className='text-[18px] leading-5'>{item.label}</p>
+                        </div>
+                        <div className='h-[22px] px-[6px] bg-greyMain rounded-sm'>
+                          <p className='text-[16px] font-customSemiBold leading-5'>19</p>
+                        </div>
+                      </button>
                     </div>
                   )
                 })}
               </div>
             </section>
 
-            <section>
-              <div className='flex justify-between items-center'>
-                <div className='flex'>
-                  <button className='w-[120px] h-[44px] border-l-[1px] border-b-[1px] border-[#5495FC] flex justify-center items-center'>
-                    12 months
-                  </button>
-                  <button className='w-[120px] h-[44px] border-l-[1px] border-b-[1px] border-[#5495FC]/[12%] flex justify-center items-center'>
-                    30 days
-                  </button>
-                  <button className='w-[120px] h-[44px] border-l-[1px] border-b-[1px] border-[#5495FC]/[12%] flex justify-center items-center'>
-                    7 days
-                  </button>
-                  <button className='w-[120px] h-[44px] border-l-[1px] border-b-[1px] border-[#5495FC]/[12%] flex justify-center items-center'>
-                    24 hours
-                  </button>
-                </div>
-                <div className='h-[44px] w-[355px] py-[10px] px-[12px] rounded-lg bg-white/[44%] border-[1px] border-[#0d0d0d1a]'>
-                  <form action=''>
-                    <div className='flex gap-3'>
-                      <img src={images.icons.search} alt='icon' />
-                      <span className='h-full w-[1px] bg-black/[12%] inline-block'></span>
-                      <input type='text' className='w-full bg-transparent' placeholder='Enter your product name' />
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </section>
+            <ListProductHistory statusSelected={statusSelected} />
           </div>
         </div>
       </div>

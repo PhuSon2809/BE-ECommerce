@@ -1,11 +1,11 @@
 import { useState } from 'react'
 // redux
 import { useAppDispatch } from '~/redux/configStore'
-import { decreaseQuantity, increaseQuantity } from '~/redux/product/product.slice'
 //
 import { Minus, Plus } from 'iconoir-react'
-import { ProductCart } from '~/@types/model'
+import { ProductCart } from '~/@types/models'
 import { IconButton } from '~/components/iconButton'
+import { decreaseQuantityProductCart, increaseQuantityProductCart } from '~/redux/cart/cart.slice'
 
 interface QuantityControllerProps {
   isSmall?: boolean
@@ -44,8 +44,8 @@ function QuantityController({
 
     onIncrease && onIncrease(_value)
     setLocalValue(_value)
-    if (isCart) {
-      dispatch(increaseQuantity(productInCart))
+    if (productInCart && isCart) {
+      dispatch(increaseQuantityProductCart(productInCart))
     }
   }
 
@@ -61,7 +61,7 @@ function QuantityController({
       if (_value > 0) {
         onDecrease && onDecrease(_value)
         setLocalValue(_value)
-        dispatch(decreaseQuantity(productInCart))
+        if (productInCart) dispatch(decreaseQuantityProductCart(productInCart))
       }
     } else {
       if (_value < 1) {
@@ -84,11 +84,18 @@ function QuantityController({
       >
         <Minus fontSize={isSmall ? 10 : 15} />
       </IconButton>
-      <p className='min-w-[30px] text-[20px] font-customSemiBold text-center'>
-        {(productInCart?.quantityInCart as number) < 10
-          ? `0${productInCart?.quantityInCart}`
-          : productInCart?.quantityInCart}
-      </p>
+      {productInCart ? (
+        <p className='min-w-[30px] text-[20px] font-customSemiBold text-center'>
+          {(productInCart?.quantityInCart as number) < 10
+            ? `0${productInCart?.quantityInCart}`
+            : productInCart?.quantityInCart}
+        </p>
+      ) : (
+        <p className='min-w-[30px] text-[20px] font-customSemiBold text-center text-greenMain'>
+          {(localValue as number) < 10 && (localValue as number) !== 0 ? `0${localValue}` : localValue}
+        </p>
+      )}
+
       <IconButton
         size={isSmall ? '28' : '40'}
         variant='outline'

@@ -10,7 +10,7 @@ import { SummaryCart } from '~/sections/cart'
 function Cart() {
   const { pathname } = useLocation()
 
-  const { cart } = useAppSelector((state) => state.product)
+  const { cart } = useAppSelector((state) => state.cart)
   const { selected, handleSelectItem, handleSelectAll } = useSelectItem(cart)
 
   const listItemCheckout =

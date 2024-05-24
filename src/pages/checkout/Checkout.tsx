@@ -3,7 +3,7 @@ import { createSearchParams, useNavigate } from 'react-router-dom'
 import { useAppSelector } from '~/redux/configStore'
 //
 import { QueryConfig } from '~/@types/common'
-import { ProductCart } from '~/@types/model'
+import { ProductCart } from '~/@types/models'
 import images from '~/assets'
 import { Button } from '~/components/button'
 import { CartItemCheckout } from '~/components/cartItemCheckout'
@@ -17,7 +17,7 @@ function Checkout() {
 
   const queryConfig: QueryConfig = useQueryConfig()
 
-  const { cart } = useAppSelector((state) => state.product)
+  const { cart } = useAppSelector((state) => state.cart)
 
   const listItemCheckout = queryConfig.itemCheckoutIds
     ? cart.filter((item) =>

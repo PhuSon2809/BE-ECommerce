@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import Slider from 'react-slick'
-import { ProductRecent } from '~/@types/model'
+import { ProductRecent } from '~/@types/models'
 import images from '~/assets'
 import { listProductsRecent } from '~/assets/mocks/product'
 

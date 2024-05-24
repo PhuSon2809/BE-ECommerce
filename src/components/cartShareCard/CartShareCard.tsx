@@ -1,5 +1,5 @@
 import { QueryConfig } from '~/@types/common'
-import { ProductCart } from '~/@types/model'
+import { ProductCart } from '~/@types/models'
 import images from '~/assets'
 import { IconButton } from '~/components/iconButton'
 import { QUERY_PARAM_STRING } from '~/constants/queryParamString'

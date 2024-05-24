@@ -6,7 +6,9 @@ export interface Product {
   numberItem: number
   retailPrice: number
   vipPrice: number
+  category: string
 }
+
 export interface ProductCart {
   id: number
   image: any
@@ -16,6 +18,15 @@ export interface ProductCart {
   category: string
   quantityInCart: number
 }
+
+export interface ProductFavorite {
+  id: number
+  image: any
+  title: string
+  vipPrice: number
+  retailPrice: number
+}
+
 export interface ProductRecent {
   id: number
   image: any

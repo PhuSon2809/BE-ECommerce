@@ -5,6 +5,7 @@ import { OptionSelect } from '~/@types/common'
 import { listProducts } from '~/assets/mocks/product'
 import { Button } from '~/components/button'
 import { ProductCard } from '~/components/productCard'
+import useResponsive from '~/hooks/useResponsive'
 import { Header } from '~/layouts/components/header'
 import {
   CosmeticSection,
@@ -19,10 +20,7 @@ import {
   WhatWeDoSection,
   WhyChooseSection
 } from '~/sections/home'
-import useResponsive from '~/hooks/useResponsive'
 import './styles.scss'
-import { MenuDialog } from '~/sections/common'
-import useDialog from '~/hooks/useDialog'
 
 const listFilterOption: OptionSelect[] = [
   {
@@ -42,8 +40,6 @@ const listFilterOption: OptionSelect[] = [
 function Home() {
   const smDown = useResponsive('down', 'sm', 'sm')
 
-  const { isOpen, setIsOpen } = useDialog()
-
   const [filterSlide, setFilterSlide] = useState<string>('new')
 
   const sliderRightRef = useRef<Slider>(null)
@@ -51,7 +47,7 @@ function Home() {
   return (
     <div className='home max-w-[1440px] mx-auto overflow-hidden'>
       <div className='bg-[#f1f1f1]'>
-        <Header setOpenMenu={setIsOpen} />
+        <Header />
       </div>
       {/* Banner section */}
       <section>
@@ -201,8 +197,6 @@ function Home() {
 
       {/* Our Team */}
       <OurTeamSection />
-
-      <MenuDialog open={isOpen} setOpen={setIsOpen} variant='horizontal' />
     </div>
   )
 }

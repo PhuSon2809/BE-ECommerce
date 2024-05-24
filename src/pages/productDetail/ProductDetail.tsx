@@ -13,7 +13,7 @@ import {
 } from '~/sections/productDetail'
 import './styles.scss'
 import { DiscoverSection } from '~/sections/common'
-import { ProductCart } from '~/@types/model'
+import { ProductCart } from '~/@types/models'
 
 type ProductDetailProps = {
   setOpen?: Dispatch<SetStateAction<boolean>>

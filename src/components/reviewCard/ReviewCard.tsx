@@ -1,4 +1,4 @@
-import { Review } from '~/@types/model'
+import { Review } from '~/@types/models'
 import images from '~/assets'
 
 type ReviewCard = {

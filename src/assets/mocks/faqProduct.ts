@@ -1,4 +1,4 @@
-import { FaqProduct } from '~/@types/model'
+import { FaqProduct } from '~/@types/models'
 import images from '~/assets'
 
 export const FaqProducts: FaqProduct[] = [

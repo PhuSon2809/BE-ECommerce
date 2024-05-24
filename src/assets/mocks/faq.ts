@@ -1,4 +1,4 @@
-import { FaqProduct } from '~/@types/model'
+import { FaqProduct } from '~/@types/models'
 
 export const Faqs: Omit<FaqProduct, 'icon'>[] = [
   {

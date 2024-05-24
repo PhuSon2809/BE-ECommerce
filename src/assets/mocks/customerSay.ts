@@ -1,4 +1,4 @@
-import { CustomerSay } from '~/@types/model/customerSay'
+import { CustomerSay } from '~/@types/models/customerSay'
 
 export const reviews: CustomerSay[] = [
   {

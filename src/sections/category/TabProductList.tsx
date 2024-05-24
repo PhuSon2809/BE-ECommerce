@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { createSearchParams, useNavigate } from 'react-router-dom'
-import { ProductCart } from '~/@types/model'
+import { ProductCart } from '~/@types/models'
 import images from '~/assets'
 import { Button } from '~/components/button'
 import { CartItem } from '~/components/cartItem'
@@ -25,10 +25,14 @@ const tabsList = [
   }
 ]
 
-function TabProductList() {
+type TabProductListProps = {
+  hideFavoriteTab?: boolean
+}
+
+function TabProductList({ hideFavoriteTab }: TabProductListProps) {
   const navigate = useNavigate()
 
-  const { cart } = useAppSelector((state) => state.product)
+  const { cart } = useAppSelector((state) => state.cart)
 
   const smDown = useResponsive('down', 'sm', 'sm')
 
@@ -42,28 +46,32 @@ function TabProductList() {
 
   return (
     <>
-      <section className='xs:w-[374px] sm:w-full bg-greyMain rounded-2xl xs:rounded-tr-none xs:rounded-br-none'>
+      <section
+        className={`xs:w-[374px] sm:w-full ${hideFavoriteTab ? 'bg-white' : 'bg-greyMain'}  rounded-2xl xs:rounded-tr-none xs:rounded-br-none`}
+      >
         <div className='flex items-end border-t-0 border-l-0 border-r-0 border-b-[1px] border-solid border-blackMain/[.32]'>
           {cart.length === 0 ? (
             <div className='w-full h-[55px] px-5 flex items-center'>
               <p className='text-[20px] font-customSemiBold'>Items in my cart</p>
             </div>
           ) : (
-            tabsList.map((tab) => (
+            (hideFavoriteTab ? tabsList.filter((tab) => tab.value === 'my-bag') : tabsList).map((tab) => (
               <div
                 key={tab.value}
                 onClick={() => setTabActive(tab.value)}
-                className='w-1/2 h-[55px] relative cursor-pointer hover:bg-blackMain/[.10] rounded-tl-2xl rounded-tr-2xl transition-colors duration-300 ease-linear'
+                className={`w-1/2 h-[55px] relative cursor-pointer ${!hideFavoriteTab ? 'hover:bg-blackMain/[.10]' : 'cursor-default'} rounded-tl-2xl rounded-tr-2xl transition-colors duration-300 ease-linear`}
               >
                 <div
-                  className={`w-full h-full flex items-center justify-center gap-[5px] ${tabActive === tab.value ? 'opacity-100' : 'opacity-[.44]'}`}
+                  className={`w-full h-full flex ${hideFavoriteTab ? 'pl-5 justify-start' : 'justify-center'} items-center gap-[5px] ${tabActive === tab.value ? 'opacity-100' : 'opacity-[.44]'}`}
                 >
                   <img src={tab.icon} alt={tab.value} className='size-6' />
                   <p className={`text-[18px] font-customSemiBold caption-top leading-[26px]`}>{tab.label}</p>
                 </div>
-                <div
-                  className={`w-full min-h-[3px] h-[3px] ${tabActive === tab.value ? 'bg-gradient-to-r from-greenMain to-blueMain' : 'bg-transparent'}`}
-                />
+                {!hideFavoriteTab && (
+                  <div
+                    className={`w-full min-h-[3px] h-[3px] ${tabActive === tab.value ? 'bg-gradient-to-r from-greenMain to-blueMain' : 'bg-transparent'}`}
+                  />
+                )}
               </div>
             ))
           )}
@@ -78,6 +86,7 @@ function TabProductList() {
                 <CartItem
                   isSmall
                   hideSelect
+                  hideHandleQuantity={hideFavoriteTab}
                   productCart={product}
                   handleSelectItem={handleSelectItem}
                   isItemSelected={selected.indexOf(product.id) !== -1}

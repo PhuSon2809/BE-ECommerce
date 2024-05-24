@@ -2,7 +2,7 @@
 import { useRef } from 'react'
 import Slider from 'react-slick'
 
-import { Employee } from '~/@types/model'
+import { Employee } from '~/@types/models'
 import images from '~/assets'
 import { TeamCard } from '~/components/teamCard'
 

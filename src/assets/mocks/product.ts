@@ -1,27 +1,146 @@
-import { Discover, Product, ProductCart, ProductRecent } from '~/@types/model'
+import { Discover, Product, ProductCart, ProductRecent } from '~/@types/models'
 import images from '~/assets'
 
 export const listVerticalDiscovers: Discover[] = [
-  { id: 1, image: images.product.discover1, title: 'Rooerio cavanl', numberItem: 20, retailPrice: 60, vipPrice: 56 },
-  { id: 2, image: images.product.discover2, title: 'Rooerio cavanl', numberItem: 20, retailPrice: 60, vipPrice: 56 }
+  {
+    id: 1,
+    image: images.product.discover1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 2,
+    image: images.product.discover2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  }
 ]
 
 export const listDiscovers: Discover[] = [
-  { id: 1, image: images.product.discover1, title: 'Rooerio cavanl', numberItem: 20, retailPrice: 60, vipPrice: 56 },
-  { id: 2, image: images.product.discover2, title: 'Rooerio cavanl', numberItem: 20, retailPrice: 60, vipPrice: 56 },
-  { id: 3, image: images.product.discover3, title: 'Rooerio cavanl', numberItem: 20, retailPrice: 60, vipPrice: 56 },
-  { id: 4, image: images.product.discover4, title: 'Rooerio cavanl', numberItem: 20, retailPrice: 60, vipPrice: 56 },
-  { id: 5, image: images.product.discover1, title: 'Rooerio cavanl', numberItem: 20, retailPrice: 60, vipPrice: 56 },
-  { id: 6, image: images.product.discover2, title: 'Rooerio cavanl', numberItem: 20, retailPrice: 60, vipPrice: 56 },
-  { id: 7, image: images.product.discover3, title: 'Rooerio cavanl', numberItem: 20, retailPrice: 60, vipPrice: 56 },
-  { id: 8, image: images.product.discover4, title: 'Rooerio cavanl', numberItem: 20, retailPrice: 60, vipPrice: 56 },
-  { id: 9, image: images.product.discover1, title: 'Rooerio cavanl', numberItem: 20, retailPrice: 60, vipPrice: 56 },
-  { id: 10, image: images.product.discover2, title: 'Rooerio cavanl', numberItem: 20, retailPrice: 60, vipPrice: 56 },
-  { id: 11, image: images.product.discover3, title: 'Rooerio cavanl', numberItem: 20, retailPrice: 60, vipPrice: 56 },
-  { id: 12, image: images.product.discover4, title: 'Rooerio cavanl', numberItem: 20, retailPrice: 60, vipPrice: 56 },
-  { id: 13, image: images.product.discover1, title: 'Rooerio cavanl', numberItem: 20, retailPrice: 60, vipPrice: 56 },
-  { id: 14, image: images.product.discover2, title: 'Rooerio cavanl', numberItem: 20, retailPrice: 60, vipPrice: 56 },
-  { id: 15, image: images.product.discover3, title: 'Rooerio cavanl', numberItem: 20, retailPrice: 60, vipPrice: 56 }
+  {
+    id: 1,
+    image: images.product.discover1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 2,
+    image: images.product.discover2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 3,
+    image: images.product.discover3,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 4,
+    image: images.product.discover4,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 5,
+    image: images.product.discover1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 6,
+    image: images.product.discover2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 7,
+    image: images.product.discover3,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 8,
+    image: images.product.discover4,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 9,
+    image: images.product.discover1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 10,
+    image: images.product.discover2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 11,
+    image: images.product.discover3,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 12,
+    image: images.product.discover4,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 13,
+    image: images.product.discover1,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 14,
+    image: images.product.discover2,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  },
+  {
+    id: 15,
+    image: images.product.discover3,
+    title: 'Rooerio cavanl',
+    numberItem: 20,
+    retailPrice: 60,
+    vipPrice: 56
+  }
 ]
 
 export const listProductInCart: ProductCart[] = [
@@ -106,7 +225,8 @@ export const listProducts: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 2,
@@ -114,7 +234,8 @@ export const listProducts: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 3,
@@ -122,7 +243,8 @@ export const listProducts: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 4,
@@ -130,7 +252,8 @@ export const listProducts: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 5,
@@ -138,7 +261,8 @@ export const listProducts: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 6,
@@ -146,7 +270,8 @@ export const listProducts: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 7,
@@ -154,7 +279,8 @@ export const listProducts: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 8,
@@ -162,7 +288,8 @@ export const listProducts: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   }
 ]
 
@@ -173,7 +300,8 @@ export const listProductsFunctional: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 2,
@@ -181,7 +309,8 @@ export const listProductsFunctional: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 3,
@@ -189,7 +318,8 @@ export const listProductsFunctional: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 5,
@@ -197,7 +327,8 @@ export const listProductsFunctional: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 6,
@@ -205,7 +336,8 @@ export const listProductsFunctional: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 7,
@@ -213,7 +345,8 @@ export const listProductsFunctional: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   }
 ]
 
@@ -224,7 +357,8 @@ export const listProductsCosmetic: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 2,
@@ -232,7 +366,8 @@ export const listProductsCosmetic: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 3,
@@ -240,7 +375,8 @@ export const listProductsCosmetic: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 5,
@@ -248,7 +384,8 @@ export const listProductsCosmetic: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 6,
@@ -256,7 +393,8 @@ export const listProductsCosmetic: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 7,
@@ -264,7 +402,8 @@ export const listProductsCosmetic: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   }
 ]
 
@@ -275,7 +414,8 @@ export const listProductsRichFood: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 2,
@@ -283,7 +423,8 @@ export const listProductsRichFood: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 3,
@@ -291,7 +432,8 @@ export const listProductsRichFood: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 5,
@@ -299,7 +441,8 @@ export const listProductsRichFood: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 6,
@@ -307,7 +450,8 @@ export const listProductsRichFood: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 7,
@@ -315,7 +459,8 @@ export const listProductsRichFood: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   }
 ]
 
@@ -326,7 +471,8 @@ export const listProductsGateway: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 2,
@@ -334,7 +480,8 @@ export const listProductsGateway: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 3,
@@ -342,7 +489,8 @@ export const listProductsGateway: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 5,
@@ -350,7 +498,8 @@ export const listProductsGateway: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 6,
@@ -358,7 +507,8 @@ export const listProductsGateway: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 7,
@@ -366,7 +516,8 @@ export const listProductsGateway: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   }
 ]
 
@@ -377,7 +528,8 @@ export const listProductsUnveiling: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 2,
@@ -385,7 +537,8 @@ export const listProductsUnveiling: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 1,
@@ -393,7 +546,8 @@ export const listProductsUnveiling: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 2,
@@ -401,7 +555,8 @@ export const listProductsUnveiling: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 1,
@@ -409,7 +564,8 @@ export const listProductsUnveiling: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 2,
@@ -417,7 +573,8 @@ export const listProductsUnveiling: Product[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   }
 ]
 
