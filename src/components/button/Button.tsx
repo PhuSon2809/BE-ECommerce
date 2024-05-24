@@ -8,7 +8,7 @@ type ButtonProps = {
   fullWidth?: boolean
   shadow?: boolean
   disabled?: boolean
-  variant?: 'container' | 'outline' | 'linear' | 'grey' | 'outline-linear'
+  variant?: 'container' | 'outline' | 'linear' | 'grey' | 'outline-linear' | 'outline-grey'
   size?: 'small' | 'medium' | 'large'
   onClick?: () => void
 }
@@ -43,7 +43,9 @@ function Button({
                  ? 'bg-gradient-to-tr from-greenMain to-blueMain'
                  : variant === 'grey'
                    ? 'bg-greyMain'
-                   : 'bg-white'
+                   : variant === 'outline-grey'
+                     ? 'bg-transparent text-blackMain/[.64] border-solid border-blackMain/[.64] border-[2px]'
+                     : 'bg-white'
          } 
          ${variant === 'outline-linear' && 'rounded-md'}
          ${disabled ? '!text-white !bg-[#dcdcdd]' : ''}

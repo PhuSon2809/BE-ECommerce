@@ -1,4 +1,4 @@
-import { FaqProduct } from '~/@types/model'
+import { FaqProduct } from '~/@types/models'
 import { Button } from '~/components/button'
 import useResponsive from '~/hooks/useResponsive'
 

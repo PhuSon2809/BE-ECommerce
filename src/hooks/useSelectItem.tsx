@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react'
-import { ProductCart } from '~/@types/model'
+import { ProductCart } from '~/@types/models'
 
 function useSelectItem(listSelect: ProductCart[]) {
   const [selected, setSelected] = useState<readonly number[]>([])

@@ -1,5 +1,5 @@
 import { Heart } from 'iconoir-react'
-import { Discover } from '~/@types/model'
+import { Discover } from '~/@types/models'
 import images from '~/assets'
 import useResponsive from '~/hooks/useResponsive'
 

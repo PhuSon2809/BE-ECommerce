@@ -1,4 +1,4 @@
-import { Employee } from '~/@types/model'
+import { Employee } from '~/@types/models'
 
 type TeamCardProps = { employee: Employee }
 

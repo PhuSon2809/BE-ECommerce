@@ -3,10 +3,13 @@ import { Link, useLocation } from 'react-router-dom'
 import images from '~/assets'
 import { Button } from '~/components/button'
 import { IconButton } from '~/components/iconButton'
+import { FavoriteIcon } from '~/components/icons'
 import { Search } from '~/components/search'
 import { PATH_PRIVATE_APP, PATH_PUBLIC_APP } from '~/constants/paths'
+import useDialog from '~/hooks/useDialog'
 import useResponsive from '~/hooks/useResponsive'
 import { useAppSelector } from '~/redux/configStore'
+import { MenuDialog } from '~/sections/common'
 
 type HeaderProps = {
   hideMenu?: boolean
@@ -18,9 +21,12 @@ type HeaderProps = {
 
 function Header({ setOpenMenu, setOpenCart, hideMenu = false, hideCart = false, hideFavorite = false }: HeaderProps) {
   const { pathname } = useLocation()
-  const { cart } = useAppSelector((state) => state.product)
+  const { cart } = useAppSelector((state) => state.cart)
+  const { favorites } = useAppSelector((state) => state.favorite)
 
-  const smDown = useResponsive('down', 'sm', 'sm')
+  const smDown = useResponsive('down', 'sm')
+
+  const { isOpen, setIsOpen } = useDialog()
 
   return (
     <header
@@ -28,28 +34,38 @@ function Header({ setOpenMenu, setOpenCart, hideMenu = false, hideCart = false, 
     >
       <div className='flex items-center gap-5'>
         {!hideMenu && (
-          <IconButton
-            title={smDown ? '' : 'Menu'}
-            size={smDown ? '40' : '48'}
-            onClick={() => setOpenMenu && setOpenMenu(true)}
-          >
-            <img src={images.icons.menu} alt='icons-menu' className='xs:size-5 sm:size-6' />
-          </IconButton>
+          <div>
+            <IconButton
+              title={smDown ? '' : 'Menu'}
+              size={smDown ? '40' : '48'}
+              onClick={() => (setOpenMenu ? setOpenMenu(true) : setIsOpen(!isOpen))}
+            >
+              <img src={images.icons.menu} alt='icons-menu' className='xs:size-5 sm:size-6' />
+            </IconButton>
+            <MenuDialog open={isOpen} setOpen={setIsOpen} variant='horizontal' />
+          </div>
         )}
-        {pathname !== PATH_PRIVATE_APP.order.history && !smDown ? (
-          <Search />
-        ) : (
-          <IconButton title={smDown ? '' : 'Menu'} size={smDown ? '40' : '48'}>
-            <img src={images.icons.search} alt='icons-search' className='xs:size-5 sm:size-6' />
-          </IconButton>
-        )}
+        {pathname !== PATH_PRIVATE_APP.order.history &&
+          (!smDown ? (
+            <Search />
+          ) : (
+            <IconButton size={smDown ? '40' : '48'}>
+              <img src={images.icons.search} alt='icons-search' className='xs:size-5 sm:size-6' />
+            </IconButton>
+          ))}
       </div>
       {pathname !== PATH_PRIVATE_APP.order.history && (
         <div className='xs:w-fit sm:w-[458.01px] flex items-center justify-end gap-5'>
           {!hideFavorite && (
-            <IconButton size={smDown ? '40' : '48'}>
-              <img src={images.icons.heart} alt='icons-heart' className='xs:size-5 sm:size-6' />
-            </IconButton>
+            <div className='relative'>
+              <IconButton size={smDown ? '40' : '48'}>
+                <FavoriteIcon color='black' className='xs:size-5 sm:size-6' />
+                {/* <img src={images.icons.heart} alt='icons-heart' className='xs:size-5 sm:size-6' /> */}
+              </IconButton>
+              <div className='xs:size-5 sm:size-6 bg-gradient-to-tr from-blueMain to-greenMain rounded-full flex items-center justify-center absolute xs:top-[-6px] sm:top-[-8px] xs:right-[-6px] sm:right-[-8px]'>
+                <p className='text-[14px] text-white font-customMedium'>{favorites.length}</p>
+              </div>
+            </div>
           )}
           {!hideCart && (
             <div className='relative'>

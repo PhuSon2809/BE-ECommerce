@@ -55,7 +55,7 @@ function useRouteElements() {
       element: <TrackingOrder />
     },
     {
-      path: '/history',
+      path: PATH_PRIVATE_APP.order.history,
       element: <OrderHistory />
     }
   ])

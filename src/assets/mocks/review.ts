@@ -1,4 +1,4 @@
-import { Review } from '~/@types/model'
+import { Review } from '~/@types/models'
 
 export const reviews: Review[] = [...Array(3)].map(() => ({
   ratings: 5,

@@ -30,11 +30,22 @@ export default {
       },
       colors: {
         blackMain: '#0D0D0D',
-        greyMain: '#F6F6F7',
+        // gray
         greyLight: '#F8F8F9',
+        greyMain: '#F6F6F7',
+        // blue
         blueMain: '#5495FC',
+        // green
+        greenLight: '#31D366',
         greenMain: '#60EC8E',
-        orangeMain: '#FF9900'
+        // orange
+        orangeMain: '#FF9900',
+        // yellow
+        yellowMain: '#FFD020',
+        // red
+        redMain: '#E33E3E',
+        // purple
+        purpleMain: '#9A3EE3'
       },
       backgroundImage: {
         'home-banner': "url('/assets/images/home-banner.png')"
@@ -51,9 +62,10 @@ export default {
       radio: '0px 3px 15px 0px #FFFFFF',
       popover: '0px 4px 32px 0px #00000026',
       checkbox: '-1px -1px 0px 0px #0000001F inset',
+      avatar: '0px 0px 4px 0px #00000052',
+      button: '0px 4px 32px 0px #0000000D',
       'popover-custom': '0px 4px 32px 0px #0000001A',
       'popover-custom-2': '0px 4px 32px 0px #00000008',
-      avatar: '0px 0px 4px 0px #00000052',
       'icon-button': '0px 0px 80px 0px #00000026',
       '3xl': '0px 0px 77.42px 0px #0000000D',
       '4xl': '0px 0px 80px 0px #0000000D',
@@ -65,9 +77,7 @@ export default {
       '10xl': '0px 4px 64px 0px #0000000D',
       '11xl': '0px 3.46px 27.64px 0px #0000001A',
       '12xl': '0px 0px 47.67px 0px #0000000D',
-      '13xl': ' 0px 0px 47.3px 0px #0000000D',
-      button: '0px 4px 32px 0px #0000000D',
-      'text-shadow': ['-1px 0 #60EC8E', '0 1px #60EC8E', '1px 0 #60EC8E', '0 -1px #60EC8E']
+      '13xl': ' 0px 0px 47.3px 0px #0000000D'
     }
   },
   plugins: [

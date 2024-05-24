@@ -1,4 +1,4 @@
-import { Discover } from '~/@types/model'
+import { Discover } from '~/@types/models'
 import images from '~/assets'
 import { listDiscovers } from '~/assets/mocks/product'
 import { IconButton } from '~/components/iconButton'

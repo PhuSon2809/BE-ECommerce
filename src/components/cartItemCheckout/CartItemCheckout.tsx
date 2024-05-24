@@ -1,4 +1,4 @@
-import { ProductCart } from '~/@types/model'
+import { ProductCart } from '~/@types/models'
 
 type CartItemCheckoutProps = {
   productCart: ProductCart
@@ -24,9 +24,14 @@ function CartItemCheckout({ productCart, inOrder = false }: CartItemCheckoutProp
           {inOrder && <p className='text-[14px] opacity-[.64]'>Quantity: {productCart.quantityInCart}</p>}
         </div>
         {!inOrder && <p className='text-[20px] opacity-[.64]'>x{productCart.quantityInCart}</p>}
-        <p className={`${inOrder ? 'text-[18px]' : 'text-[20px]'} font-customSemiBold`}>
-          ${productCart.price.toFixed(2)}
-        </p>
+        <div className='text-right'>
+          <p className={`${inOrder ? 'text-[18px]' : 'text-[20px]'} font-customSemiBold`}>
+            ${productCart.price.toFixed(2)}
+          </p>
+          <p className={`${inOrder ? 'text-[14px]' : 'text-[14px]'} text-blackMain/[.64] line-through`}>
+            ${productCart.price.toFixed(2)}
+          </p>
+        </div>
       </div>
     </div>
   )

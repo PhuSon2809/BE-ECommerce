@@ -40,7 +40,7 @@ function MenuDialog({ open, setOpen, variant = 'vertical' }: MenuDialogProps) {
         open={open}
         setOpen={setOpen}
         variant={variant}
-        className={`${variant === 'vertical' ? 'max-w-[1347px] ml-[175px] mt-[20px]' : 'max-w-[1400px] ml-[60px] mt-[80px]'} `}
+        className={`${variant === 'vertical' ? 'max-w-[1347px] ml-[175px] mt-[20px]' : 'max-w-[1400px] mt-[80px]'} `}
       >
         {variant === 'horizontal' && (
           <div className='flex items-center gap-[15px] mb-5 text-white'>

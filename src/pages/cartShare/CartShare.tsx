@@ -3,7 +3,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import Slider from 'react-slick'
 
 import { QueryConfig } from '~/@types/common'
-import { ProductCart } from '~/@types/model'
+import { ProductCart } from '~/@types/models'
 import { Button } from '~/components/button'
 import { CartShareCard } from '~/components/cartShareCard'
 import useQueryConfig from '~/hooks/useQueryConfig'
@@ -17,7 +17,7 @@ function CartShare() {
 
   const queryConfig: QueryConfig = useQueryConfig()
 
-  const { cart } = useAppSelector((state) => state.product)
+  const { cart } = useAppSelector((state) => state.cart)
 
   const [slideActive, setSlideActive] = useState<number>(0)
 

@@ -20,6 +20,7 @@ import customer_2 from '~/assets/images/customer-2.png'
 import customer_3 from '~/assets/images/customer-3.png'
 import customer_4 from '~/assets/images/customer-4.png'
 import congratulations from '~/assets/images/congratulations.png'
+import cart_wallet_gradient from '~/assets/images/cart-wallet-gradient.png'
 
 import home_banner from '~/assets/images/home-banner.png'
 import home1 from '~/assets/images/home1.png'
@@ -130,6 +131,9 @@ import QR from '~/assets/images/QR.png'
 import bg_checkout_complete from '~/assets/images/bg-checkout-complete.png'
 import bg_add_wallet from '~/assets/images/bg-add-wallet.png'
 
+// order
+import platinum from '~/assets/icons/platinum.png'
+
 const images = {
   logo: { logo_e_commerce, logo_white, circle_white },
   image: {
@@ -147,7 +151,8 @@ const images = {
     flash_sale_4,
     bg_feature_product,
     bg_feature_product_small,
-    line_group
+    line_group,
+    cart_wallet_gradient
   },
   icons: {
     add_white,
@@ -202,7 +207,8 @@ const images = {
     visa,
     flash_sale_icon,
     delivery,
-    double_check
+    double_check,
+    platinum
   },
   product: {
     product_banner,

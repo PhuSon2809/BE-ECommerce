@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react'
 
 import images from '~/assets'
-import { FaqProduct } from '~/@types/model'
+import { FaqProduct } from '~/@types/models'
 import { IconButton } from '~/components/iconButton'
 import useResponsive from '~/hooks/useResponsive'
 
