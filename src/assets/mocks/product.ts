@@ -8,7 +8,8 @@ export const listVerticalDiscovers: Discover[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 2,
@@ -16,7 +17,8 @@ export const listVerticalDiscovers: Discover[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   }
 ]
 
@@ -27,7 +29,8 @@ export const listDiscovers: Discover[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 2,
@@ -35,7 +38,8 @@ export const listDiscovers: Discover[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 3,
@@ -43,7 +47,8 @@ export const listDiscovers: Discover[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 4,
@@ -51,7 +56,8 @@ export const listDiscovers: Discover[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 5,
@@ -59,15 +65,18 @@ export const listDiscovers: Discover[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
+
   {
     id: 6,
     image: images.product.discover2,
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 7,
@@ -75,7 +84,8 @@ export const listDiscovers: Discover[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 8,
@@ -83,7 +93,8 @@ export const listDiscovers: Discover[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 9,
@@ -91,7 +102,8 @@ export const listDiscovers: Discover[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 10,
@@ -99,7 +111,8 @@ export const listDiscovers: Discover[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 11,
@@ -107,7 +120,8 @@ export const listDiscovers: Discover[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 12,
@@ -115,7 +129,8 @@ export const listDiscovers: Discover[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 13,
@@ -123,7 +138,8 @@ export const listDiscovers: Discover[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 14,
@@ -131,7 +147,8 @@ export const listDiscovers: Discover[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   },
   {
     id: 15,
@@ -139,7 +156,8 @@ export const listDiscovers: Discover[] = [
     title: 'Rooerio cavanl',
     numberItem: 20,
     retailPrice: 60,
-    vipPrice: 56
+    vipPrice: 56,
+    category: 'Health collection'
   }
 ]
 

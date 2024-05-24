@@ -4,10 +4,11 @@ import { QuantityController } from '~/components/quantityController'
 
 type ProductOrderHistoryProps = {
   product: Product
+  smallImage?: boolean
   showEditQuantity?: boolean
 }
 
-function ProductOrderHistory({ product, showEditQuantity }: ProductOrderHistoryProps) {
+function ProductOrderHistory({ product, smallImage = false, showEditQuantity }: ProductOrderHistoryProps) {
   const quantityProductInOrder = 5
 
   const [quantity, setQuantity] = useState<number | ''>(0)
@@ -35,8 +36,12 @@ function ProductOrderHistory({ product, showEditQuantity }: ProductOrderHistoryP
   return (
     <div className='w-full flex items-center justify-between'>
       <div className='flex items-center gap-3'>
-        <img src={product.image} alt={product.title} className='size-[120px] rounded-lg object-cover object-center' />
-        <div className='flex flex-col gap-2'>
+        <img
+          src={product.image}
+          alt={product.title}
+          className={`${smallImage ? 'size-[96px]' : 'size-[120px]'} rounded-lg object-cover object-center`}
+        />
+        <div className={`flex flex-col ${smallImage ? 'gap-1' : 'gap-2'}`}>
           <p className='text-[24px] font-customSemiBold leading-[25.2px]'>{product.title}</p>
           <p className='text-[18px] leading-[18.9px] text-blackMain/[.64]'>{product.category}</p>
           <p className='text-[18px] leading-[18.9px] text-blackMain/[.64]'>200g</p>

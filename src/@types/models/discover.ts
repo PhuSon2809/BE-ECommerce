@@ -6,5 +6,6 @@ export interface Discover {
   numberItem: number
   retailPrice: number
   vipPrice: number
+  category: string
   height?: string
 }

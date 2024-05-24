@@ -1,0 +1,19 @@
+.tracking-user {
+  background-image: url('../../assets/background/bg-tracking-user.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 1440px 400px;
+
+  .bg-linear {
+    background-image: url('../../assets/background/bg-card-liner-dashboard.png');
+    background-repeat: no-repeat;
+    background-position: top;
+  }
+
+  .total-purchases {
+    background-image: url('../../assets/background/bg-tracking-user-purchases.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1440px 810px;
+  }
+}

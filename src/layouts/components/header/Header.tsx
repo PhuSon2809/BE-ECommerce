@@ -38,6 +38,7 @@ function Header({ setOpenMenu, setOpenCart, hideMenu = false, hideCart = false, 
             <IconButton
               title={smDown ? '' : 'Menu'}
               size={smDown ? '40' : '48'}
+              className={`${pathname === PATH_PRIVATE_APP.user.tracking && 'bg-white/[.76] backdrop-blur-[80px] shadow-popover-custom-2'}`}
               onClick={() => (setOpenMenu ? setOpenMenu(true) : setIsOpen(!isOpen))}
             >
               <img src={images.icons.menu} alt='icons-menu' className='xs:size-5 sm:size-6' />
@@ -46,6 +47,7 @@ function Header({ setOpenMenu, setOpenCart, hideMenu = false, hideCart = false, 
           </div>
         )}
         {pathname !== PATH_PRIVATE_APP.order.history &&
+          pathname !== PATH_PRIVATE_APP.user.tracking &&
           (!smDown ? (
             <Search />
           ) : (
@@ -54,7 +56,7 @@ function Header({ setOpenMenu, setOpenCart, hideMenu = false, hideCart = false, 
             </IconButton>
           ))}
       </div>
-      {pathname !== PATH_PRIVATE_APP.order.history && (
+      {pathname !== PATH_PRIVATE_APP.order.history && pathname !== PATH_PRIVATE_APP.user.tracking && (
         <div className='xs:w-fit sm:w-[458.01px] flex items-center justify-end gap-5'>
           {!hideFavorite && (
             <div className='relative'>

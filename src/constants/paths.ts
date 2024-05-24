@@ -25,6 +25,7 @@ export const PATH_AUTH = {
 
 export const PATH_PUBLIC_APP = {
   home: '/',
+  about: '/about',
   cart: {
     root: pathRoot(ROOTS_CART),
     share: path(ROOTS_CART, '/share')
@@ -52,6 +53,8 @@ export const PATH_PRIVATE_APP = {
   },
   user: {
     root: pathRoot(ROOTS_USER),
-    profile: path(ROOTS_USER, '/profile')
+    profile: path(ROOTS_USER, '/profile'),
+    tracking: path(ROOTS_USER, '/tracking'),
+    trackingDetail: path(ROOTS_USER, '/tracking/:id')
   }
 }
