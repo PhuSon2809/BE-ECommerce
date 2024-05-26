@@ -1,16 +1,17 @@
-import { useCallback, useState } from 'react'
+import { useCallback } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 import { Product, ProductCart, ProductFavorite } from '~/@types/models'
 import images from '~/assets'
+import { DialogDetailPage } from '~/components/dialog'
 import { FavoriteIcon } from '~/components/icons'
 import { PATH_PUBLIC_APP } from '~/constants/paths'
 import useDialog from '~/hooks/useDialog'
 import useResponsive from '~/hooks/useResponsive'
+import { ProductDetail } from '~/pages/productDetail'
 import { addToCart } from '~/redux/cart/cart.slice'
 import { useAppDispatch, useAppSelector } from '~/redux/configStore'
 import { addToFavorite } from '~/redux/favorite/favorite.slice'
-import { DialogProductDetail } from '~/sections/productDetail'
 
 type ProductCardProps = {
   product: Product
@@ -43,16 +44,12 @@ function ProductCard({
   const smDown = useResponsive('down', 'sm')
   const { isOpen, setIsOpen, handleOpen } = useDialog()
 
-  const [isFavoriteClicked, setIsFavoriteClicked] = useState<boolean>(false)
-
   const handleNavigateDetail = () => {
-    if (!isFavoriteClicked) {
-      if (pathname === PATH_PUBLIC_APP.category.list) {
-        handleOpen()
-        window.history.pushState({}, '', `${PATH_PUBLIC_APP.product.root}/${product.id}`)
-      } else {
-        navigate(`${PATH_PUBLIC_APP.product.root}/${product.id}`)
-      }
+    if (pathname === PATH_PUBLIC_APP.category.list) {
+      handleOpen()
+      window.history.pushState({}, '', `${PATH_PUBLIC_APP.product.root}/${product.id}`)
+    } else {
+      navigate(`${PATH_PUBLIC_APP.product.root}/${product.id}`)
     }
   }
 
@@ -70,7 +67,6 @@ function ProductCard({
   }, [dispatch, product])
 
   const handleAddToFavorite = useCallback(() => {
-    setIsFavoriteClicked(true)
     const productToAddFavorite: ProductFavorite = {
       id: product.id,
       title: product?.title,
@@ -218,7 +214,9 @@ function ProductCard({
         </button>
       </div>
 
-      <DialogProductDetail open={isOpen} setOpen={setIsOpen} />
+      <DialogDetailPage open={isOpen} setOpen={setIsOpen}>
+        <ProductDetail setOpen={setIsOpen} />
+      </DialogDetailPage>
     </>
   )
 }

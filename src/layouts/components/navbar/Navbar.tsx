@@ -18,6 +18,8 @@ import {
 } from '~/components/icons'
 import { PATH_PRIVATE_APP, PATH_PUBLIC_APP } from '~/constants/paths'
 import './styles.scss'
+import { LogoutDialog } from '~/sections/logout'
+import useDialog from '~/hooks/useDialog'
 
 const configNavbar = [
   {
@@ -71,7 +73,7 @@ const configNavbar = [
     icon: (color: string) => <NavMessageIcon color={color} />
   },
   {
-    url: PATH_PUBLIC_APP.home,
+    url: PATH_PRIVATE_APP.notification,
     label: 'Notification',
     icon: (color: string) => <NavNotificationIcon color={color} />
   },
@@ -97,6 +99,8 @@ function Navbar({ setOpenMenu, className, variant = 'vertical' }: NavbarProps) {
   const { pathname } = useLocation()
 
   const scrollRef = useRef<HTMLDivElement>(null)
+
+  const { isOpen, setIsOpen, handleOpen } = useDialog()
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (scrollRef.current) {
@@ -128,10 +132,10 @@ function Navbar({ setOpenMenu, className, variant = 'vertical' }: NavbarProps) {
         className={`flex ${variant === 'vertical' ? 'flex-col' : 'p-1 flex-row flex-nowrap overflow-auto cursor-grab -mt-1'} gap-[10px] list-nav`}
       >
         {configNavbar.map((nav) =>
-          setOpenMenu && nav.url === PATH_PUBLIC_APP.category.list ? (
+          (setOpenMenu && nav.url === PATH_PUBLIC_APP.category.list) || nav.label === 'Logout' ? (
             <div
               key={nav.label}
-              onClick={() => setOpenMenu(true)}
+              onClick={() => (nav.label === 'Logout' ? handleOpen() : setOpenMenu && setOpenMenu(true))}
               className={`${variant === 'vertical' ? 'size-12' : 'h-[46px] px-3 flex items-center gap-[10px]'} flex items-center justify-center rounded-full hover:scale-105 transition duration-300 ease-in-out cursor-pointer
                         ${pathname === nav.url ? 'bg-gradient-to-r from-greenMain to-blueMain backdrop-blur-[40px] shadow-4xl' : 'bg-white'}`}
             >
@@ -162,6 +166,7 @@ function Navbar({ setOpenMenu, className, variant = 'vertical' }: NavbarProps) {
             </Link>
           )
         )}
+        <LogoutDialog open={isOpen} setOpen={setIsOpen} />
       </div>
     )
   }

@@ -1,4 +1,4 @@
-const DeliveredIcon = ({ color, className }: { color: string; className?: string }) => {
+const DeliveredIcon = ({ color = 'white', className }: { color?: string; className?: string }) => {
   return (
     <svg
       width='20'

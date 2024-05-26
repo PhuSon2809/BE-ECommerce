@@ -10,6 +10,8 @@ import { CartShare } from '~/pages/cartShare'
 import { ProductDetail } from '~/pages/productDetail'
 import { Checkout, CheckoutComplete } from '~/pages/checkout'
 import { OrderHistory, TrackingOrder } from '~/pages/order'
+import { TrackingUser, TrackingUserDetail } from '~/pages/user'
+import { Notification } from '~/pages/notification'
 
 function useRouteElements() {
   const routeElements = useRoutes([
@@ -57,6 +59,18 @@ function useRouteElements() {
     {
       path: PATH_PRIVATE_APP.order.history,
       element: <OrderHistory />
+    },
+    {
+      path: PATH_PRIVATE_APP.user.tracking,
+      element: <TrackingUser />
+    },
+    {
+      path: PATH_PRIVATE_APP.user.trackingDetail,
+      element: <TrackingUserDetail />
+    },
+    {
+      path: PATH_PRIVATE_APP.notification,
+      element: <Notification />
     }
   ])
 

@@ -1,13 +1,13 @@
 import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react'
-import { Dispatch, Fragment, SetStateAction } from 'react'
-import { ProductDetail } from '~/pages/productDetail'
+import { Dispatch, Fragment, ReactNode, SetStateAction } from 'react'
 
-type DialogProductDetailProps = {
+type DialogDetailPageProps = {
+  children: ReactNode
   open: boolean
   setOpen: Dispatch<SetStateAction<boolean>>
 }
 
-function DialogProductDetail({ open, setOpen }: DialogProductDetailProps) {
+function DialogDetailPage({ children, open, setOpen }: DialogDetailPageProps) {
   return (
     <Transition show={open} as={Fragment}>
       <Dialog className='relative z-10' onClose={setOpen}>
@@ -23,7 +23,7 @@ function DialogProductDetail({ open, setOpen }: DialogProductDetailProps) {
               leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
             >
               <DialogPanel className='sm:w-full sm:max-w-[100vw] sm:h-full sm:max-h-[100vh] bg-white transition-all overflow-y-auto'>
-                <ProductDetail setOpen={setOpen} />
+                {children}
               </DialogPanel>
             </TransitionChild>
           </div>
@@ -33,4 +33,4 @@ function DialogProductDetail({ open, setOpen }: DialogProductDetailProps) {
   )
 }
 
-export default DialogProductDetail
+export default DialogDetailPage

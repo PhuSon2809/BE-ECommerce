@@ -19,7 +19,7 @@ const OrderHistory = () => {
 
   return (
     <div className='max-w-[1440px] mx-auto bg-greyLight pb-[50px]'>
-      <div className='history'>
+      <div className='order-history'>
         <Header />
 
         <div className='flex gap-5 px-5 mt-10'>

@@ -134,6 +134,11 @@ import bg_add_wallet from '~/assets/images/bg-add-wallet.png'
 // order
 import platinum from '~/assets/icons/platinum.png'
 
+// user tracking
+import bg_user_tracking_review from '~/assets/images/bg-user-tracking-review.png'
+import bg_user_tracking_share from '~/assets/images/bg-user-tracking-share.png'
+import bg_user_tracking_visitor from '~/assets/images/bg-user-tracking-visitor.png'
+
 const images = {
   logo: { logo_e_commerce, logo_white, circle_white },
   image: {
@@ -272,6 +277,11 @@ const images = {
     bg_checkout_complete,
     empty_wallet,
     bg_add_wallet
+  },
+  user: {
+    bg_user_tracking_review,
+    bg_user_tracking_share,
+    bg_user_tracking_visitor
   }
 }
 

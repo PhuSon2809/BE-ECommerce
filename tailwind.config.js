@@ -64,6 +64,7 @@ export default {
       checkbox: '-1px -1px 0px 0px #0000001F inset',
       avatar: '0px 0px 4px 0px #00000052',
       button: '0px 4px 32px 0px #0000000D',
+      card: '0px 4px 20px 0px #0000000D',
       'popover-custom': '0px 4px 32px 0px #0000001A',
       'popover-custom-2': '0px 4px 32px 0px #00000008',
       'icon-button': '0px 0px 80px 0px #00000026',
@@ -77,7 +78,10 @@ export default {
       '10xl': '0px 4px 64px 0px #0000000D',
       '11xl': '0px 3.46px 27.64px 0px #0000001A',
       '12xl': '0px 0px 47.67px 0px #0000000D',
-      '13xl': ' 0px 0px 47.3px 0px #0000000D'
+      '13xl': '0px 0px 47.3px 0px #0000000D',
+      '14xl': '0px 4px 20px 0px #0000001A',
+      '15xl': '0px 0px 39.05px 0px #0000000D',
+      '16xl': '0px 4px 40px 0px #0000001A'
     }
   },
   plugins: [

@@ -14,11 +14,10 @@ import {
   MenuCategoryDialog,
   PurchasesChart,
   RecentPurchases,
-  SlideBanner,
   TabCartDialog,
   TabProductList
 } from '~/sections/category'
-import { MenuDialog } from '~/sections/common'
+import { MenuDialog, SlideBanner } from '~/sections/common'
 import './styles.scss'
 
 const listFilterOption: OptionSelect[] = [

@@ -41,6 +41,7 @@ export const PATH_PUBLIC_APP = {
 }
 
 export const PATH_PRIVATE_APP = {
+  notification: '/notification',
   checkout: {
     root: pathRoot(ROOTS_CHECKOUT),
     complete: path(ROOTS_CHECKOUT, '/complete')
@@ -52,6 +53,8 @@ export const PATH_PRIVATE_APP = {
   },
   user: {
     root: pathRoot(ROOTS_USER),
-    profile: path(ROOTS_USER, '/profile')
+    profile: path(ROOTS_USER, '/profile'),
+    tracking: path(ROOTS_USER, '/tracking'),
+    trackingDetail: path(ROOTS_USER, '/tracking/:id')
   }
 }
