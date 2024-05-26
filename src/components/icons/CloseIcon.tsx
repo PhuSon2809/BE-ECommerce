@@ -1,4 +1,4 @@
-const CloseIcon = ({ color, className }: { color: string; className?: string }) => {
+const CloseIcon = ({ color = 'black', className }: { color?: string; className?: string }) => {
   return (
     <svg
       width='20'

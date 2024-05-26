@@ -32,8 +32,10 @@ const listFilterOption: OptionSelect[] = [
 function TrackingUser() {
   const [sortBy, setSortBy] = useState<OptionSelect>({ value: '', label: '' })
 
+  const anotherRole = false
+
   return (
-    <div className='max-w-[1440px] min-h-[100vh] mx-auto bg-white pb-[50px]'>
+    <div className='max-w-[1440px] min-h-[100vh] mx-auto bg-white pb-[50px] overflow-hidden'>
       <div className='tracking-user'>
         <Header />
 
@@ -117,8 +119,12 @@ function TrackingUser() {
             <ListUserInfo />
           </div>
 
-          <TopSearchProduct />
-          <TotalPurchasesChart />
+          {!anotherRole && (
+            <>
+              <TopSearchProduct />
+              <TotalPurchasesChart />
+            </>
+          )}
         </div>
       </div>
     </div>

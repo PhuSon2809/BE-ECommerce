@@ -16,4 +16,33 @@
     background-position: center;
     background-size: 1440px 810px;
   }
+
+  .top-search-product {
+    height: 760px;
+    .my-swiper {
+      overflow: unset;
+      margin-left: 78px;
+      .swiper-button-prev,
+      .swiper-button-next,
+      .swiper-pagination {
+        display: none;
+      }
+      .swiper-slide {
+        height: 424px;
+        transition: all 0.3s ease-in-out;
+      }
+      .active {
+        overflow: unset !important;
+        margin-top: 86px;
+      }
+      .swiper-slide-prev {
+        overflow: unset;
+        margin-top: -10px;
+      }
+      .swiper-slide-next {
+        overflow: unset;
+        margin-top: 88px;
+      }
+    }
+  }
 }

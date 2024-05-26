@@ -1,5 +1,5 @@
-import images from '~/assets'
 import { CartItemCheckout } from '~/components/cartItemCheckout'
+import { DeliveredIcon, DoubleCheckIcon } from '~/components/icons'
 import { Search } from '~/components/search'
 import { Navbar } from '~/layouts/components/navbar'
 import { useAppSelector } from '~/redux/configStore'
@@ -48,11 +48,7 @@ function TrackingOrder() {
                           className={`size-12 rounded-full bg-white flex items-center justify-center ${tracking.id === trackingDeliveryActive && 'border-[2px] border-solid border-[#31D366]'}`}
                         >
                           <div className='size-9 rounded-full bg-[#31D366] flex items-center justify-center'>
-                            {tracking.id === trackingDeliveryActive ? (
-                              <img src={images.icons.delivery} alt='icon-delivery' />
-                            ) : (
-                              <img src={images.icons.double_check} alt='icon-double-check' />
-                            )}
+                            {tracking.id === trackingDeliveryActive ? <DeliveredIcon /> : <DoubleCheckIcon />}
                           </div>
                         </div>
                         <p

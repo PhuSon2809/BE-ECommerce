@@ -79,7 +79,9 @@ export default {
       '11xl': '0px 3.46px 27.64px 0px #0000001A',
       '12xl': '0px 0px 47.67px 0px #0000000D',
       '13xl': '0px 0px 47.3px 0px #0000000D',
-      '14xl': '0px 4px 20px 0px #0000001A'
+      '14xl': '0px 4px 20px 0px #0000001A',
+      '15xl': '0px 0px 39.05px 0px #0000000D',
+      '16xl': '0px 4px 40px 0px #0000001A'
     }
   },
   plugins: [

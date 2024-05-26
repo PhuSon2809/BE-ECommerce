@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 import { Product, ProductCart, ProductFavorite } from '~/@types/models'
 import images from '~/assets'
-import { DialogDetailPage } from '~/components/dialogDetailPage'
+import { DialogDetailPage } from '~/components/dialog'
 import { FavoriteIcon } from '~/components/icons'
 import { PATH_PUBLIC_APP } from '~/constants/paths'
 import useDialog from '~/hooks/useDialog'

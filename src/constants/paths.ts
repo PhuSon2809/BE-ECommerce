@@ -25,7 +25,6 @@ export const PATH_AUTH = {
 
 export const PATH_PUBLIC_APP = {
   home: '/',
-  about: '/about',
   cart: {
     root: pathRoot(ROOTS_CART),
     share: path(ROOTS_CART, '/share')
@@ -42,6 +41,7 @@ export const PATH_PUBLIC_APP = {
 }
 
 export const PATH_PRIVATE_APP = {
+  notification: '/notification',
   checkout: {
     root: pathRoot(ROOTS_CHECKOUT),
     complete: path(ROOTS_CHECKOUT, '/complete')
