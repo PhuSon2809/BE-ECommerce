@@ -3,7 +3,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import Slider from 'react-slick'
 
 import { QueryConfig } from '~/@types/common'
-import { ProductCart } from '~/@types/models'
+import { ProductInStorage } from '~/@types/models'
 import { Button } from '~/components/button'
 import { CartShareCard } from '~/components/cartShareCard'
 import useQueryConfig from '~/hooks/useQueryConfig'
@@ -47,7 +47,7 @@ function CartShare() {
             {cart.map((product, index) => {
               return (
                 <div key={product.id} className={`${index === slideActive ? 'slide slide-active' : 'slide'} h-[440px]`}>
-                  <CartShareCard productCart={product} />
+                  <CartShareCard ProductInStorage={product} />
                 </div>
               )
             })}
@@ -74,7 +74,7 @@ function CartShare() {
             $
             {cart.length > 0
               ? cart
-                  .reduce((total: number, currentProduct: ProductCart) => {
+                  .reduce((total: number, currentProduct: ProductInStorage) => {
                     return total + currentProduct.quantityInCart * currentProduct.price
                   }, 0)
                   .toFixed(2)

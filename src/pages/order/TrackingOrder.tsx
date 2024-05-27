@@ -74,7 +74,7 @@ function TrackingOrder() {
                   <p className='font-customSemiBold uppercase'>Product detail</p>
                   <div className='flex flex-col gap-4'>
                     {cart.map((cartItem) => (
-                      <CartItemCheckout key={cartItem.id} productCart={cartItem} inOrder />
+                      <CartItemCheckout key={cartItem.id} cartItem={cartItem} inOrder />
                     ))}
                   </div>
                 </div>

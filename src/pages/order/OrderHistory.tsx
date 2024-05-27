@@ -3,6 +3,7 @@ import { OrderStatus, TimeFilter } from '~/@types/enums'
 import { LIST_ORDER_STATUS_OPTIONS, LIST_TIME_FILTER_OPTIONS } from '~/@types/listOptionCommon'
 import { Search } from '~/components/search'
 import { Header } from '~/layouts/components/header'
+import { TabProductList } from '~/sections/category'
 import {
   ListCardWallet,
   ListPaymentHistory,
@@ -11,7 +12,6 @@ import {
   RewardPointsChart
 } from '~/sections/order'
 import './styles.scss'
-import { TabProductList } from '~/sections/category'
 
 const OrderHistory = () => {
   const [timeFilter, setTimeFilter] = useState<string>(TimeFilter.MONTHS_12)

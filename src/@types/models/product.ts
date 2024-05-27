@@ -9,7 +9,7 @@ export interface Product {
   category: string
 }
 
-export interface ProductCart {
+export interface ProductInStorage {
   id: number
   image: any
   title: string

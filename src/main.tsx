@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { store } from '~/redux/configStore.ts'
 import App from './App.tsx'
 
+import 'react-day-picker/dist/style.css'
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
 import 'swiper/css'

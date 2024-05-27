@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
-import { ProductCart } from '~/@types/models'
+import { ProductInStorage } from '~/@types/models'
 import images from '~/assets'
 import { CartItem } from '~/components/cartItem'
 import { DialogCustom } from '~/components/dialog'
@@ -8,7 +8,7 @@ import SummaryCart from '~/sections/cart/SummaryCart'
 type CartPopupProps = {
   open: boolean
   setOpen: Dispatch<SetStateAction<boolean>>
-  product: ProductCart
+  product: ProductInStorage
 }
 
 function CartPopup({ open, setOpen, product }: CartPopupProps) {
@@ -39,7 +39,7 @@ function CartPopup({ open, setOpen, product }: CartPopupProps) {
               />
             </div>
 
-            <CartItem hideSelect isInCartPopup productCart={product} />
+            <CartItem hideSelect isInCartPopup cartItem={product} />
           </div>
           <SummaryCart bgColor='bg-white' listProductCheckout={[product]} productIdsCheckout={[product.id]} />
         </div>

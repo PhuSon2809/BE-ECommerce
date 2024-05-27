@@ -1,6 +1,6 @@
 import { createSearchParams, useNavigate } from 'react-router-dom'
 
-import { ProductCart } from '~/@types/models'
+import { ProductInStorage } from '~/@types/models'
 import images from '~/assets'
 import { Button } from '~/components/button'
 import { PATH_PUBLIC_APP } from '~/constants/paths'
@@ -8,7 +8,7 @@ import useDialog from '~/hooks/useDialog'
 import { CheckConfirmDialog } from '~/sections/checkout'
 
 type SummaryCartProps = {
-  listProductCheckout: ProductCart[]
+  listProductCheckout: ProductInStorage[]
   productIdsCheckout: readonly number[]
   inCartPage?: boolean
   bgColor?: string
@@ -30,7 +30,7 @@ function SummaryCart({ listProductCheckout, productIdsCheckout, inCartPage = fal
               $
               {productIdsCheckout.length > 0
                 ? listProductCheckout
-                    .reduce((total: number, currentProduct: ProductCart) => {
+                    .reduce((total: number, currentProduct: ProductInStorage) => {
                       return total + currentProduct.quantityInCart * currentProduct.price
                     }, 0)
                     .toFixed(2)
@@ -56,7 +56,7 @@ function SummaryCart({ listProductCheckout, productIdsCheckout, inCartPage = fal
               $
               {productIdsCheckout.length > 0
                 ? (
-                    listProductCheckout.reduce((total: number, currentProduct: ProductCart) => {
+                    listProductCheckout.reduce((total: number, currentProduct: ProductInStorage) => {
                       return total + currentProduct.quantityInCart * currentProduct.price
                     }, 0) - 20
                   ).toFixed(2)

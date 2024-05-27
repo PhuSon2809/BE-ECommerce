@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import { Product, ProductCart, ProductFavorite } from '~/@types/models'
+import { Product, ProductInStorage } from '~/@types/models'
 import images from '~/assets'
 import { DialogDetailPage } from '~/components/dialog'
 import { FavoriteIcon } from '~/components/icons'
@@ -54,7 +54,7 @@ function ProductCard({
   }
 
   const handleAddToCart = useCallback(() => {
-    const productToAddCart: ProductCart = {
+    const productToAddCart: ProductInStorage = {
       numberItems: product.numberItem,
       id: product.id,
       title: product?.title,
@@ -67,24 +67,34 @@ function ProductCard({
   }, [dispatch, product])
 
   const handleAddToFavorite = useCallback(() => {
-    const productToAddFavorite: ProductFavorite = {
+    const productToAddFavorite: ProductInStorage = {
+      numberItems: product.numberItem,
       id: product.id,
       title: product?.title,
+      category: 'Health Products',
       image: product?.image,
-      vipPrice: product?.vipPrice,
-      retailPrice: product?.retailPrice
+      price: product?.vipPrice,
+      quantityInCart: 0
     }
     dispatch(addToFavorite(productToAddFavorite))
   }, [dispatch, product])
 
   return (
     <>
-      <div className={`${size ? size : 'size-[331px]'} relative`} onClick={handleNavigateDetail}>
-        <img src={product.image} alt='product-img' className={`size-full object-cover object-center ${borderRadius}`} />
+      <div className={`${size ? size : 'size-[331px]'} relative`}>
+        <img
+          src={product.image}
+          alt='product-img'
+          className={`size-full object-cover object-center ${borderRadius}`}
+          onClick={handleNavigateDetail}
+        />
         <div className='absolute top-[4%] right-[4%]' onClick={handleAddToFavorite}>
           <FavoriteIcon color={favorites.some((fav) => fav.id === product.id) ? 'linear' : 'white'} />
         </div>
-        <div className='absolute bottom-[5%] left-1/2 transform -translate-x-1/2 backdrop-blur-2xl shadow-7xl rounded-[15px]'>
+        <div
+          className='absolute bottom-[5%] left-1/2 transform -translate-x-1/2 backdrop-blur-2xl shadow-7xl rounded-[15px]'
+          onClick={handleNavigateDetail}
+        >
           {size === 'w-[357px] h-[272px]' ? (
             <svg width='325' height='89' viewBox='0 0 325 89' fill='none'>
               <path
@@ -152,7 +162,10 @@ function ProductCard({
             </svg>
           )}
         </div>
-        <div className={`w-full ${paddingContent} absolute ${contentPosition} left-[5%] flex flex-col `}>
+        <div
+          className={`w-full ${paddingContent} absolute ${contentPosition} left-[5%] flex flex-col`}
+          onClick={handleNavigateDetail}
+        >
           <div className='flex items-center justify-between'>
             <h6
               className={`${fontSize === 'xSmall' ? 'text-[9.32px]' : fontSize === 'small' ? 'xs:text-[14px] sm:text-[14px]' : 'xs:text-[14px] sm:text-[16px]'} font-customBold`}

@@ -1,18 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { ProductCart } from '~/@types/models'
+import { ProductInStorage } from '~/@types/models'
 import { LOCAL_STORAGE } from '~/constants/localStorage'
-import { getCart, removeLocalStorage, setLocalStorage } from '~/utils/localStorage'
+import { getProductInStorage, removeLocalStorage, setLocalStorage } from '~/utils/localStorage'
 
 interface CartState {
   quantityInCart: number
   isErrorQuantity: boolean
-  cart: ProductCart[]
+  cart: ProductInStorage[]
 }
 
 const initialState: CartState = {
   quantityInCart: 0,
   isErrorQuantity: false,
-  cart: getCart(LOCAL_STORAGE.CART) || []
+  cart: getProductInStorage(LOCAL_STORAGE.CART) || []
 }
 
 const cartSlice = createSlice({
@@ -20,7 +20,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addMultipleToCart: (state, action) => {
-      const products: ProductCart[] = action.payload
+      const products: ProductInStorage[] = action.payload
       products.forEach((newProduct) => {
         const matchingProductIndex = state.cart.findIndex((product) => product.id === newProduct.id)
         if (matchingProductIndex === -1) {
@@ -39,7 +39,7 @@ const cartSlice = createSlice({
       setLocalStorage(LOCAL_STORAGE.CART, JSON.stringify(state.cart))
     },
     addToCart: (state, action) => {
-      const newProduct: ProductCart = action.payload
+      const newProduct: ProductInStorage = action.payload
       const matchingProductIndex = state.cart.findIndex((product) => product.id === newProduct.id)
       if (matchingProductIndex === -1) {
         state.cart.push({ ...newProduct })
@@ -55,8 +55,8 @@ const cartSlice = createSlice({
       }
       setLocalStorage(LOCAL_STORAGE.CART, JSON.stringify(state.cart))
     },
-    increaseQuantityProductCart: (state, action) => {
-      const newProduct: ProductCart = action.payload
+    increaseQuantityProductInCart: (state, action) => {
+      const newProduct: ProductInStorage = action.payload
       const updatedCart = state.cart.map((product) => {
         if (product.id === newProduct.id) {
           const newQuantity: number = product.quantityInCart + 1
@@ -72,8 +72,8 @@ const cartSlice = createSlice({
       state.cart = updatedCart
       setLocalStorage(LOCAL_STORAGE.CART, JSON.stringify(state.cart))
     },
-    decreaseQuantityProductCart: (state, action) => {
-      const newProduct: ProductCart = action.payload
+    decreaseQuantityProductInCart: (state, action) => {
+      const newProduct: ProductInStorage = action.payload
       const updatedCart = state.cart.map((product) => {
         if (product.id === newProduct.id) {
           const newQuantity: number = product.quantityInCart - 1
@@ -89,7 +89,7 @@ const cartSlice = createSlice({
       state.cart = updatedCart
       setLocalStorage(LOCAL_STORAGE.CART, JSON.stringify(state.cart))
     },
-    removeProductCart: (state, action) => {
+    removeProductInCart: (state, action) => {
       const { productId } = action.payload
       state.cart = state.cart.filter((product) => product.id !== productId)
       setLocalStorage(LOCAL_STORAGE.CART, JSON.stringify(state.cart))
@@ -104,9 +104,9 @@ const cartSlice = createSlice({
 export const {
   addMultipleToCart,
   addToCart,
-  increaseQuantityProductCart,
-  decreaseQuantityProductCart,
-  removeProductCart,
+  increaseQuantityProductInCart,
+  decreaseQuantityProductInCart,
+  removeProductInCart,
   clearCart
 } = cartSlice.actions
 const cartReducer = cartSlice.reducer

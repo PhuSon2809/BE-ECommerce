@@ -1,9 +1,10 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires, no-undef
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-undef */
 const plugin = require('tailwindcss/plugin')
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', './node_modules/tailwind-datepicker-react/dist/**/*.js'],
   theme: {
     extend: {
       fontFamily: {

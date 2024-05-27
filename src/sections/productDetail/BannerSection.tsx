@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useCallback, useState } from 'react'
-import { ProductCart } from '~/@types/models'
+import { ProductInStorage } from '~/@types/models'
 import images from '~/assets'
 import { Button } from '~/components/button'
 import { IconButton } from '~/components/iconButton'
@@ -12,7 +12,7 @@ import { useAppDispatch } from '~/redux/configStore'
 import { CartDialog } from '~/sections/cart'
 
 type BannerSectionProps = {
-  product: ProductCart
+  product: ProductInStorage
   setOpen?: Dispatch<SetStateAction<boolean>>
 }
 
@@ -28,7 +28,7 @@ function BannerSection({ product, setOpen }: BannerSectionProps) {
   const listColors = ['#007AFF', '#34C759', '#FF9500', '#FF2D55', '#AF52DE', '#FFCC00', '#0D0D0D', '#FFFFFF']
 
   const handleAddToCart = useCallback(() => {
-    const productToAddCart: ProductCart = {
+    const productToAddCart: ProductInStorage = {
       numberItems: product.numberItems,
       id: product.id,
       title: product?.title,

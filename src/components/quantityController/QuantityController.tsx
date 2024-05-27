@@ -3,14 +3,14 @@ import { useState } from 'react'
 import { useAppDispatch } from '~/redux/configStore'
 //
 import { Minus, Plus } from 'iconoir-react'
-import { ProductCart } from '~/@types/models'
+import { ProductInStorage } from '~/@types/models'
 import { IconButton } from '~/components/iconButton'
-import { decreaseQuantityProductCart, increaseQuantityProductCart } from '~/redux/cart/cart.slice'
+import { decreaseQuantityProductInCart, increaseQuantityProductInCart } from '~/redux/cart/cart.slice'
 
 interface QuantityControllerProps {
   isSmall?: boolean
   isCart?: boolean
-  productInCart?: ProductCart
+  productInCart?: ProductInStorage
   max?: number
   value: number | string
   onIncrease?: (value: number | '') => void
@@ -45,7 +45,7 @@ function QuantityController({
     onIncrease && onIncrease(_value)
     setLocalValue(_value)
     if (productInCart && isCart) {
-      dispatch(increaseQuantityProductCart(productInCart))
+      dispatch(increaseQuantityProductInCart(productInCart))
     }
   }
 
@@ -61,7 +61,7 @@ function QuantityController({
       if (_value > 0) {
         onDecrease && onDecrease(_value)
         setLocalValue(_value)
-        if (productInCart) dispatch(decreaseQuantityProductCart(productInCart))
+        if (productInCart) dispatch(decreaseQuantityProductInCart(productInCart))
       }
     } else {
       if (_value < 1) {

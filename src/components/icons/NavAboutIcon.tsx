@@ -1,4 +1,4 @@
-const NavMessageIcon = ({ color }: { color: string }) => {
+const NavAboutIcon = ({ color }: { color: string }) => {
   return (
     <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <g clipPath='url(#clip0_614_110)'>
@@ -62,4 +62,4 @@ const NavMessageIcon = ({ color }: { color: string }) => {
   )
 }
 
-export default NavMessageIcon
+export default NavAboutIcon

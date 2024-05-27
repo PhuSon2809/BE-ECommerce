@@ -9,7 +9,6 @@ import {
   NavHistoryIcon,
   NavHomeIcon,
   NavLogoutIcon,
-  NavMessageIcon,
   NavNetworkIcon,
   NavNotificationIcon,
   NavPlantIcon,
@@ -68,22 +67,17 @@ const configNavbar = [
     icon: (color: string) => <NavHistoryIcon color={color} />
   },
   {
-    url: PATH_PUBLIC_APP.home,
-    label: 'About',
-    icon: (color: string) => <NavMessageIcon color={color} />
-  },
-  {
     url: PATH_PRIVATE_APP.notification,
     label: 'Notification',
     icon: (color: string) => <NavNotificationIcon color={color} />
   },
   {
-    url: PATH_PUBLIC_APP.home,
+    url: PATH_PRIVATE_APP.setting,
     label: 'Setting',
     icon: (color: string) => <NavSettingIcon color={color} />
   },
   {
-    url: PATH_PUBLIC_APP.home,
+    url: '',
     label: 'Logout',
     icon: (color: string) => <NavLogoutIcon color={color} />
   }
@@ -125,6 +119,11 @@ function Navbar({ setOpenMenu, className, variant = 'vertical' }: NavbarProps) {
   }
 
   const ListNavItem = () => {
+    const handleLogout = () => {
+      handleOpen()
+      setOpenMenu && setOpenMenu(false)
+    }
+
     return (
       <div
         ref={scrollRef}
@@ -135,7 +134,7 @@ function Navbar({ setOpenMenu, className, variant = 'vertical' }: NavbarProps) {
           (setOpenMenu && nav.url === PATH_PUBLIC_APP.category.list) || nav.label === 'Logout' ? (
             <div
               key={nav.label}
-              onClick={() => (nav.label === 'Logout' ? handleOpen() : setOpenMenu && setOpenMenu(true))}
+              onClick={() => (nav.label === 'Logout' ? handleLogout() : setOpenMenu && setOpenMenu(true))}
               className={`${variant === 'vertical' ? 'size-12' : 'h-[46px] px-3 flex items-center gap-[10px]'} flex items-center justify-center rounded-full hover:scale-105 transition duration-300 ease-in-out cursor-pointer
                         ${pathname === nav.url ? 'bg-gradient-to-r from-greenMain to-blueMain backdrop-blur-[40px] shadow-4xl' : 'bg-white'}`}
             >

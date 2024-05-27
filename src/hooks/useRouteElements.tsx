@@ -4,14 +4,15 @@ import { PATH_PRIVATE_APP, PATH_PUBLIC_APP } from '~/constants/paths'
 import { MainLayout } from '~/layouts/mainLayout'
 
 import { Cart } from '~/pages/cart'
-import { Home } from '~/pages/home'
-import { Category } from '~/pages/category'
 import { CartShare } from '~/pages/cartShare'
-import { ProductDetail } from '~/pages/productDetail'
+import { Category } from '~/pages/category'
 import { Checkout, CheckoutComplete } from '~/pages/checkout'
-import { OrderHistory, TrackingOrder } from '~/pages/order'
-import { TrackingUser, TrackingUserDetail } from '~/pages/user'
+import { Home } from '~/pages/home'
 import { Notification } from '~/pages/notification'
+import { OrderHistory, TrackingOrder } from '~/pages/order'
+import { ProductDetail } from '~/pages/productDetail'
+import { Setting } from '~/pages/setting'
+import { TrackingUser, TrackingUserDetail } from '~/pages/user'
 
 function useRouteElements() {
   const routeElements = useRoutes([
@@ -71,6 +72,10 @@ function useRouteElements() {
     {
       path: PATH_PRIVATE_APP.notification,
       element: <Notification />
+    },
+    {
+      path: PATH_PRIVATE_APP.setting,
+      element: <Setting />
     }
   ])
 

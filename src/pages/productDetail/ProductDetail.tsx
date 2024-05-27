@@ -13,7 +13,7 @@ import {
 } from '~/sections/productDetail'
 import './styles.scss'
 import { DiscoverSection } from '~/sections/common'
-import { ProductCart } from '~/@types/models'
+import { ProductInStorage } from '~/@types/models'
 
 type ProductDetailProps = {
   setOpen?: Dispatch<SetStateAction<boolean>>
@@ -22,7 +22,7 @@ type ProductDetailProps = {
 function ProductDetail({ setOpen }: ProductDetailProps) {
   const sliderRef = useRef<Slider>(null)
 
-  const productCheckout: ProductCart = {
+  const productCheckout: ProductInStorage = {
     id: 10,
     image: images.product.product_banner_single,
     title: 'Rooerio cavanl',

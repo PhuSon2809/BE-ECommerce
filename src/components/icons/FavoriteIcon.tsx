@@ -1,6 +1,12 @@
 import React from 'react'
 
-function FavoriteIcon({ className, color = 'white' }: { className?: string; color?: 'black' | 'white' | 'linear' }) {
+function FavoriteIcon({
+  className,
+  color = 'white'
+}: {
+  className?: string
+  color?: 'black' | 'white' | 'linear' | string
+}) {
   const gradientId = React.useId()
 
   return (
@@ -21,15 +27,19 @@ function FavoriteIcon({ className, color = 'white' }: { className?: string; colo
         />
         <path
           d='M20.3634 12.7301C20.8811 12.2022 21.2927 11.5744 21.5738 10.882C21.855 10.1896 22 9.4468 22 8.69617C22 7.94554 21.855 7.20272 21.5738 6.51031C21.2927 5.81804 20.8811 5.19028 20.3635 4.66237C19.8461 4.13421 19.2327 3.71618 18.5588 3.43129C17.885 3.14641 17.1633 3 16.4348 3C15.7064 3 14.9847 3.14641 14.3109 3.43129C13.637 3.71618 13.0236 4.13421 12.5062 4.66237L11.9998 5.17905L11.4933 4.66226C10.4484 3.59623 9.03495 3.00049 7.56467 3.00049C6.0944 3.00049 4.68093 3.59623 3.63609 4.66226C2.59066 5.72891 2 7.17956 2 8.69617C2 10.2128 2.59066 11.6634 3.63609 12.7301L11.5565 20.8112C11.8033 21.0629 12.1962 21.0629 12.443 20.8112L20.3634 12.7301ZM20.3634 12.7301C20.3635 12.73 20.3634 12.7301 20.3634 12.7301ZM14.7861 4.66794C15.3083 4.44718 15.8686 4.33333 16.4348 4.33333C17.0011 4.33333 17.5614 4.44718 18.0836 4.66794C18.6057 4.88869 19.0792 5.21199 19.4771 5.61809C19.8751 6.02396 20.1898 6.50485 20.4042 7.0328C20.6186 7.56071 20.7287 8.12588 20.7287 8.69617C20.7287 9.26647 20.6186 9.83163 20.4042 10.3595C20.1898 10.8875 19.875 11.3685 19.477 11.7744L11.9998 19.4033L4.52255 11.7744C3.71924 10.9548 3.27128 9.84712 3.27128 8.69617C3.27128 7.54523 3.71924 6.43758 4.52255 5.61798C5.32645 4.79777 6.42043 4.33382 7.56467 4.33382C8.70892 4.33382 9.80289 4.79777 10.6068 5.61798L11.5565 6.58698C11.8033 6.83873 12.1962 6.83873 12.443 6.58698L13.3928 5.61787C13.7907 5.21177 14.264 4.88869 14.7861 4.66794Z'
-          stroke={color === 'black' ? '#0D0D0D' : 'white'}
+          stroke={color === 'black' ? '#0D0D0D' : color === 'white' ? 'white' : color}
           strokeWidth='0.3'
           strokeLinecap='round'
           strokeLinejoin='round'
         />
         <defs>
           <linearGradient id={gradientId} x1='22' y1='12' x2='2' y2='12' gradientUnits='userSpaceOnUse'>
-            <stop stopColor={color === 'black' ? '#0D0D0D' : color === 'white' ? 'white' : '#5495FC'} />
-            <stop offset='1' stopColor={color === 'black' ? '#0D0D0D' : color === 'white' ? 'white' : '#31D366'} />
+            <stop
+              stopColor={
+                color === 'black' ? '#0D0D0D' : color === 'white' ? 'white' : color === 'linear' ? '#5495FC' : color
+              }
+            />
+            <stop offset='1' stopColor={color === 'black' ? '#0D0D0D' : color === 'linear' ? '#31D366' : color} />
           </linearGradient>
         </defs>
       </svg>

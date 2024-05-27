@@ -1,12 +1,47 @@
+import { useCallback } from 'react'
+import { Product, ProductInStorage } from '~/@types/models'
 import images from '~/assets'
-import { Product } from '~/@types/models'
 import { IconButton } from '~/components/iconButton'
+import { FavoriteIcon } from '~/components/icons'
 import useResponsive from '~/hooks/useResponsive'
+import { addToCart } from '~/redux/cart/cart.slice'
+import { useAppDispatch, useAppSelector } from '~/redux/configStore'
+import { addToFavorite } from '~/redux/favorite/favorite.slice'
 
 type ProductFunctionalProps = { product: Product; isActive?: boolean; positionPrice?: string }
 
 function ProductFunctional({ product, isActive, positionPrice }: ProductFunctionalProps) {
+  const dispatch = useAppDispatch()
+
+  const { favorites } = useAppSelector((state) => state.favorite)
+
   const smDown = useResponsive('down', 'sm', 'sm')
+
+  const handleAddToCart = useCallback(() => {
+    const productToAddCart: ProductInStorage = {
+      numberItems: product.numberItem,
+      id: product.id,
+      title: product?.title,
+      category: 'Health Products',
+      image: product?.image,
+      price: product?.vipPrice,
+      quantityInCart: 1
+    }
+    dispatch(addToCart(productToAddCart))
+  }, [dispatch, product])
+
+  const handleAddToFavorite = useCallback(() => {
+    const productToAddFavorite: ProductInStorage = {
+      numberItems: product.numberItem,
+      id: product.id,
+      title: product?.title,
+      category: 'Health Products',
+      image: product?.image,
+      price: product?.vipPrice,
+      quantityInCart: 0
+    }
+    dispatch(addToFavorite(productToAddFavorite))
+  }, [dispatch, product])
 
   return (
     <div
@@ -20,10 +55,13 @@ function ProductFunctional({ product, isActive, positionPrice }: ProductFunction
             </h6>
 
             <div className='flex items-center gap-[10px]'>
-              <IconButton size={smDown ? '32' : '36'} color='white'>
-                <img src={images.icons.heart} alt='icon-heart' className='xs:size-4 sm:size-5' />
+              <IconButton size={smDown ? '32' : '36'} color='white' onClick={handleAddToFavorite}>
+                <FavoriteIcon
+                  color={favorites.some((fav) => fav.id === product.id) ? 'linear' : 'black'}
+                  className='xs:size-4 sm:size-5'
+                />
               </IconButton>
-              <IconButton size={smDown ? '32' : '36'} color='linear'>
+              <IconButton size={smDown ? '32' : '36'} color='linear' onClick={handleAddToCart}>
                 <img src={images.icons.shopping_bag_white} alt='icon-shopping-bag' className='xs:size-4 sm:size-5' />
               </IconButton>
             </div>
