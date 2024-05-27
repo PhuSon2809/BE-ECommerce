@@ -158,7 +158,7 @@ function Category() {
               <FlashSale />
               <FeaturedProduct />
             </div>
-            <div className='xs:hidden sm:block sticky top-5 h-[1300px]'>
+            <div className='xs:hidden sm:block sticky top-5 h-[1500px]'>
               <div className='w-[341px] flex flex-col gap-5 '>
                 <div
                   className='h-[91px] px-5 flex items-center justify-between bg-greyMain rounded-2xl'

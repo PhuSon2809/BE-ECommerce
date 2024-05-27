@@ -6,3 +6,12 @@ export interface UserInfo {
   numberProductBought: number
   balance: number
 }
+
+export interface UpdateProfileForm {
+  fullName: string
+  gender: string
+  dateOfBirth: string
+  email: string
+  phoneNumber: number
+  address: string
+}

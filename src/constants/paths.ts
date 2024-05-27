@@ -41,6 +41,7 @@ export const PATH_PUBLIC_APP = {
 }
 
 export const PATH_PRIVATE_APP = {
+  setting: '/setting',
   notification: '/notification',
   checkout: {
     root: pathRoot(ROOTS_CHECKOUT),

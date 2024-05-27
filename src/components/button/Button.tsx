@@ -8,7 +8,7 @@ type ButtonProps = {
   fullWidth?: boolean
   shadow?: boolean
   disabled?: boolean
-  variant?: 'container' | 'outline' | 'linear' | 'grey' | 'outline-linear' | 'outline-grey' | 'blue' | 'green'
+  variant?: 'container' | 'outline' | 'linear' | 'grey' | 'outline-linear' | 'outline-grey' | 'blue' | 'green' | 'red'
   size?: 'small' | 'medium' | 'large'
   onClick?: () => void
 }
@@ -49,11 +49,13 @@ function Button({
                        ? 'bg-blueMain text-white'
                        : variant === 'green'
                          ? 'bg-greenMain text-white'
-                         : 'bg-white'
+                         : variant === 'red'
+                           ? 'bg-redMain text-white'
+                           : 'bg-white'
          } 
          ${variant === 'outline-linear' && 'rounded-md'}
          ${(variant === 'blue' || variant === 'green') && 'rounded-xl'}
-         ${disabled ? '!text-white !bg-[#dcdcdd]' : ''}
+         ${disabled ? '!text-white !bg-[#dcdcdd] !border-none' : ''}
          text-[20px] rounded-3xl ${shadow ? 'shadow-button' : ''} ${className} ${!disabled && variant !== 'outline-linear' && 'hover:shadow-avatar'} transition-all duration-200 ease-in-out 
          ${variant === 'outline-linear' && 'hover:bg-white/[.95]'}
        `}

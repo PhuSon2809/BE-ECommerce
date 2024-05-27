@@ -3,7 +3,7 @@ import { createSearchParams, useNavigate } from 'react-router-dom'
 import { useAppSelector } from '~/redux/configStore'
 //
 import { QueryConfig } from '~/@types/common'
-import { ProductCart } from '~/@types/models'
+import { ProductInStorage } from '~/@types/models'
 import images from '~/assets'
 import { Button } from '~/components/button'
 import { CartItemCheckout } from '~/components/cartItemCheckout'
@@ -103,7 +103,7 @@ function Checkout() {
           <h6 className='text-[32px] font-customBold leading-none'>Order Summary</h6>
           <div className='flex flex-1 flex-col gap-6 mb-[30px]'>
             {listItemCheckout.map((cartItem) => (
-              <CartItemCheckout key={cartItem.id} productCart={cartItem} />
+              <CartItemCheckout key={cartItem.id} cartItem={cartItem} />
             ))}
           </div>
           <div className='flex flex-col gap-5'>
@@ -117,7 +117,7 @@ function Checkout() {
                 $
                 {listItemCheckout.length > 0
                   ? listItemCheckout
-                      .reduce((total: number, currentProduct: ProductCart) => {
+                      .reduce((total: number, currentProduct: ProductInStorage) => {
                         return total + currentProduct.quantityInCart * currentProduct.price
                       }, 0)
                       .toFixed(2)

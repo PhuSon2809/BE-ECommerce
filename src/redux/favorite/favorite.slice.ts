@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { ProductFavorite } from '~/@types/models'
+import { ProductInStorage } from '~/@types/models'
 import { LOCAL_STORAGE } from '~/constants/localStorage'
-import { getProductFavorite, removeLocalStorage, setLocalStorage } from '~/utils/localStorage'
+import { getProductInStorage, removeLocalStorage, setLocalStorage } from '~/utils/localStorage'
 
 interface FavoriteState {
-  favorites: ProductFavorite[]
+  favorites: ProductInStorage[]
 }
 
 const initialState: FavoriteState = {
-  favorites: getProductFavorite(LOCAL_STORAGE.FAVORITE) || []
+  favorites: getProductInStorage(LOCAL_STORAGE.FAVORITE) || []
 }
 
 const favoriteSlice = createSlice({
@@ -16,7 +16,7 @@ const favoriteSlice = createSlice({
   initialState,
   reducers: {
     addToFavorite: (state, action) => {
-      const newProduct: ProductFavorite = action.payload
+      const newProduct: ProductInStorage = action.payload
       const matchingProductIndex = state.favorites.findIndex((product) => product.id === newProduct.id)
       if (matchingProductIndex === -1) {
         state.favorites.push({ ...newProduct })

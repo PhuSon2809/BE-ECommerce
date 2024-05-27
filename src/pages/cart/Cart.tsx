@@ -34,7 +34,7 @@ function Cart() {
               return (
                 <div key={product.id} className='flex flex-col gap-5'>
                   <CartItem
-                    productCart={product}
+                    cartItem={product}
                     isItemSelected={selected.indexOf(product.id) !== -1}
                     handleSelectItem={handleSelectItem}
                   />

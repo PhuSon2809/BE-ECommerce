@@ -14,9 +14,12 @@ interface SelectFieldProps {
   disabled?: boolean
   fullWidth?: boolean
   className?: string | null
+  classNameLabel?: string | null
   required?: boolean
   helperText?: string
   placeholder?: string
+  variant?: 'outline' | 'container'
+  size?: 'small' | 'medium'
 }
 
 function SelectField({
@@ -28,7 +31,10 @@ function SelectField({
   disabled = false,
   fullWidth = false,
   helperText,
-  placeholder
+  placeholder,
+  classNameLabel = null,
+  variant = 'outline',
+  size = 'medium'
 }: SelectFieldProps) {
   const { control } = useFormContext()
 
@@ -44,7 +50,7 @@ function SelectField({
             {label && (
               <label
                 htmlFor={name}
-                className={`text-[20px] font-customSemiBold capitalize ${disabled && 'text-blackMain/[.32]'}`}
+                className={`${size === 'small' ? 'text-[16px]' : 'text-[20px]'} font-customSemiBold capitalize ${disabled && 'text-blackMain/[.32]'} ${classNameLabel}`}
               >
                 {label}
               </label>
@@ -60,7 +66,13 @@ function SelectField({
               {({ open }) => (
                 <div className='relative'>
                   <ListboxButton
-                    className={`relative w-full h-[52px] rounded-[32px] bg-white py-1.5 pl-3 pr-10 shadow-sm ring-1 ring-inset ring-blackMain/[.22] focus:outline-none ${disabled ? 'bg-blackMain/[.03]' : 'focus:ring-[1.5px] focus:ring-blackMain/[.30] hover:ring-[1.5px] hover:ring-blackMain/[.30]'}`}
+                    className={`relative w-full ${size === 'small' ? 'h-[48px]' : 'h-[52px]'} rounded-[32px] py-1.5 pl-3 pr-10 shadow-sm ${variant === 'outline' ? 'bg-white border-[1px] border-solid border-blackMain/[.22] rounded-[30px]' : 'bg-greyLight rounded-lg'} focus:outline-none ${
+                      disabled
+                        ? 'bg-blackMain/[.03]'
+                        : variant === 'outline'
+                          ? 'focus:ring-[1.5px] focus:ring-blackMain/[.30] hover:ring-[1.5px] hover:ring-blackMain/[.30]'
+                          : 'focus:bg-blackMain/[.05] hover:bg-blackMain/[.05]'
+                    }`}
                   >
                     <span className='flex items-center'>
                       <span

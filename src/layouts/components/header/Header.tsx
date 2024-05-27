@@ -10,6 +10,7 @@ import useDialog from '~/hooks/useDialog'
 import useResponsive from '~/hooks/useResponsive'
 import { useAppSelector } from '~/redux/configStore'
 import { MenuDialog } from '~/sections/common'
+import { DiscoverWorldDialog } from '~/sections/home'
 
 type HeaderProps = {
   hideMenu?: boolean
@@ -27,6 +28,7 @@ function Header({ setOpenMenu, setOpenCart, hideMenu = false, hideCart = false, 
   const smDown = useResponsive('down', 'sm')
 
   const { isOpen, setIsOpen } = useDialog()
+  const { isOpen: isOpenDiscover, setIsOpen: setIsOpenDiscover } = useDialog()
 
   return (
     <header
@@ -49,7 +51,12 @@ function Header({ setOpenMenu, setOpenCart, hideMenu = false, hideCart = false, 
         {pathname !== PATH_PRIVATE_APP.order.history &&
           pathname !== PATH_PRIVATE_APP.user.tracking &&
           (!smDown ? (
-            <Search />
+            <div>
+              <div onClick={() => setIsOpenDiscover(true)}>
+                <Search />
+              </div>
+              <DiscoverWorldDialog open={isOpenDiscover} setOpen={setIsOpenDiscover} />
+            </div>
           ) : (
             <IconButton size={smDown ? '40' : '48'}>
               <img src={images.icons.search} alt='icons-search' className='xs:size-5 sm:size-6' />

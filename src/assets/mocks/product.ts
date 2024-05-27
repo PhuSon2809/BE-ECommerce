@@ -1,4 +1,4 @@
-import { Discover, Product, ProductCart, ProductRecent } from '~/@types/models'
+import { Discover, Product, ProductInStorage, ProductRecent } from '~/@types/models'
 import images from '~/assets'
 
 export const listVerticalDiscovers: Discover[] = [
@@ -161,7 +161,7 @@ export const listDiscovers: Discover[] = [
   }
 ]
 
-export const listProductInCart: ProductCart[] = [
+export const listProductInCart: ProductInStorage[] = [
   {
     id: 1,
     image: images.product.discover1,

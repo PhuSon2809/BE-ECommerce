@@ -1,5 +1,5 @@
 import { OptionSelect } from '~/@types/common'
-import { OrderStatus, TimeFilter } from '~/@types/enums'
+import { OrderStatus, TimeFilter, Gender } from '~/@types/enums'
 
 export const LIST_ORDER_STATUS_OPTIONS: OptionSelect[] = [
   { value: OrderStatus.AWAITING, label: OrderStatus.AWAITING },
@@ -25,5 +25,16 @@ export const LIST_TIME_FILTER_OPTIONS: OptionSelect[] = [
   {
     value: TimeFilter.HOURS_24,
     label: '24 hours'
+  }
+]
+
+export const LIST_GENDER_OPTIONS: OptionSelect[] = [
+  {
+    value: Gender.MALE,
+    label: 'Male'
+  },
+  {
+    value: Gender.FEMALE,
+    label: 'Female'
   }
 ]

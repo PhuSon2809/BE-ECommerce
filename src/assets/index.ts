@@ -70,7 +70,6 @@ import line_group from '~/assets/images/line-group.png'
 import add_white from '~/assets/icons/add-white.svg'
 import menu from '~/assets/icons/menu.svg'
 import search from '~/assets/icons/search.svg'
-import heart from '~/assets/icons/heart.svg'
 import shopping_bag from '~/assets/icons/shopping-bag.svg'
 import shopping_bag_white from '~/assets/icons/shopping-bag-white.svg'
 import play from '~/assets/icons/play.svg'
@@ -80,7 +79,6 @@ import arrow_right from '~/assets/icons/arrow-right.svg'
 import arrow_top_right from '~/assets/icons/arrow-top-right.svg'
 import arrow_top from '~/assets/icons/arrow-top.svg'
 import arrow_bot from '~/assets/icons/arrow-bot.svg'
-import close from '~/assets/icons/close.svg'
 import faq1 from '~/assets/icons/faq-1.svg'
 import faq2 from '~/assets/icons/faq-2.svg'
 import faq3 from '~/assets/icons/faq-3.svg'
@@ -116,7 +114,7 @@ import link from '~/assets/icons/link.svg'
 import add_to_bag from '~/assets/icons/add-to-bag.svg'
 import filter_2 from '~/assets/icons/filter-2.svg'
 import delivery from '~/assets/icons/delivery.svg'
-import double_check from '~/assets/icons/double-check.svg'
+import add_card from '~/assets/icons/add-card.svg'
 
 // History
 import visa_card from '~/assets/images/visa-card.png'
@@ -126,6 +124,7 @@ import flash_sale_icon from '~/assets/icons/flash-sale-icon.png'
 //checkout
 import card from '~/assets/icons/card.png'
 import visa from '~/assets/icons/visa.png'
+import visa_outline from '~/assets/icons/visa-outline.png'
 import empty_wallet from '~/assets/images/empty-wallet.png'
 import QR from '~/assets/images/QR.png'
 import bg_checkout_complete from '~/assets/images/bg-checkout-complete.png'
@@ -138,6 +137,9 @@ import platinum from '~/assets/icons/platinum.png'
 import bg_user_tracking_review from '~/assets/images/bg-user-tracking-review.png'
 import bg_user_tracking_share from '~/assets/images/bg-user-tracking-share.png'
 import bg_user_tracking_visitor from '~/assets/images/bg-user-tracking-visitor.png'
+
+// setting
+import wallet_image from '~/assets/images/wallet-image.png'
 
 const images = {
   logo: { logo_e_commerce, logo_white, circle_white },
@@ -163,7 +165,6 @@ const images = {
     add_white,
     menu,
     search,
-    heart,
     shopping_bag,
     shopping_bag_white,
     play,
@@ -173,7 +174,6 @@ const images = {
     arrow_left,
     arrow_right,
     arrow_top_right,
-    close,
     faq1,
     faq2,
     faq3,
@@ -210,9 +210,10 @@ const images = {
     filter_2,
     card,
     visa,
+    visa_outline,
     flash_sale_icon,
     delivery,
-    double_check,
+    add_card,
     platinum
   },
   product: {
@@ -282,6 +283,9 @@ const images = {
     bg_user_tracking_review,
     bg_user_tracking_share,
     bg_user_tracking_visitor
+  },
+  setting: {
+    wallet_image
   }
 }
 

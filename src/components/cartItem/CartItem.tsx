@@ -1,14 +1,15 @@
 import { useCallback, useEffect, useState } from 'react'
 //redux
-import { useAppDispatch } from '~/redux/configStore'
+import { useAppDispatch, useAppSelector } from '~/redux/configStore'
 //
-import { ProductCart } from '~/@types/models'
-import images from '~/assets'
-import { Button } from '~/components/button'
-import { QuantityController } from '~/components/quantityController'
-import { SelectFilter } from '~/components/form'
 import { OptionSelect } from '~/@types/common'
-import { addToCart, removeProductCart } from '~/redux/cart/cart.slice'
+import { ProductInStorage } from '~/@types/models'
+import { Button } from '~/components/button'
+import { SelectFilter } from '~/components/form'
+import { DeleteIcon, FavoriteIcon } from '~/components/icons'
+import { QuantityController } from '~/components/quantityController'
+import { addToCart, removeProductInCart } from '~/redux/cart/cart.slice'
+import { removeProductFavorite } from '~/redux/favorite/favorite.slice'
 
 const listCapacity: OptionSelect[] = [
   { value: 1, label: '100ml' },
@@ -22,7 +23,7 @@ type CartItemProps = {
   hideSelect?: boolean
   hideHandleQuantity?: boolean
   isInCartPopup?: boolean
-  productCart: ProductCart
+  cartItem: ProductInStorage
   isItemSelected?: boolean
   handleSelectItem?: (cartItemId: number) => void
 }
@@ -33,11 +34,13 @@ function CartItem({
   hideSelect = false,
   hideHandleQuantity = false,
   isInCartPopup = false,
-  productCart,
+  cartItem,
   isItemSelected,
   handleSelectItem
 }: CartItemProps) {
   const dispatch = useAppDispatch()
+
+  const { cart } = useAppSelector((state) => state.cart)
 
   const [quantity, setQuantity] = useState<number | ''>(0)
   const [capacity, setCapacity] = useState<OptionSelect>({ value: 1, label: '100ml' })
@@ -47,30 +50,31 @@ function CartItem({
   }
 
   useEffect(() => {
-    setQuantity(productCart.quantityInCart)
-  }, [productCart])
+    setQuantity(cartItem.quantityInCart)
+  }, [cartItem])
 
   const handleAddToCart = useCallback(() => {
-    const productToAddCart: ProductCart = {
-      numberItems: productCart.numberItems,
-      id: productCart.id,
-      title: productCart?.title,
-      category: productCart?.category,
-      image: productCart?.image,
-      price: productCart?.price,
+    const productToAddCart: ProductInStorage = {
+      numberItems: cartItem.numberItems,
+      id: cartItem.id,
+      title: cartItem?.title,
+      category: cartItem?.category,
+      image: cartItem?.image,
+      price: cartItem?.price,
       quantityInCart: 1
     }
     dispatch(addToCart(productToAddCart))
-  }, [dispatch, productCart])
+  }, [dispatch, cartItem])
 
   return (
     <div className='flex items-center gap-4'>
       {!hideSelect && (
         <div className='relative'>
           <input
+            readOnly
             type='checkbox'
             checked={isItemSelected}
-            onClick={() => handleSelectItem && handleSelectItem(productCart.id)}
+            onClick={() => handleSelectItem && handleSelectItem(cartItem.id)}
             className='appearance-none rounded-full w-6 h-[24px] border-[2px] bg-white border-blackMain border-solid 
           checked:border-none checked:bg-gradient-to-r checked:from-greenMain checked:to-blueMain focus:outline-none hover:shadow-avatar transition-all duration-200 ease-in-out 
           checked:after:content-[" "] checked:after:block checked:after:w-[6px] checked:after:h-[12px] checked:after:border-r-[2px] checked:after:border-b-[2px] 
@@ -84,17 +88,18 @@ function CartItem({
           className={`${isSmall ? 'min-w-[68px] size-[68px] rounded-[4px]' : 'min-w-[139px] size-[139px] rounded-2xl'} relative`}
         >
           <img
-            src={productCart.image}
-            alt={productCart.title}
+            src={cartItem.image}
+            alt={cartItem.title}
             className={`size-full ${isSmall ? 'rounded-[4px]' : 'rounded-2xl'}`}
           />
-          {isSmall && (
+          {isSmall && !isFavorite && (
             <div className='size-5 flex items-center justify-center absolute top-0 left-0 bg-white/[.44] backdrop-blur-sm rounded-tl-[4px] rounded-br-[10px] shadow-checkbox'>
               <div className='relative'>
                 <input
+                  readOnly
                   type='checkbox'
                   checked={isItemSelected}
-                  onClick={() => handleSelectItem && handleSelectItem(productCart.id)}
+                  onClick={() => handleSelectItem && handleSelectItem(cartItem.id)}
                   className='appearance-none rounded-full size-[14px] border-[1px] bg-white border-blackMain border-solid 
                     checked:border-none checked:bg-gradient-to-r checked:from-greenMain checked:to-blueMain focus:outline-none hover:shadow-avatar transition-all duration-200 ease-in-out 
                     checked:after:content-[" "] checked:after:block checked:after:w-[3px] checked:after:h-[6px] checked:after:border-r-[1.5px] checked:after:border-b-[1.5px] 
@@ -108,14 +113,14 @@ function CartItem({
           <div>
             <div className='w-full flex justify-between'>
               <p className={`${isSmall ? 'text-[18px]' : 'text-[24px]'} font-customBold leading-none`}>
-                {productCart.title}
+                {cartItem.title}
               </p>
               <p className={`${isSmall ? 'text-[16px]' : 'text-[24px]'} font-customSemiBold leading-none`}>
-                ${productCart.price.toFixed(2)}
+                ${cartItem.price.toFixed(2)}
               </p>
             </div>
             <div className='w-full flex items-center justify-between'>
-              {!isSmall ? <p className='text-blackMain/[.64]'>{productCart.category}</p> : <div></div>}
+              {!isSmall ? <p className='text-blackMain/[.64]'>{cartItem.category}</p> : <div></div>}
               <p className={`${isSmall ? 'text-[12px]' : 'text-[20px]'} opacity-[.64] line-through`}>
                 ${(145).toFixed(2)}
               </p>
@@ -123,60 +128,67 @@ function CartItem({
             {!isSmall && (
               <div className={`w-full flex ${isInCartPopup ? 'items-center justify-between mt-[10px]' : 'flex-col'}`}>
                 <p className='text-blackMain/[.64]'>
-                  Left: <span className='font-customSemiBold text-blackMain'>{productCart.numberItems} items</span>
+                  Left: <span className='font-customSemiBold text-blackMain'>{cartItem.numberItems} items</span>
                 </p>
               </div>
             )}
           </div>
 
           <div className='mt-[3px]'>
-            {isFavorite ? (
-              <Button variant='outline' className='w-[196px] h-[44px]' onClick={handleAddToCart}>
-                ADD TO BAG
-              </Button>
-            ) : (
-              <div className='flex items-center justify-between'>
-                {isInCartPopup ? (
-                  <SelectFilter
-                    label='Capacity'
-                    selected={capacity}
-                    setSelected={setCapacity}
-                    options={listCapacity}
-                    className='h-8 !py-1 !rounded-[31px] ring-0'
-                  />
-                ) : (
-                  <div className={`flex items-center ${isSmall ? 'gap-4' : 'gap-8'}`}>
-                    {!hideHandleQuantity && (
-                      <img
-                        src={images.icons.heart}
-                        alt='icon-heart'
-                        className={`cursor-pointer ${isSmall ? 'size-5' : 'size-6'}`}
-                      />
-                    )}
-                    <img
-                      src={images.icons.deleteIon}
-                      alt='icon-heart'
-                      className={`cursor-pointer ${isSmall ? 'size-5' : 'size-6'}`}
-                      onClick={() => dispatch(removeProductCart({ productId: productCart.id }))}
-                    />
+            <div className='flex items-center justify-between'>
+              {isFavorite ? (
+                <>
+                  <div onClick={() => dispatch(removeProductFavorite({ productId: cartItem.id }))}>
+                    <DeleteIcon color='#0D0D0DA3' className={`cursor-pointer ${isSmall ? 'size-5' : 'size-6'}`} />
                   </div>
-                )}
 
-                {!hideHandleQuantity && (
-                  <QuantityController
-                    isSmall={isSmall}
-                    isCart
-                    productInCart={productCart}
-                    max={productCart.numberItems}
-                    value={quantity}
-                    onDecrease={handleQuantity}
-                    onIncrease={handleQuantity}
-                    onType={handleQuantity}
-                    onFocusOut={handleQuantity}
-                  />
-                )}
-              </div>
-            )}
+                  <Button
+                    variant='outline'
+                    className={`${cart.some((fav) => fav.id === cartItem.id) ? '!w-[140px]' : '!w-[120px]'} !h-[28px] border-blackMain/[.22]`}
+                    classNameText='text-[14px]'
+                    onClick={handleAddToCart}
+                    disabled={cart.some((fav) => fav.id === cartItem.id)}
+                  >
+                    {cart.some((fav) => fav.id === cartItem.id) ? 'ALREADY IN BAG' : 'ADD TO BAG'}
+                  </Button>
+                </>
+              ) : (
+                <>
+                  {isInCartPopup ? (
+                    <SelectFilter
+                      label='Capacity'
+                      selected={capacity}
+                      setSelected={setCapacity}
+                      options={listCapacity}
+                      className='h-8 !py-1 !rounded-[31px] ring-0'
+                    />
+                  ) : (
+                    <div className={`flex items-center ${isSmall ? 'gap-4' : 'gap-8'}`}>
+                      {(!hideHandleQuantity || isFavorite) && (
+                        <FavoriteIcon color='#0D0D0DA3' className={`cursor-pointer ${isSmall ? 'size-5' : 'size-6'}`} />
+                      )}
+                      <div onClick={() => dispatch(removeProductInCart({ productId: cartItem.id }))}>
+                        <DeleteIcon color='#0D0D0DA3' className={`cursor-pointer ${isSmall ? 'size-5' : 'size-6'}`} />
+                      </div>
+                    </div>
+                  )}
+
+                  {!hideHandleQuantity && (
+                    <QuantityController
+                      isSmall={isSmall}
+                      isCart
+                      productInCart={cartItem}
+                      max={cartItem.numberItems}
+                      value={quantity}
+                      onDecrease={handleQuantity}
+                      onIncrease={handleQuantity}
+                      onType={handleQuantity}
+                      onFocusOut={handleQuantity}
+                    />
+                  )}
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>
