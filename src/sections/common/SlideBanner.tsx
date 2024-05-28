@@ -18,7 +18,7 @@ function SlideBanner() {
   }
 
   return (
-    <section className='xs:w-[390px] sm:w-[927px] relative'>
+    <section className='w-full relative'>
       <Slider
         ref={sliderRef}
         arrows={false}
@@ -34,16 +34,16 @@ function SlideBanner() {
             className='w-full xs:h-[131px] sm:h-[240px] xs:py-[18px] xs:px-4 sm:py-0 sm:px-10 rounded-none sm:rounded-2xl bg-gradient-to-tr from-[#F2F3F5] to-[#F6F6F7] relative overflow-hidden'
           >
             <div className='h-full flex flex-col justify-center'>
-              <h1 className='xs:text-[20px] sm:text-[40px] font-customSemiBold xs:leading-[15px] sm:leading-[22px] xs:mb-[6px] sm:mb-2'>
+              <h1 className='xs:text-[20px] sm:text-[30px] md:text-[40px] font-customSemiBold leading-none xs:mb-[6px] sm:mb-2'>
                 Sale Off upto 50%
               </h1>
-              <p className='xs:w-[173px] sm:w-[327px] xs:text-[10px] sm:text-[14px] opacity-[.64] xs:leading-[15px] sm:leading-[22px] xs:mb-[7px] sm:mb-5'>
+              <p className='xs:w-[173px] sm:w-[327px] xs:text-[10px] sm:text-[12px] md:text-[14px] opacity-[.64] xs:leading-[15px] sm:leading-[22px] xs:mb-[7px] sm:mb-5'>
                 From 12/06 to 15/06, enjoy amazing discounts on all your favorite items. Don't miss out!
               </p>
               <Button
                 size='large'
-                className='xs:w-[80px] xs:h-[21px] rounded-[26px]'
-                classNameText='!uppercase xs:text-[8.27px]'
+                className='xs:w-[80px] xs:h-[21px] sm:w-[140px] sm:h-[35px] md:w-[196px] md:h-[52px] rounded-[26px]'
+                classNameText='!uppercase xs:text-[8.27px] sm:text-[16px] md:text-[20px]'
               >
                 shop now
               </Button>

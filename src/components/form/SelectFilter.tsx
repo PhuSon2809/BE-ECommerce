@@ -19,21 +19,24 @@ function SelectFilter({ label, className, isSortBy = false, options, selected, s
       {({ open }) => (
         <div className='relative'>
           <ListboxButton
-            className={`relative xs:min-w-[130px] sm:min-w-[180px] min-h-10 rounded-md bg-white py-1.5 pl-3 pr-10 text-left shadow-sm ring-1 ring-inset ring-blackMain/[.22] focus:ring-[1.5px] focus:ring-blackMain/[.30] hover:ring-[1.5px] hover:ring-blackMain/[.30] transition-colors ease-in-out duration-300 ${className}`}
+            className={`relative xs:min-w-[130px] sm:min-w-[180px] min-h-10 rounded-md bg-white py-1.5 pl-3 xs:pr-8 sm:pr-10 text-left shadow-sm ring-1 ring-inset ring-blackMain/[.22] focus:ring-[1.5px] focus:ring-blackMain/[.30] hover:ring-[1.5px] hover:ring-blackMain/[.30] transition-colors ease-in-out duration-300 ${className}`}
           >
             <div className='flex items-center gap-2'>
               {isSortBy && (
                 <>
-                  <SortIcon />
+                  <SortIcon className='xs:size-[18px] sm:size-5' />
                   <div className='h-6 border-0 border-r-[1px] border-solid border-blackMain/[.1]' />
                 </>
               )}
-              <span className='text-[14px] font-customRegular opacity-[.64]'>
-                {label}: <span className='text-[16px] font-customSemiBold opacity-100 truncate'>{selected.label}</span>
+              <span className='xs:text-[12px] sm:text-[14px] font-customRegular opacity-[.64] text-nowrap'>
+                {label}:{' '}
+                <span className='xs:text-[14px] sm:text-[16px] font-customSemiBold opacity-100 truncate'>
+                  {selected.label}
+                </span>
               </span>
             </div>
             <span className='pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2'>
-              <ChevronDown />
+              <ChevronDown className='size-4' />
             </span>
           </ListboxButton>
 
