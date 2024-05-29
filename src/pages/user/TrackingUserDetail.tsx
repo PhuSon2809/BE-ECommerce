@@ -35,28 +35,33 @@ function TrackingUserDetail({ userId, setOpen }: { userId?: string; setOpen?: Di
       <div
         className={`max-w-[1440px] min-h-[100vh] mx-auto ${window.history.state.anotherRole ? 'bg-greyLight' : 'bg-white'} overflow-hidden`}
       >
-        <div className='h-[104px] px-[118px] flex items-center justify-between bg-gradient-to-r from-greenMain to-blueMain'>
+        <div className='h-[104px] xs:px-4 sm:px-5 md:px-5 lg:px-[118px] flex items-center justify-between bg-gradient-to-r from-greenMain to-blueMain'>
           <div className='space-y-2'>
             <p className='text-[28px] text-white font-customSemiBold leading-[30px]'>
               Tatiana Lipshutz{' '}
-              <span className='text-[18px] text-white/[.88] font-customRegular leading-[18.9px]'>
+              <span className='text-[18px] text-white/[.88] font-customRegular leading-[18.9px] xs:hidden md:inline-block'>
                 ID: {id ? id : userId}
               </span>
             </p>
             <p className='text-[18px] text-white/[.88] font-customRegular leading-[18.9px]'>Email/Phone: 0974773737</p>
           </div>
 
-          <SelectFilter
-            isSortBy
-            label='Sort by'
-            options={listFilterOption}
-            selected={sortBy}
-            setSelected={setSortBy}
-            className='w-[216px] h-12 rounded-lg ring-greyLight focus:ring-blackMain/[.1] hover:ring-blackMain/[.1]'
-          />
+          <div className='flex flex-col items-end gap-2'>
+            <span className='text-[18px] text-white/[.88] font-customRegular leading-[18.9px] xs:inline-block sm:hidden'>
+              ID: {id ? id : userId}
+            </span>
+            <SelectFilter
+              isSortBy
+              label='Sort by'
+              options={listFilterOption}
+              selected={sortBy}
+              setSelected={setSortBy}
+              className='w-[216px] h-12 rounded-lg ring-greyLight focus:ring-blackMain/[.1] hover:ring-blackMain/[.1]'
+            />
+          </div>
         </div>
         {window.history.state.anotherRole ? (
-          <div className='px-[118px] py-8 flex flex-col gap-4 pb-[120px]'>
+          <div className='xs:px-4 sm:px-5 md:px-5 lg:px-[118px] py-8 flex flex-col gap-4 pb-[120px]'>
             {listProducts.map((product) => (
               <div key={product.id} className='px-6 py-4 bg-white flex items-center justify-between rounded-2xl'>
                 <div className='w-[75%]'>
@@ -72,7 +77,7 @@ function TrackingUserDetail({ userId, setOpen }: { userId?: string; setOpen?: Di
             ))}
           </div>
         ) : (
-          <div className='px-[118px] py-8 space-y-5'>
+          <div className='xs:px-4 sm:px-5 md:px-5 lg:px-[118px] py-8 space-y-5'>
             {Array.from({ length: 3 }).map((_, index) => (
               <div
                 key={index}

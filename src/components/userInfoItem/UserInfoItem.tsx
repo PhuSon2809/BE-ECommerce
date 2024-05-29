@@ -10,7 +10,7 @@ type UserInfoItemProps = { user: UserInfo }
 function UserInfoItem({ user }: UserInfoItemProps) {
   const { isOpen, setIsOpen, handleOpen } = useDialog()
 
-  const anotherRole = true
+  const anotherRole = false
 
   const handleNavigateDetail = () => {
     handleOpen()
@@ -19,28 +19,38 @@ function UserInfoItem({ user }: UserInfoItemProps) {
 
   return (
     <>
-      <div className='p-6 flex items-center rounded-3xl shadow-card'>
-        <div className={`${anotherRole ? 'min-w-[35%]' : 'min-w-[40%]'} flex items-center gap-6`}>
-          <img src={user.image} alt={user.fullName} className='size-[72px] rounded-lg' />
-          <div className='space-y-2'>
-            <p className='text-[24px] font-customSemiBold leading-[25.2px]'>{user.fullName}</p>
-            <p className='text-[18px] text-blackMain/[.64] leading-[18.9px]'>ID: {user.idCustomer}</p>
+      <div className='xs:p-[15px] sm:p-6 flex xs:flex-col sm:flex-col md:flex-col lg:flex-row xs:items-end sm:items-end md:items-end lg:items-center  xs:gap-5 sm:gap-0 xs:rounded-[20px] sm:rounded-3xl shadow-card'>
+        <div className='w-full flex items-center justify-between'>
+          <div className={`${anotherRole ? 'min-w-[45%]' : 'min-w-[40%]'} flex items-center xs:gap-3 sm:gap-6`}>
+            <img src={user.image} alt={user.fullName} className='xs:size-[48px] sm:size-[72px] rounded-lg' />
+            <div className='space-y-3'>
+              <p className='xs:text-[20px] sm:text-[24px] font-customSemiBold xs:leading-[21px] sm:leading-[25.2px]'>
+                {user.fullName}
+              </p>
+              <p className='xs:text-[12px] sm:text-[18px] text-blackMain/[.64] xs:leading-[12.6px] sm:leading-[18.9px]'>
+                ID: {user.idCustomer}
+              </p>
+            </div>
+          </div>
+          <div className='xs:min-w-fit sm:min-w-[45%] md:min-w-[55%] flex xs:flex-col sm:flex-row xs:items-end sm:items-center xs:gap-[10px]'>
+            <div className='min-w-[50%]'>
+              <p className='xs:text-[16px] sm:text-[20px] font-customSemiBold xs:leading-[16.8px] sm:leading-[21px] xs:text-right sm:text-right md:text-right lg:text-left'>
+                {user.numberProductBought} {user.numberProductBought > 0 ? 'products' : 'product'}
+              </p>
+            </div>
+            <div className='min-w-[50%]'>
+              <p className='xs:text-[16px] sm:text-[20px] font-customSemiBold xs:leading-[16.8px] sm:leading-[21px] xs:text-right sm:text-right md:text-right lg:text-left'>
+                $20,000
+              </p>
+            </div>
           </div>
         </div>
-        <div className='min-w-[20%]'>
-          <p className='text-[20px] font-customSemiBold leading-[21px]'>
-            {user.numberProductBought} {user.numberProductBought > 0 ? 'products' : 'product'}
-          </p>
-        </div>
-        <div className='min-w-[20%]'>
-          <p className='text-[20px] font-customSemiBold leading-[21px]'>$20,000</p>
-        </div>
-        <div className='flex flex-1 justify-end gap-4'>
+        <div className='flex justify-end xs:gap-2 sm:gap-4'>
           <Button
             size='small'
             variant={anotherRole ? 'outline' : 'container'}
-            className={`${anotherRole ? 'w-[162px]' : 'w-[197px]'} h-11`}
-            classNameText='text-[16px] !uppercase'
+            className={`xs:!w-[120px] xs:h-10 ${anotherRole ? 'sm:w-[162px]' : 'sm:w-[197px]'} sm:h-11`}
+            classNameText='xs:text-[14px] sm:text-[16px] !uppercase'
             onClick={handleNavigateDetail}
           >
             See detail
@@ -48,8 +58,8 @@ function UserInfoItem({ user }: UserInfoItemProps) {
           {anotherRole && (
             <Button
               size='small'
-              className={`w-[162px] h-11`}
-              classNameText='text-[16px] !uppercase'
+              className={`xs:!w-[120px] xs:h-10 sm:w-[162px] sm:h-11`}
+              classNameText='xs:text-[14px] sm:text-[16px] !uppercase'
               onClick={handleNavigateDetail}
             >
               Chat now

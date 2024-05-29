@@ -41,11 +41,13 @@ function TotalPurchasesChart() {
   linearGradientGreen?.addColorStop(1, 'rgba(255, 255, 255, 0)')
 
   return (
-    <section className='total-purchases h-[810px] px-5 py-[60px] flex flex-col items-center justify-between'>
-      <div className='w-2/3 h-[430px] p-5 px-[10px] flex flex-col justify-between rounded-xl bg-gradient-to-br from-white/[.44] to-white/[.0968] backdrop-blur-[80px] shadow-7xl'>
-        <div className='w-full px-5 flex items-center justify-between'>
-          <h6 className='text-[28px] font-customSemiBold leading-[32px] capitalize text-white'>Total Purchases</h6>
-          <h5 className='text-[36px] font-customSemiBold leading-[32px] bg-gradient-to-r from-greenMain to-blueMain text-transparent bg-clip-text'>
+    <section className='total-purchases xs:h-fit sm:h-fit md:h-fit lg:h-[810px] xs:px-4 sm:px-5 py-[60px] flex flex-col items-center justify-between gap-4'>
+      <div className='xs:w-full sm:w-full md:w-full lg:w-2/3 h-[430px] xs:p-4 sm:p-5 px-[10px] flex flex-col justify-between xs:rounded-[3.1px] sm:rounded-[6px] md:rounded-[9px] lg:rounded-xl bg-gradient-to-br from-white/[.44] to-white/[.0968] backdrop-blur-[80px] shadow-7xl'>
+        <div className='w-full xs:px-0 sm:px-3 md:px-4 lg:px-5 flex items-center justify-between'>
+          <h6 className='xs:text-[18px] sm:text-[22px] md:text-[26px] lg:text-[28px] font-customSemiBold leading-[32px] capitalize text-white'>
+            Total Purchases
+          </h6>
+          <h5 className='xs:text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-customSemiBold leading-[32px] bg-gradient-to-r from-greenMain to-blueMain text-transparent bg-clip-text'>
             3.657.893
           </h5>
         </div>
@@ -110,37 +112,51 @@ function TotalPurchasesChart() {
         </div>
       </div>
 
-      <div className='w-full flex gap-5'>
-        <div className='w-full h-[220px] p-[36px] flex flex-col justify-end bg-gradient-to-br from-white/[.44] to-white/[.0968] rounded-3xl shadow-7xl relative overflow-hidden backdrop-blur-[80px]'>
-          <div className='size-[243px] absolute top-[-25%] right-5'>
+      <div className='w-full flex xs:flex-col sm:flex-col md:flex-col lg:flex-row xs:gap-4 sm:gap-5'>
+        <div className='w-full xs:h-[150px] sm:h-[180px] md:h-[200px] lg:h-[220px] xs:p-6 sm:p-7 md:p-8 lg:p-9 flex flex-col justify-end bg-gradient-to-br from-white/[.44] to-white/[.0968] xs:rounded-[14px] sm:rounded-[18px] md:rounded-[22px] lg:rounded-3xl shadow-7xl relative overflow-hidden backdrop-blur-[80px]'>
+          <div className='xs:size-[140px] sm:size-[180px] md:size-[220px] lg:size-[243px] absolute top-[-25%] right-5'>
             <img
               src={images.user.bg_user_tracking_visitor}
               alt='bg-number-visitors'
               className='size-full object-cover object-center'
             />
           </div>
-          <h1 className='w-fit text-[48px] font-customSemiBold leading-[48px] text-transparent bg-gradient-to-r from-white to-[#C0FF7C] bg-clip-text'>
+          <h1 className='w-fit xs:text-[32px] sm:text-[38px] md:text-[44px] lg:text-[48px] font-customSemiBold xs:leading-[38px] sm:leading-[42px] md:leading-[46px] lg:leading-[48px] text-transparent bg-gradient-to-r from-white to-[#C0FF7C] bg-clip-text'>
             2.850.339
           </h1>
-          <p className='text-[20px] text-white font-customMedium leading-7'>The number of website visitors</p>
+          <p className='xs:text-[16px] sm:text-[18px] md:text-[19px] lg:text-[20px] text-white font-customMedium leading-7'>
+            The number of website visitors
+          </p>
         </div>
-        <div className='w-full h-[220px] p-[36px] flex flex-col justify-end bg-gradient-to-br from-white/[.44] to-white/[.0968] rounded-3xl shadow-7xl relative overflow-hidden backdrop-blur-[80px]'>
-          <img
-            src={images.user.bg_user_tracking_review}
-            alt='bg-number-review'
-            className='absolute top-[-25%] right-5'
-          />
-          <h1 className='w-fit text-[48px] font-customSemiBold leading-[48px] text-transparent bg-gradient-to-r from-white to-[#60EC8E] bg-clip-text'>
+        <div className='w-full xs:h-[150px] sm:h-[180px] md:h-[200px] lg:h-[220px] xs:p-6 sm:p-7 md:p-[32px] lg:p-9 flex flex-col justify-end bg-gradient-to-br from-white/[.44] to-white/[.0968] rounded-3xl shadow-7xl relative overflow-hidden backdrop-blur-[80px]'>
+          <div className='xs:w-[193px] xs:h-[174px] ms:w-[213px] ms:h-[194px] md:w-[233px] md:h-[214px] lg:w-[266px] lg:h-[240px] absolute top-[-25%] right-5'>
+            <img
+              src={images.user.bg_user_tracking_review}
+              alt='bg-number-review'
+              className='size-full object-cover object-center'
+            />
+          </div>
+          <h1 className='w-fit xs:text-[32px] sm:text-[38px] md:text-[44px] lg:text-[48px] font-customSemiBold xs:leading-[38px] sm:leading-[42px] md:leading-[46px] lg:leading-[48px] text-transparent bg-gradient-to-r from-white to-[#60EC8E] bg-clip-text'>
             20.000+
           </h1>
-          <p className='text-[20px] text-white font-customMedium leading-7'>The number of product reviews & FAQ</p>
+          <p className='xs:text-[16px] sm:text-[18px] md:text-[19px] lg:text-[20px] text-white font-customMedium leading-7'>
+            The number of product reviews & FAQ
+          </p>
         </div>
-        <div className='w-full h-[220px] p-[36px] flex flex-col justify-end bg-gradient-to-br from-white/[.44] to-white/[.0968] rounded-3xl shadow-7xl relative overflow-hidden backdrop-blur-[80px]'>
-          <img src={images.user.bg_user_tracking_share} alt='bg-number-share' className='absolute top-[-25%] right-5' />
-          <h1 className='w-fit text-[48px] font-customSemiBold leading-[48px] text-transparent bg-gradient-to-r from-white to-[#60ECEC] bg-clip-text'>
+        <div className='w-full xs:h-[150px] sm:h-[180px] md:h-[200px] lg:h-[220px] xs:p-6 sm:p-7 md:p-9 lg:p-9 flex flex-col justify-end bg-gradient-to-br from-white/[.44] to-white/[.0968] rounded-3xl shadow-7xl relative overflow-hidden backdrop-blur-[80px]'>
+          <div className='xs:w-[173px] xs:h-[154px] ms:w-[203px] ms:h-[184px] md:w-[233px] md:h-[214px] lg:w-[275px] lg:h-[245px] absolute top-[-25%] right-5'>
+            <img
+              src={images.user.bg_user_tracking_share}
+              alt='bg-number-share'
+              className='size-full object-cover object-center'
+            />
+          </div>
+          <h1 className='w-fit xs:text-[32px] sm:text-[38px] md:text-[44px] lg:text-[48px] font-customSemiBold xs:leading-[38px] sm:leading-[42px] md:leading-[46px] lg:leading-[48px] text-transparent bg-gradient-to-r from-white to-[#60ECEC] bg-clip-text'>
             33.000+
           </h1>
-          <p className='text-[20px] text-white font-customMedium leading-7'>The number of product shares</p>
+          <p className='xs:text-[16px] sm:text-[18px] md:text-[19px] lg:text-[20px] text-white font-customMedium leading-7'>
+            The number of product shares
+          </p>
         </div>
       </div>
     </section>

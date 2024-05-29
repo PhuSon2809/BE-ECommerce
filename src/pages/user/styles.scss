@@ -29,7 +29,9 @@
       }
       .swiper-slide {
         height: 424px;
-        transition: all 0.3s ease-in-out;
+        overflow: unset;
+        will-change: margin-top margin-left;
+        transition: all 0s ease;
       }
       .active {
         overflow: unset !important;
@@ -42,6 +44,99 @@
       .swiper-slide-next {
         overflow: unset;
         margin-top: 88px;
+        margin-left: -10px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .tracking-user {
+    .total-purchases {
+      background-size: cover;
+    }
+
+    .top-search-product {
+      height: 600px;
+      .my-swiper {
+        overflow: unset;
+        margin-left: 10px;
+        .swiper-button-prev,
+        .swiper-button-next,
+        .swiper-pagination {
+          display: none;
+        }
+        .swiper-slide {
+          height: 270px;
+          overflow: unset;
+          will-change: margin-top margin-left;
+          transition: all 0s ease;
+        }
+        .active {
+          overflow: unset !important;
+          margin-top: 40px;
+        }
+        .swiper-slide-prev {
+          overflow: unset;
+          margin-top: -10px;
+        }
+        .swiper-slide-next {
+          overflow: unset;
+          margin-top: 50px;
+          margin-left: 0px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .tracking-user {
+    .total-purchases {
+      background-size: cover;
+    }
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  .tracking-user {
+    background-size: 532.8px 120px;
+
+    .bg-linear {
+      background-size: 115px 60px;
+    }
+
+    .total-purchases {
+      background-size: cover;
+    }
+
+    .top-search-product {
+      height: 500px;
+      .my-swiper {
+        margin-left: 0px;
+        .swiper-button-prev,
+        .swiper-button-next,
+        .swiper-pagination {
+          display: none;
+        }
+        .swiper-slide {
+          height: 150px;
+          overflow: unset;
+          transition: all 0s ease;
+        }
+        .active {
+          overflow: unset !important;
+          margin-top: 28px;
+        }
+        .swiper-slide-prev {
+          overflow: unset;
+          margin-top: -1px;
+        }
+        .swiper-slide-next {
+          overflow: unset;
+          margin-top: 35px;
+          margin-left: -5px;
+        }
       }
     }
   }

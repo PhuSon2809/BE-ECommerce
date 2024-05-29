@@ -11,6 +11,7 @@ import {
 } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 import { Button } from '~/components/button'
+import useResponsive from '~/hooks/useResponsive'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
@@ -31,15 +32,19 @@ const labels = [
 ]
 
 function PendingPaymentChart() {
+  const smDown = useResponsive('down', 'sm')
+
   const gradient = document.createElement('canvas').getContext('2d')
   const linearGradientGreen = gradient?.createLinearGradient(0, 0, 0, 250)
   linearGradientGreen?.addColorStop(0, 'rgba(84, 149, 252)')
   linearGradientGreen?.addColorStop(1, 'rgba(255, 255, 255)')
 
   return (
-    <div className='w-full h-[402px] p-5 space-y-5 bg-white/[76%] backdrop-blur-[80px] shadow-popover-custom-2 border-[1px] border-solid border-[#DADADA] rounded-[20px]'>
-      <h6 className='text-[24px] font-customSemiBold leading-8 capitalize'>Pending Payments</h6>
-      <div className='w-full h-[250px]'>
+    <div className='w-full xs:h-[314px] sm:h-[358px] md:h-[402px] p-5 xs:space-y-4 sm:space-y-5 bg-white/[76%] backdrop-blur-[80px] shadow-popover-custom-2 border-[1px] border-solid border-[#DADADA] xs:rounded-lg sm:rounded-[20px]'>
+      <h6 className='xs:text-[16px] sm:text-[18px] md:text-[24px] font-customSemiBold xs:leading-[16.8px] sm:leading-[24px] md:leading-8 capitalize'>
+        Pending Payments
+      </h6>
+      <div className='w-full xs:h-[185px] sm:h-[220px] md:h-[250px]'>
         <div className='w-full h-full'>
           <Bar
             options={{
@@ -77,10 +82,10 @@ function PendingPaymentChart() {
               }
             }}
             data={{
-              labels,
+              labels: smDown ? labels.slice(0, 7) : labels,
               datasets: [
                 {
-                  data: labels.map(() => Math.floor(Math.random() * 100)),
+                  data: (smDown ? labels.slice(0, 7) : labels).map(() => Math.floor(Math.random() * 100)),
                   backgroundColor: linearGradientGreen,
                   hoverBackgroundColor: linearGradientGreen,
                   borderRadius: 3
@@ -91,7 +96,12 @@ function PendingPaymentChart() {
         </div>
       </div>
       <div className='flex justify-end'>
-        <Button variant='blue' size='small' className='w-[145px]' classNameText='text-[16px] !uppercase'>
+        <Button
+          variant='blue'
+          size='small'
+          className='xs:w-[127px] xs:h-[38px] sm:w-[145px]'
+          classNameText='xs:text-[14px] sm:text-[16px] !uppercase'
+        >
           see detail
         </Button>
       </div>

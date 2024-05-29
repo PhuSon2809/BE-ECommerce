@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom'
 import { Discover } from '~/@types/models'
 import images from '~/assets'
+import { FavoriteIcon } from '~/components/icons'
 import useResponsive from '~/hooks/useResponsive'
 
 type DiscoverCardProps = {
@@ -11,12 +12,14 @@ type DiscoverCardProps = {
 function DiscoverSquareCard({ discover, isCenter }: DiscoverCardProps) {
   const { pathname } = useLocation()
 
-  const smDown = useResponsive('down', 'sm', 'sm')
+  const smDown = useResponsive('down', 'sm')
 
   return (
     <div className='xs:size-[358px] sm:size-[590px] relative'>
       <img src={discover.image} alt='discover-img' className='w-full h-full rounded-[48px]' />
-      <img src={images.icons.heart} alt='icon-heart' className='size-8 absolute top-[8%] right-[8%]' />
+      <div className='absolute top-[8%] right-[8%]'>
+        <FavoriteIcon className='size-8' />
+      </div>
 
       {pathname === '/cart' && isCenter ? (
         <></>

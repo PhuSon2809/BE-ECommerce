@@ -31,30 +31,30 @@ function ListUserInfo() {
   }
 
   return (
-    <section className='px-5 pt-[90px] pb-5 space-y-5 bg-gradient-to-b from-white to-greyLight'>
+    <section className='xs:px-4 sm:px-5 xs:pt-[40px] sm:pt-[90px] pb-5 xs:space-y-4 sm:space-y-5 bg-gradient-to-b from-white/[.8] to-greyLight'>
       <SelectFilter
         isSortBy
         label='Sort by'
         options={listFilterOption}
         selected={sortBy}
         setSelected={setSortBy}
-        className='w-[216px] h-12 rounded-lg ring-greyLight focus:ring-blackMain/[.1] hover:ring-blackMain/[.1]'
+        className='xs:min-w-[173px] xs:h-11 sm:min-w-[216px] sm:h-12 rounded-lg ring-greyLight focus:ring-blackMain/[.1] hover:ring-blackMain/[.1]'
       />
-      <div className='flex flex-col gap-5'>
+      <div className='flex flex-col xs:gap-4 sm:gap-5'>
         {listUserInfo.map((user) => (
           <UserInfoItem key={user.id} user={user} />
         ))}
       </div>
 
       <div className='py-2 flex items-center justify-center gap-4 mt-[15px]'>
-        <img src={images.icons.arrow_left} alt='arrow-left-icon' className='size-8 cursor-pointer' />
+        <img src={images.icons.arrow_left} alt='arrow-left-icon' className='xs:size-6 sm:size-8 cursor-pointer' />
         <SliderPagination
-          className='!size-[10px]'
+          className='xs:!size-[7.5px] sm:!size-[10px]'
           activeIndex={activeSlide}
           slideToGo={handleChangePage}
           slideCount={4}
         />
-        <img src={images.icons.arrow_right} alt='arrow-right-icon' className='size-8 cursor-pointer' />
+        <img src={images.icons.arrow_right} alt='arrow-right-icon' className='xs:size-6 sm:size-8 cursor-pointer' />
       </div>
     </section>
   )

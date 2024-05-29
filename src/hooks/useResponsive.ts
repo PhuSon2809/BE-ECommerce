@@ -44,14 +44,14 @@ export default function useResponsive(
 }
 
 export function useWidth() {
-  const [width, setWidth] = useState<keyof typeof breakpoints>('xs')
+  const [width, setWidth] = useState<keyof typeof breakpoints>('sm')
 
   useEffect(() => {
     const handleResize = () => {
       const currentWidth =
         (Object.keys(breakpoints).find(
           (key) => window.innerWidth >= breakpoints[key as keyof typeof breakpoints]
-        ) as keyof typeof breakpoints) || 'xs'
+        ) as keyof typeof breakpoints) || 'sm'
 
       setWidth(currentWidth)
     }

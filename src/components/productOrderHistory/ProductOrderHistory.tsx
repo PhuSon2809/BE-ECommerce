@@ -60,31 +60,33 @@ function ProductOrderHistory({
         <img
           src={product.image}
           alt={product.title}
-          className={`${imageSize === 'small' ? 'size-[60px]' : imageSize === 'medium' ? 'size-[96px]' : 'size-[120px]'} rounded-lg object-cover object-center`}
+          className={` ${imageSize === 'small' ? 'xs:size-[81px] sm:size-[60px]' : imageSize === 'medium' ? 'xs:size-[81px] sm:size-[96px]' : 'xs:size-[81px] sm:size-[120px]'} rounded-lg object-cover object-center`}
         />
         <div
           className={`flex flex-col ${imageSize === 'small' ? 'gap-0' : imageSize === 'medium' ? 'gap-1' : 'gap-2'}`}
         >
           <p
-            className={`${imageSize === 'small' ? 'text-[20px]' : 'text-[24px]'} font-customSemiBold leading-[25.2px]`}
+            className={`${imageSize === 'small' ? 'xs:text-[18px] sm:text-[20px]' : 'xs:text-[18px] sm:text-[24px]'} font-customSemiBold xs:leading-[18.9px] sm:leading-[25.2px]`}
           >
             {product.title}
           </p>
           <p
-            className={`${imageSize === 'small' ? 'text-[14px]' : 'text-[18px]'} leading-[18.9px] text-blackMain/[.64]`}
+            className={`xs:text-[14px] ${imageSize === 'small' ? 'sm:text-[14px]' : 'sm:text-[18px]'} xs:leading-[14.7px] sm:leading-[18.9px] text-blackMain/[.64]`}
           >
             {product.category}
           </p>
           <p
-            className={`${imageSize === 'small' ? 'text-[14px]' : 'text-[18px]'} leading-[18.9px] text-blackMain/[.64]`}
+            className={`xs:text-[14px] ${imageSize === 'small' ? 'sm:text-[14px]' : 'sm:text-[18px]'} xs:leading-[14.7px] sm:leading-[18.9px] text-blackMain/[.64]`}
           >
             200g
           </p>
         </div>
       </div>
-      <div className='w-[55%] flex items-center justify-between'>
+      <div className='xs:w-[28%] sm:w-[55%] flex xs:items-start sm:items-center justify-between'>
         <div className='flex flex-col items-center gap-2'>
-          <p className='text-[20px] leading-[21px]'>{quantityProductInOrder}</p>
+          <p className='xs:text-[18px] sm:text-[20px] xs:leading-[18.9px] sm:leading-[21px]'>
+            {quantityProductInOrder}
+          </p>
           {showEditQuantity && (
             <QuantityController
               isCart
@@ -95,35 +97,41 @@ function ProductOrderHistory({
             />
           )}
         </div>
-        <div className='flex flex-col items-center gap-2'>
-          <p className='text-[20px] leading-[21px]'>
-            ${product.vipPrice.toFixed(2)}{' '}
-            <span className='text-blackMain/[.64] line-through'>${product.retailPrice.toFixed(2)}</span>
-          </p>
-          {showEditQuantity && (
-            <div className='h-10 flex items-center gap-2'>
-              <input
-                value={vipPrice}
-                onChange={handleVipPriceChange}
-                className='w-20 h-full outline-none border-0 border-b-[2px] border-solid border-greenMain bg-transparent text-center'
-              />
-              <input
-                value={retailPrice}
-                onChange={handleRetailPriceChange}
-                className='w-20 h-full outline-none border-0 border-b-[2px] border-solid border-greenMain bg-transparent text-center'
-              />
-            </div>
-          )}
-        </div>
-        <div className='flex flex-col items-end gap-2'>
-          <p className='text-[20px] leading-[21px]'>${(quantityProductInOrder * product.vipPrice).toFixed(2)}</p>
-          {showEditQuantity && (
-            <div className='h-10 flex items-center'>
-              <p className='text-[20px] text-greenMain leading-[21px]'>
-                ${((quantity as number) * (vipPrice !== '' && vipPrice !== 0 ? vipPrice : 0)).toFixed(2)}
-              </p>
-            </div>
-          )}
+        <div className='xs:w-fit sm:w-[60%] flex xs:flex-col sm:flex-row sm:items-center justify-between'>
+          <div className='flex flex-col items-center gap-2'>
+            <p className='xs:text-[18px] sm:text-[20px] xs:leading-[20px] sm:leading-[21px] xs:text-right sm:text-left'>
+              ${product.vipPrice.toFixed(2)}{' '}
+              <span className='xs:text-[14px] sm:text-[20px] text-blackMain/[.64] line-through xs:text-right'>
+                ${product.retailPrice.toFixed(2)}
+              </span>
+            </p>
+            {showEditQuantity && (
+              <div className='h-10 flex items-center gap-2'>
+                <input
+                  value={vipPrice}
+                  onChange={handleVipPriceChange}
+                  className='w-20 h-full outline-none border-0 border-b-[2px] border-solid border-greenMain bg-transparent text-center'
+                />
+                <input
+                  value={retailPrice}
+                  onChange={handleRetailPriceChange}
+                  className='w-20 h-full outline-none border-0 border-b-[2px] border-solid border-greenMain bg-transparent text-center'
+                />
+              </div>
+            )}
+          </div>
+          <div className='flex flex-col items-end gap-2 xs:mt-2 sm:mt-0'>
+            <p className='xs:text-[16px] sm:text-[20px] xs:leading-[16.8px] sm:leading-[21px]'>
+              ${(quantityProductInOrder * product.vipPrice).toFixed(2)}
+            </p>
+            {showEditQuantity && (
+              <div className='h-10 flex items-center'>
+                <p className='text-[20px] text-greenMain leading-[21px]'>
+                  ${((quantity as number) * (vipPrice !== '' && vipPrice !== 0 ? vipPrice : 0)).toFixed(2)}
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

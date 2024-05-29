@@ -13,6 +13,7 @@ import {
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
 import { Button } from '~/components/button'
+import useResponsive from '~/hooks/useResponsive'
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend)
 
@@ -33,15 +34,19 @@ const labels = [
 ]
 
 function ShippingChart() {
+  const smDown = useResponsive('down', 'sm')
+
   const gradient = document.createElement('canvas').getContext('2d')
   const linearGradientGreen = gradient?.createLinearGradient(0, 0, 0, 300)
   linearGradientGreen?.addColorStop(0, 'rgba(96, 236, 142)')
   linearGradientGreen?.addColorStop(1, 'rgba(255, 255, 255, 0.1)')
 
   return (
-    <div className='w-full h-[402px] p-5 space-y-5 bg-white/[76%] backdrop-blur-[80px] shadow-popover-custom-2 border-[1px] border-solid border-[#DADADA] rounded-[20px]'>
-      <h6 className='text-[24px] font-customSemiBold leading-8 capitalize'>Shipping</h6>
-      <div className='w-full h-[250px]'>
+    <div className='w-full xs:h-[314px] sm:h-[358px] md:h-[402px] p-5 xs:space-y-4 sm:space-y-5 bg-white/[76%] backdrop-blur-[80px] shadow-popover-custom-2 border-[1px] border-solid border-[#DADADA] xs:rounded-lg sm:rounded-[20px]'>
+      <h6 className='xs:text-[16px] sm:text-[18px] md:text-[24px] font-customSemiBold xs:leading-[16.8px] sm:leading-[24px] md:leading-8 capitalize'>
+        Shipping
+      </h6>
+      <div className='w-full xs:h-[185px] sm:h-[220px] md:h-[250px]'>
         <div className='w-full h-full'>
           <Line
             options={{
@@ -73,11 +78,11 @@ function ShippingChart() {
               }
             }}
             data={{
-              labels,
+              labels: smDown ? labels.slice(0, 7) : labels,
               datasets: [
                 {
                   fill: true,
-                  data: labels.map(() => Math.floor(Math.random() * 100)),
+                  data: (smDown ? labels.slice(0, 7) : labels).map(() => Math.floor(Math.random() * 100)),
                   borderColor: 'rgb(96, 236, 142)',
                   backgroundColor: linearGradientGreen,
                   pointRadius: 2,
@@ -89,7 +94,12 @@ function ShippingChart() {
         </div>
       </div>
       <div className='flex justify-end'>
-        <Button variant='green' size='small' className='w-[145px]' classNameText='text-[16px] !uppercase'>
+        <Button
+          variant='green'
+          size='small'
+          className='xs:w-[127px] xs:h-[38px] sm:w-[145px]'
+          classNameText='xs:text-[14px] sm:text-[16px] !uppercase'
+        >
           see detail
         </Button>
       </div>
