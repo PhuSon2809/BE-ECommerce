@@ -13,15 +13,18 @@ const listWallets = [
 
 function PaymentMethodTab() {
   return (
-    <div className=' flex flex-col items-center gap-10'>
-      <div className='flex items-start gap-5'>
+    <div className='flex flex-col items-center gap-10'>
+      <div className='flex xs:flex-col sm:flex-row items-start gap-5'>
         <div className='min-w-[200px]'>
           <p className='text-[20px] font-customMedium leading-[30px]'>Credit card</p>
         </div>
 
         <div className='flex-1 space-y-5'>
           {listCards.map((card) => (
-            <div key={card.id} className='w-[926px] h-[72px] py-4 px-8 bg-greyLight flex items-center justify-between'>
+            <div
+              key={card.id}
+              className='xs:w-full lg:w-[926px] h-[72px] py-4 px-8 bg-greyLight flex items-center justify-between'
+            >
               <div className='flex items-center gap-5'>
                 {card.type === 'visa' ? (
                   <img src={images.icons.visa_outline} alt='visa-icon' />
@@ -44,7 +47,7 @@ function PaymentMethodTab() {
             </div>
           ))}
 
-          <div className='w-[926px] h-[72px] py-4 px-8 flex items-center gap-5 border-[1px] border-dashed border-blackMain/[.22] cursor-pointer'>
+          <div className='xs:w-full lg:w-[926px] h-[72px] py-4 px-8 flex items-center gap-5 border-[1px] border-dashed border-blackMain/[.22] cursor-pointer'>
             <img src={images.icons.add_card} alt='add-card-icon' />
             <p className='text-[18px] font-customMedium leading-[18.9px]'>Add a new card</p>
           </div>
@@ -60,7 +63,7 @@ function PaymentMethodTab() {
           {listWallets.map((wallet) => (
             <div
               key={wallet.id}
-              className='w-[926px] h-[72px] py-4 px-8 bg-greyLight flex items-center justify-between'
+              className='xs:w-full lg:w-[926px] h-[72px] py-4 px-8 bg-greyLight flex items-center justify-between'
             >
               <div className='flex items-center gap-5'>
                 <img src={images.setting.wallet_image} alt='wallet_image' />
@@ -80,7 +83,7 @@ function PaymentMethodTab() {
             </div>
           ))}
 
-          <div className='w-[926px] h-[72px] py-4 px-8 flex items-center gap-5 border-[1px] border-dashed border-blackMain/[.22] cursor-pointer'>
+          <div className='xs:w-full lg:w-[926px] h-[72px] py-4 px-8 flex items-center gap-5 border-[1px] border-dashed border-blackMain/[.22] cursor-pointer'>
             <AddWalletIcon />
             <p className='text-[18px] font-customMedium leading-[18.9px]'>Add a new wallet</p>
           </div>

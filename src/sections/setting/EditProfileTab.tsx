@@ -5,8 +5,11 @@ import { Button } from '~/components/button'
 import { InputField, SelectField } from '~/components/form'
 import DatePickerField from '~/components/form/DatePickerField'
 import { EditIcon, LocationIcon } from '~/components/icons'
+import useResponsive from '~/hooks/useResponsive'
 
 function EditProfileTab() {
+  const smDown = useResponsive('down', 'sm')
+
   const updateProfileForm = useForm<UpdateProfileForm>({})
 
   const { handleSubmit } = updateProfileForm
@@ -17,17 +20,17 @@ function EditProfileTab() {
 
   return (
     <div className='w-full space-y-10'>
-      <div className='flex flex-col items-center gap-3'>
+      <div className='flex flex-col items-center gap-4'>
         <img
-          className='size-[96px] rounded-full shadow-avatar'
+          className='xs:size-20 sm:size-[96px] rounded-full shadow-avatar'
           src='https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80'
           alt='Image Description'
         />
-        <p className='text-blackMain/[.44] underline cursor-pointer'>Change photo</p>
+        <p className='xs:text-[14px] sm:text-[16px] text-blackMain/[.44] underline cursor-pointer'>Change photo</p>
       </div>
       <FormProvider {...updateProfileForm}>
         <div className='space-y-2'>
-          <div className='flex items-center gap-4'>
+          <div className='flex xs:flex-col sm:flex-col md:flex-row items-center xs:gap-2 sm:gap-3 md:gap-3 lg:gap-4'>
             <InputField
               fullWidth
               size='small'
@@ -59,7 +62,7 @@ function EditProfileTab() {
               classNameLabel='mb-2'
             />
           </div>
-          <div className='flex items-center gap-4'>
+          <div className='flex xs:flex-col sm:flex-col md:flex-row items-center xs:gap-2 sm:gap-3 md:gap-3 lg:gap-4'>
             <InputField
               fullWidth
               size='small'
@@ -82,33 +85,43 @@ function EditProfileTab() {
             />
           </div>
 
-          <div className='flex items-end justify-between'>
+          <div className='flex xs:flex-col sm:flex-col md:flex-row items-end justify-between gap-10'>
             <div>
               <label className={`text-[16px] font-customSemiBold capitalize`}>My Address</label>
-              <div className='flex items-center gap-2 mt-3'>
-                <div className='size-12 rounded-full bg-[#4182F9]/[.1] flex items-center justify-center '>
+              <div className='flex xs:items-start sm:items-start md:items-center gap-2 mt-3'>
+                <div className='min-w-12 min-h-12 rounded-full bg-[#4182F9]/[.1] flex items-center justify-center '>
                   <LocationIcon color='#4182F9' />
                 </div>
                 <div className='flex items-start gap-2'>
-                  <div>
-                    <p className='text-[18px] font-customMedium'>123 Main Street, Springfield, IL 62701, USA</p>
-                    <p className='text-blackMain/[.5]'>Default address</p>
+                  <div className='xs:space-y-2 sm:space-y-0'>
+                    <p className='xs:text-[16px] sm:text-[18px] font-customMedium'>
+                      123 Main Street, Springfield, IL 62701, USA
+                    </p>
+                    <p className='xs:text-[14px] sm:text-[16px] text-blackMain/[.5]'>Default address</p>
                   </div>
-                  <EditIcon className='mt-1' />
+                  <div>
+                    <EditIcon className='xs:size-[18px] sm:size-5 mt-1' />
+                  </div>
                 </div>
               </div>
 
-              <button className='w-[209px] h-11 bg-[#4182F9]/[.1] text-[#4182F9] rounded-lg mt-5'>
+              <button className='xs:w-[173px] sm:w-[209px] xs:h-[38px] sm:h-11 xs:text-[14px] sm:text-[16px] bg-[#4182F9]/[.1] text-[#4182F9] rounded-lg mt-5'>
                 +Add new address
               </button>
             </div>
-            <div className='flex items-center gap-3'>
-              <Button variant='outline' className='w-[180px] rounded-[26px]' classNameText='text-[18px] !uppercase'>
+            <div className='w-full flex items-center gap-3'>
+              <Button
+                fullWidth={smDown}
+                variant='outline'
+                className='xs:w-full sm:w-[180px] xs:h-[42px] sm:h-12 rounded-[26px]'
+                classNameText='xs:text-[16px] sm:text-[18px] !uppercase'
+              >
                 Cancel
               </Button>
               <Button
-                className='w-[180px] rounded-[26px]'
-                classNameText='text-[18px] !uppercase'
+                fullWidth={smDown}
+                className='xs:w-full sm:w-[180px] xs:h-[42px] sm:h-12 rounded-[26px]'
+                classNameText='xs:text-[16px] sm:text-[18px] !uppercase'
                 onClick={handleSubmit(handleUpdateProfile)}
               >
                 Update
