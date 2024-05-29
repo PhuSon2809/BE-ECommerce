@@ -10,7 +10,7 @@ type UserInfoItemProps = { user: UserInfo }
 function UserInfoItem({ user }: UserInfoItemProps) {
   const { isOpen, setIsOpen, handleOpen } = useDialog()
 
-  const anotherRole = false
+  const anotherRole = true
 
   const handleNavigateDetail = () => {
     handleOpen()
@@ -68,8 +68,8 @@ function UserInfoItem({ user }: UserInfoItemProps) {
         </div>
       </div>
 
-      <DialogDetailPage open={isOpen} setOpen={setIsOpen}>
-        <TrackingUserDetail userId={user.idCustomer} setOpen={setIsOpen} />
+      <DialogDetailPage open={isOpen} setOpen={setIsOpen} className='h-[100vh] overflow-hidden'>
+        <TrackingUserDetail userId={user.idCustomer} setOpen={setIsOpen} isInDialog={true} />
       </DialogDetailPage>
     </>
   )
