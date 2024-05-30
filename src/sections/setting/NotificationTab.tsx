@@ -33,10 +33,12 @@ function NotificationTab() {
       {listSettingNotification.map((setting) => (
         <div
           key={setting.id}
-          className='p-5 bg-greyLight flex xs:items-start sm:items-center justify-between xs:rounded-md sm:rounded-lg md:rounded-[10px] lg:rounded-xl'
+          className='xs:p-3 sm:p-5 bg-greyLight flex xs:items-start sm:items-center justify-between xs:rounded-md sm:rounded-lg md:rounded-[10px] lg:rounded-xl'
         >
           <div className='w-[502px] space-y-2'>
-            <p className='text-[18px] font-customMedium leading-[27px]'>{setting.title}</p>
+            <p className='xs:text-[16px] sm:text-[18px] font-customMedium xs:leading-6 sm:leading-[27px]'>
+              {setting.title}
+            </p>
             <p className='text-[14px] text-blackMain/[.44] leading-[21px]'>{setting.content}</p>
           </div>
           <SwitchButton isChecked={check} handleOnChange={handleOnChange} />

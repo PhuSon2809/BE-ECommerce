@@ -25,7 +25,7 @@ function CheckoutConfirmDialog({ open, setOpen, productIdsCheckout }: CheckoutCo
         className={`!max-w-[490px] !min-h-fit !bg-white !rounded-3xl `}
         classNameBg={`!bg-black/[.44] !backdrop-blur-[40px] shadow-4xl`}
       >
-        <div className='w-full p-4 flex flex-col gap-5'>
+        <div className='w-full xs:px-0 py-1 sm:p-4 flex flex-col gap-5'>
           <Button
             size='large'
             fullWidth

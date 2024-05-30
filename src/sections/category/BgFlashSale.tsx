@@ -69,8 +69,8 @@ function BgFlashSale() {
           y2='52.7754'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#F2F3F5' />
-          <stop offset='1' stop-color='#F6F6F7' />
+          <stop stopColor='#F2F3F5' />
+          <stop offset='1' stopColor='#F6F6F7' />
         </linearGradient>
         <image id='image0_2021_2462' width='457' height='690' xlinkHref={images.image.flash_sale_1} />
         <image id='image1_2021_2462' width='480' height='480' xlinkHref={images.image.flash_sale_3} />

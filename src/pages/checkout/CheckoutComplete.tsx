@@ -2,11 +2,15 @@ import { Link } from 'react-router-dom'
 import { Button } from '~/components/button'
 import './styles.scss'
 import images from '~/assets'
+import useResponsive from '~/hooks/useResponsive'
 
 function CheckoutComplete() {
+  const smDown = useResponsive('down', 'sm')
+  const mdDown = useResponsive('down', 'md')
+
   return (
-    <section className='checkout-complete min-w-[100vw] min-h-[100vh] size-full flex flex-col items-center justify-center gap-[30px] text-center'>
-      <h6 className='w-[969px] text-[28px] font-customSemiBold leading-[42px]'>
+    <section className='checkout-complete min-w-[100vw] min-h-[100vh] xs:px-4 sm:px-5 md:px-5 lg:px-0 size-full flex flex-col items-center justify-center gap-[30px] text-center'>
+      <h6 className='xs:w-full sm:w-full md:w-full lg:w-[969px] xs:text-[18px] sm:text-[28px] font-customSemiBold leading-[42px]'>
         Your order has been successfully completed and will be delivered to you in the near future. You can track the
         delivery status in the Personal Account.
       </h6>
@@ -17,14 +21,15 @@ function CheckoutComplete() {
         </div>
       </div>
 
-      <p className='w-[569px] text-[18px] opacity-[.64]'>
+      <p className='xs:w-[100%] sm:w-[80%] md:w-[60%] lg:w-[569px] xs:text-[14px] sm:text-[18px] opacity-[.64]'>
         Use the <span className='font-customSemiBold'>Loyalty App</span> to scan the QR code to collect reward points
         and enjoy exclusive benefits
       </p>
 
-      <div className='flex items-center gap-5'>
-        <Link to={'/'}>
+      <div className='w-full last:flex xs:flex-col sm:flex-col lg:flex-row items-center justify-center gap-5'>
+        <Link to={'/'} className='xs:w-full sm:w-full md:w-fit xs:order-2 sm:order-2 md:order-1 lg:order-1'>
           <Button
+            fullWidth={smDown || mdDown}
             size='large'
             variant='outline'
             classNameText='!uppercase'
@@ -33,8 +38,9 @@ function CheckoutComplete() {
             track your order
           </Button>
         </Link>
-        <Link to={'/'}>
+        <Link to={'/'} className='xs:w-full sm:w-full md:w-fit xs:order-1 sm:order-1 md:order-2 lg:order-2'>
           <Button
+            fullWidth={smDown || mdDown}
             size='large'
             variant='container'
             classNameText='!uppercase'

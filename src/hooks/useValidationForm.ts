@@ -37,9 +37,10 @@ function useValidationForm() {
     addressDetail: yup.string().required(VALIDATION_CONTENT.REQUIRED('address detail')),
     paymentMethod: yup.string().required(VALIDATION_CONTENT.SELECT('payment method')),
     cardNumber: yup.string().required(VALIDATION_CONTENT.REQUIRED('card number')),
-    expirationDate: yup.string().required(VALIDATION_CONTENT.SELECT('payment method')),
+    expirationDate: yup.string().required(VALIDATION_CONTENT.SELECT('expiration date')),
     cvv: yup
       .number()
+      .typeError(VALIDATION_CONTENT.REQUIRED('cvv'))
       .required(VALIDATION_CONTENT.REQUIRED('cvv'))
       .min(3, 'CVV must be three digits')
       .max(3, 'CVV must be three digits'),
@@ -50,9 +51,10 @@ function useValidationForm() {
   const schemaStorageForResale = yup.object({
     paymentMethod: yup.string().required(VALIDATION_CONTENT.SELECT('payment method')),
     cardNumber: yup.string().required(VALIDATION_CONTENT.REQUIRED('card number')),
-    expirationDate: yup.string().required(VALIDATION_CONTENT.SELECT('payment method')),
+    expirationDate: yup.string().required(VALIDATION_CONTENT.SELECT('expiration date')),
     cvv: yup
       .number()
+      .typeError(VALIDATION_CONTENT.REQUIRED('cvv'))
       .required(VALIDATION_CONTENT.REQUIRED('cvv'))
       .min(3, 'CVV must be three digits')
       .max(3, 'CVV must be three digits'),

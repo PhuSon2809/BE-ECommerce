@@ -11,7 +11,7 @@ function SwitchButton({ label, isChecked, handleOnChange }: SwitchButtonProps) {
           }`}
         >
           <span
-            className={`dot xs:w-[16px] xs:h-[16px] sm:w-[22px] sm:h-[22px] rounded-full duration-200 ${isChecked ? 'translate-x-6 bg-greenMain' : 'bg-white'}`}
+            className={`dot xs:w-[16px] xs:h-[16px] sm:w-[22px] sm:h-[22px] rounded-full duration-200 ${isChecked ? 'xs:translate-x-4 sm:translate-x-6 bg-greenMain' : 'bg-white'}`}
           ></span>
         </span>
         {label && <span className='flex items-center text-sm font-medium text-black ml-3'>{label}</span>}

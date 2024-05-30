@@ -49,8 +49,8 @@ type ShippingInfoFormProps = {
 
 function ShippingInfoForm({ disabled }: ShippingInfoFormProps) {
   return (
-    <div>
-      <div className='w-full flex items-center gap-5'>
+    <div className='space-y-2'>
+      <div className='w-full flex xs:flex-col sm:flex-row items-start xs:gap-2 sm:gap-5'>
         <InputField
           fullWidth
           name={disabled ? '' : 'firstName'}
@@ -66,7 +66,7 @@ function ShippingInfoForm({ disabled }: ShippingInfoFormProps) {
           disabled={disabled}
         />
       </div>
-      <div className='w-full flex items-center gap-5'>
+      <div className='w-full flex xs:flex-col sm:flex-row items-start xs:gap-2 sm:gap-5'>
         <InputField fullWidth name='email' label='Email' placeholder='example@gmail.com' disabled={disabled} />
         <SelectField
           fullWidth
@@ -77,17 +77,17 @@ function ShippingInfoForm({ disabled }: ShippingInfoFormProps) {
           disabled={disabled}
         />
       </div>
-      <div className='w-full flex items-center gap-5'>
-        <SelectField fullWidth options={people} name={disabled ? '' : 'city'} label='City' disabled={disabled} />
+      <div className='w-full flex items-start xs:gap-3 sm:gap-5'>
+        <SelectField fullWidth options={people} name={disabled ? '' : 'cityId'} label='City' disabled={disabled} />
         <SelectField
           fullWidth
           options={people}
-          name={disabled ? '' : 'province'}
+          name={disabled ? '' : 'provinceId'}
           label='State/Province'
           disabled={disabled}
         />
       </div>
-      <div className='w-full flex items-center gap-5'>
+      <div className='w-full flex xs:flex-col sm:flex-row items-start xs:gap-0 sm:gap-5'>
         <InputField
           fullWidth
           name={disabled ? '' : 'postalCode'}
