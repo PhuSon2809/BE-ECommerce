@@ -30,7 +30,7 @@
       .swiper-slide {
         height: 424px;
         overflow: unset;
-        will-change: margin-top margin-left;
+        will-change: margin-top;
         transition: all 0s ease;
       }
       .active {
@@ -44,7 +44,6 @@
       .swiper-slide-next {
         overflow: unset;
         margin-top: 88px;
-        margin-left: -10px;
       }
     }
   }
@@ -69,7 +68,7 @@
         .swiper-slide {
           height: 270px;
           overflow: unset;
-          will-change: margin-top margin-left;
+          will-change: margin-top;
           transition: all 0s ease;
         }
         .active {
@@ -83,7 +82,6 @@
         .swiper-slide-next {
           overflow: unset;
           margin-top: 50px;
-          margin-left: 0px;
         }
       }
     }
@@ -103,7 +101,7 @@
     background-size: 532.8px 120px;
 
     .bg-linear {
-      background-size: 115px 60px;
+      background-size: 100% 60px;
     }
 
     .total-purchases {
@@ -134,8 +132,7 @@
         }
         .swiper-slide-next {
           overflow: unset;
-          margin-top: 35px;
-          margin-left: -5px;
+          margin-top: 25px;
         }
       }
     }

@@ -31,7 +31,7 @@ function ListUserInfo() {
   }
 
   return (
-    <section className='xs:px-4 sm:px-5 xs:pt-[40px] sm:pt-[90px] pb-5 xs:space-y-4 sm:space-y-5 bg-gradient-to-b from-white/[.8] to-greyLight'>
+    <section className='xs:px-4 sm:px-5 xs:pt-[110px] sm:pt-[90px] pb-5 xs:space-y-4 sm:space-y-5 bg-gradient-to-b from-white/[.8] to-greyLight'>
       <SelectFilter
         isSortBy
         label='Sort by'

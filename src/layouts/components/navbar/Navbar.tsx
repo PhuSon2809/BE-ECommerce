@@ -136,7 +136,7 @@ function Navbar({ setOpenMenu, className, variant = 'vertical' }: NavbarProps) {
               key={nav.label}
               onClick={() => (nav.label === 'Logout' ? handleLogout() : setOpenMenu && setOpenMenu(true))}
               className={`${variant === 'vertical' ? 'size-12' : 'h-[46px] px-3 flex items-center gap-[10px]'} flex items-center justify-center rounded-full hover:scale-105 transition duration-300 ease-in-out cursor-pointer
-                        ${pathname === nav.url ? 'bg-gradient-to-r from-greenMain to-blueMain backdrop-blur-[40px] shadow-4xl' : 'bg-white'}`}
+                        ${pathname === nav.url ? 'bg-gradient-to-r from-greenMain to-blueMain backdrop-blur-[40px] shadow-4xl' : variant === 'vertical' ? 'bg-white' : 'bg-transparent'}`}
             >
               {nav.icon(pathname === nav.url ? '#FFFFFF' : '#0D0D0D')}
               {variant === 'horizontal' && (

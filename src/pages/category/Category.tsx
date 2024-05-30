@@ -11,13 +11,12 @@ import {
   FeaturedProduct,
   FlashSale,
   ListProduct,
-  MenuCategoryDialog,
   PurchasesChart,
   RecentPurchases,
   TabCartDialog,
   TabProductList
 } from '~/sections/category'
-import { MenuDialog, SlideBanner } from '~/sections/common'
+import { MenuDialog, NavbarDialog, SlideBanner } from '~/sections/common'
 import './styles.scss'
 
 const listFilterOption: OptionSelect[] = [
@@ -195,7 +194,12 @@ function Category() {
 
       <MenuDialog open={isOpen} setOpen={setIsOpen} />
       <TabCartDialog open={isOpenCartDialog} setOpen={setIsOpenCartDialog} />
-      <MenuCategoryDialog open={isOpenCategoryMenu} setOpen={setIsOpenCategoryMenu} isAuthenticate={isAuthenticate} />
+      <NavbarDialog
+        isInCategory
+        open={isOpenCategoryMenu}
+        setOpen={setIsOpenCategoryMenu}
+        isAuthenticate={isAuthenticate}
+      />
     </>
   )
 }

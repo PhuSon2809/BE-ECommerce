@@ -13,7 +13,7 @@ function CartItemCheckout({ cartItem, inOrder = false }: CartItemCheckoutProps) 
         alt={cartItem.title}
         className={`${inOrder ? 'size-[72px]' : 'size-[80px]'} rounded-xl`}
       />
-      <div className={`w-full flex ${inOrder ? 'items-center' : 'items-start'} justify-between`}>
+      <div className={`w-full flex xs:items-start ${inOrder ? 'sm:items-center' : 'sm:items-start'} justify-between`}>
         <div>
           <p className={`${inOrder ? 'text-[18px]' : 'text-[20px]'} font-customBold`}>{cartItem.title}</p>
           <p className={`${inOrder ? 'text-[14px]' : 'text-[16px]'} opacity-[.64]`}>

@@ -85,45 +85,48 @@ function TrackingUser() {
 
           <div className='relative xs:!mt-[70px] sm:!mt-[180px]'>
             <section className='w-full xs:px-4 sm:px-5 absolute xs:top-[-35px] sm:top-[-70px]'>
-              <div className='grid grid-cols-3 xs:gap-[6px] sm:gap-[6px] md:gap-[10px] lg:gap-10'>
-                <div className='bg-linear col-span-1 xs:h-[60px] sm:h-[90px] md:h-[120px] lg:h-[140px] xs:px-2 sm:px-4 md:px-5 lg:px-10 flex items-center justify-between xs:rounded-xl sm:rounded-2xl md:rounded-[20px] lg:rounded-3xl shadow-card text-white'>
-                  <h6 className='xs:text-[14px] sm:text-[35px] md:text-[42px] lg:text-[56px] font-customSemiBold xs:leading-[18.2px] sm:leading-[40px] md:leading-[63.33px]'>
+              <div className='flex items-center xs:gap-[10px] sm:gap-[10px] md:gap-[10px] lg:gap-5 xs:flex-wrap sm:flex-nowrap'>
+                <div className='bg-linear xs:w-full sm:w-1/3 xs:h-[60px] sm:h-[90px] md:h-[120px] lg:h-[140px] xs:px-12 sm:px-4 md:px-5 lg:px-10 flex items-center justify-between xs:rounded-xl sm:rounded-2xl md:rounded-[20px] lg:rounded-3xl shadow-card text-white'>
+                  <h6 className='xs:text-[32px] sm:text-[35px] md:text-[42px] lg:text-[56px] font-customSemiBold xs:leading-[18.2px] sm:leading-[40px] md:leading-[63.33px]'>
                     14,870
                   </h6>
-                  <p className='w-fit xs:text-[8px] sm:text-[13px] md:text-[16px] lg:text-[18px] font-customSemiBold xs:leading-[11px] sm:leading-[15px] md:leading-5 lg:leading-7 uppercase'>
-                    products <br /> added to <br className='xs:block sm:block md:block lg:hidden' /> cart{' '}
+                  <p className='w-fit xs:text-[12px] sm:text-[13px] md:text-[16px] lg:text-[18px] font-customSemiBold xs:leading-[15px] sm:leading-[15px] md:leading-5 lg:leading-7 uppercase xs:tracking-wide sm:tracking-normal'>
+                    products <br className='xs:hidden sm:block md:block lg:block' /> added to{' '}
+                    <br className='xs:block sm:block md:block lg:hidden' /> cart{' '}
                     <br className='xs:hidden sm:hidden md:hidden lg:block' /> or{' '}
-                    <br className='xs:block sm:block md:block lg:hidden' /> wishlist
+                    <br className='xs:hidden sm:block md:block lg:hidden' /> wishlist
                   </p>
                 </div>
-                <div className='col-span-1 xs:h-[60px] sm:h-[90px] md:h-[120px] lg:h-[140px] xs:rounded-xl sm:rounded-3xl shadow-card relative'>
-                  <div className='size-full xs:rounded-xl sm:rounded-2xl md:rounded-[20px] lg:rounded-3xl bg-gradient-to-l from-blueMain to-greenMain' />
-                  <div className='w-full xs:h-[57px] sm:h-[87px] md:h-[117px] lg:h-[137px] xs:p-3 sm:p-4 md:p-5 flex flex-col justify-between bg-white xs:rounded-[10px] sm:rounded-[14px] md:rounded-[18px] lg:rounded-[23px] absolute top-0'>
+                <div className='xs:w-full sm:w-2/3 flex items-center xs:gap-[10px] sm:gap-[10px] md:gap-[10px] lg:gap-5'>
+                  <div className='w-1/2 xs:h-[60px] sm:h-[90px] md:h-[120px] lg:h-[140px] xs:rounded-xl sm:rounded-3xl shadow-card relative'>
+                    <div className='size-full xs:rounded-xl sm:rounded-2xl md:rounded-[20px] lg:rounded-3xl bg-gradient-to-l from-blueMain to-greenMain' />
+                    <div className='w-full xs:h-[57px] sm:h-[87px] md:h-[117px] lg:h-[137px] xs:p-2 sm:p-4 md:p-5 flex flex-col justify-between bg-white xs:rounded-[10px] sm:rounded-[14px] md:rounded-[18px] lg:rounded-[23px] absolute top-0'>
+                      <div className='flex items-start justify-between'>
+                        <p className='xs:text-[24px] sm:text-[24px] md:text-[34px] lg:text-[48px] font-customSemiBold leading-none'>
+                          8,892
+                        </p>
+                        <div className='mb-2'>
+                          <BagAddIcon className='xs:size-4 sm:size-6 md:size-7 lg:size-[36px]' />
+                        </div>
+                      </div>
+                      <p className='xs:text-[12px] sm:text-[13px] md:text-[18px] font-customSemiBold leading-none uppercase text-blackMain/[.64]'>
+                        add to cart
+                      </p>
+                    </div>
+                  </div>
+                  <div className='w-1/2 xs:h-[60px] sm:h-[90px] md:h-[120px] lg:h-[140px] xs:p-2 sm:p-4 md:p-5 flex flex-col justify-between bg-white xs:rounded-xl sm:rounded-2xl md:rounded-[20px] lg:rounded-3xl shadow-card'>
                     <div className='flex items-start justify-between'>
-                      <p className='xs:text-[14px] sm:text-[24px] md:text-[34px] lg:text-[48px] font-customSemiBold leading-none'>
+                      <p className='xs:text-[24px] sm:text-[24px] md:text-[34px] lg:text-[48px] font-customSemiBold leading-none'>
                         8,892
                       </p>
                       <div className='mb-2'>
-                        <BagAddIcon className='xs:size-3 sm:size-6 md:size-7 lg:size-[36px]' />
+                        <WishlistIcon className='xs:size-4 sm:size-6 md:size-7 lg:size-[36px]' />
                       </div>
                     </div>
-                    <p className='xs:text-[8px] sm:text-[13px] md:text-[18px] font-customSemiBold leading-none uppercase text-blackMain/[.64]'>
-                      add to cart
+                    <p className='xs:text-[12px] sm:text-[13px] md:text-[18px] xs:mb-[2px] sm:mb-0 font-customSemiBold leading-none uppercase text-blackMain/[.64]'>
+                      wishlist
                     </p>
                   </div>
-                </div>
-                <div className='col-span-1 xs:h-[60px] sm:h-[90px] md:h-[120px] lg:h-[140px] xs:p-3 sm:p-4 md:p-5 flex flex-col justify-between bg-white xs:rounded-xl sm:rounded-2xl md:rounded-[20px] lg:rounded-3xl shadow-card'>
-                  <div className='flex items-start justify-between'>
-                    <p className='xs:text-[14px] sm:text-[24px] md:text-[34px] lg:text-[48px] font-customSemiBold leading-none'>
-                      8,892
-                    </p>
-                    <div className='mb-2'>
-                      <WishlistIcon className='xs:size-3 sm:size-6 md:size-7 lg:size-[36px]' />
-                    </div>
-                  </div>
-                  <p className='xs:text-[8px] sm:text-[13px] md:text-[18px] xs:mb-1 sm:mb-0 font-customSemiBold leading-none uppercase text-blackMain/[.64]'>
-                    wishlist
-                  </p>
                 </div>
               </div>
             </section>
