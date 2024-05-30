@@ -21,12 +21,18 @@ function SummaryCart({ listProductCheckout, productIdsCheckout, inCartPage = fal
 
   return (
     <>
-      <div className='w-[418px]'>
-        <div className={`p-[31.5px] flex flex-col gap-6 ${bgColor ? bgColor : 'bg-greyLight'} rounded mb-5`}>
-          <h6 className='text-[32px] font-customBold leading-none capitalize'>summary</h6>
+      <div className='xs:w-full sm:w-full md:w-full lg:w-[418px] xs:bg-greyLight sm:bg-transparent xs:pb-[30px]'>
+        <div
+          className={`xs:px-4 xs:py-[30px] sm:p-[31.5px] flex flex-col xs:gap-4 sm:gap-6 ${bgColor ? bgColor : 'bg-greyLight'} rounded mb-5`}
+        >
+          <h6 className='xs:text-[27px] sm:text-[32px] font-customBold leading-none capitalize'>summary</h6>
           <div className='w-full flex items-center justify-between'>
-            <p className={`text-[20px] ${bgColor ? 'opacity-100' : 'opacity-[.64]'} leading-none`}>Subtotal</p>
-            <p className='text-[20px] font-customSemiBold leading-none'>
+            <p
+              className={`xs:text-[16px] sm:text-[20px] ${bgColor ? 'opacity-100' : 'xs:opacity-100 sm:opacity-[.64]'} leading-none`}
+            >
+              Subtotal
+            </p>
+            <p className='xs:text-[16px] sm:text-[20px] font-customSemiBold leading-none'>
               $
               {productIdsCheckout.length > 0
                 ? listProductCheckout
@@ -38,21 +44,27 @@ function SummaryCart({ listProductCheckout, productIdsCheckout, inCartPage = fal
             </p>
           </div>
           <div className='w-full flex items-center justify-between'>
-            <p className={`text-[20px] ${bgColor ? 'opacity-100' : 'opacity-[.64]'} leading-none`}>Discount code</p>
-            <p className='text-[20px] font-customSemiBold leading-none'>-${(20).toFixed(2)}</p>
+            <p
+              className={`xs:text-[16px] sm:text-[20px] ${bgColor ? 'opacity-100' : 'xs:opacity-100 sm:opacity-[.64]'} leading-none`}
+            >
+              Discount code
+            </p>
+            <p className='xs:text-[16px] sm:text-[20px] font-customSemiBold leading-none'>-${(20).toFixed(2)}</p>
           </div>
           <div className='w-full flex items-center justify-between'>
-            <p className={`text-[20px] ${bgColor ? 'opacity-100' : 'opacity-[.64]'} leading-none`}>
+            <p
+              className={`xs:text-[16px] sm:text-[20px] ${bgColor ? 'opacity-100' : 'xs:opacity-100 sm:opacity-[.64]'} leading-none`}
+            >
               Estimated Delivery & Handling
             </p>
-            <p className='text-[20px] font-customSemiBold leading-none'>Free</p>
+            <p className='xs:text-[16px] sm:text-[20px] font-customSemiBold leading-none'>Free</p>
           </div>
 
           <div className='h-[1px] w-full bg-blackMain/[.12]'></div>
 
           <div className='w-full flex items-center justify-between'>
-            <p className='text-[20px] opacity-[.64] leading-none'>Total</p>
-            <p className='text-[32px] font-customSemiBold'>
+            <p className='xs:text-[16px] sm:text-[20px] xs:opacity-100 sm:opacity-[.64] leading-none'>Total</p>
+            <p className='xs:text-[22.45px] sm:text-[32px] font-customSemiBold'>
               $
               {productIdsCheckout.length > 0
                 ? (
@@ -66,17 +78,17 @@ function SummaryCart({ listProductCheckout, productIdsCheckout, inCartPage = fal
         </div>
 
         {inCartPage && (
-          <div className='w-full h-[60px] px-5 bg-greyMain focus-within:bg-greyMain flex items-center justify-between rounded mb-5'>
+          <div className='xs:hidden sm:flex w-full h-[60px] px-5 bg-greyMain focus-within:bg-greyMain  items-center justify-between rounded mb-5'>
             <input type='text' placeholder='Promocode' className='w-full h-full bg-greyMain border-none outline-none' />
             <img src={images.icons.copy} alt='icon-copy' className='cursor-pointer' />
           </div>
         )}
 
-        <div className='flex flex-col gap-5'>
+        <div className='flex xs:flex-col sm:flex-row lg:flex-col gap-5 xs:px-4 sm:px-0'>
           <Button
             fullWidth
-            classNameText='!uppercase'
-            className='h-[72px] rounded-[36px]'
+            classNameText='xs:text-[18px] sm:text-[20px] !uppercase'
+            className='xs:h-[58px] sm:h-[72px] rounded-[36px]'
             disabled={productIdsCheckout.length === 0}
             onClick={handleOpen}
           >
@@ -85,8 +97,8 @@ function SummaryCart({ listProductCheckout, productIdsCheckout, inCartPage = fal
           <Button
             fullWidth
             variant='outline'
-            className='h-[72px] rounded-[36px]'
-            classNameText='!uppercase'
+            className='xs:h-[58px] sm:h-[72px] rounded-[36px]'
+            classNameText='xs:text-[18px] sm:text-[20px] !uppercase'
             onClick={() =>
               navigate({
                 pathname: PATH_PUBLIC_APP.cart.share,
@@ -99,7 +111,7 @@ function SummaryCart({ listProductCheckout, productIdsCheckout, inCartPage = fal
             share
           </Button>
 
-          <div className='flex items-center gap-[10px]'>
+          <div className='xs:flex sm:hidden items-center gap-[10px]'>
             <img src={images.icons.info} alt='icon-info' />
             <p className=''>hshshshshjhhshhshhshjsshhshhssh</p>
           </div>

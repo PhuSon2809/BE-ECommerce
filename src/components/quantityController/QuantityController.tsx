@@ -85,13 +85,13 @@ function QuantityController({
         <Minus fontSize={isSmall ? 10 : 15} />
       </IconButton>
       {productInCart ? (
-        <p className='min-w-[30px] text-[20px] font-customSemiBold text-center'>
+        <p className='min-w-[30px] xs:text-[16px] sm:text-[20px] font-customSemiBold text-center'>
           {(productInCart?.quantityInCart as number) < 10
             ? `0${productInCart?.quantityInCart}`
             : productInCart?.quantityInCart}
         </p>
       ) : (
-        <p className='min-w-[30px] text-[20px] font-customSemiBold text-center text-greenMain'>
+        <p className='min-w-[30px] xs:text-[16px] sm:text-[20px] font-customSemiBold text-center text-greenMain'>
           {(localValue as number) < 10 && (localValue as number) !== 0 ? `0${localValue}` : localValue}
         </p>
       )}

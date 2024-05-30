@@ -9,7 +9,7 @@ import { SelectFilter } from '~/components/form'
 import { DeleteIcon, FavoriteIcon } from '~/components/icons'
 import { QuantityController } from '~/components/quantityController'
 import { addToCart, removeProductInCart } from '~/redux/cart/cart.slice'
-import { removeProductFavorite } from '~/redux/favorite/favorite.slice'
+import { addToFavorite, removeProductFavorite } from '~/redux/favorite/favorite.slice'
 
 const listCapacity: OptionSelect[] = [
   { value: 1, label: '100ml' },
@@ -23,6 +23,7 @@ type CartItemProps = {
   hideSelect?: boolean
   hideHandleQuantity?: boolean
   isInCartPopup?: boolean
+  isInCartResponsive?: boolean
   cartItem: ProductInStorage
   isItemSelected?: boolean
   handleSelectItem?: (cartItemId: number) => void
@@ -34,6 +35,7 @@ function CartItem({
   hideSelect = false,
   hideHandleQuantity = false,
   isInCartPopup = false,
+  isInCartResponsive = false,
   cartItem,
   isItemSelected,
   handleSelectItem
@@ -66,8 +68,21 @@ function CartItem({
     dispatch(addToCart(productToAddCart))
   }, [dispatch, cartItem])
 
+  const handleAddToFavorite = useCallback(() => {
+    const productToAddFavorite: ProductInStorage = {
+      numberItems: cartItem.numberItems,
+      id: cartItem.id,
+      title: cartItem?.title,
+      category: 'Health Products',
+      image: cartItem?.image,
+      price: cartItem?.price,
+      quantityInCart: 0
+    }
+    dispatch(addToFavorite(productToAddFavorite))
+  }, [dispatch, cartItem])
+
   return (
-    <div className='flex items-center gap-4'>
+    <div className='flex items-center xs:gap-2 sm:gap-4'>
       {!hideSelect && (
         <div className='relative'>
           <input
@@ -75,7 +90,7 @@ function CartItem({
             type='checkbox'
             checked={isItemSelected}
             onClick={() => handleSelectItem && handleSelectItem(cartItem.id)}
-            className='appearance-none rounded-full w-6 h-[24px] border-[2px] bg-white border-blackMain border-solid 
+            className='appearance-none rounded-full w-6 h-[24px] border-[2px] bg-transparent border-blackMain border-solid 
           checked:border-none checked:bg-gradient-to-r checked:from-greenMain checked:to-blueMain focus:outline-none hover:shadow-avatar transition-all duration-200 ease-in-out 
           checked:after:content-[" "] checked:after:block checked:after:w-[6px] checked:after:h-[12px] checked:after:border-r-[2px] checked:after:border-b-[2px] 
           checked:after:border-solid checked:after:border-white checked:after:rotate-[45deg] checked:after:absolute checked:after:top-[4.5px] checked:after:left-[9px]'
@@ -83,45 +98,63 @@ function CartItem({
         </div>
       )}
 
-      <div className={`w-full flex ${isSmall ? 'gap-3' : 'gap-4'}`}>
-        <div
-          className={`${isSmall ? 'min-w-[68px] size-[68px] rounded-[4px]' : 'min-w-[139px] size-[139px] rounded-2xl'} relative`}
-        >
-          <img
-            src={cartItem.image}
-            alt={cartItem.title}
-            className={`size-full ${isSmall ? 'rounded-[4px]' : 'rounded-2xl'}`}
-          />
-          {isSmall && !isFavorite && (
-            <div className='size-5 flex items-center justify-center absolute top-0 left-0 bg-white/[.44] backdrop-blur-sm rounded-tl-[4px] rounded-br-[10px] shadow-checkbox'>
-              <div className='relative'>
-                <input
-                  readOnly
-                  type='checkbox'
-                  checked={isItemSelected}
-                  onClick={() => handleSelectItem && handleSelectItem(cartItem.id)}
-                  className='appearance-none rounded-full size-[14px] border-[1px] bg-white border-blackMain border-solid 
+      <div className={`w-full flex ${isSmall ? 'gap-3' : 'xs:gap-3 sm:gap-4'}`}>
+        <div className='flex flex-col items-center gap-2'>
+          <div
+            className={`${isSmall ? 'min-w-[68px] size-[68px] rounded-[4px]' : 'xs:min-w-[154px] xs:size-[154px] sm:min-w-[139px] sm:size-[139px] rounded-2xl'} relative`}
+          >
+            <img
+              src={cartItem.image}
+              alt={cartItem.title}
+              className={`size-full ${isSmall ? 'rounded-[4px]' : 'rounded-2xl'}`}
+            />
+            {isSmall && !isFavorite && (
+              <div className='size-5 flex items-center justify-center absolute top-0 left-0 bg-white/[.44] backdrop-blur-sm rounded-tl-[4px] rounded-br-[10px] shadow-checkbox'>
+                <div className='relative'>
+                  <input
+                    readOnly
+                    type='checkbox'
+                    checked={isItemSelected}
+                    onClick={() => handleSelectItem && handleSelectItem(cartItem.id)}
+                    className='appearance-none rounded-full size-[14px] border-[1px] bg-white border-blackMain border-solid 
                     checked:border-none checked:bg-gradient-to-r checked:from-greenMain checked:to-blueMain focus:outline-none hover:shadow-avatar transition-all duration-200 ease-in-out 
                     checked:after:content-[" "] checked:after:block checked:after:w-[3px] checked:after:h-[6px] checked:after:border-r-[1.5px] checked:after:border-b-[1.5px] 
                     checked:after:border-solid checked:after:border-white checked:after:rotate-[45deg] checked:after:absolute checked:after:top-[7.8px] checked:after:left-[5.8px]'
-                />
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+          {isInCartResponsive && (
+            <div className={`flex items-center gap-5`}>
+              <div onClick={handleAddToFavorite}>
+                <FavoriteIcon color='#0D0D0D' className={`cursor-pointer size-5`} />
+              </div>
+              <div onClick={() => dispatch(removeProductInCart({ productId: cartItem.id }))}>
+                <DeleteIcon color='#0D0D0D' className={`cursor-pointer size-5`} />
               </div>
             </div>
           )}
         </div>
         <div className='w-full flex flex-col justify-between'>
-          <div>
+          <div className='xs:space-y-1'>
             <div className='w-full flex justify-between'>
-              <p className={`${isSmall ? 'text-[18px]' : 'text-[24px]'} font-customBold leading-none`}>
+              <p
+                className={`${isSmall ? 'text-[18px]' : 'xs:text-[20px] sm:text-[24px]'} font-customBold leading-none`}
+              >
                 {cartItem.title}
               </p>
-              <p className={`${isSmall ? 'text-[16px]' : 'text-[24px]'} font-customSemiBold leading-none`}>
+              <p
+                className={`${isInCartResponsive ? 'hidden' : 'flex'} ${isSmall ? 'text-[16px]' : 'text-[24px]'} font-customSemiBold leading-none`}
+              >
                 ${cartItem.price.toFixed(2)}
               </p>
             </div>
             <div className='w-full flex items-center justify-between'>
               {!isSmall ? <p className='text-blackMain/[.64]'>{cartItem.category}</p> : <div></div>}
-              <p className={`${isSmall ? 'text-[12px]' : 'text-[20px]'} opacity-[.64] line-through`}>
+              <p
+                className={`${isInCartResponsive ? 'hidden' : 'flex'} ${isSmall ? 'text-[12px]' : 'text-[20px]'} opacity-[.64] line-through`}
+              >
                 ${(145).toFixed(2)}
               </p>
             </div>
@@ -132,14 +165,20 @@ function CartItem({
                 </p>
               </div>
             )}
+            {isInCartResponsive && (
+              <p className={`text-[20px] font-customSemiBold leading-none !mt-[8px]`}>
+                ${cartItem.price.toFixed(2)}{' '}
+                <span className={`text-[14px]  leading-none line-through`}>${(145).toFixed(2)}</span>
+              </p>
+            )}
           </div>
 
-          <div className='mt-[3px]'>
+          <div className='mt-[5px]'>
             <div className='flex items-center justify-between'>
               {isFavorite ? (
                 <>
                   <div onClick={() => dispatch(removeProductFavorite({ productId: cartItem.id }))}>
-                    <DeleteIcon color='#0D0D0DA3' className={`cursor-pointer ${isSmall ? 'size-5' : 'size-6'}`} />
+                    <DeleteIcon color='#0D0D0D' className={`cursor-pointer ${isSmall ? 'size-5' : 'size-6'}`} />
                   </div>
 
                   <Button
@@ -163,14 +202,21 @@ function CartItem({
                       className='h-8 !py-1 !rounded-[31px] ring-0'
                     />
                   ) : (
-                    <div className={`flex items-center ${isSmall ? 'gap-4' : 'gap-8'}`}>
-                      {(!hideHandleQuantity || isFavorite) && (
-                        <FavoriteIcon color='#0D0D0DA3' className={`cursor-pointer ${isSmall ? 'size-5' : 'size-6'}`} />
-                      )}
-                      <div onClick={() => dispatch(removeProductInCart({ productId: cartItem.id }))}>
-                        <DeleteIcon color='#0D0D0DA3' className={`cursor-pointer ${isSmall ? 'size-5' : 'size-6'}`} />
+                    !isInCartResponsive && (
+                      <div className={`flex items-center ${isSmall ? 'gap-4' : 'gap-8'}`}>
+                        {(!hideHandleQuantity || isFavorite) && (
+                          <div onClick={handleAddToFavorite}>
+                            <FavoriteIcon
+                              color='#0D0D0D'
+                              className={`cursor-pointer ${isSmall ? 'size-5' : 'size-6'}`}
+                            />
+                          </div>
+                        )}
+                        <div onClick={() => dispatch(removeProductInCart({ productId: cartItem.id }))}>
+                          <DeleteIcon color='#0D0D0D' className={`cursor-pointer ${isSmall ? 'size-5' : 'size-6'}`} />
+                        </div>
                       </div>
-                    </div>
+                    )
                   )}
 
                   {!hideHandleQuantity && (
