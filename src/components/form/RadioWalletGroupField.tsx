@@ -38,22 +38,28 @@ function RadioWalletGroupField({
         return (
           <div className={`flex flex-col gap-1`}>
             <div className='flex items-center gap-5'>
-              <IconButton size='48' onClick={() => sliderRef.current?.slickPrev()}>
+              <IconButton size='48' onClick={() => sliderRef.current?.slickPrev()} className='xs:hidden sm:flex'>
                 <img src={images.icons.arrow_left} alt='arrow-left' />
               </IconButton>
-              <div className='w-[500px]'>
+              <div className='xs:w-[358px] sm:w-[500px]'>
                 <Slider ref={sliderRef} infinite arrows={false} slidesToShow={1} slidesToScroll={1}>
                   {options.map((option) => (
                     <div
                       key={option.value}
-                      className='w-[469px] h-[280px] relative rounded-[22.4px] overflow-hidden bg-gradient-to-r from-greenMain to-blueMain'
+                      className='xs:w-full sm:w-[469px] xs:h-[190px] sm:h-[280px] relative xs:rounded-[15.16px] sm:rounded-[22.4px] overflow-hidden bg-gradient-to-r from-greenMain to-blueMain'
                     >
-                      <div className='h-full p-6 absolute inset-0 z-10 text-white flex flex-col justify-between'>
+                      <div className='h-full xs:p-5 sm:p-6 absolute inset-0 z-10 text-white flex flex-col justify-between'>
                         <div>
-                          <div className='text-[22px] font-customSemiBold uppercase'>{option.nameCard}</div>
-                          <div className=' text-white/[68%] text-[20px] font-customMedium mt-5'>{option.cardId}</div>
+                          <div className='xs:text-[14px] sm:text-[22px] font-customSemiBold uppercase'>
+                            {option.nameCard}
+                          </div>
+                          <div className='text-white/[68%] xs:text-[16px] sm:text-[20px] font-customMedium xs:mt-1 sm:mt-5'>
+                            {option.cardId}
+                          </div>
                         </div>
-                        <div className='text-[40px] font-customSemiBold text-white'>${option.balance}</div>
+                        <div className='xs:text-[26px] sm:text-[40px] font-customSemiBold text-white'>
+                          ${option.balance}
+                        </div>
                       </div>
                       <img
                         src={images.image.line_group}
@@ -79,7 +85,7 @@ function RadioWalletGroupField({
                   ))}
                 </Slider>
               </div>
-              <IconButton size='48' onClick={() => sliderRef.current?.slickNext()}>
+              <IconButton size='48' onClick={() => sliderRef.current?.slickNext()} className='xs:hidden sm:flex'>
                 <img src={images.icons.arrow_right} alt='arrow-right' />
               </IconButton>
             </div>

@@ -30,21 +30,21 @@ function Checkout() {
 
   return (
     <div className='grid grid-cols-3'>
-      <div className='col-span-2'>
-        <section className={`h-full px-20 py-10 flex flex-col gap-10`}>
-          <div className='w-full h-[52px] flex items-center bg-greyMain rounded-lg relative'>
+      <div className='xs:col-span-3 sm:col-span-3 md:col-span-3 lg:col-span-2'>
+        <section className={`h-full xs:px-4 sm:px-4 md:px-20 py-10 flex flex-col xs:gap-8 sm:gap-10`}>
+          <div className='w-full xs:h-[48px] sm:h-[60px] flex items-center bg-greyMain rounded-lg relative'>
             <input placeholder='Enter ref code' className='appearance-none w-full h-full px-5 bg-transparent' />
             <img
               src={images.icons.copy}
               alt='icon-copy'
-              className='absolute top-1/2 right-5 transform -translate-y-1/2 cursor-pointer'
+              className='xs:size-5 sm:size-6 absolute top-1/2 right-5 transform -translate-y-1/2 cursor-pointer'
             />
           </div>
 
-          <div className='w-full flex item-center gap-5'>
+          <div className='w-full flex item-center xs:gap-3 sm:gap-5'>
             <Button
               fullWidth
-              classNameText='text-[16.67px] !uppercase'
+              classNameText='xs:text-[12px] sm:text-[16.67px] !uppercase'
               variant={
                 queryConfig.checkoutType === QUERY_PARAM_STRING.checkoutType.receiveProduct ? 'container' : 'grey'
               }
@@ -67,7 +67,7 @@ function Checkout() {
             </Button>
             <Button
               fullWidth
-              classNameText='text-[16.67px] !uppercase'
+              classNameText='xs:text-[12px] sm:text-[16.67px] !uppercase'
               variant={
                 queryConfig.checkoutType === QUERY_PARAM_STRING.checkoutType.storageForResale ? 'container' : 'grey'
               }
@@ -91,14 +91,18 @@ function Checkout() {
             </Button>
           </div>
 
-          <h6 className='text-[32px] font-customBold leading-none'>Shipping Information</h6>
+          <h6
+            className={`text-[32px] font-customBold leading-none ${queryConfig.checkoutType === QUERY_PARAM_STRING.checkoutType.storageForResale && 'opacity-[.32]'}`}
+          >
+            Shipping Information
+          </h6>
 
           <CheckoutForm />
         </section>
       </div>
 
       {/* list item checkout */}
-      <div className='col-span-1'>
+      <div className='xs:hidden sm:hidden md:hidden lg:block col-span-1'>
         <section className='w-full px-10 py-10 min-h-[100vh] bg-greyMain flex flex-col gap-[30px] sticky top-0'>
           <h6 className='text-[32px] font-customBold leading-none'>Order Summary</h6>
           <div className='flex flex-1 flex-col gap-6 mb-[30px]'>

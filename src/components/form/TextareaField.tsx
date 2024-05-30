@@ -39,32 +39,36 @@ function TextareaField({
       defaultValue={defaultValue}
       render={({ field, fieldState }) => (
         <div className={`flex flex-col gap-1 ${fullWidth ? 'w-full' : 'w-[350px]'} ${width ? width : ''}`}>
-          <label
-            htmlFor={name}
-            className={`text-[20px] font-customSemiBold capitalize ${disabled && 'text-blackMain/[.32]'}`}
-          >
-            {label}
-          </label>
-          <textarea
-            {...field}
-            id={name}
-            rows={rows}
-            required={required}
-            disabled={disabled}
-            placeholder={placeholder}
-            className={`w-full border-[1px] border-solid border-blackMain/[.22] rounded-[26px] px-5 py-2 ${disabled ? 'bg-blackMain/[.03]' : 'focus:ring-[1.5px] focus:ring-blackMain/[.30] hover:ring-[1.5px] hover:ring-blackMain/[.30]'} transition-colors ease-in-out duration-300 ${className}`}
-            onChange={(e) => {
-              const value = e.target.value.trimStart()
-              field.onChange(value)
-            }}
-          />
+          <div className='flex flex-col xs:gap-2 sm:gap-3'>
+            <label
+              htmlFor={name}
+              className={`xs:text-[18px] sm:text-[20px] font-customSemiBold capitalize ${disabled && 'text-blackMain/[.32]'}`}
+            >
+              {label}
+            </label>
+            <textarea
+              {...field}
+              id={name}
+              rows={rows}
+              required={required}
+              disabled={disabled}
+              placeholder={placeholder}
+              className={`w-full border-[1px] border-solid border-blackMain/[.22] rounded-[26px] px-5 py-2 ${disabled ? 'bg-blackMain/[.03]' : 'focus:ring-[1.5px] focus:ring-blackMain/[.30] hover:ring-[1.5px] hover:ring-blackMain/[.30]'} transition-colors ease-in-out duration-300 ${className}`}
+              onChange={(e) => {
+                const value = e.target.value.trimStart()
+                field.onChange(value)
+              }}
+            />
+          </div>
           {helperText && (
-            <div className='h-[18px]'>
-              <p className='mt-2 text-[14px] text-gray-400'>{helperText}</p>
+            <div className='min-h-[18px]'>
+              <p className='ml-2 xs:text-[13px] sm:text-[14px] text-gray-400'>{helperText}</p>
             </div>
           )}
-          <div className='h-[18px]'>
-            <p className='mt-2 text-[14px] text-red-500'>{fieldState.error && fieldState.error.message}</p>
+          <div className='min-h-[18px]'>
+            <p className='ml-2 xs:text-[13px] sm:text-[14px] text-red-500'>
+              {fieldState.error && fieldState.error.message}
+            </p>
           </div>
         </div>
       )}

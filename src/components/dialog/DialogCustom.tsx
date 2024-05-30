@@ -42,7 +42,9 @@ function DialogCustom({
         )}
 
         <div className='fixed inset-0 z-10 w-screen overflow-y-auto'>
-          <div className={`flex min-h-full ${positionDialog ? positionDialog : 'items-start'} justify-center`}>
+          <div
+            className={`flex min-h-full xs:px-4 sm:px-0 ${positionDialog ? positionDialog : 'items-start'} justify-center`}
+          >
             <TransitionChild
               as={Fragment}
               enter='ease-out duration-300'

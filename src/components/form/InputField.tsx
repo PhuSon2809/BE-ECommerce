@@ -46,50 +46,56 @@ function InputField({
       name={name}
       rules={rules}
       defaultValue={defaultValue}
-      render={({ field, fieldState }) => (
-        <div className={`flex flex-col gap-1 ${fullWidth ? 'w-full' : 'w-[350px]'} ${width ? width : ''}`}>
-          <label
-            htmlFor={name}
-            className={`${size === 'small' ? 'text-[16px]' : 'text-[20px]'} font-customSemiBold capitalize ${disabled && 'text-blackMain/[.32]'} ${classNameLabel}`}
-          >
-            {label}
-          </label>
-          <div className='relative'>
-            <input
-              {...field}
-              id={name}
-              type={type}
-              required={required}
-              disabled={disabled}
-              placeholder={placeholder}
-              className={`w-full ${size === 'small' ? 'h-[48px]' : 'h-[52px]'} px-5  ${variant === 'outline' ? 'border-[1px] border-solid border-blackMain/[.22] rounded-[30px] pb-[2px]' : 'bg-greyLight rounded-lg'} ${
-                disabled
-                  ? 'bg-blackMain/[.03]'
-                  : variant === 'outline'
-                    ? 'focus:ring-[1.5px] focus:ring-blackMain/[.30] hover:ring-[1.5px] hover:ring-blackMain/[.30]'
-                    : 'focus:bg-blackMain/[.05] hover:bg-blackMain/[.05]'
-              } transition-colors ease-in-out duration-300 ${className}`}
-              onChange={(e) => {
-                const value = e.target.value
-                field.onChange(value)
-              }}
-            />
-            <div
-              className={`absolute top-1/2 ${size === 'small' ? 'right-[20px]' : 'right-[25px]'} transform -translate-y-1/2 pointer-events-none`}
-            >
-              {rightIcon}
+      render={({ field, fieldState }) => {
+        return (
+          <div className={`flex flex-col gap-1 ${fullWidth ? 'w-full' : 'w-[350px]'} ${width ? width : ''}`}>
+            <div className='flex flex-col xs:gap-2 sm:gap-3'>
+              <label
+                htmlFor={name}
+                className={`${size === 'small' ? 'text-[16px]' : 'xs:text-[18px] sm:text-[20px]'} font-customSemiBold capitalize ${disabled && 'text-blackMain/[.32]'} ${classNameLabel}`}
+              >
+                {label}
+              </label>
+              <div className='relative'>
+                <input
+                  {...field}
+                  id={name}
+                  type={type}
+                  required={required}
+                  disabled={disabled}
+                  placeholder={placeholder}
+                  className={`w-full ${size === 'small' ? 'h-[48px]' : 'xs:h-11 sm:h-[52px]'} px-5 ${variant === 'outline' ? 'border-[1px] border-solid border-blackMain/[.22] xs:rounded-[30px] sm:rounded-[32px] pb-[2px]' : 'bg-greyLight rounded-lg'} ${
+                    disabled
+                      ? 'bg-blackMain/[.03]'
+                      : variant === 'outline'
+                        ? 'focus:ring-[1.5px] focus:ring-blackMain/[.30] hover:ring-[1.5px] hover:ring-blackMain/[.30]'
+                        : 'focus:bg-blackMain/[.05] hover:bg-blackMain/[.05]'
+                  } transition-colors ease-in-out duration-300 ${className}`}
+                  onChange={(e) => {
+                    const value = e.target.value
+                    field.onChange(value)
+                  }}
+                />
+                <div
+                  className={`absolute top-1/2 ${size === 'small' ? 'right-[20px]' : 'right-[25px]'} transform -translate-y-1/2 pointer-events-none`}
+                >
+                  {rightIcon}
+                </div>
+              </div>
+            </div>
+            {helperText && (
+              <div className='min-h-[18px]'>
+                <p className='ml-2 xs:text-[13px] sm:text-[14px] text-gray-400'>{helperText}</p>
+              </div>
+            )}
+            <div className='min-h-[18px]'>
+              <p className='ml-2 xs:text-[13px] sm:text-[14px] text-red-500'>
+                {fieldState.error && fieldState.error.message}
+              </p>
             </div>
           </div>
-          {helperText && (
-            <div className='h-[18px]'>
-              <p className='mt-2 text-[14px] text-gray-400'>{helperText}</p>
-            </div>
-          )}
-          <div className='h-[18px]'>
-            <p className='mt-2 text-[14px] text-red-500'>{fieldState.error && fieldState.error.message}</p>
-          </div>
-        </div>
-      )}
+        )
+      }}
     />
   )
 }

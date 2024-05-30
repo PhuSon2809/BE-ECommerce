@@ -33,11 +33,11 @@ function RadioGroupField({
       render={({ field, fieldState }) => {
         return (
           <div className={`flex flex-col gap-1 w-full`}>
-            <div className='flex items-center gap-5 w-full'>
+            <div className='flex items-center xs:gap-4 sm:gap-5 w-full'>
               {options.map((option) => (
                 <div
                   key={option.value}
-                  className={`w-full h-[96px] px-6 flex items-center justify-between border-[1px] border-solid border-blackMain/[.12] ${className}`}
+                  className={`w-full xs:h-[50px] sm:h-[96px] xs:px-3 sm:px-6 flex items-center justify-between border-[1px] border-solid border-blackMain/[.12] xs:rounded-none sm:rounded-xl ${className}`}
                 >
                   {option.label}
                   <input
@@ -52,7 +52,7 @@ function RadioGroupField({
                       field.onChange(value)
                     }}
                     checked={field.value === option.value}
-                    className='appearance-none size-8 flex items-center justify-center border border-blackMain border-solid rounded-full checked:bg-transparent checked:after:content-[" "] checked:after:size-4 checked:after:rounded-full checked:after:bg-blackMain hover:scale-105 transition-all duration-300 ease-linear cursor-pointer'
+                    className='appearance-none xs:size-[14px] sm:size-8 flex items-center justify-center border border-blackMain border-solid rounded-full checked:bg-transparent checked:after:content-[" "] xs:checked:after:size-[8px] sm:checked:after:size-4 checked:after:rounded-full checked:after:bg-blackMain hover:scale-105 transition-all duration-300 ease-linear cursor-pointer'
                   />
                 </div>
               ))}

@@ -156,6 +156,10 @@
   background: #555;
 }
 
+.mdl-js{
+  padding-right: 0 !important;
+}
+
 .wrapper-content {
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;

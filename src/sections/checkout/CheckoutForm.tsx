@@ -27,8 +27,13 @@ function CheckoutForm() {
     resolver: yupResolver(schemaStorageForResale)
   })
 
-  const { handleSubmit: handleSubmitReceiveProduct } = receiveProductForm
+  const {
+    handleSubmit: handleSubmitReceiveProduct,
+    formState: { errors }
+  } = receiveProductForm
   const { handleSubmit } = storageForResaleForm
+
+  console.log(errors)
 
   const handleReceiveProductOrder = (values: ReceiveProductForm) => {
     console.log(values)
