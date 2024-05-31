@@ -29,7 +29,7 @@ function Cart() {
             <h1 className='text-[32px] font-customBold capitalize'>Buy product</h1>
             <div className='cursor-pointer' onClick={handleSelectAll}>
               <p className='text-[20px] font-customMedium opacity-[.64] transition-all duration-200 ease-in-out'>
-                {selected.length === cart.length ? 'Deselect' : 'Select'} all
+                {selected.length > 0 && selected.length === cart.length ? 'Deselect' : 'Select'} all
               </p>
             </div>
           </div>

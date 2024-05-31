@@ -160,12 +160,20 @@
   padding-right: 0 !important;
 }
 
+.scroll-bar-small {
+  &::-webkit-scrollbar {
+    width: 5px !important;
+  }
+}
+
 .wrapper-content {
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
-    width: 0 !important;
-    display: none;
-  }
+      width: 0 !important;
+      display: none;
+    }
 }
+
+

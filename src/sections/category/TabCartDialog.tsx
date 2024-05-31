@@ -43,7 +43,7 @@ function TabCartDialog({ open, setOpen }: TabCartDialogProps) {
                 >
                   <CloseIcon color='#FFFFFF' className='size-[12px]' />
                 </div>
-                <TabProductList />
+                <TabProductList isInDialog />
               </div>
             </DialogPanel>
           </TransitionChild>

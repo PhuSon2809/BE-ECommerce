@@ -2,7 +2,9 @@ import images from '~/assets'
 
 function ChatSupport() {
   return (
-    <div className={`w-[430px] h-[540px] bg-white/[.88] backdrop-blur-2xl rounded-[32px] shadow-4xl flex flex-col`}>
+    <div
+      className={`xs:w-[90%] sm:w-[430px] md:w-[430px] h-[540px] bg-white/[.88] backdrop-blur-2xl rounded-[32px] shadow-4xl flex flex-col`}
+    >
       <div className='bg-greenMain h-[65.26px] px-5 flex items-center gap-2 rounded-tr-[32px] rounded-tl-[32px]'>
         <div className='size-[45px] rounded-full border-[1px] border-solid border-white flex items-center justify-center'>
           <img src={images.icons.bot_white} alt='bot-white' />

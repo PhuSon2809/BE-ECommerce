@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useRef } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import images from '~/assets'
 import {
   NavBoxIcon,
@@ -16,9 +16,9 @@ import {
   NavTrackingIcon
 } from '~/components/icons'
 import { PATH_PRIVATE_APP, PATH_PUBLIC_APP } from '~/constants/paths'
-import './styles.scss'
-import { LogoutDialog } from '~/sections/logout'
 import useDialog from '~/hooks/useDialog'
+import { LogoutDialog } from '~/sections/logout'
+import './styles.scss'
 
 const configNavbar = [
   {
@@ -90,6 +90,8 @@ type NavbarProps = {
 }
 
 function Navbar({ setOpenMenu, className, variant = 'vertical' }: NavbarProps) {
+  const navigate = useNavigate()
+
   const { pathname } = useLocation()
 
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -136,7 +138,7 @@ function Navbar({ setOpenMenu, className, variant = 'vertical' }: NavbarProps) {
               key={nav.label}
               onClick={() => (nav.label === 'Logout' ? handleLogout() : setOpenMenu && setOpenMenu(true))}
               className={`${variant === 'vertical' ? 'size-12' : 'h-[46px] px-3 flex items-center gap-[10px]'} flex items-center justify-center rounded-full hover:scale-105 transition duration-300 ease-in-out cursor-pointer
-                        ${pathname === nav.url ? 'bg-gradient-to-r from-greenMain to-blueMain backdrop-blur-[40px] shadow-4xl' : variant === 'vertical' ? 'bg-white' : 'bg-transparent'}`}
+                        ${pathname === nav.url ? 'bg-gradient-to-r from-greenMain to-blueMain backdrop-blur-[40px] shadow-4xl' : 'bg-white'}`}
             >
               {nav.icon(pathname === nav.url ? '#FFFFFF' : '#0D0D0D')}
               {variant === 'horizontal' && (
@@ -148,21 +150,20 @@ function Navbar({ setOpenMenu, className, variant = 'vertical' }: NavbarProps) {
               )}
             </div>
           ) : (
-            <Link key={nav.label} to={nav.url}>
-              <div
-                className={`${variant === 'vertical' ? 'size-12' : 'h-[46px] px-3 flex items-center gap-[10px]'} flex items-center justify-center rounded-full hover:scale-105 transition duration-300 ease-in-out cursor-pointer
+            <div
+              onClick={() => navigate(nav.url)}
+              className={`${variant === 'vertical' ? 'size-12' : 'h-[46px] px-3 flex items-center gap-[10px]'} flex items-center justify-center rounded-full hover:scale-105 transition duration-300 ease-in-out cursor-pointer
                         ${pathname === nav.url ? 'bg-gradient-to-r from-greenMain to-blueMain backdrop-blur-[40px] shadow-4xl' : 'bg-white'}`}
-              >
-                {nav.icon(pathname === nav.url ? '#FFFFFF' : '#0D0D0D')}
-                {variant === 'horizontal' && (
-                  <p
-                    className={`text-[20px] font-customMedium ${pathname === nav.url ? 'text-[#FFF]' : 'text-blackMain'}`}
-                  >
-                    {nav.label}
-                  </p>
-                )}
-              </div>
-            </Link>
+            >
+              {nav.icon(pathname === nav.url ? '#FFFFFF' : '#0D0D0D')}
+              {variant === 'horizontal' && (
+                <p
+                  className={`text-[20px] font-customMedium ${pathname === nav.url ? 'text-[#FFF]' : 'text-blackMain'}`}
+                >
+                  {nav.label}
+                </p>
+              )}
+            </div>
           )
         )}
         <LogoutDialog open={isOpen} setOpen={setIsOpen} />

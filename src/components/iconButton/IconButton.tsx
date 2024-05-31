@@ -70,8 +70,17 @@ function IconButton({
         ${className}
       `}
     >
-      {leftTitle && <p className='text-[18px] font-customRegular leading-[18.9px]'>{leftTitle}</p>} {children}{' '}
-      {title && <p className='text-[18px] font-customRegular leading-[18.9px]'>{title}</p>}
+      {leftTitle && (
+        <p className='xs:text-[14px] sm:text-[18px] font-customRegular xs:leading-[14.7px] sm:leading-[18.9px]'>
+          {leftTitle}
+        </p>
+      )}{' '}
+      {children}{' '}
+      {title && (
+        <p className='xs:text-[14px] sm:text-[18px] font-customRegular xs:leading-[14.7px] sm:leading-[18.9px]'>
+          {title}
+        </p>
+      )}
     </button>
   )
 }

@@ -1,5 +1,12 @@
-.history {
-  background-image: url('../../assets/images/history-banner.png');
+.order-history {
+  background-image: url('../../assets/background/bg-order-history.png');
   background-repeat: no-repeat;
   background-position: top;
+}
+
+@media only screen and (max-width: 639px) {
+  .order-history {
+    background-position: top right;
+    background-size: 555px 154px;
+  }
 }

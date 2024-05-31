@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { createSearchParams, useNavigate } from 'react-router-dom'
+import { createSearchParams, useLocation, useNavigate } from 'react-router-dom'
 import { ProductInStorage } from '~/@types/models'
 import images from '~/assets'
 import { Button } from '~/components/button'
 import { CartItem } from '~/components/cartItem'
 import { IconButton } from '~/components/iconButton'
 import { FavoriteIcon, ShoppingBagIcon } from '~/components/icons'
-import { PATH_PUBLIC_APP } from '~/constants/paths'
+import { PATH_PRIVATE_APP, PATH_PUBLIC_APP } from '~/constants/paths'
 import useDialog from '~/hooks/useDialog'
 import useResponsive from '~/hooks/useResponsive'
 import useSelectItem from '~/hooks/useSelectItem'
@@ -28,12 +28,15 @@ const tabsList = [
 ]
 
 type TabProductListProps = {
-  hideFavoriteTab?: boolean
+  isCartShare?: boolean
+  isInDialog?: boolean
 }
 
-function TabProductList({ hideFavoriteTab }: TabProductListProps) {
+function TabProductList({ isCartShare, isInDialog }: TabProductListProps) {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
+
+  const { pathname } = useLocation()
 
   const { cart } = useAppSelector((state) => state.cart)
   const { favorites } = useAppSelector((state) => state.favorite)
@@ -63,7 +66,7 @@ function TabProductList({ hideFavoriteTab }: TabProductListProps) {
   return (
     <>
       <section
-        className={`xs:w-[374px] sm:w-full ${hideFavoriteTab ? 'bg-white' : 'bg-greyMain'}  rounded-2xl xs:rounded-tr-none xs:rounded-br-none`}
+        className={`${isCartShare ? 'xs:w-full' : 'xs:w-[374px]'} sm:w-full ${isCartShare ? 'bg-white' : 'bg-greyMain'}  rounded-2xl xs:rounded-tr-none xs:rounded-br-none`}
       >
         <div className='flex items-end border-t-0 border-l-0 border-r-0 border-b-[1px] border-solid border-blackMain/[.32]'>
           {cart.length === 0 ? (
@@ -71,21 +74,21 @@ function TabProductList({ hideFavoriteTab }: TabProductListProps) {
               <p className='text-[20px] font-customSemiBold'>Items in my cart</p>
             </div>
           ) : (
-            (hideFavoriteTab ? tabsList.filter((tab) => tab.value === 'my-bag') : tabsList).map((tab) => (
+            (isCartShare ? tabsList.filter((tab) => tab.value === 'my-bag') : tabsList).map((tab) => (
               <div
                 key={tab.value}
                 onClick={() => setTabActive(tab.value)}
-                className={`w-1/2 h-[55px] relative cursor-pointer ${!hideFavoriteTab ? 'hover:bg-blackMain/[.10]' : 'cursor-default'} rounded-tl-2xl rounded-tr-2xl transition-colors duration-300 ease-linear`}
+                className={`w-1/2 h-[55px] relative cursor-pointer ${!isCartShare ? 'hover:bg-blackMain/[.10]' : 'cursor-default'} rounded-tl-2xl rounded-tr-2xl transition-colors duration-300 ease-linear`}
               >
                 <div
-                  className={`w-full h-full flex ${hideFavoriteTab ? 'pl-5 justify-start' : 'justify-center'} items-center gap-[5px] ${tabActive === tab.value ? 'opacity-100' : 'opacity-[.44]'}`}
+                  className={`w-full h-full flex ${isCartShare ? 'pl-5 justify-start' : 'justify-center'} items-center gap-[5px] ${tabActive === tab.value ? 'opacity-100' : 'opacity-[.44]'}`}
                 >
                   {tab.icon}
                   <p className={`text-[18px] font-customSemiBold caption-top leading-[26px]`}>{tab.label}</p>
                 </div>
-                {!hideFavoriteTab && (
+                {!isCartShare && (
                   <div
-                    className={`w-full min-h-[3px] h-[3px] ${tabActive === tab.value ? 'bg-gradient-to-r from-greenMain to-blueMain' : 'bg-transparent'}`}
+                    className={`w-full min-h-[3px] h-[3px] z-10 ${tabActive === tab.value ? 'bg-gradient-to-r from-greenMain to-blueMain' : 'bg-transparent'}`}
                   />
                 )}
               </div>
@@ -93,7 +96,7 @@ function TabProductList({ hideFavoriteTab }: TabProductListProps) {
           )}
         </div>
 
-        <div className='p-5 pb-0'>
+        <div className={`p-5 pb-0 ${isInDialog ? 'max-h-[450px] overflow-auto scroll-bar-small' : ''}`}>
           {tabActive === 'my-bag' &&
             (cart.length === 0 ? (
               <p className='text-[18px] font-customXLight opacity-[.64]'>There is no item in your bag</p>
@@ -103,7 +106,7 @@ function TabProductList({ hideFavoriteTab }: TabProductListProps) {
                   <CartItem
                     isSmall
                     hideSelect
-                    hideHandleQuantity={hideFavoriteTab}
+                    hideFavorite={isCartShare}
                     cartItem={product}
                     handleSelectItem={handleSelectItem}
                     isItemSelected={selected.indexOf(product.id) !== -1}
@@ -122,7 +125,7 @@ function TabProductList({ hideFavoriteTab }: TabProductListProps) {
                     isSmall
                     hideSelect
                     isFavorite
-                    hideHandleQuantity={hideFavoriteTab}
+                    hideHandleQuantity={isCartShare}
                     cartItem={product}
                     handleSelectItem={handleSelectItem}
                     isItemSelected={selected.indexOf(product.id) !== -1}
@@ -133,13 +136,15 @@ function TabProductList({ hideFavoriteTab }: TabProductListProps) {
             ))}
         </div>
         {tabActive === 'my-bag' && (
-          <div className='w-full p-5 pb-0 flex items-center justify-between xs:mt-20 sm:mt-0'>
+          <div
+            className={`w-full p-5 pb-0 flex items-center justify-between ${isInDialog || isCartShare ? 'xs:mt-5' : 'xs:mt-20'}  sm:mt-0`}
+          >
             <div className='flex items-center gap-3'>
               <div className='relative h-fit'>
                 <input
                   readOnly
                   type='checkbox'
-                  checked={selected.length === cart.length}
+                  checked={selected.length > 0 && selected.length === cart.length}
                   onClick={handleSelectAll}
                   className='appearance-none rounded-[4px] xs:size-5 sm:size-6 border-[1px] bg-white border-blackMain border-solid 
                 checked:border-none checked:bg-gradient-to-r checked:from-greenMain checked:to-blueMain focus:outline-none hover:shadow-avatar transition-all duration-200 ease-in-out 
@@ -163,14 +168,25 @@ function TabProductList({ hideFavoriteTab }: TabProductListProps) {
           </div>
         )}
         <div className='w-full p-5 flex items-center justify-between gap-3'>
-          {tabActive === 'my-bag' ? (
+          {pathname === PATH_PRIVATE_APP.order.history ? (
+            <Button
+              size='medium'
+              fullWidth
+              className={`w-full xs:h-[44px]`}
+              classNameText='!uppercase xs:text-[16px] sm:text-[18px]'
+              disabled={selected.length === 0}
+              onClick={handleOpen}
+            >
+              share
+            </Button>
+          ) : tabActive === 'my-bag' ? (
             <>
               <Button
                 size='medium'
                 fullWidth
                 className={`${cart.length === 0 ? 'w-full' : 'xs:w-full sm:w-[233px]'} xs:h-[44px]`}
                 classNameText='!uppercase xs:text-[16px] sm:text-[18px]'
-                disabled={cart.length === 0}
+                disabled={selected.length === 0}
                 onClick={handleOpen}
               >
                 Check out

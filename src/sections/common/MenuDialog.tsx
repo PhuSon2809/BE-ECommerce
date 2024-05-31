@@ -50,7 +50,7 @@ function MenuDialog({ open, setOpen, variant = 'vertical' }: MenuDialogProps) {
             <Navbar variant='horizontal' />
           </div>
         )}
-        <div className='flex items-start gap-10'>
+        <div className='flex xs:flex-col sm:flex-col md:flex-row items-start gap-10'>
           <div className={`${variant === 'horizontal' ? 'w-[300px]' : 'w-[250px]'} flex flex-col gap-5`}>
             <h5 className='text-[28px] font-customSemiBold'>Food</h5>
             <p className='w-[225px] text-[14px]'>

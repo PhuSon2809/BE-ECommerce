@@ -19,6 +19,7 @@ interface QuantityControllerProps {
   onFocusOut?: (value: number | '') => void
   disabled?: boolean
   handleOpen?: () => void
+  gap?: string
 }
 
 function QuantityController({
@@ -30,7 +31,8 @@ function QuantityController({
   onDecrease,
   value,
   disabled = false,
-  handleOpen
+  handleOpen,
+  gap = 'gap-3'
 }: QuantityControllerProps) {
   const dispatch = useAppDispatch()
 
@@ -74,7 +76,7 @@ function QuantityController({
   }
 
   return (
-    <div className='flex items-center gap-3'>
+    <div className={`flex items-center ${gap}`}>
       <IconButton
         size={isSmall ? '28' : '40'}
         variant='outline'

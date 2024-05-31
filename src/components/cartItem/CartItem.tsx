@@ -20,6 +20,7 @@ const listCapacity: OptionSelect[] = [
 type CartItemProps = {
   isSmall?: boolean
   isFavorite?: boolean
+  hideFavorite?: boolean
   hideSelect?: boolean
   hideHandleQuantity?: boolean
   isInCartPopup?: boolean
@@ -32,6 +33,7 @@ type CartItemProps = {
 function CartItem({
   isSmall,
   isFavorite,
+  hideFavorite = false,
   hideSelect = false,
   hideHandleQuantity = false,
   isInCartPopup = false,
@@ -204,7 +206,7 @@ function CartItem({
                   ) : (
                     !isInCartResponsive && (
                       <div className={`flex items-center ${isSmall ? 'gap-4' : 'gap-8'}`}>
-                        {(!hideHandleQuantity || isFavorite) && (
+                        {(!hideFavorite || isFavorite) && (
                           <div onClick={handleAddToFavorite}>
                             <FavoriteIcon
                               color='#0D0D0D'
