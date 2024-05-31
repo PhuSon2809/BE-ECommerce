@@ -1,6 +1,13 @@
-const NavLogoutIcon = ({ color }: { color: string }) => {
+const NavLogoutIcon = ({ color, className }: { color: string; className?: string }) => {
   return (
-    <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      className={className}
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'

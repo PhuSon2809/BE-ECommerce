@@ -1,6 +1,13 @@
-const NavHealthIcon = ({ color }: { color: string }) => {
+const NavHealthIcon = ({ color, className }: { color: string; className?: string }) => {
   return (
-    <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      className={className}
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path
         d='M11.9937 3.90003C7.19841 -0.294171 1.10122 3.39098 1.00124 8.38679C0.975761 9.65999 1.34329 10.9002 2.07486 12.0435H6.81671L7.66012 10.6378C7.90502 10.2297 8.49769 10.2165 8.75647 10.6234L10.536 13.4197L13.1299 7.94373C13.3561 7.46591 14.0303 7.45074 14.2798 7.91408L16.5034 12.0435H21.9126C25.9197 5.78089 18.0004 -1.35357 11.9937 3.90003Z'
         fill={color}

@@ -1,5 +1,6 @@
 import { Discover } from '~/@types/models'
 import images from '~/assets'
+import { FavoriteIcon } from '../icons'
 
 type DiscoverCardProps = {
   discover: Discover
@@ -9,7 +10,7 @@ function DiscoverCard({ discover }: DiscoverCardProps) {
   return (
     <div className='xs:h-[290px] sm:h-[366px] pb-[10px] relative'>
       <img src={discover.image} alt='discover-img' className='w-full h-full xs:rounded-[30px] sm:rounded-[48px]' />
-      <img src={images.icons.heart} alt='icon-heart' className='size-8 absolute top-[8%] right-[8%]' />
+      <FavoriteIcon className='size-8 absolute top-[8%] right-[8%]' />
 
       <div className='w-full absolute bottom-[2.5%]'>
         <div className='p-5'>

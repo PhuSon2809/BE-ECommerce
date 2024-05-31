@@ -21,7 +21,7 @@ function SummaryCart({ listProductCheckout, productIdsCheckout, inCartPage = fal
 
   return (
     <>
-      <div className='xs:w-full sm:w-full md:w-full lg:w-[418px] xs:bg-greyLight sm:bg-transparent xs:pb-[30px]'>
+      <div className='xs:w-full sm:w-full md:w-full lg:w-[418px] xs:pb-[30px]'>
         <div
           className={`xs:px-4 xs:py-[30px] sm:p-[31.5px] flex flex-col xs:gap-4 sm:gap-6 ${bgColor ? bgColor : 'bg-greyLight'} rounded mb-5`}
         >
@@ -77,12 +77,16 @@ function SummaryCart({ listProductCheckout, productIdsCheckout, inCartPage = fal
           </div>
         </div>
 
-        {inCartPage && (
-          <div className='xs:hidden sm:flex w-full h-[60px] px-5 bg-greyMain focus-within:bg-greyMain  items-center justify-between rounded mb-5'>
-            <input type='text' placeholder='Promocode' className='w-full h-full bg-greyMain border-none outline-none' />
-            <img src={images.icons.copy} alt='icon-copy' className='cursor-pointer' />
-          </div>
-        )}
+        <div
+          className={`${inCartPage ? 'xs:hidden' : 'xs:flex'} sm:flex w-full h-[60px] px-5 ${bgColor ? bgColor : 'bg-greyMain'} focus-within:bg-greyMain  items-center justify-between rounded mb-5`}
+        >
+          <input
+            type='text'
+            placeholder='Promocode'
+            className={`w-full h-full ${bgColor ? bgColor : 'bg-greyMain'} border-none outline-none`}
+          />
+          <img src={images.icons.copy} alt='icon-copy' className='cursor-pointer' />
+        </div>
 
         <div className='flex xs:flex-col sm:flex-row lg:flex-col gap-5 xs:px-4 sm:px-0'>
           <Button

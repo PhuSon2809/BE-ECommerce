@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from 'react'
 import { ProductInStorage } from '~/@types/models'
-import images from '~/assets'
 import { CartItem } from '~/components/cartItem'
 import { DialogCustom } from '~/components/dialog'
+import useResponsive from '~/hooks/useResponsive'
 import SummaryCart from '~/sections/cart/SummaryCart'
 
 type CartPopupProps = {
@@ -12,6 +12,8 @@ type CartPopupProps = {
 }
 
 function CartPopup({ open, setOpen, product }: CartPopupProps) {
+  const smDown = useResponsive('down', 'sm')
+
   return (
     <section>
       <DialogCustom
@@ -22,24 +24,11 @@ function CartPopup({ open, setOpen, product }: CartPopupProps) {
         positionDialog='items-center'
         className={`!max-w-[1164px] bg-white/[.76] backdrop-blur-0 !rounded-2xl`}
       >
-        <div className='w-full flex items-start gap-10 p-[30px]'>
-          <div className='w-full flex flex-1 flex-col gap-5'>
+        <div className='w-full flex xs:flex-col sm:flex-row items-start xs:p-0 sm:p-5 md:p-[30px]'>
+          <div className='w-full flex flex-1 flex-col gap-5 xs:pb-5 sm:pb-0 xs:pr-0 sm:pr-10'>
             <h5 className='text-[32px] font-customBold'>Buy Product</h5>
 
-            <div className='w-full h-[52px] flex items-center bg-white/[.32] border border-solid border-white rounded-xl focus-within:bg-white/[.5] relative'>
-              <input
-                type='text'
-                placeholder='Enter voucher code - gift, referral code'
-                className='appearance-none w-full h-full px-5 bg-transparent rounded-tl-xl rounded-bl-xl focus:bg-white/[.5]'
-              />
-              <img
-                src={images.icons.copy}
-                alt='icon-copy'
-                className='absolute top-1/2 right-5 transform -translate-y-1/2 cursor-pointer'
-              />
-            </div>
-
-            <CartItem hideSelect isInCartPopup cartItem={product} />
+            <CartItem hideSelect isInCartPopup isInCartResponsive={smDown} cartItem={product} />
           </div>
           <SummaryCart bgColor='bg-white' listProductCheckout={[product]} productIdsCheckout={[product.id]} />
         </div>

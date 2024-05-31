@@ -127,18 +127,27 @@ function CartItem({
               </div>
             )}
           </div>
-          {isInCartResponsive && (
-            <div className={`flex items-center gap-5`}>
-              <div onClick={handleAddToFavorite}>
-                <FavoriteIcon color='#0D0D0D' className={`cursor-pointer size-5`} />
+          {isInCartResponsive &&
+            (isInCartPopup ? (
+              <SelectFilter
+                label='Capacity'
+                selected={capacity}
+                setSelected={setCapacity}
+                options={listCapacity}
+                className='h-8 !py-1 !rounded-[31px] ring-0'
+              />
+            ) : (
+              <div className={`flex items-center gap-5`}>
+                <div onClick={handleAddToFavorite}>
+                  <FavoriteIcon color='#0D0D0D' className={`cursor-pointer size-5`} />
+                </div>
+                <div onClick={() => dispatch(removeProductInCart({ productId: cartItem.id }))}>
+                  <DeleteIcon color='#0D0D0D' className={`cursor-pointer size-5`} />
+                </div>
               </div>
-              <div onClick={() => dispatch(removeProductInCart({ productId: cartItem.id }))}>
-                <DeleteIcon color='#0D0D0D' className={`cursor-pointer size-5`} />
-              </div>
-            </div>
-          )}
+            ))}
         </div>
-        <div className='w-full flex flex-col justify-between'>
+        <div className={`w-full flex flex-col ${isInCartPopup ? 'gap-9' : 'justify-between'}`}>
           <div className='xs:space-y-1'>
             <div className='w-full flex justify-between'>
               <p
@@ -153,14 +162,20 @@ function CartItem({
               </p>
             </div>
             <div className='w-full flex items-center justify-between'>
-              {!isSmall ? <p className='text-blackMain/[.64]'>{cartItem.category}</p> : <div></div>}
+              {!isSmall ? (
+                <p className={`${isInCartResponsive ? 'text-[14px]' : 'text-[16px]'} text-blackMain/[.64]`}>
+                  {cartItem.category}
+                </p>
+              ) : (
+                <div></div>
+              )}
               <p
                 className={`${isInCartResponsive ? 'hidden' : 'flex'} ${isSmall ? 'text-[12px]' : 'text-[20px]'} opacity-[.64] line-through`}
               >
                 ${(145).toFixed(2)}
               </p>
             </div>
-            {!isSmall && (
+            {!isInCartPopup && !isSmall && (
               <div className={`w-full flex ${isInCartPopup ? 'items-center justify-between mt-[10px]' : 'flex-col'}`}>
                 <p className='text-blackMain/[.64]'>
                   Left: <span className='font-customSemiBold text-blackMain'>{cartItem.numberItems} items</span>
@@ -168,9 +183,13 @@ function CartItem({
               </div>
             )}
             {isInCartResponsive && (
-              <p className={`text-[20px] font-customSemiBold leading-none !mt-[8px]`}>
+              <p
+                className={`${isInCartPopup ? 'text-[22px]' : 'text-[20px]'} font-customSemiBold leading-none !mt-[8px]`}
+              >
                 ${cartItem.price.toFixed(2)}{' '}
-                <span className={`text-[14px]  leading-none line-through`}>${(145).toFixed(2)}</span>
+                <span className={`${isInCartPopup ? 'text-[16px]' : 'text-[14px]'} leading-none line-through`}>
+                  ${(145).toFixed(2)}
+                </span>
               </p>
             )}
           </div>
@@ -195,16 +214,16 @@ function CartItem({
                 </>
               ) : (
                 <>
-                  {isInCartPopup ? (
-                    <SelectFilter
-                      label='Capacity'
-                      selected={capacity}
-                      setSelected={setCapacity}
-                      options={listCapacity}
-                      className='h-8 !py-1 !rounded-[31px] ring-0'
-                    />
-                  ) : (
-                    !isInCartResponsive && (
+                  {!isInCartResponsive &&
+                    (isInCartPopup ? (
+                      <SelectFilter
+                        label='Capacity'
+                        selected={capacity}
+                        setSelected={setCapacity}
+                        options={listCapacity}
+                        className='h-8 !py-1 !rounded-[31px] ring-0'
+                      />
+                    ) : (
                       <div className={`flex items-center ${isSmall ? 'gap-4' : 'gap-8'}`}>
                         {(!hideFavorite || isFavorite) && (
                           <div onClick={handleAddToFavorite}>
@@ -218,8 +237,7 @@ function CartItem({
                           <DeleteIcon color='#0D0D0D' className={`cursor-pointer ${isSmall ? 'size-5' : 'size-6'}`} />
                         </div>
                       </div>
-                    )
-                  )}
+                    ))}
 
                   {!hideHandleQuantity && (
                     <QuantityController

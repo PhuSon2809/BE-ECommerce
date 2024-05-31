@@ -48,3 +48,103 @@
     }
   }
 }
+
+.feature-product-slide-responsive {
+  .slick-slider {
+    .slick-slide {
+      height: 472px !important;
+
+      .box-content {
+        display: none;
+      }
+    }
+    .slick-list {
+      height: 1350px !important;
+      .slick-current {
+        height: 472px !important;
+        .product-feature-card {
+          margin-top: 100px;
+          .box-image {
+            img {
+              width: 266px;
+              height: 266px;
+              transition: all 0.3s ease-in-out;
+              border-radius: 39.23px;
+            }
+          }
+        }
+
+        & + .slick-active {
+          height: 390px !important;
+          .basic-content {
+            display: none;
+          }
+          .box-content {
+            display: flex;
+          }
+          & + .slick-active {
+            .product-feature-card {
+              .box-image {
+                order: 2;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.feature-product-slide-responsive-dialog{
+  .slick-slider {
+    .slick-slide {
+      height: 440px !important;
+
+      .box-content {
+        display: none;
+      }
+    }
+    .slick-list {
+      height: 1150px !important;
+      .slick-current {
+        height: 440px !important;
+        .product-feature-card {
+          margin-top: 120px;
+          .box-image {
+            img {
+              width: 217px;
+              height: 217px;
+              transition: all 0.3s ease-in-out;
+              border-radius: 39.23px;
+            }
+          }
+        }
+
+        & + .slick-active {
+          height: 320px !important;
+          .basic-content {
+            display: none;
+          }
+          .box-content {
+            display: flex;
+          }
+          & + .slick-active {
+            margin-left: 39%;
+            .product-feature-card {
+              .box-image {
+                order: 2;
+
+                img {
+                  width: 217px;
+                  height: 217px;
+                  transition: all 0.3s ease-in-out;
+                  border-radius: 39.23px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

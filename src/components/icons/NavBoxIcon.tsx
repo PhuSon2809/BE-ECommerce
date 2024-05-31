@@ -1,6 +1,13 @@
-const NavBoxIcon = ({ color }: { color: string }) => {
+const NavBoxIcon = ({ color, className }: { color: string; className?: string }) => {
   return (
-    <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      className={className}
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path
         d='M0 10.2615L8.66339 15.2215L10.9141 12.3976L1.79174 7.58098L0 10.2615ZM13.0617 12.3871L15.3207 15.2216L24 10.2524L22.1839 7.38539L13.0617 12.3871ZM3.10646 6.68595L11.9858 11.3743L20.8778 6.49877L12.0051 2.30769L3.10646 6.68595Z'
         fill={color}
