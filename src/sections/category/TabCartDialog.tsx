@@ -2,7 +2,6 @@ import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/re
 import { Dispatch, Fragment, SetStateAction } from 'react'
 import { CloseIcon } from '~/components/icons'
 import TabProductList from './TabProductList'
-import './styles.scss'
 
 type TabCartDialogProps = {
   open: boolean

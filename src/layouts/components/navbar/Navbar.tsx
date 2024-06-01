@@ -24,62 +24,62 @@ const configNavbar = [
   {
     url: PATH_PUBLIC_APP.home,
     label: 'Home',
-    icon: (color: string) => <NavHomeIcon color={color} />
+    icon: (color: string) => <NavHomeIcon color={color} className='xs:size-[18px] sm:size-6' />
   },
   {
     url: PATH_PUBLIC_APP.home,
     label: 'Product',
-    icon: (color: string) => <NavBoxIcon color={color} />
+    icon: (color: string) => <NavBoxIcon color={color} className='xs:size-[18px] sm:size-6' />
   },
   {
     url: PATH_PUBLIC_APP.home,
     label: 'Health',
-    icon: (color: string) => <NavHealthIcon color={color} />
+    icon: (color: string) => <NavHealthIcon color={color} className='xs:size-[18px] sm:size-6' />
   },
   {
     url: PATH_PUBLIC_APP.home,
     label: 'Cosmetic',
-    icon: (color: string) => <NavPlantIcon color={color} />
+    icon: (color: string) => <NavPlantIcon color={color} className='xs:size-[18px] sm:size-6' />
   },
   {
     url: PATH_PUBLIC_APP.home,
     label: 'Fashion',
-    icon: (color: string) => <NavDiamondIcon color={color} />
+    icon: (color: string) => <NavDiamondIcon color={color} className='xs:size-[18px] sm:size-6' />
   },
   {
     url: PATH_PUBLIC_APP.category.list,
     label: 'Food',
-    icon: (color: string) => <NavCategoryIcon color={color} />
+    icon: (color: string) => <NavCategoryIcon color={color} className='xs:size-[18px] sm:size-6' />
   },
   {
     url: PATH_PUBLIC_APP.home,
     label: 'Digital',
-    icon: (color: string) => <NavNetworkIcon color={color} />
+    icon: (color: string) => <NavNetworkIcon color={color} className='xs:size-[18px] sm:size-6' />
   },
   {
     url: PATH_PRIVATE_APP.order.tracking,
     label: 'Tracking',
-    icon: (color: string) => <NavTrackingIcon color={color} />
+    icon: (color: string) => <NavTrackingIcon color={color} className='xs:size-[18px] sm:size-6' />
   },
   {
     url: PATH_PRIVATE_APP.order.history,
     label: 'History',
-    icon: (color: string) => <NavHistoryIcon color={color} />
+    icon: (color: string) => <NavHistoryIcon color={color} className='xs:size-[18px] sm:size-6' />
   },
   {
     url: PATH_PRIVATE_APP.notification,
     label: 'Notification',
-    icon: (color: string) => <NavNotificationIcon color={color} />
+    icon: (color: string) => <NavNotificationIcon color={color} className='xs:size-[18px] sm:size-6' />
   },
   {
     url: PATH_PRIVATE_APP.setting,
     label: 'Setting',
-    icon: (color: string) => <NavSettingIcon color={color} />
+    icon: (color: string) => <NavSettingIcon color={color} className='xs:size-[18px] sm:size-6' />
   },
   {
     url: '',
     label: 'Logout',
-    icon: (color: string) => <NavLogoutIcon color={color} />
+    icon: (color: string) => <NavLogoutIcon color={color} className='xs:size-[18px] sm:size-6' />
   }
 ]
 
@@ -130,20 +130,20 @@ function Navbar({ setOpenMenu, className, variant = 'vertical' }: NavbarProps) {
       <div
         ref={scrollRef}
         onMouseDown={handleMouseDown}
-        className={`flex ${variant === 'vertical' ? 'flex-col' : 'p-1 flex-row flex-nowrap overflow-auto cursor-grab -mt-1'} gap-[10px] list-nav`}
+        className={`flex ${variant === 'vertical' ? 'flex-col' : 'xs:p-0 sm:p-1 flex-row xs:flex-wrap sm:flex-nowrap xs:justify-between overflow-auto cursor-grab xs:mt-0 sm:-mt-1'} xs:gap-2 sm:gap-[10px] list-nav`}
       >
         {configNavbar.map((nav) =>
           (setOpenMenu && nav.url === PATH_PUBLIC_APP.category.list) || nav.label === 'Logout' ? (
             <div
               key={nav.label}
               onClick={() => (nav.label === 'Logout' ? handleLogout() : setOpenMenu && setOpenMenu(true))}
-              className={`${variant === 'vertical' ? 'size-12' : 'h-[46px] px-3 flex items-center gap-[10px]'} flex items-center justify-center rounded-full hover:scale-105 transition duration-300 ease-in-out cursor-pointer
+              className={`${variant === 'vertical' ? 'size-12' : 'xs:w-[30%] sm:w-fit xs:h-11 sm:h-[46px] px-3 flex items-center gap-[10px]'} flex items-center justify-center rounded-full hover:scale-105 transition duration-300 ease-in-out cursor-pointer
                         ${pathname === nav.url ? 'bg-gradient-to-r from-greenMain to-blueMain backdrop-blur-[40px] shadow-4xl' : 'bg-white'}`}
             >
-              {nav.icon(pathname === nav.url ? '#FFFFFF' : '#0D0D0D')}
+              <div>{nav.icon(pathname === nav.url ? '#FFFFFF' : '#0D0D0D')}</div>
               {variant === 'horizontal' && (
                 <p
-                  className={`text-[20px] font-customMedium ${pathname === nav.url ? 'text-[#FFF]' : 'text-blackMain'}`}
+                  className={`xs:text-[14px] sm:text-[17px] md:text-[20px] font-customMedium ${pathname === nav.url ? 'text-[#FFF]' : 'text-blackMain'}`}
                 >
                   {nav.label}
                 </p>
@@ -152,13 +152,13 @@ function Navbar({ setOpenMenu, className, variant = 'vertical' }: NavbarProps) {
           ) : (
             <div
               onClick={() => navigate(nav.url)}
-              className={`${variant === 'vertical' ? 'size-12' : 'h-[46px] px-3 flex items-center gap-[10px]'} flex items-center justify-center rounded-full hover:scale-105 transition duration-300 ease-in-out cursor-pointer
+              className={`${variant === 'vertical' ? 'size-12' : `${nav.url === PATH_PRIVATE_APP.notification ? 'xs:w-fit' : 'xs:w-[30.5%]'} sm:w-fit xs:h-11 sm:h-[46px] px-3 flex items-center xs:gap-2 sm:gap-[10px]`} flex items-center justify-center rounded-full hover:scale-105 transition duration-300 ease-in-out cursor-pointer
                         ${pathname === nav.url ? 'bg-gradient-to-r from-greenMain to-blueMain backdrop-blur-[40px] shadow-4xl' : 'bg-white'}`}
             >
-              {nav.icon(pathname === nav.url ? '#FFFFFF' : '#0D0D0D')}
+              <div>{nav.icon(pathname === nav.url ? '#FFFFFF' : '#0D0D0D')}</div>
               {variant === 'horizontal' && (
                 <p
-                  className={`text-[20px] font-customMedium ${pathname === nav.url ? 'text-[#FFF]' : 'text-blackMain'}`}
+                  className={`xs:text-[14px] sm:text-[17px] md:text-[20px] font-customMedium ${pathname === nav.url ? 'text-[#FFF]' : 'text-blackMain'}`}
                 >
                   {nav.label}
                 </p>

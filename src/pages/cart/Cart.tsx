@@ -57,11 +57,13 @@ function Cart() {
         </div>
 
         {/* Summary info */}
-        <SummaryCart
-          listProductCheckout={listItemCheckout}
-          productIdsCheckout={selected}
-          inCartPage={pathname === PATH_PUBLIC_APP.cart.root}
-        />
+        <div className='xs:w-full sm:w-fit xs:bg-greyLight sm:bg-transparent'>
+          <SummaryCart
+            listProductCheckout={listItemCheckout}
+            productIdsCheckout={selected}
+            inCartPage={pathname === PATH_PUBLIC_APP.cart.root}
+          />
+        </div>
       </div>
     </section>
   )

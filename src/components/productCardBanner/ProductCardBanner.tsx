@@ -1,4 +1,5 @@
 import images from '~/assets'
+import { FavoriteIcon } from '../icons'
 
 function ProductCardBanner() {
   return (
@@ -29,11 +30,7 @@ function ProductCardBanner() {
           </p>
         </div>
       </div>
-      <img
-        src={images.icons.heart}
-        alt='icon-heart'
-        className='xs:size-[14.63px] sm:size-6 absolute xs:top-2 sm:top-4 xs:right-2 sm:right-4'
-      />
+      <FavoriteIcon className='xs:size-[14.63px] sm:size-6 absolute xs:top-2 sm:top-4 xs:right-2 sm:right-4' />
     </div>
   )
 }

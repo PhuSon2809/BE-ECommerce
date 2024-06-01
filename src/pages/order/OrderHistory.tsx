@@ -142,7 +142,7 @@ const OrderHistory = () => {
           </IconButton>
 
           <Dialog open={isOpen} setOpen={setIsOpen} className='w-full bg-white/[.88] !rounded-2xl'>
-            <TabProductList isCartShare />
+            <TabProductList isCartShare isInDialog />
           </Dialog>
         </>
       )}
